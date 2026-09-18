@@ -1361,11 +1361,27 @@ function loadGroup(meta, done) {
   document.head.appendChild(s);
 }
 
+// How far left of centre the map content sits, in CSS px (Nathan, 2026-09-18, by eye at 200).
+// The ?nudge=N scaffolding used to find it has been DELETED now the number is settled, the same way
+// the fill and relief sliders went on 09-17.
+//
+// ZERO ON NARROW SCREENS, AND THE REASON IS THE LAYOUT, NOT THE SIZE: below the breakpoint the panel
+// stacks ABOVE the map rather than beside it, so the map already has the full width and there is no
+// panel for it to lean away from. Nudging there would just push the map off-centre for no reason.
+// 760px MUST MATCH the @media rule in the stylesheet; they are the same breakpoint written twice.
+const NUDGE_X = 200;
+const NARROW = matchMedia("(max-width:760px)");
+const nudgeX = () => (NARROW.matches ? 0 : NUDGE_X);
+
 function fit() {
   const w = mapEl.clientWidth, h = mapEl.clientHeight;
   svg.attr("viewBox", `0 0 ${w} ${h}`);
   // Fit to the dams rather than the states, so the view is about the data.
-  projection.fitExtent([[26, 26], [w - 26, h - 26]], DAMS);
+  // NUDGE_X moves the drawn content left of centre (Nathan, 2026-09-18). BOTH x edges shift by the
+  // same amount, so the box keeps its width and height: the scale is untouched and only the
+  // translation changes. Widening one side instead would rescale the map.
+  const nx = nudgeX();
+  projection.fitExtent([[26 - nx, 26], [w - 26 - nx, h - 26]], DAMS);
   gDams.selectAll("circle")
     .attr("cx", d => projection(d.geometry.coordinates)[0])
     .attr("cy", d => projection(d.geometry.coordinates)[1]);
