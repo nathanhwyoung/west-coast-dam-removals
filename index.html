@@ -100,10 +100,13 @@
     transition:transform .28s ease, visibility 0s linear .28s;
   }
   body.panel-off #about{left:0}
-  /* THE PANEL IS WIDE; THE TEXT IS NOT. A 1000px line of 12.5px prose is unreadable, so the column
-     is capped at a normal reading measure and centred in the space. The panel's width now buys
-     margin and the option of a second column later, not longer lines. */
-  #about-body{max-width:70ch; margin:0 auto; padding:0 26px}
+  /* THE TEXT SPANS THE PANEL (Nathan, 2026-09-18). The measure was capped at 70ch when this was
+     built; he asked for the full width instead.
+     LINE LENGTH IS MEASURED IN CHARACTERS, NOT PIXELS, so a full-width column needs the type to
+     change with it: line-height goes up, because the longer the line the harder it is for the eye
+     to find the start of the next one, and that return sweep is what fails first on wide measures.
+     Padding keeps the text off both edges. */
+  #about-body{padding:0 40px}
   body.about-on #about{
     transform:translateX(0); visibility:visible;
     transition:transform .28s ease, visibility 0s linear 0s;
@@ -128,7 +131,8 @@
   #about h1{font-size:17px; margin:0 0 4px}
   #about .lede{font-size:13px; color:var(--muted); margin:0 0 20px; line-height:1.55}
   #about h2{margin-top:24px}
-  #about .note{font-size:12.5px; line-height:1.55}
+  #about .note{font-size:12.5px; line-height:1.75}
+  #about .lede{max-width:none}
   #about .stat{font-size:12.5px}
   /* Habitat draws to a canvas UNDER the svg. 86,825 features cannot be svg
      nodes; as one canvas pass they cost nothing. Dams stay svg so they keep
