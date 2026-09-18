@@ -1,0 +1,370 @@
+{
+  "total_rows": 333,
+  "distinct_removals": 332,
+  "duplicates": 1,
+  "duplicate_rows": [
+    {
+      "AR_ID": "CA-091",
+      "name": "TCFD11",
+      "duplicate_of": "CA-148"
+    }
+  ],
+  "sites": 320,
+  "clusters": 10,
+  "clustered_rows": 22,
+  "mapped": 290,
+  "from_ar": 276,
+  "from_nacc": 12,
+  "from_drp": 2,
+  "unmapped": 42,
+  "voided": 2,
+  "corrected": 2,
+  "with_year": 277,
+  "by_state": {
+    "CA": 157,
+    "OR": 94,
+    "WA": 39
+  },
+  "unmapped_rows": [
+    {
+      "AR_ID": "CA-001",
+      "name": "Big Creek Manufacturing Dam",
+      "state": "CA",
+      "river": "Big Creek",
+      "year": NaN,
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-003",
+      "name": "Lone Jack Dam",
+      "state": "CA",
+      "river": "Trinity River (East Fork of North Fork)",
+      "year": NaN,
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-004",
+      "name": "Arco Pond Dam",
+      "state": "CA",
+      "river": NaN,
+      "year": NaN,
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-010",
+      "name": "Hessellwood Dam",
+      "state": "CA",
+      "river": "Hayfork Creek",
+      "year": "1925",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-011",
+      "name": "Henry Danninbrink Dam",
+      "state": "CA",
+      "river": "Canyon Creek",
+      "year": "1927",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-012",
+      "name": "Anderline Dam",
+      "state": "CA",
+      "river": "Rush Creek",
+      "year": "1936",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-014",
+      "name": "Bonally Mining Co. Dam",
+      "state": "CA",
+      "river": "Salmon River (North Fork)",
+      "year": "1946",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-015",
+      "name": "Trinity Cty. Water & Power Co. Dam",
+      "state": "CA",
+      "river": "Trinity River (East Fork)",
+      "year": "1946",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-016",
+      "name": "D.B. Fields Dam",
+      "state": "CA",
+      "river": "Indian Creek",
+      "year": "1947",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-017",
+      "name": "Altoona Dam",
+      "state": "CA",
+      "river": "Kidder Creek",
+      "year": "1947",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-018",
+      "name": "Three C. Picket Dam",
+      "state": "CA",
+      "river": "Beaver Creek",
+      "year": "1949",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-019",
+      "name": "Big Nugget Mine Dam",
+      "state": "CA",
+      "river": "Horse Creek",
+      "year": "1949",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-020",
+      "name": "Moser Dam",
+      "state": "CA",
+      "river": "Swillup Creek",
+      "year": "1949",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-021",
+      "name": "Todd Dam",
+      "state": "CA",
+      "river": "Trinity River (East Fork of North Fork)",
+      "year": "1949",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-022",
+      "name": "Smith Dam",
+      "state": "CA",
+      "river": "White's Gulch",
+      "year": "1949",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-023",
+      "name": "Clarissa V. Mining Dam",
+      "state": "CA",
+      "river": "Redding Creek",
+      "year": "1950",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-024",
+      "name": "Bennett-Smith Dam",
+      "state": "CA",
+      "river": "Salmon River (South Fork)",
+      "year": "1950",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-025",
+      "name": "Barton Dam",
+      "state": "CA",
+      "river": "Scott River (South Fork)",
+      "year": "1950",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-026",
+      "name": "North Fork Placers Dam",
+      "state": "CA",
+      "river": "Trinity River (North Fork)",
+      "year": "1950",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-027",
+      "name": "Red Hill Mining Do. Dam",
+      "state": "CA",
+      "river": "Canyon Creek",
+      "year": "1951",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-028",
+      "name": "Quinn Dam",
+      "state": "CA",
+      "river": "Trinity River (East Fork of North Fork)",
+      "year": "1951",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-032",
+      "name": "Happy Isles Dam",
+      "state": "CA",
+      "river": NaN,
+      "year": "1987",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-034",
+      "name": "Unnamed Dam #1",
+      "state": "CA",
+      "river": "Wildcat Creek",
+      "year": "1992",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-035",
+      "name": "Unnamed Dam #2",
+      "state": "CA",
+      "river": "Wildcat Creek",
+      "year": "1992",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-036",
+      "name": "Point Four Dam",
+      "state": "CA",
+      "river": "Butte Creek",
+      "year": "1993",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-037",
+      "name": "C-Lind Dam #1",
+      "state": "CA",
+      "river": NaN,
+      "year": "1993",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-040",
+      "name": "Western Canal East Dam",
+      "state": "CA",
+      "river": "Butte Creek",
+      "year": "1998",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-041",
+      "name": "Western Canal Main Dam",
+      "state": "CA",
+      "river": "Butte Creek",
+      "year": "1998",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-048",
+      "name": "Unnamed Dam",
+      "state": "CA",
+      "river": "Ferrari Creek",
+      "year": "2002",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-050",
+      "name": "North Debris Dam",
+      "state": "CA",
+      "river": "Unnamed Trib. to the Los Angeles River",
+      "year": "2002",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "CA-157",
+      "name": "SCFD4",
+      "state": "CA",
+      "river": "Silverado Creek",
+      "year": "2019",
+      "reason": "SCFD4 carries SJFD4's San Juan Creek coordinate (byte-identical to CA-143); 24.6 km from Silverado Creek, wrong basin. Not mapped, not joined. Still counts as a removal. See 09-08_PROBLEMS.md Problem 1."
+    },
+    {
+      "AR_ID": "CA-158",
+      "name": "SCFD5",
+      "state": "CA",
+      "river": "Silverado Creek",
+      "year": "2019",
+      "reason": "SCFD5 carries SJFD5's San Juan Creek coordinate (byte-identical to CA-144); 24.6 km from Silverado Creek, wrong basin. Not mapped, not joined. Still counts as a removal. See 09-08_PROBLEMS.md Problem 1."
+    },
+    {
+      "AR_ID": "OR-006",
+      "name": "Unnamed Dam",
+      "state": "OR",
+      "river": "Poorman Creek",
+      "year": "1999",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "OR-014",
+      "name": "Dinner Creek Dam",
+      "state": "OR",
+      "river": "Dinner Creek",
+      "year": "2003",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "OR-016",
+      "name": "Unnamed Dam",
+      "state": "OR",
+      "river": "Wagner Creek",
+      "year": "2003",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "OR-032",
+      "name": "Confluence Dam Removal",
+      "state": "OR",
+      "river": "Allen Creek",
+      "year": "2012",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "OR-033",
+      "name": "Ward Dam Removal",
+      "state": "OR",
+      "river": "Mckay Creek",
+      "year": "2012",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "WA-002",
+      "name": "Unnamed Dam",
+      "state": "WA",
+      "river": "Headquarters Creek",
+      "year": "2000",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "WA-012",
+      "name": "Unnamed Dam",
+      "state": "WA",
+      "river": "Skokomish River",
+      "year": "2009",
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "WA-017",
+      "name": "Coffee Creek Dam",
+      "state": "WA",
+      "river": "Coffee Creek",
+      "year": NaN,
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "WA-020",
+      "name": "Stromer Lake Dam",
+      "state": "WA",
+      "river": "Tributary to Columbia River",
+      "year": NaN,
+      "reason": "no coordinate in any source"
+    },
+    {
+      "AR_ID": "WA-021",
+      "name": "PEO Dam #48",
+      "state": "WA",
+      "river": "Tributary to Hanford Creek",
+      "year": NaN,
+      "reason": "no coordinate in any source"
+    }
+  ],
+  "audit_flagged": 36,
+  "audit_rule45_blocked": 6,
+  "audit_needs_eyes": 0,
+  "generated": "2026-09-18"
+}

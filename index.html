@@ -1,0 +1,1915 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- NOINDEX WHILE TESTING (2026-09-18). Nathan is publishing to test the site live and is NOT linking
+     it from ny-gis.xyz yet. An unlinked page is still indexable once a crawler finds it, so this and
+     robots.txt keep it out of search results. REMOVE BOTH when the map is ready to be found. -->
+<meta name="robots" content="noindex, nofollow">
+<title>West Coast dam removals</title>
+<style>
+  :root{
+    --bg:#f7f6f3; --panel:#fff; --ink:#1c1c1a; --muted:#6b6a66;
+    --line:#e0ded8; --land:#eeece6; --border:#c9c6bd; --water:#dfe8ec;
+    --c-ar:#2b7a8c; --c-nacc:#c4791f; --c-fix:#b23b3b;
+    /* The plain dam mark, used unless the provenance switch is on. --c-halo is the opposite of the
+       ink: one contrasting outline colour, shared by the dam edge and the label halo, so a mark holds
+       over pale land and dark relief shadow alike. */
+    --c-dam:#000; --c-halo:#fff;
+    --c-test:#b3261e;
+    /* Habitat is coloured by DESIGNATING SOURCE, not by species. Three
+       categories, validated for colour-vision deficiency against this surface. */
+    --h-NMFS:#3d6fb4; --h-USFWS:#4f8a3d; --h-derived:#8d4fa8;
+    --nat-river:#8fb0c2;
+    /* Lakes had been borrowing --water, the OCEAN and page-background colour, which is tuned to sit
+       quietly at the edge of the map rather than to read as a feature inside the land: against --land
+       it differed by about 15 steps per channel and mostly disappeared. Own tokens since 2026-09-17
+       (Nathan: "need to stand out just a little more"), cooler and a shade deeper than the land, with
+       an edge that carries at small sizes. Per theme, like everything else here. */
+    --lake:#c9dce8; --lake-edge:#7ba2ba;
+    /* The six neighbouring states: flat, no relief, lakes or fish data (Nathan, 2026-09-14). */
+    --land-other:#e7e9e6; --border-other:#d6d6d0;
+  }
+  :root{color-scheme:light}
+  /* Theme (2026-09-15): the page script always sets data-theme="light" or "dark" on <html>, working
+     out Auto from the computer's appearance setting itself. So the dark palette is written ONCE, here.
+     (It used to be written twice, once for a chosen Dark and once for Auto on a dark computer.) */
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#16181a; --panel:#1e2124; --ink:#e8e6e1; --muted:#9a9791;
+    --line:#31353a; --land:#24282c; --border:#3c4248; --water:#1b1f22;
+    --c-ar:#4fa8bd; --c-nacc:#e0a044; --c-fix:#d76464;
+    --c-dam:#fff; --c-halo:#000;
+    --c-test:#a8231b;
+    /* Re-stepped for the dark surface, not flipped. Validated separately. */
+    --h-NMFS:#5486cc; --h-USFWS:#5f9e48; --h-derived:#9c60bd;
+    --nat-river:#4d6b7c;
+    /* Dark: going DARKER than the land would lose them, since the land is already near-black. These
+       read as bluer and slightly lighter instead, which is what separates them here. */
+    --lake:#2b3d49; --lake-edge:#5d8399;
+    --land-other:#202427; --border-other:#2d3236;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); display:flex; overflow:hidden;
+  }
+  #panel{
+    width:320px; flex:0 0 320px; height:100vh; overflow-y:auto;
+    background:var(--panel); border-right:1px solid var(--line); padding:20px;
+  }
+  #map{flex:1; height:100vh; position:relative; background:var(--water)}
+  /* The panel folds away so the map can have the whole window (Nathan, 2026-09-17). display:none
+     rather than a width transition: the canvas is sized in fit(), so an animated width would need
+     a redraw per frame at this map's redraw cost. The toggle lives in the MAP, not the panel,
+     or it would fold away with the thing it unfolds. */
+  body.panel-off #panel{display:none}
+  #panel-toggle{
+    position:absolute; left:10px; top:10px; z-index:5;
+    width:26px; height:26px; padding:0; font:inherit; font-size:14px; line-height:24px;
+    text-align:center; background:var(--panel); color:var(--ink);
+    border:1px solid var(--border); border-radius:4px; cursor:pointer; opacity:.9;
+  }
+  #panel-toggle:hover{background:var(--land); opacity:1}
+  /* Developer tools, revealed only by ?mode=test. Hidden on the ROOT attribute rather than a body
+     class so it is set before first paint and nothing flashes. */
+  :root[data-mode="live"] .testing{display:none}
+  /* ---- About panel (2026-09-18, Nathan's idea) ---------------------------------
+     The project's descriptive text moved out of the left panel into a wider one that
+     slides in from the right, so the left panel is controls only.
+     IT OVERLAYS THE MAP, IT DOES NOT PUSH IT, and that is deliberate: anything that
+     changes #map's box sends fit() through a refit of the PROJECTION, which recentres
+     the data and shifts everything on screen (the 09-17 finding). An overlay touches
+     neither the box nor the canvas, so opening it costs no repack and no redraw.
+     Because nothing is resized, this one CAN be animated cheaply, unlike the left
+     panel's fold. visibility keeps it out of the tab order while it is closed. */
+  #about{
+    position:fixed; top:0; right:0; z-index:20;
+    width:460px; max-width:100%; height:100vh; overflow-y:auto;
+    box-sizing:border-box;
+    background:var(--panel); border-left:1px solid var(--line);
+    padding:22px 26px 64px;
+    box-shadow:-10px 0 28px rgba(0,0,0,.20);
+    transform:translateX(100%); visibility:hidden;
+    transition:transform .28s ease, visibility 0s linear .28s;
+  }
+  body.about-on #about{
+    transform:translateX(0); visibility:visible;
+    transition:transform .28s ease, visibility 0s linear 0s;
+  }
+  @media (prefers-reduced-motion:reduce){ #about{transition:none} body.about-on #about{transition:none} }
+  #about-open{
+    position:absolute; right:10px; top:10px; z-index:5;
+    height:26px; padding:0 10px; font:inherit; font-size:12px; line-height:24px;
+    background:var(--panel); color:var(--ink);
+    border:1px solid var(--border); border-radius:4px; cursor:pointer; opacity:.9;
+  }
+  #about-open:hover{background:var(--land); opacity:1}
+  #about-close{
+    position:absolute; right:14px; top:14px;
+    width:26px; height:26px; padding:0; font:inherit; font-size:15px; line-height:24px;
+    text-align:center; background:var(--panel); color:var(--ink);
+    border:1px solid var(--border); border-radius:4px; cursor:pointer;
+  }
+  #about-close:hover{background:var(--land)}
+  /* The about panel is wider than the left one, so its prose gets a reading size rather
+     than the control-panel .note size. */
+  #about h1{font-size:17px; margin:0 0 4px}
+  #about .lede{font-size:13px; color:var(--muted); margin:0 0 20px; line-height:1.55}
+  #about h2{margin-top:24px}
+  #about .note{font-size:12.5px; line-height:1.55}
+  #about .stat{font-size:12.5px}
+  /* Habitat draws to a canvas UNDER the svg. 86,825 features cannot be svg
+     nodes; as one canvas pass they cost nothing. Dams stay svg so they keep
+     their hover and hit-testing. */
+  #hab{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
+  svg{display:block; width:100%; height:100%; cursor:grab; position:relative}
+  svg.dragging{cursor:grabbing}
+  h1{font-size:16px; margin:0 0 18px; letter-spacing:-.01em}
+  h2{font-size:11px; text-transform:uppercase; letter-spacing:.07em;
+     color:var(--muted); margin:22px 0 8px; font-weight:600}
+  .stat{display:flex; justify-content:space-between; align-items:baseline;
+        padding:5px 0; border-bottom:1px solid var(--line)}
+  .stat b{font-variant-numeric:tabular-nums; font-weight:600}
+  .stat span{color:var(--muted); font-size:12px}
+  .big{font-size:30px; font-weight:600; line-height:1.1;
+       font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  #splist svg{display:block; flex:0 0 22px}
+  .big small{display:block; font-size:12px; font-weight:400; color:var(--muted);
+             letter-spacing:0; margin-top:2px}
+  .key{display:flex; align-items:flex-start; gap:9px; padding:6px 0; font-size:12.5px}
+  .dot{width:11px;height:11px;border-radius:50%;flex:0 0 11px;margin-top:4px;
+       border:1.5px solid rgba(255,255,255,.65)}
+  .key i{color:var(--muted); font-style:normal; display:block; font-size:11.5px}
+  label.f{display:flex; align-items:center; gap:8px; padding:4px 0; cursor:pointer;
+          font-size:13px}
+  /* The testing switch, on red so it reads as a developer tool, not part of the map. White text in
+     both themes, on a red dark enough to hold contrast with it in either. */
+  label.f.testbar{background:var(--c-test); color:#fff; border-radius:4px; padding:6px 10px;
+          margin:0 0 14px 0}
+  label.f.testbar .tag{color:rgba(255,255,255,.8); font-size:11px}
+  /* ---- The provenance tool's revealed block, on the same red (Nathan, 2026-09-18) --------------
+     Everything the testing switch reveals now sits on the testbar's own red, so the whole tool reads
+     as one object rather than a red bar followed by panel-coloured content that looks like the map's
+     own legend. When the block is open the two join into a single card: the bar drops its bottom
+     margin and squares its bottom corners. :has() does that with no JS; where it is unsupported the
+     only consequence is the original 14px gap, which still reads fine. */
+  label.f.testbar:has(+ #dam-detail-panel:not([hidden])){
+    margin-bottom:0; border-radius:4px 4px 0 0;
+  }
+  #dam-detail-panel{
+    background:var(--c-test); color:#fff;
+    border-radius:0 0 4px 4px; padding:2px 10px 10px; margin:0 0 14px 0;
+  }
+  /* Measured, not eyeballed: white on this red is 6.5:1 light / 7.2:1 dark. Every one of the page's
+     own text tokens fails on it (--muted 1.2:1, --ink 2.6:1), so all of them are overridden here. */
+  #dam-detail-panel h2{color:rgba(255,255,255,.88); margin:16px 0 6px}
+  #dam-detail-panel .key i{color:rgba(255,255,255,.78)}
+  #dam-detail-panel .note{color:rgba(255,255,255,.85); border-left-color:rgba(255,255,255,.35)}
+  #dam-detail-panel .note b{color:#fff}
+  #dam-detail-panel label.f{color:#fff}
+  #dam-detail-panel input[type=checkbox]{accent-color:#fff}
+  /* THE SWATCHES ARE THE PROBLEM THIS BACKGROUND CREATES, and it is the same defect class as the
+     SONCC stripe that borrowed its contrast from whatever lay under it. Against this red every
+     swatch colour fails: c-fix 1.11:1, ring orange 1.99:1, ring purple 1.56:1, c-ar 1.33:1.
+     The fix is the one this project has used twice before (the dam edge, the range labels): a
+     contrasting halo that SEPARATES the shape without recolouring it, so the legend still matches
+     the map exactly. The dots already carry a .65 white border; here it goes opaque and gains an
+     outer ring so the colour sits on white rather than directly on red. */
+  #dam-detail-panel .dot{
+    border-color:#fff;
+    box-shadow:0 0 0 1.5px rgba(255,255,255,.55);
+  }
+  label.f select{font:inherit; font-size:12.5px; color:var(--ink); background:var(--panel);
+                 border:1px solid var(--line); border-radius:5px; padding:3px 5px; cursor:pointer}
+  label.hab{display:flex; align-items:center; gap:8px; padding:3px 0; cursor:pointer;
+            font-size:12.5px}
+  label.hab .sw{width:15px; height:3px; border-radius:2px; flex:0 0 15px}
+  label.hab .n{margin-left:auto; color:var(--muted); font-size:11px;
+               font-variant-numeric:tabular-nums; white-space:nowrap}
+  /* One row per source under the presence switch. Indented to the depth of the tier swatches, so the
+     sources read as belonging to Presence rather than as a third tier. */
+  .spsrc{margin-left:22px; border-left:1px solid var(--line); padding-left:8px}
+  /* "i" beside a source whose geometry stands for something other than a recorded reach. A panel this
+     narrow has nowhere to float a popover without it running off the edge, so the explanation opens
+     under its own row instead. */
+  .srcrow{display:flex; align-items:center}
+  .srcrow label.hab.src{flex:1; min-width:0}
+  /* Filled rather than outlined, so it reads as a thing to press next to a row of plain text and a
+     tabular number. Open state INVERTS, so which note is showing is obvious with several rows expanded. */
+  .info{border:0; background:var(--line); color:var(--ink); cursor:pointer;
+        width:15px; height:15px; flex:0 0 15px; border-radius:50%; font-size:10.5px; line-height:15px;
+        font-weight:700; padding:0; margin-left:7px; font-family:Georgia, "Times New Roman", serif;
+        font-style:italic; text-align:center}
+  .info:hover{background:var(--muted); color:var(--panel)}
+  .info[aria-expanded="true"]{background:var(--ink); color:var(--panel)}
+  .srcnote{font-size:11px; color:var(--muted); line-height:1.45; margin:1px 0 5px 18px;
+           padding-left:8px; border-left:2px solid var(--line)}
+  .srcnote p{margin:0 0 5px}
+  label.hab.src{font-size:11.5px; color:var(--muted); padding:2px 0}
+  /* reach = a line, range = a block: the geometry the source actually has, at a glance. */
+  .grain{width:13px; flex:0 0 13px; height:9px; position:relative}
+  .grain.reach::after{content:""; position:absolute; left:0; right:0; top:4px; height:1.6px;
+                      background:currentColor; opacity:.75}
+  .grain.range::after{content:""; position:absolute; inset:1px 0; background:currentColor;
+                      opacity:.28; border-radius:1.5px}
+  label.hab.busy .n{opacity:.55}
+  .note{font-size:11.5px; color:var(--muted); line-height:1.45;
+        border-left:2px solid var(--line); padding-left:9px; margin:8px 0}
+  .note b{color:var(--ink)}
+  button.z{font:inherit; font-size:12px; padding:4px 10px; margin-right:6px;
+           background:var(--panel); color:var(--ink); border:1px solid var(--border);
+           border-radius:4px; cursor:pointer}
+  button.z:hover{background:var(--land)}
+  button.z[aria-pressed="true"]{background:var(--land); border-color:var(--ink); font-weight:600}
+  /* The species list is 27 rows and everything else in the panel is short, so left to itself it pushes
+     every other control off the screen. Bounded with its own scroll (Nathan, 2026-09-17: the controls
+     have to be reachable while he judges the range looks), so the panel stays about one screen tall and
+     the range controls above it never leave view. */
+  /* The "light 32% . dark 44%" line under a per-theme slider. */
+  .both{font-size:11px; color:var(--muted); margin:-2px 0 8px 0; font-variant-numeric:tabular-nums}
+  #splist{max-height:320px; overflow-y:auto; overscroll-behavior:contain;
+          border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:4px 0}
+  #splist label.busy{opacity:.55}
+  .sprow{display:flex; align-items:center}
+  .sprow label.hab{flex:1}
+  .caret{display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex:0 0 20px; padding:0; background:none; border:0;
+         color:var(--ink); cursor:pointer; line-height:1; border-radius:3px; transition:transform .12s}
+  .caret:hover{background:var(--land)}
+  .caret[aria-expanded="true"]{transform:rotate(90deg)}
+  .spsub{margin:0 0 4px 20px}
+  .spsub label.hab{font-size:12px; padding:2px 0}
+  .spsub label.none{color:var(--muted); cursor:default}
+  .spgroup{font-size:11px; color:var(--muted); margin:10px 0 2px}
+
+  .dam{cursor:pointer}
+  .dam:hover{stroke:var(--ink); stroke-width:2px}
+  #pop{
+    position:absolute; pointer-events:none; max-width:250px;
+    background:var(--panel); color:var(--ink); border:1px solid var(--line);
+    border-radius:5px; padding:10px 12px; font-size:12.5px; line-height:1.45;
+    box-shadow:0 3px 14px rgba(0,0,0,.22); opacity:0; transition:opacity .12s;
+  }
+  #pop.on{opacity:1}
+  /* Pinned by a click, so the pointer can reach the copy button. */
+  #pop.pinned{pointer-events:auto; border-color:var(--border)}
+  .pop-copy{display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; margin-top:8px}
+  .pop-copy button, .pop-copy i{white-space:nowrap}
+  .pop-copy button{font:inherit; font-size:10.5px; font-weight:600; letter-spacing:.05em;
+    padding:2px 8px; background:var(--panel); color:var(--ink);
+    border:1px solid var(--border); border-radius:3px; cursor:pointer}
+  .pop-copy button:hover{background:var(--land)}
+  .pop-copy i{font-style:normal; font-size:10.5px; color:var(--muted)}
+  .pop-t{font-weight:600; margin-bottom:2px}
+  .pop-r{color:var(--muted); font-size:11.5px; margin-bottom:6px}
+  .pop-g{display:grid; grid-template-columns:auto 1fr; gap:1px 9px; font-size:11.5px}
+  .pop-g dt{color:var(--muted)} .pop-g dd{margin:0}
+  .warn{margin-top:7px; padding:5px 7px; border-radius:4px; font-size:11px;
+        background:rgba(178,59,59,.11); color:var(--c-fix)}
+  .proj{position:absolute; left:10px; bottom:8px; font-size:10.5px;
+        color:var(--muted); background:var(--panel); padding:3px 7px;
+        border-radius:3px; border:1px solid var(--line); opacity:.9}
+  @media (max-width:760px){
+    body{flex-direction:column; overflow:auto}
+    #panel{width:100%; flex:none; height:auto; border-right:0;
+           border-bottom:1px solid var(--line)}
+    #map{height:65vh; flex:none}
+    /* Stacked, the panel sits ABOVE the map rather than beside it, so folding it away frees
+       height, not width. Without this the map keeps its 65vh and leaves a third of the screen blank. */
+    body.panel-off #map{height:100vh}
+    /* Stacked, the body itself scrolls. The about panel is a full-screen overlay here, so the
+       page behind it must not scroll under it while it is open. */
+    body.about-on{overflow:hidden}
+  }
+</style>
+<script>
+  // Before first paint, so the page never flashes the wrong theme. data-theme-choice is what the viewer
+  // picked (auto, light, dark); data-theme is what is shown (light or dark), which the CSS reads.
+  (function () {
+    let c = "auto";
+    try { const t = localStorage.getItem("damTheme"); if (t === "light" || t === "dark") c = t; } catch (e) {}
+    const root = document.documentElement;
+    root.dataset.themeChoice = c;
+    root.dataset.theme = c === "auto" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : c;
+  })();
+
+  // ---- Test mode (2026-09-18, Nathan) -------------------------------------------------------
+  // ?mode=test reveals the developer tools (everything marked class="testing"). Ordinary visitors
+  // never see them. Set here, BEFORE first paint, so the testbar does not flash on and vanish.
+  //
+  // THIS IS OBSCURITY, NOT SECURITY, AND THE DIFFERENCE MATTERS: the markup and the code ship to
+  // every visitor either way, so anyone reading the source finds them. It is the right tool for a
+  // dev switch and the wrong one for anything that must not be seen.
+  //
+  // `?mode=test` turns it on and REMEMBERS it; `?mode=off` turns it off again and forgets. Without
+  // either, the remembered value decides, so the flag survives a click through to another page or
+  // a plain reload with no query string.
+  (function () {
+    const q = new URLSearchParams(location.search).get("mode");
+    let on = false;
+    try {
+      if (q === "test") localStorage.setItem("damMode", "test");
+      else if (q === "off") localStorage.removeItem("damMode");
+      on = localStorage.getItem("damMode") === "test";
+    } catch (e) { on = q === "test"; }      // private mode: honour the query string only
+    document.documentElement.dataset.mode = on ? "test" : "live";
+  })();
+</script>
+</head>
+<body>
+
+<div id="panel">
+  <!-- The panel prose was stripped and then RESTORED on 2026-09-17 (Nathan); the source text is kept
+       in _OLD/D3/panel_text_2026-09-17.html. See STATUS.md for what is still owed (credits). -->
+  <!-- AT THE TOP, ON RED (Nathan, 2026-09-17): a testing view, so it is set apart from the reader's
+       controls and hard to miss. The Legend and Audit flags it reveals moved up with it, so ticking it
+       opens them right here rather than somewhere below the fold. -->
+  <label class="f testbar testing"><input type="checkbox" id="dam-detail"> Colour dams by provenance
+    <span class="tag">(testing)</span></label>
+
+  <div id="dam-detail-panel" class="testing" hidden>
+  <h2>Legend</h2>
+  <div class="key"><span class="dot" style="background:var(--c-ar)"></span>
+    <div>American Rivers coordinate<i>as published, March 2026</i></div></div>
+  <div class="key"><span class="dot" style="background:var(--c-nacc)"></span>
+    <div>Recovered from NACC<i>rows American Rivers left blank</i></div></div>
+  <div class="key"><span class="dot" style="background:var(--c-fix)"></span>
+    <div>Corrected coordinate<i>was wrong in the source, fixed and cited</i></div></div>
+
+  <h2>Audit flags</h2>
+  <div class="key"><span class="dot" style="background:transparent;border:2.4px solid #e8663c"></span>
+    <div>Rule 45 blocked the extension<i>the dam sits on a different mapped channel, named or
+    not; it had been taking its species from a main stem 212 to 490 m off</i></div></div>
+  <div class="key"><span class="dot" style="background:transparent;border:2.4px solid #f0b429"></span>
+    <div>Needs eyes<i>same shape, but the channel at its feet was <b>unnamed</b>. <b>None left:</b>
+    rule 45 was amended on 2026-09-13 to count unnamed channels, which moved all three
+    into the ring above</i></div></div>
+  <div class="key"><span class="dot" style="background:transparent;border:2.4px solid #7b61ff"></span>
+    <div>On a watershed range edge<i>a containment match balanced within 75 m of the rim</i></div></div>
+  <p class="note">
+    Hover a ringed dam for the evidence (click to pin the popup): the channel at its feet, the stream its species
+    actually came from, and what the <b>national river network</b> calls each. That last one is
+    the only way to judge a channel our own fish layers left unnamed, and it is checked against
+    three dams where the answer is known before it is trusted anywhere else.
+  </p>
+  <label class="f" style="margin-top:8px"><input type="checkbox" id="only-audit"> Only audit-flagged dams</label>
+  </div>
+
+  <h1>West Coast dam removals</h1>
+
+  <div class="big" id="shown">290<small>dams placed on the map</small></div>
+
+  <!-- "Where the count comes from" sat here until 2026-09-17, when it went to the bottom of this
+       panel so the controls could come first. On 2026-09-18 it left this panel entirely for the
+       About panel. -->
+
+  <h2>Natural features</h2>
+  <label class="f"><input type="checkbox" class="nat" id="nat-relief" checked> Shaded relief</label>
+  <label class="f"><input type="checkbox" class="nat" id="nat-lakes"> Lakes and reservoirs</label>
+  <!-- The panel notes stripped earlier on 2026-09-17 were RESTORED the same day (Nathan) from
+       _OLD/D3/panel_text_2026-09-17.html, some edited to match the page. The relief, provenance-switch,
+       hover-tool and display-geometry notes, and the "Why this looks different" and "Not yet on this map" sections
+       (all but the source credits, which stay), were then removed again (Nathan); their text is in
+       that file. -->
+  <!-- The relief strength and range fill strength sliders, and the "Watershed ranges" section that held
+       the latter, were REMOVED 2026-09-17 (Nathan) once both pairs of numbers were settled. They now live
+       only as the constants RELIEF and FILL in the script. -->
+
+  <h2>Species</h2>
+  <button class="z" id="sp-all">All on</button>
+  <button class="z" id="sp-none">All off</button>
+  <div id="splist" style="margin-top:6px"></div>
+  <!-- The species tier note and the California ranges note MOVED to the About panel on 2026-09-18
+       (Nathan), with the rest of the panel's descriptive text. -->
+  <!-- The SONCC disclosure sentence and the "SONCC stripe (testing)" controls were REMOVED
+       2026-09-17 (Nathan). The marking stays on, from STRIPE in the script. The disclosure is NOT lost:
+       the "i" note on the SONCC coho switch ("Reconstructed by this project.") carries it. -->
+
+
+  <h2>Filter</h2>
+  <!-- The three state boxes are the only thing that draws the dams. They started UNCHECKED while this
+       was a test page (Nathan, 2026-09-16), so the habitat symbology could be judged on its own; restored
+       to checked on 2026-09-17 when this page became index.html. -->
+  <label class="f"><input type="checkbox" class="st" value="CA" checked> California <span id="c-CA" style="color:var(--muted)"></span></label>
+  <label class="f"><input type="checkbox" class="st" value="OR" checked> Oregon <span id="c-OR" style="color:var(--muted)"></span></label>
+  <label class="f"><input type="checkbox" class="st" value="WA" checked> Washington <span id="c-WA" style="color:var(--muted)"></span></label>
+  <!-- "Only corrected rows" and "Only NACC-recovered" were REMOVED 2026-09-17 (Nathan). -->
+
+  <h2>View</h2>
+  <button class="z" id="zin">Zoom in</button>
+  <button class="z" id="zout">Zoom out</button>
+  <button class="z" id="zreset">Reset</button>
+  <div style="margin-top:10px; display:flex; align-items:center; gap:6px; flex-wrap:wrap">
+    <span style="font-size:12.5px; margin-right:2px">Theme</span>
+    <button class="z" data-theme-set="auto" aria-pressed="true">Auto</button>
+    <button class="z" data-theme-set="light" aria-pressed="false">Light</button>
+    <button class="z" data-theme-set="dark" aria-pressed="false">Dark</button>
+  </div>
+  <!-- A PERMANENT FEATURE since 2026-09-17 (Nathan), no longer "(testing)". Still off by default;
+       "(slower)" because the pick canvas redraws each time the view settles while it is on. -->
+  <label class="f" style="margin-top:10px"><input type="checkbox" id="hover-layers"> Hover a layer for its source
+    <span style="color:var(--muted);font-size:11px">(slower)</span></label>
+
+  <!-- The Sources credits and the whole "Where the count comes from" block (9 stat rows + 4 notes)
+       MOVED to the About panel on 2026-09-18 (Nathan). The stat ids inside them are written by
+       script and are position-independent, so nothing else changed. -->
+</div>
+
+<div id="map">
+  <button id="panel-toggle" aria-controls="panel" aria-expanded="true" title="Hide the panel">&#8249;</button>
+  <button id="about-open" aria-controls="about" aria-expanded="false" title="About this project">About</button>
+  <canvas id="hab"></canvas>
+  <svg id="svg"></svg>
+  <div id="pop"></div>
+  <div class="proj">Albers equal area conic &middot; standard parallels 34&deg;N / 48&deg;N</div>
+</div>
+
+<!-- ===== About panel (2026-09-18, Nathan's idea) ==================================
+     All of the project's descriptive text, moved out of the left control panel. Some
+     of it came back from _OLD/D3/panel_text_2026-09-17.html, where it had been parked
+     since 09-17 with nowhere on the page to live: "Why this looks different", "Not yet
+     on this map", the display-geometry note and the relief note.
+     Three ids inside here are written by script (s-*, n-*). They were moved, not
+     copied, and getElementById does not care where they sit. -->
+<div id="about" role="dialog" aria-modal="false" aria-labelledby="about-title" aria-hidden="true">
+  <button id="about-close" title="Close" aria-label="Close">&times;</button>
+
+  <h1 id="about-title">About this map</h1>
+  <p class="lede">
+    Every dam removal recorded in California, Oregon and Washington, drawn against the
+    river habitat the fish actually use.
+  </p>
+
+  <p class="note">
+    The dam records come from the <b>American Rivers Dam Removal Database</b>, the
+    national register of removals, in its March 2026 release. This map covers the three
+    West Coast states: <b>333 rows, 332 distinct removals, 290 of them placed on the
+    map</b>. The rest have no coordinate that any source can supply, and the section
+    below accounts for all of them.
+  </p>
+  <p class="note">
+    Underneath the dams are two kinds of fish layer for <b>27 species</b>: federally
+    designated <b>ESA critical habitat</b>, and <b>where each species is mapped as
+    present</b> by the state and federal agencies that survey them. Both are drawn at
+    display resolution, for looking at. The analysis behind the project asked a separate
+    question of the full-resolution data, and is described under
+    <b>Not yet on this map</b>.
+  </p>
+  <p class="note">
+    <b>This is an independent project and not affiliated with any of the agencies whose
+    data it uses.</b> Where it has changed or questioned a source record, it says so.
+  </p>
+
+  <h2>What the map draws</h2>
+  <p class="note">
+    One switch per species; the arrow beside it opens separate ESA and presence
+    switches, to see either on its own. <b>Thin dark line:</b> ESA critical habitat.
+    <b>Wide soft band underneath:</b> where the fish are mapped (presence).
+    <b>The two weights mean how consistent the source is, not how certain it is.</b>
+    ESA critical habitat is one federal designation defined the same way in all three
+    states, so it gets one precise line. Presence is assembled from ODFW, WDFW, CDFW,
+    NOAA, USFWS and PISCES, at different dates and different grains, so it is drawn as
+    a soft envelope rather than given a crispness it has not got.
+    Colours are placeholders, ordered so species that share map area never get
+    neighbouring colours. <b>Two species mapped on the same reach cannot both be drawn
+    there:</b> whichever comes later in the list covers the one before it. The colour
+    ordering makes that covering visible rather than invisible, and the per-species
+    switches are how to see either on its own.
+  </p>
+
+  <h2>California ranges</h2>
+  <p class="note">
+    In California, 11 species' presence is not a
+    stream at all: it is whole HUC12 watersheds from PISCES, 1,597 of them, median
+    width about 3&nbsp;km. Drawn as outlines they would read as a web of rivers, and where
+    one is cut at the state line its edge draws along the border as if fish lived on
+    it. So each species' watersheds are <b>merged</b> into their outer boundary and
+    drawn as a faint fill, which removes the internal seams: 1,597 rings become 357. It does far more for
+    some species than others (Chinook 766&nbsp;&rarr;&nbsp;41, but green sturgeon
+    196&nbsp;&rarr;&nbsp;114, whose watersheds are scattered rather than touching).
+    Display only. The join reads the full-resolution watersheds one at a time.
+  </p>
+  <p class="note">
+    <b>Comparing Oregon with California for one species compares two mapping models, not
+    two abundances.</b> Oregon and Washington map presence as stream reaches; California
+    maps it as watersheds. A species can look far more widespread in California purely
+    because the unit is larger.
+  </p>
+
+  <h2>Display geometry</h2>
+  <p class="note">
+    Simplified at 0.0003&deg; and rounded to about
+    11&nbsp;m. Fine for looking at, never used for a join or a measurement:
+    those read the full-resolution source. Habitat lying wholly in Idaho, Montana
+    or Nevada is left off, since no dam here is near it; anything touching or
+    within 3&nbsp;km of California, Oregon or Washington stays.
+  </p>
+  <p class="note">
+    <b>Shaded relief</b> sharpens as you zoom in, swapping a 500&nbsp;m elevation model
+    for a 115&nbsp;m one. Relief and lakes are both clipped to California, Oregon and
+    Washington, so nothing is shaded outside the three states this project covers.
+  </p>
+
+  <h2>Why this looks different</h2>
+  <p class="note">
+    Redrawn in <b>D3 with an Albers equal-area conic projection</b>, replacing a
+    MapLibre map on CARTO raster tiles. CARTO began watermarking its free tiles
+    with "API KEY REQUIRED", and the previous basemap is unusable without an
+    account.
+  </p>
+  <p class="note">
+    The change is also a small methods improvement. A web tile map is locked to
+    <b>Web Mercator</b>, which inflates area with latitude. Across this data
+    (33.6&deg;N to 48.9&deg;N) that stretches the north end by <b>1.27&times;</b>
+    relative to the south, so Washington read about <b>27% larger</b> than it
+    should against southern California. An equal-area conic is the honest choice
+    over a north-south extent, and this project measures in projected coordinate
+    systems everywhere else.
+  </p>
+  <p class="note">
+    <b>Nothing here is fetched from another server.</b> No basemap, no tile service,
+    no API key, no analytics, no fonts, no CDN. Every file the page loads is served
+    alongside it, including the one library it uses,
+    <b>D3 v7.9.0</b>, so the map works offline and leaves no trace with a third party.
+    State outlines are US Census cartographic boundaries, public domain, 39&nbsp;KB.
+  </p>
+
+  <h2>Not yet on this map</h2>
+  <p class="note">
+    <b>Both joins have run and been audited.</b> Every dam was asked which ESA
+    critical habitat and which of 21 native migratory fish lie within 75&nbsp;m,
+    with a same-stream and a watershed-range clause. The answers are in each
+    popup. They are <b>not drawn</b>: the habitat and species presence above are
+    shown at display resolution. Proximity on screen is still not a result.
+  </p>
+  <p class="note">
+    Also absent: the line from a dam to the reaches it matched, upstream traces,
+    and any mileage figure.
+  </p>
+
+  <h2>Where the count comes from</h2>
+  <div class="stat"><span>Rows in the source database</span><b id="s-total">333</b></div>
+  <div class="stat"><span>Duplicate rows</span><b id="s-dup">1</b></div>
+  <div class="stat"><span><b>Distinct removals</b></span><b id="s-distinct">332</b></div>
+  <div class="stat"><span><b>Sites</b> (clusters collapsed)</span><b id="s-sites">320</b></div>
+  <div class="stat"><span>Placed from American Rivers</span><b id="s-ar">276</b></div>
+  <div class="stat"><span>Recovered from NACC</span><b id="s-nacc">12</b></div>
+  <div class="stat"><span>Corrected</span><b id="s-drp">2</b></div>
+  <div class="stat"><span>Coordinate voided as wrong</span><b id="s-void">2</b></div>
+  <div class="stat"><span>No coordinate anywhere</span><b id="s-un">42</b></div>
+  <p class="note">
+    <b>333 rows, <span id="n-mapped">290</span> mapped.</b> American Rivers left
+    52 rows without a coordinate. <span id="n-rec">12</span> were recovered by
+    linking to the NACC barrier inventory. The other 40 cannot be placed from any
+    source; 18 of them are California dams removed between 1925 and 1951, several
+    on forks of the Trinity, Salmon and Scott. The coordinate hunt is closed:
+    historical topographic maps are the only instrument left.
+  </p>
+  <p class="note">
+    <b>Two coordinates are voided.</b> CA-157 and CA-158, the Silverado Creek fish
+    dams, carry coordinates copied from two San Juan Creek dams 24.6&nbsp;km away
+    in a different basin. They are still counted as removals; they cannot be
+    placed, so they are not drawn and will not be joined to anything.
+  </p>
+  <p class="note">
+    <b>One row is a duplicate.</b> CA-091 repeats CA-148: both are TCFD11 on
+    Trabuco Creek, same height, same barrier ID, 12&nbsp;m apart. Unlike a voided
+    coordinate, a duplicate is not a removal, so it leaves the count as well as
+    the map. <b>333 rows, 332 removals.</b> Both numbers are shown because they
+    are different claims.
+  </p>
+  <p class="note">
+    <b>Structures against sites.</b> <span id="n-clustered">22</span> rows fall in
+    <span id="n-clusters">10</span> clusters that NACC records as a single barrier
+    each, so 332 removals sit at 320 places. Nothing is hidden: the map draws every
+    structure. But a distance join cannot tell members of a cluster apart, so
+    identical species results across one are geometry, not evidence.
+  </p>
+
+  <h2>Sources</h2>
+  <p class="note">
+    Dam records from the American Rivers Dam Removal Database (March 2026).
+    Recovered coordinates from the National Aquatic Barrier Inventory v4.3.0,
+    compiled by SARP and NFHP, downloaded 2026-09-08. Critical habitat from NMFS
+    and USFWS. Species presence from ODFW, WDFW (SWIFD), CDFW, USFWS and PISCES
+    (Santos et al. 2014).
+  </p>
+  <!-- The next two paragraphs are the credits owed since 09-15 and never yet on the page
+       (STATUS.md, debt item 1). Added 2026-09-18 while this block was being moved. -->
+  <p class="note">
+    Elevation for the shaded relief from <b>AWS Terrain Tiles</b>, which packages
+    public-domain data from the USGS 3D Elevation Program, SRTM and other national
+    surveys. Lakes, reservoirs and the coastline from <b>Natural Earth</b>, public domain.
+  </p>
+  <p class="note">
+    The California species ranges are from <b>PISCES</b>, the Public Interactive
+    Species Conservation and Ecosystem Services database, Center for Watershed Sciences,
+    <b>University of California, Davis</b> (Santos, Howard, Kiernan, Rypel and Moyle,
+    2014). PISCES is used here under its noncommercial, attribution, share-alike terms.
+  </p>
+</div>
+
+<!-- d3 is VENDORED, not loaded from a CDN (2026-09-18). The panel claims this page makes no network
+     calls, and with a CDN script tag that claim was false. 273 KB, v7.9.0, byte-for-byte the cdnjs
+     build. The page now fetches nothing from another server and works offline. -->
+<script src="d3.v7.min.js"></script>
+<script src="base.js"></script>
+<script src="dams.js"></script>
+<script src="habitat/index.js"></script>
+<script src="natural/natural.js"></script>
+<script src="natural/relief_hi.js"></script>
+<script src="presence/index.js"></script>
+<script>
+const svg = d3.select("#svg");
+const pop = d3.select("#pop");
+const mapEl = document.getElementById("map");
+
+// Albers conic centred on the West Coast. rotate([120,0]) puts the central
+// meridian at 120W; the standard parallels bracket the latitude range of the
+// data (roughly 33.6N to 48.9N). Equal-area, so basin sizes compare honestly.
+const projection = d3.geoAlbers()
+  .rotate([120, 0]).center([0, 41.5]).parallels([34, 48]);
+
+// The land is drawn on the canvas, not in svg. It has an opaque fill, so as an
+// svg layer above the canvas it painted over every habitat reach inside a state
+// outline. Canvas now carries land then habitat; svg carries only the dams,
+// which need hit-testing.
+const gRoot = svg.append("g");
+const gDams = gRoot.append("g");
+
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+// The provenance colouring is a TESTING view (Nathan, 2026-09-17): off by default, and off the map
+// reads as one plain mark per dam, black on light and white on dark. On, it is the display this page
+// carried until now, colour by coordinate source plus an audit ring.
+const damDetail = () => document.getElementById("dam-detail").checked;
+const colourOf = p => !damDetail() ? css("--c-dam")
+                    : p.corrected ? css("--c-fix")
+                    : p.coord_source === "nacc" ? css("--c-nacc")
+                    : css("--c-ar");
+
+// panel numbers come from the generated metadata, never hardcoded
+const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+set("s-total", META.total_rows); set("s-ar", META.from_ar);
+set("s-nacc", META.from_nacc);  set("s-un", META.unmapped);
+set("s-drp", META.from_drp);    set("s-void", META.voided);
+set("s-dup", META.duplicates);  set("s-distinct", META.distinct_removals);
+set("s-sites", META.sites);     set("n-mapped", META.mapped);
+set("n-rec", META.from_nacc);
+set("n-clusters", META.clusters); set("n-clustered", META.clustered_rows);
+for (const [st, n] of Object.entries(META.by_state)) set("c-" + st, n);
+
+// ---- Habitat backdrop ------------------------------------------------------
+// 86,825 features across the habitat layers, but only ~878,000 coordinate pairs:
+// the average NMFS reach is 4.3 points long. So the cost is the FEATURE COUNT,
+// not the data. One svg node per feature is unrenderable; one canvas pass is
+// nothing. build/make_habitat_display.py merges each group into flat coordinate
+// arrays for exactly this reason. (That holds for svg. On the canvas, what made
+// bull trout slow was closePath, not its size; see trace() below.)
+const IDX = typeof HABITAT_INDEX !== "undefined" ? HABITAT_INDEX : [];
+const HABITAT = {};   // key -> {lines, polys} in lon/lat, filled by lazy loading
+const PACKED  = {};   // key -> projected screen coords, rebuilt when the fit changes
+const active  = new Set();
+const loading = new Set();
+const cvEl = document.getElementById("hab");
+const ctx  = cvEl.getContext("2d");
+let xform = d3.zoomIdentity;
+let dpr = 1;
+
+// Project once into a typed array plus an offset index. Zoom then replays those
+// arrays under a canvas transform, instead of re-running the projection over
+// hundreds of thousands of points on every frame.
+function pack(parts) {
+  let n = 0;
+  for (const p of parts) n += p.length;
+  const xy = new Float32Array(n * 2), off = new Uint32Array(parts.length + 1);
+  let k = 0;
+  for (let i = 0; i < parts.length; i++) {
+    off[i] = k;
+    for (const c of parts[i]) {
+      const q = projection(c);
+      xy[2 * k] = q ? q[0] : NaN;
+      xy[2 * k + 1] = q ? q[1] : NaN;
+      k++;
+    }
+  }
+  off[parts.length] = k;
+  return { xy, off, count: parts.length };
+}
+
+function packGroup(key) {
+  const raw = HABITAT[key];
+  if (!raw) return;
+  PACKED[key] = { lines: pack(raw.lines || []), polys: pack(raw.polys || []) };
+}
+
+// State outlines go through the same pack-and-replay path as the habitat.
+// Split since 2026-09-14: CA/OR/WA carry land, relief and data; the other six are flat context.
+let statePack = null, otherPack = null;
+const PROJECT_STATES = new Set(["CA", "OR", "WA"]);
+
+// ---- Natural features -----------------------------------------------------
+// The relief image is in PROJ's spherical Albers with the same parameters as `projection`,
+// so a PROJ metre maps to a screen pixel linearly: x = tx + k*X/R, y = ty - k*Y/R.
+// See build/make_natural_features.py.
+const NAT = typeof NATURAL !== "undefined" ? NATURAL : null;
+const natPack = {};
+let natLabels = [];
+const reliefImg = new Image();
+let reliefReady = false;
+if (NAT) {
+  reliefImg.onload = () => { reliefReady = true; drawHabitat(); };
+  reliefImg.src = NAT.relief.file;
+}
+// Sharp relief (build/make_relief_hi.py): CA/OR/WA at 115 m from zoom 10 terrain tiles, cut into
+// 512 px tiles on the same spherical Albers grid maths as the 500 m image. Used only once the 500 m
+// image would be upsampled (a device pixel finer than HI_SWITCH_M = the 500 m image's own pixel, so it is
+// never stretched), and only the tiles on screen are fetched. Tiles load progressively: until one
+// arrives, the 500 m image shows through there. Natural features are kept as sharp as possible (Nathan,
+// 2026-09-14): this switch was 400 m, which let the 500 m image stretch up to 1.25x before swapping.
+const HI = typeof RELIEF_HI !== "undefined" ? RELIEF_HI : null;
+const HI_SET = HI ? new Set(HI.tiles.map(t => t[0] + "_" + t[1])) : null;
+const HI_SWITCH_M = 500;
+const hiTiles = new Map();
+function hiTile(key) {
+  let t = hiTiles.get(key);
+  if (!t) {
+    t = { img: new Image(), ready: false };
+    t.img.onload = () => { t.ready = true; drawHabitat(); };
+    t.img.src = `${HI.dir}/${key}.jpg`;
+    hiTiles.set(key, t);
+  }
+  return t;
+}
+// The relief is assembled on this hidden canvas (500 m image, then sharp tiles laid over it, plain
+// source-over) and multiplied onto the map ONCE. Multiplying each tile separately would double the
+// shade along antialiased tile edges and show the tile grid as hairlines.
+const reliefCv = document.createElement("canvas");
+const rctx = reliefCv.getContext("2d");
+function packNatural() {
+  if (!NAT) return;
+  natPack.lakes = pack(NAT.lakes);
+  natLabels = NAT.labels.map(l => ({ ...l, xy: projection([l.lon, l.lat]) }));
+}
+const natOn = id => document.getElementById(id).checked;
+// ---- SETTLED DISPLAY STRENGTHS (Nathan, 2026-09-17) ---------------------------------------------
+// The two per-theme strengths below are TUNED VALUES, arrived at by eye with green sturgeon and western
+// river lamprey showing, and they are kept as named constants on purpose, at his request, so they can be
+// reworked without hunting through the drawing code. The panel sliders that found them were removed the
+// same day; to retune, change the numbers here.
+//
+//   RELIEF   light 75   dark 100
+//   FILL     light 64   dark 48     (in the ranges block further down)
+//
+// BOTH MOVED, AND THAT IS THE ANSWER TO A QUESTION THAT WAS OPEN ALL DAY. A range reading weak on pale
+// ground could have been the fill too faint or the terrain too busy; it was BOTH. Light mode wanted the
+// terrain backed off a quarter AND the fill raised by half again on top of what dark needed. Dark keeps
+// the terrain at full, which is what he asked for in the morning.
+// Integer percent.
+const RELIEF = { light: 75, dark: 100 };
+const reliefAlpha = () => RELIEF[isDark() ? "dark" : "light"] / 100;
+
+// ---- Species presence ------------------------------------------------------
+// All 21 species from presence/ (build/make_presence_display.py). Each file assigns
+// PRESENCE[key] = {label, sources:[{lines, polys_merged}]} in lon/lat, rings flattened like the ESA
+// groups. The per-watershed `polys` was dropped from the data on 2026-09-18; ranges are merged only.
+const PRESENCE = {};
+const PRES_IDX = typeof PRESENCE_INDEX !== "undefined" ? PRESENCE_INDEX : [];
+const PRES_COLOUR = Object.fromEntries(PRES_IDX.map(m => [m.key, m.colour]));
+const PRES_META = Object.fromEntries(PRES_IDX.map(m => [m.key, m]));
+const fmtN = n => n.toLocaleString("en-US");
+const presPack = {};
+const presActive = new Set();
+// srcOn[presenceKey] = Set of source ids currently on, or absent meaning "all of them". Only a species
+// whose sources have been touched gets an entry, so the default stays "everything" without listing it.
+const srcOn = {};
+// ---- Species test (2026-09-15) ---------------------------------------------
+// Nathan's idea, SPECIES_LAYERS.md: one switch per species; ESA critical habitat as a wide band,
+// presence as a thin line on top, both in the species' own hue. The principle is "ESA sits close to
+// the background, presence stands out": light theme = pale band + dark line, dark theme flips to a dim
+// band + bright line. Hues are placeholders spaced evenly around the wheel.
+// All 27 species (2026-09-15). Hues are placeholders, but NOT arbitrary in order: 27 slots 13.3 degrees
+// apart, assigned so species sharing map area sit far apart (Nathan chose this). Overlap = shared 0.05-degree
+// cells / sqrt(cells A x cells B), so big overlapping pairs weigh most (Chinook, coho and steelhead end up
+// 53+ degrees apart); every pair of wheel neighbours overlaps at most 0.15. esa = published ESA groups, derived = this project's own reconstruction (own tier + shade), pres = presence file, or
+// null where the species has no presence layer.
+const SPECIES = [
+  { key: "chinook",                   group: "Salmon and steelhead",        label: "Chinook salmon",              hue: 165, esa: ["chinook"],                   derived: [],         pres: "chinook" },
+  { key: "coho",                      group: "Salmon and steelhead",        label: "Coho salmon",                 hue:  32, esa: ["coho"],                      derived: ["soncc"],  pres: "coho" },
+  { key: "steelhead",                 group: "Salmon and steelhead",        label: "Steelhead",                   hue: 218, esa: ["steelhead"],                 derived: [],         pres: "steelhead" },
+  { key: "chum",                      group: "Salmon and steelhead",        label: "Chum salmon",                 hue: 112, esa: ["chum"],                      derived: [],         pres: "chum" },
+  { key: "sockeye",                   group: "Salmon and steelhead",        label: "Sockeye salmon",              hue: 192, esa: ["sockeye"],                   derived: [],         pres: "sockeye" },
+  { key: "pink",                      group: "Salmon and steelhead",        label: "Pink salmon",                 hue: 272, esa: [],                            derived: [],         pres: "pink" },
+  { key: "coastal_cutthroat",         group: "Trout",                       label: "Coastal cutthroat trout",     hue: 298, esa: [],                            derived: [],         pres: "coastal_cutthroat" },
+  { key: "redband",                   group: "Trout",                       label: "Redband trout",               hue: 152, esa: [],                            derived: [],         pres: "redband" },
+  { key: "westslope_cutthroat",       group: "Trout",                       label: "Westslope cutthroat trout",   hue:  98, esa: [],                            derived: [],         pres: "westslope_cutthroat" },
+  { key: "bull_trout",                group: "Trout",                       label: "Bull trout",                  hue: 338, esa: ["bull_trout"],                derived: [],         pres: "bull_trout" },
+  { key: "little_kern_golden_trout",  group: "Trout",                       label: "Little Kern golden trout",    hue: 232, esa: ["little_kern_golden_trout"],  derived: [],         pres: null },
+  { key: "pacific_lamprey",           group: "Lamprey",                     label: "Pacific lamprey",             hue:   5, esa: [],                            derived: [],         pres: "pacific_lamprey" },
+  { key: "western_river_lamprey",     group: "Lamprey",                     label: "Western river lamprey",       hue: 325, esa: [],                            derived: [],         pres: "western_river_lamprey" },
+  { key: "green_sturgeon",            group: "Sturgeon, smelt, whitefish",  label: "Green sturgeon",              hue: 245, esa: ["green_sturgeon"],            derived: [],         pres: "green_sturgeon" },
+  { key: "white_sturgeon",            group: "Sturgeon, smelt, whitefish",  label: "White sturgeon",              hue:  58, esa: [],                            derived: [],         pres: "white_sturgeon" },
+  { key: "eulachon",                  group: "Sturgeon, smelt, whitefish",  label: "Eulachon",                    hue: 138, esa: ["eulachon"],                  derived: [],         pres: "eulachon" },
+  { key: "delta_smelt",               group: "Sturgeon, smelt, whitefish",  label: "Delta smelt",                 hue: 125, esa: ["delta_smelt"],               derived: [],         pres: null },
+  { key: "mountain_whitefish",        group: "Sturgeon, smelt, whitefish",  label: "Mountain whitefish",          hue: 258, esa: [],                            derived: [],         pres: "mountain_whitefish" },
+  { key: "lost_river_sucker",         group: "Suckers",                     label: "Lost River sucker",           hue: 205, esa: ["lost_river_sucker"],         derived: [],         pres: "lost_river_sucker" },
+  { key: "shortnose_sucker",          group: "Suckers",                     label: "Shortnose sucker",            hue:  72, esa: ["shortnose_sucker"],          derived: [],         pres: "shortnose_sucker" },
+  { key: "klamath_largescale_sucker", group: "Suckers",                     label: "Klamath largescale sucker",   hue: 312, esa: [],                            derived: [],         pres: "klamath_largescale_sucker" },
+  { key: "largescale_sucker",         group: "Suckers",                     label: "Largescale sucker",           hue:  85, esa: [],                            derived: [],         pres: "largescale_sucker" },
+  { key: "bridgelip_sucker",          group: "Suckers",                     label: "Bridgelip sucker",            hue: 285, esa: [],                            derived: [],         pres: "bridgelip_sucker" },
+  { key: "warner_sucker",             group: "Suckers",                     label: "Warner sucker",               hue: 352, esa: ["warner_sucker"],             derived: [],         pres: null },
+  { key: "santa_ana_sucker",          group: "Suckers",                     label: "Santa Ana sucker",            hue: 178, esa: ["santa_ana_sucker"],          derived: [],         pres: null },
+  { key: "tidewater_goby",            group: "Other",                       label: "Tidewater goby",              hue:  45, esa: ["tidewater_goby"],            derived: [],         pres: null },
+  { key: "owens_tui_chub",            group: "Other",                       label: "Owens tui chub",              hue:  18, esa: ["owens_tui_chub"],            derived: [],         pres: null },
+];
+// Per species, per tier: the caret opens an ESA and a presence switch so each can be seen on its own.
+// THREE tiers, not two (Nathan, 2026-09-17). `derived` was folded into `esa` until now, which gave a
+// published federal designation and this project's own reconstruction one switch and one colour
+// between them. Only coho has a derived layer, but the shape is general.
+const spState = Object.fromEntries(SPECIES.map(sp => [sp.key, { esa: false, derived: false, pres: false }]));
+// 2026-09-16 (Nathan): both came down a step, band 6 -> 5 and line 1.3 -> 1.1, then the band alone kept
+// going while the line stayed. Band ladder: 8 -> 6 -> 5 -> 4 -> 3. 5 was tried on 09-15 and called too
+// faint, but that was the ESA band in the old arrangement; the band is now the presence tier, where
+// reading as a soft envelope is the intent, so the old floor does not carry over. Ladder ends 3 -> 2.5 -> 2.3.
+// WHAT CARRIES THE MEANING IS THE RATIO between the two, not either number: the tiers are told apart by
+// one being visibly wider. At 2.3 against 1.1 that is about 2.1x, which is at the edge: below roughly 2x
+// the band stops reading as a band and the two tiers start to look like two lines of slightly different
+// weight. If this wants to go thinner again, bring the ESA line down with it rather than close the gap.
+// Presence band and ESA line, both set by Nathan by eye. 2026-09-17: band 2.3 -> 2.0, line 1.1 -> 1.0.
+// A NOTE ON THE COMMENT THAT USED TO BE HERE: it claimed the ratio between these two carries the tier
+// distinction and must stay above about 2x. That was Claude's own observation from 2026-09-16, written
+// up without attribution and then quoted back to Nathan as if it were his rule. It is not, and it has
+// never been tested. These are two numbers Nathan chose by looking at the map.
+// POLY_EDGE_PX is the outline of the ESA layers that are AREAS rather than reaches (green sturgeon,
+// eulachon, bull trout, the Klamath suckers). It sat at 2 while the ESA line came down to 1, so the same
+// tier was drawing two different weights depending only on whether the agency published polygons or
+// lines. Brought to 1 to match (Nathan, 2026-09-17): the geometry type is not a difference in the claim.
+// The PISCES presence ranges are unaffected, since they draw as a plain fill with no outline at all.
+const BAND_PX = 2.0, LINE_PX = 1.0, POLY_EDGE_PX = 1;
+// The label halo, in CSS px against 10 px text. Drawn under the fill, so about half of it shows.
+const LABEL_HALO_PX = 3;
+// SONCC: draw this project's own rebuilt coho layer exactly like the official ESA layers?
+// FALSE since 2026-09-16 at Nathan's request, and he said "at least for now", so it is PROVISIONAL.
+// While it is false, NOTHING ON THE MAP distinguishes a layer this project reconstructed from a federal
+// designation, and the SONCC manifest says it must never look like an official layer. Set it back to
+// true, or agree another marking, BEFORE PUBLISHING. The panel note tracks this flag.
+// THE SONCC MARKING, and it is DECIDED IN PRINCIPLE but not yet in detail (Nathan, 2026-09-17): the
+// layer this project reconstructed must not draw like the federal ones, so it is striped. What is still
+// being tuned is how loudly. Everything below is on panel controls for that, and it is SCAFFOLDING: the
+// final product keeps these numbers and drops the controls, exactly like FILL and RELIEF.
+//
+// The gap lightness is PER THEME because it is a colour; the three geometry numbers are not, because
+// geometry does not care about the colour scheme. Integer percent for the gap, on the slider's own step.
+// THE GAP IS THE IMPORTANT ONE. It is what stops the stripe borrowing its contrast from whatever lies
+// underneath, which is what made it vanish over the presence band before 2026-09-17. Because the band is
+// now opaque, the gap can be moved right up next to the bar without the mark becoming unreliable:
+// LOUDNESS AND ROBUSTNESS ARE NO LONGER THE SAME DIAL.
+// REDESIGNED 2026-09-17 (Nathan) after none of the hatch variants convinced: the marking is a BANDED
+// LINE. Yellow and white alternate ALONG the reach in dark mode, yellow and black in light. Not a
+// diagonal texture across a band, and not a casing around a core (that was my first misreading of
+// "follow the lines themselves", corrected by him to "yellow and white banded").
+// Yellow steps outside the species palette on purpose. The cost, raised with Nathan: you can no longer
+// tell from its colour that this layer is coho. The gain is that it cannot be mistaken for a published
+// federal layer, which is the thing it must not be mistaken for.
+//
+// A KNOWN RISK, recorded on 2026-09-16 when a dashed line was rejected: A DASH RESTARTS ON EVERY
+// SUBPATH, and most SONCC reaches are short. A reach shorter than one dash draws entirely yellow and
+// never alternates. That is survivable here in a way it was not then, because the gap is now a second
+// COLOUR rather than nothing, so a short reach reads as solid yellow instead of vanishing. But it is why
+// `dash` is on a slider and wants to be SHORT: the shorter it is, the more reaches get to alternate.
+// SETTLED 2026-09-17 (Nathan); the panel checkbox and width slider that found these were removed.
+const STRIPE = { on: true, band: 1.3 };   // width by eye (Nathan, 2026-09-17)
+const sonccStriped = () => STRIPE.on;
+// data-theme is always resolved to light or dark by the theme code (Auto included).
+const isDark = () => document.documentElement.dataset.theme === "dark";
+// The two tiers also differ slightly in HUE (Nathan, 2026-09-15): the band turns HUE_SHIFT degrees one way
+// round the wheel, the line the same amount the other way. Hues are OKLCH hue angles.
+const HUE_SHIFT = 4;   // was 10 with three species; neighbours are now 13.3 degrees apart
+// Colours are set in OKLCH, not HSL (2026-09-15). HSL's "lightness" is not what the eye sees: at one HSL
+// setting pale yellows and greens nearly matched the light land while pale blues stood out, so band
+// contrast against the land ran 1.02 to 1.86 across the 27 hues (lines 3.3 to 11.7). OKLCH lightness is
+// perceptual, so every species gets the same contrast: measured 1.3 to 1.4 for light-mode bands, lines
+// within about 15% of each other. Values: [lightness 0-1, chroma].
+// `stripe` is retained but now UNUSED by the SONCC marking, which took its own colours in 2026-09-17.
+// It is left because the tone table is a matched set and dropping one row invites re-deriving the others.
+// `derived` is the SONCC marking: the species' OWN HUE at a shade that belongs to neither tier, so the
+// layer still reads as its fish while announcing that it is not a published designation.
+// PER THEME AGAIN as of 2026-09-17, because dropping the banding dropped the reason it had to be one
+// value (it had to contrast with a white band on dark and a black one on light; now it only has to
+// contrast with the land and with the two coho tiers).
+// IT LEANS ON CHROMA, NOT LIGHTNESS. Lightness is boxed in: the tiers sit at 0.43/0.80 in dark and
+// 0.85/0.45 in light, so the derived layer can only live between them. Saturation is the axis with room,
+// and it is far more saturated than anything else on this map.
+// Chroma eased 0.20/0.21 -> 0.17/0.18 on 2026-09-17 (Nathan: "just a little too saturated").
+// Computed from the species hue rather than written as a fixed colour, so moving a fish around the wheel
+// moves its derived layer with it and the two cannot drift apart.
+const TONE = {
+  light: { band: [0.85, 0.09], stripe: [0.74, 0.11], line: [0.45, 0.13], derived: [0.62, 0.17] },
+  dark:  { band: [0.43, 0.06], stripe: [0.52, 0.08], line: [0.80, 0.13], derived: [0.66, 0.18] },
+};
+// OKLCH -> sRGB hex. A colour the screen cannot show loses chroma (never lightness or hue) until it
+// fits, so every species keeps its tone; the browser's own clipping would shift the hue instead.
+const oklchCache = new Map();
+function oklch(L, C, h) {
+  const key = L + "," + C + "," + h;
+  let hex = oklchCache.get(key);
+  if (hex) return hex;
+  const lin = c => {
+    const a = c * Math.cos(h * Math.PI / 180), b = c * Math.sin(h * Math.PI / 180);
+    const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
+    const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3;
+    const s = (L - 0.0894841775 * a - 1.2914855480 * b) ** 3;
+    return [4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+            -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+            -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s];
+  };
+  const fits = rgb => rgb.every(x => x >= 0 && x <= 1);
+  let rgb = lin(C);
+  if (!fits(rgb)) {
+    let lo = 0, hi = C;
+    for (let i = 0; i < 24; i++) { const mid = (lo + hi) / 2; if (fits(lin(mid))) lo = mid; else hi = mid; }
+    rgb = lin(lo);
+  }
+  const enc = x => Math.round(255 * Math.min(1, Math.max(0, x <= 0.0031308 ? 12.92 * x : 1.055 * x ** (1 / 2.4) - 0.055)));
+  hex = "#" + rgb.map(x => enc(x).toString(16).padStart(2, "0")).join("");
+  oklchCache.set(key, hex);
+  return hex;
+}
+const shades = hue => {
+  const t = TONE[isDark() ? "dark" : "light"];
+  const b = hue - HUE_SHIFT, l = hue + HUE_SHIFT;
+  return { band: oklch(...t.band, b), stripe: oklch(...t.stripe, b), line: oklch(...t.line, l),
+           derived: oklch(...t.derived, hue) };
+};
+// Diagonal stripes, a shade stronger than the solid band (paler ones with land between them read as
+// no band at all, checked 2026-09-15), about 3 px on / 3 px off. The pattern lives in canvas user space,
+// which the zoom scales by k, so it is scaled by 1/k to keep the stripes a constant screen size.
+// THE STRIPE IS OPAQUE: both the bar and the gap are painted (Nathan, 2026-09-17, "the stripe doesn't
+// show very well over the presence layers"). It used to leave the gap transparent, which made the
+// marking depend on whatever lay underneath it. Against bare land that was a strong texture; against
+// this species' own presence band it was not, because the band and the stripe are built from the SAME
+// HUE and differed only in lightness, 0.43 against 0.52 in dark mode. So the texture nearly vanished at
+// exactly the places a coho reader looks, where habitat and presence coincide.
+// That is the same defect that got the dashed line rejected: a mark that only works on some backgrounds.
+// Painting the gap makes the band self-contained, so it reads the same over land, over presence and over
+// anything added later.
+// Packed PER SOURCE since 2026-09-16 (Nathan: a switch per source). The active set is read at pack time,
+// so flipping a source repacks that species rather than filtering every frame; there are 68 sources and
+// the packed arrays are what the draw loop walks.
+function packPresence(key) {
+  const raw = PRESENCE[key];
+  if (!raw) return;
+  const c = presenceCombined(raw, srcOn[key] || null);
+  // polys dropped from the data 2026-09-18. Nothing drew it: both the screen path and the pick canvas
+  // read `merged`. Packing it cost a projection pass per repack for geometry that was never painted.
+  presPack[key] = { lines: pack(c.lines), merged: pack(c.polys_merged) };
+}
+function packStates() {
+  const project = [], other = [];
+  for (const f of STATES.features) {
+    const g = f.geometry;
+    if (!g) continue;
+    const rings = PROJECT_STATES.has(f.properties.STUSPS) ? project : other;
+    if (g.type === "Polygon") rings.push(...g.coordinates);
+    else if (g.type === "MultiPolygon") for (const poly of g.coordinates) rings.push(...poly);
+  }
+  statePack = pack(project);
+  otherPack = pack(other);
+}
+
+// NO closePath(). Chrome slows down badly as closePath is called repeatedly inside
+// one big path: measured 2026-09-13, bull trout's 3,401 rings took 650 ms per frame
+// with it and 12.6 ms without, and forcing it onto steelhead's 35,578 lines took
+// 5.4 s. It was never needed: every GeoJSON ring already repeats its first point
+// last (checked, 0 open rings in any layer or in the state outlines), and fill()
+// closes subpaths implicitly anyway.
+function trace(p, target) {
+  const c = target || ctx;                 // the pick canvas passes its own context
+  const { xy, off, count } = p;
+  for (let i = 0; i < count; i++) {
+    const s = off[i], e = off[i + 1];
+    if (e - s < 2) continue;
+    c.moveTo(xy[2 * s], xy[2 * s + 1]);
+    for (let j = s + 1; j < e; j++) c.lineTo(xy[2 * j], xy[2 * j + 1]);
+  }
+}
+
+// ---- Hover over a layer (2026-09-16, Nathan) --------------------------------------------------
+// The habitat and presence layers are a handful of enormous canvas paths, so there is nothing to hang a
+// hover on: the dams have popups only because they are SVG circles. So every active layer is drawn A
+// SECOND TIME into a hidden canvas, each in a unique flat colour, and the pixel under the pointer says
+// what is there. Notes on why it is built this way:
+//
+// - IT MUST BE ITS OWN CANVAS. The standing gotcha is that reading pixels fails on file:// once the
+//   relief images draw, because a file:// image taints the canvas. This one never draws the relief, so
+//   getImageData stays legal. (That is also why it draws no land, no lakes and no labels.)
+// - IT IS DRAWN AT HALF RESOLUTION and only after the view settles. The recorded cost of this map is
+//   REDRAW, every vertex of every active layer on every frame, so a second full-rate pass would double
+//   the one thing that was already the bottleneck. Hit accuracy of a pixel or two does not matter.
+// - EVERY STROKE IS WIDENED to at least HIT_PX. A 1.1 px line is nearly impossible to hover deliberately.
+// - THE DRAW ORDER IS REVERSED against the map: the map paints the wide presence band first and the thin
+//   ESA line on top, and the LAST thing drawn wins the pixel, so this order makes the pick agree with
+//   what the eye says is on top.
+const HIT_PX = 5, PICK_SCALE = 0.5;
+const pickCv = document.createElement("canvas");
+const pickCtx = pickCv.getContext("2d", { willReadFrequently: true });
+let pickIds = [null];            // index 0 is "nothing here"; ids are 1-based
+// Packing reprojects every vertex, so the per-source packs are built once and kept. Without this the
+// pick pass would reproject 1.9M points every time the view settled, which is the exact cost this map
+// is sensitive to. Keyed presenceKey|sourceId.
+const srcPack = {};
+function packSource(presKey, src) {
+  const key = presKey + "|" + src.id;
+  if (!srcPack[key]) srcPack[key] = { lines: pack(src.lines), merged: pack(src.polys_merged) };
+  return srcPack[key];
+}
+let pickReady = false, pickTimer = null;
+const pickColour = i => `rgb(${i & 255},${(i >> 8) & 255},${(i >> 16) & 255})`;
+
+// The PISCES watershed ranges, the only presence geometry that is an AREA rather than a stream
+// (California only, 11 species).
+//
+// DECIDED (Nathan) 2026-09-17: MERGED PER SPECIES, and the "Drawn as" control was removed with the
+// decision, the same way the tier-swap switch was. Per-watershed geometry is no longer drawn.
+// THIS RETIRED A REAL TRAP, recorded because it explains why a fill was impossible before the merge
+// existed: rings are stored flattened, so under even-odd a watershed appearing twice cancels itself
+// and fills as a HOLE. Not hypothetical. Chinook's 766 rings were only 371 distinct shapes, 326 of
+// them repeated, one per run of the same fish. Per-watershed therefore needed NON-ZERO, which in turn
+// needs interior rings wound against their exteriors, which GeoJSON does not guarantee and which had
+// to be measured (all 151 were). Merged rings come out of a union, where each area appears exactly
+// once, so EVEN-ODD IS EXACT whatever the winding, and none of that applies any more.
+//
+// FILL STRENGTH, ONE VALUE PER THEME. Nathan, 2026-09-17: "the end goal is that the Look select list
+// and the fill strength slider would be gone in the final product. there would just be two different
+// fill strength values for light and dark mode." Both controls are now gone; this object is what's left.
+//
+// Why it needs two at all, the same reason SOFT did: in dark mode this is a bright colour adding light
+// to dark land and it carries easily; in light mode it is a dark colour at low alpha on pale land, and
+// the same number reads much weaker. Integer percent.
+// SETTLED 2026-09-17 (Nathan), tuned by eye per theme: see the note beside RELIEF above, which records
+// why the two numbers differ this much and what it settled.
+const FILL = { light: 64, dark: 48 };
+const fillAlpha = () => FILL[isDark() ? "dark" : "light"] / 100;
+
+// DECIDED (Nathan) 2026-09-17: a plain fill, and the Look select went with the decision. The other six
+// looks (outline, dotted, fill-and-edge, soft-edged, stipple, hatch) were DELETED rather than left
+// unreachable behind a constant, as were the pattern builders and the blur constant only they used.
+// They are in the page's history in _OLD if the question ever reopens.
+function drawRanges(rings, line) {
+  ctx.beginPath(); trace(rings);
+  ctx.fillStyle = line;
+  ctx.globalAlpha = fillAlpha();
+  ctx.fill("evenodd");                     // merged geometry only, see above
+  ctx.globalAlpha = 1;
+}
+
+// Redraw the pick canvas. Called debounced, never inside a pan or zoom frame.
+function drawPick() {
+  const w = mapEl.clientWidth, h = mapEl.clientHeight, k = xform.k;
+  pickCv.width = Math.max(1, Math.round(w * PICK_SCALE));
+  pickCv.height = Math.max(1, Math.round(h * PICK_SCALE));
+  const q = pickCtx;
+  q.setTransform(1, 0, 0, 1, 0, 0);
+  q.clearRect(0, 0, pickCv.width, pickCv.height);
+  q.setTransform(PICK_SCALE * k, 0, 0, PICK_SCALE * k, PICK_SCALE * xform.x, PICK_SCALE * xform.y);
+  q.lineJoin = q.lineCap = "round";
+  pickIds = [null];
+
+  const stamp = (packed, meta, px, fill) => {
+    if (!packed || !packed.count) return;
+    pickIds.push(meta);
+    q.strokeStyle = q.fillStyle = pickColour(pickIds.length - 1);
+    q.beginPath(); trace.call(null, packed, q);
+    if (fill) q.fill("nonzero");
+    q.lineWidth = Math.max(px, HIT_PX / PICK_SCALE) / k;
+    q.stroke();
+  };
+
+  // Presence LAST would win the pixel, so ESA is stamped last to match what the eye sees on top.
+  for (const sp of SPECIES) {
+    const raw = spState[sp.key].pres && PRESENCE[sp.pres];
+    if (!raw) continue;
+    for (const src of raw.sources) {
+      const on = srcOn[sp.pres];
+      if (on && !on.has(src.id)) continue;
+      const pk = packSource(sp.pres, src);
+      const m = { sp, tier: "pres", src };
+      stamp(pk.merged, m, POLY_EDGE_PX, true);
+      stamp(pk.lines, m, BAND_PX, false);
+    }
+  }
+  for (const sp of SPECIES) {
+    const stt = spState[sp.key];
+    const on = [...(stt.esa ? sp.esa : []), ...(stt.derived ? sp.derived : [])];
+    for (const g of on) {
+      const pk = PACKED[g];
+      if (!pk) continue;
+      const m = { sp, tier: "esa", group: g, derived: sp.derived.includes(g) };
+      stamp(pk.polys, m, POLY_EDGE_PX, true);
+      stamp(pk.lines, m, LINE_PX, false);
+    }
+  }
+  pickReady = true;
+}
+
+// OFF BY DEFAULT (Nathan, 2026-09-16: "that definitely slows things down... i was really thinking this
+// feature would be for me when i'm poking around and testing"). While the switch is off nothing is drawn,
+// nothing is packed and no pixel is read, so the feature costs exactly nothing.
+// MADE PERMANENT 2026-09-17 (Nathan), still off by default, so the slowdown is only paid by whoever
+// turns it on.
+const hoverOn = () => document.getElementById("hover-layers").checked;
+function schedulePick() {
+  pickReady = false;
+  clearTimeout(pickTimer);
+  if (!hoverOn()) return;
+  pickTimer = setTimeout(drawPick, 140);
+}
+
+function drawHabitat() {
+  const w = mapEl.clientWidth, h = mapEl.clientHeight, k = xform.k;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+  ctx.setTransform(dpr * k, 0, 0, dpr * k, dpr * xform.x, dpr * xform.y);
+  ctx.lineJoin = ctx.lineCap = "round";
+
+  // Neighbouring states first: flat context only, a shade off the water, faint border.
+  if (otherPack) {
+    ctx.beginPath(); trace(otherPack);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = css("--land-other"); ctx.fill("evenodd");
+    ctx.strokeStyle = css("--border-other");
+    ctx.lineWidth = .6 / k; ctx.stroke();
+  }
+
+  // Project states' land, so habitat draws on top of it rather than under it.
+  if (statePack) {
+    ctx.beginPath(); trace(statePack);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = css("--land"); ctx.fill("evenodd");
+    ctx.strokeStyle = css("--border");
+    ctx.lineWidth = .7 / k; ctx.stroke();
+  }
+
+  // Natural features, clipped to CA/OR/WA land, so ocean, neighbour-state and foreign relief and lakes stay hidden.
+  if (NAT && statePack) {
+    ctx.save();
+    ctx.beginPath(); trace(statePack); ctx.clip("evenodd");
+    // Switchable since 2026-09-17 (Nathan); it was unconditional from 2026-09-14. The guard covers
+    // the hi-res tile fetch below too, so relief off costs nothing rather than loading and hiding.
+    if (reliefReady && natOn("nat-relief")) {
+      const s = projection.scale(), [tx, ty] = projection.translate();
+      const place = q => [tx + s * q.originX / q.R, ty - s * q.originY / q.R,
+                          s * q.width * q.pixel / q.R, s * q.height * q.pixel / q.R];
+      if (reliefCv.width !== cvEl.width || reliefCv.height !== cvEl.height) {
+        reliefCv.width = cvEl.width; reliefCv.height = cvEl.height;
+      }
+      rctx.setTransform(1, 0, 0, 1, 0, 0);
+      rctx.fillStyle = "#fff"; rctx.fillRect(0, 0, reliefCv.width, reliefCv.height);
+      rctx.setTransform(dpr * k, 0, 0, dpr * k, dpr * xform.x, dpr * xform.y);
+      rctx.drawImage(reliefImg, ...place(NAT.relief));
+      if (HI && HI.R / (s * k * dpr) < HI_SWITCH_M) {
+        // Tiles under the viewport: screen corner -> Albers metres -> tile column and row.
+        const span = HI.tile * HI.pixel;
+        const mx = px => ((px - xform.x) / k - tx) * HI.R / s;
+        const my = py => (ty - (py - xform.y) / k) * HI.R / s;
+        const c0 = Math.max(0, Math.floor((mx(0) - HI.originX) / span));
+        const c1 = Math.floor((mx(w) - HI.originX) / span);
+        const r0 = Math.max(0, Math.floor((HI.originY - my(0)) / span));
+        const r1 = Math.floor((HI.originY - my(h)) / span);
+        for (let c = c0; c <= c1; c++) for (let r = r0; r <= r1; r++) {
+          const key = c + "_" + r;
+          if (!HI_SET.has(key)) continue;
+          const t = hiTile(key);
+          if (!t.ready) continue;
+          const x0 = HI.originX + c * span, y0 = HI.originY - r * span;
+          rctx.drawImage(t.img, tx + s * x0 / HI.R, ty - s * y0 / HI.R,
+                         s * t.img.naturalWidth * HI.pixel / HI.R, s * t.img.naturalHeight * HI.pixel / HI.R);
+        }
+      }
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);     // the land clip set above stays in force
+      ctx.globalCompositeOperation = "multiply";
+      ctx.globalAlpha = reliefAlpha();
+      ctx.drawImage(reliefCv, 0, 0);
+      ctx.restore();
+    }
+    if (natOn("nat-lakes") && natPack.lakes) {
+      ctx.beginPath(); trace(natPack.lakes);
+      ctx.globalAlpha = 1; ctx.fillStyle = css("--lake"); ctx.fill("evenodd");
+      // Edge widened from .5 to .8: at continental zoom most lakes here are a few pixels across, so the
+      // outline is doing more of the work than the fill is.
+      ctx.globalAlpha = .95; ctx.strokeStyle = css("--lake-edge"); ctx.lineWidth = .8 / k; ctx.stroke();
+    }
+    // Rivers removed 2026-09-14 (Nathan): the habitat lines already draw the rivers that matter here.
+    ctx.restore();
+  }
+
+  // Fish data is CLIPPED OUT OF THE SIX NEIGHBOURING STATES (Nathan, 2026-09-14), not clipped to land:
+  // a land clip would delete offshore critical habitat (green sturgeon, eulachon). The region is a huge
+  // rectangle minus the neighbour rings (evenodd). Lines crossing a border are cut at the drawn line.
+  ctx.save();
+  if (otherPack) {
+    ctx.beginPath(); ctx.rect(-1e7, -1e7, 2e7, 2e7); trace(otherPack); ctx.clip("evenodd");
+  }
+
+  // Which tier gets the wide faint band and which gets the thin dark line.
+  // DECIDED by Nathan 2026-09-16: ESA thin and dark, presence wide and faint. THE REASON IS SOURCE
+  // CONSISTENCY, not confidence. ESA critical habitat is one federal designation with one legal
+  // definition applied the same way in all three states, so it can carry one precise symbol. The
+  // presence tier is ODFW reaches, SWIFD reaches, CDFW and NOAA lines and PISCES watersheds, with
+  // different vintages, filters and grains, so a crisp uniform symbol would claim a consistency it
+  // does not have; a wide soft band reads as an envelope assembled from many sources, which is what
+  // it is. The switch that let the two arrangements be compared was removed on 2026-09-16, once the
+  // decision was made, so this is written down rather than selected.
+  // THE WIDE TIER IS DRAWN FIRST, so the thin line always lands on top of the band rather than under
+  // it; that ordering is what makes the pair readable.
+  const wide = { tone: "band", px: BAND_PX, alpha: .9 };
+  const thin = { tone: "line", px: LINE_PX, alpha: 1 };
+  const esaRole = thin, presRole = wide;
+
+  const drawEsa = () => {
+    for (const sp of SPECIES) {
+      const stt = spState[sp.key];
+      const on = [...(stt.esa ? sp.esa : []), ...(stt.derived ? sp.derived : [])];
+      if (!on.length) continue;
+      const sh = shades(sp.hue);
+      for (const g of on) {
+        const p = PACKED[g];
+        if (!p) continue;
+        // The derived SONCC layer is this project's reconstruction and must never look like an
+        // official layer (its manifest says so), so its band is STRIPED. A dash was tried first and
+        // read as solid: the dash restarts on every reach, and most SONCC reaches are shorter than
+        // one dash. A pattern does not care where a reach starts.
+        //
+        // SO IT KEEPS THE STRIPED BAND WHATEVER THE TIER WEIGHT, and under the reason Nathan gave for
+        // the swap that is not an exception grudgingly made, it is the correct answer. The thin dark
+        // line means "the one consistent federal designation". SONCC is the single member of this tier
+        // that is NOT federal, because NMFS never published it and this project rebuilt it. It should
+        // therefore not be given the symbol that makes that claim. A dashed thin line was tried and
+        // rejected instead: at continental zoom a 2 px dash on a 1.3 px hairline reads as solid, so the
+        // marking would vanish exactly where a reader forms an impression of the whole coast.
+        // The stripe also keeps it apart from the presence bands it now sits beside, which are solid.
+        const marked = sp.derived.includes(g) && sonccStriped();
+        // The marked band carries its OWN width (STRIPE.band), rather than borrowing the presence
+        // tier's, because it is being tuned separately and the two happening to start equal is not a
+        // reason to tie them together.
+        const style = marked ? sh.derived : sh[esaRole.tone];
+        ctx.strokeStyle = ctx.fillStyle = style;
+        if (p.polys.count) {               // ESA areas (bull trout): pale fill plus an edge
+          ctx.beginPath(); trace(p.polys);
+          ctx.globalAlpha = .45; ctx.fillStyle = sh.band; ctx.fill("evenodd");
+          ctx.fillStyle = style;
+          ctx.globalAlpha = .9; ctx.lineWidth = POLY_EDGE_PX / k; ctx.stroke();
+        }
+        if (p.lines.count) {
+          ctx.beginPath(); trace(p.lines);
+          if (marked) {
+            // A DISTINCT SHADE, NOT A PATTERN (Nathan, 2026-09-17). The banded version was abandoned
+            // because it cannot work at continental zoom on this layer: measured, 95% of the 2,602 SONCC
+            // reaches are shorter than one 4 px band at the default view (median 0.29 px), and even a
+            // 1 px band leaves 83% too short. No band length fixes geometry finer than the mark.
+            // A shade works at every zoom, which a pattern on sub-pixel reaches never can.
+            ctx.globalAlpha = 1;
+            ctx.strokeStyle = sh.derived;
+            ctx.lineWidth = STRIPE.band / k;
+            ctx.stroke();
+          } else {
+            ctx.globalAlpha = esaRole.alpha; ctx.lineWidth = esaRole.px / k; ctx.stroke();
+          }
+        }
+      }
+    }
+  };
+
+  const drawPres = () => {
+    for (const sp of SPECIES) {
+      const p = spState[sp.key].pres && presPack[sp.pres];
+      if (!p) continue;
+      const colour = shades(sp.hue)[presRole.tone];
+      const ranges = p.merged;
+      if (ranges && ranges.count) drawRanges(ranges, colour);
+      if (p.lines.count) {
+        ctx.strokeStyle = colour; ctx.globalAlpha = presRole.alpha; ctx.lineWidth = presRole.px / k;
+        ctx.beginPath(); trace(p.lines); ctx.stroke();
+      }
+    }
+  };
+
+  drawPres(); drawEsa();
+  ctx.restore();                           // end of the neighbour-state clip
+  ctx.globalAlpha = 1;
+
+  // Range and valley labels, always on, drawn in screen space so they keep a constant size.
+  if (NAT) {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.font = "600 10px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    if ("letterSpacing" in ctx) ctx.letterSpacing = "1.6px";
+    ctx.save();
+    // Stroked UNDER the fill, joined round: a miter join spikes on tight letterforms at this size, and
+    // the fill then covers the inner half of the stroke, so the halo reads at about half this width.
+    ctx.strokeStyle = css("--c-halo");
+    ctx.lineWidth = LABEL_HALO_PX;
+    ctx.lineJoin = ctx.lineCap = "round";
+    ctx.fillStyle = css("--muted"); ctx.globalAlpha = .75;
+    for (const l of natLabels) {
+      if (!l.xy) continue;
+      const [x, y] = xform.apply(l.xy);
+      ctx.strokeText(l.name, x, y);
+      ctx.fillText(l.name, x, y);
+    }
+    ctx.restore();                         // lineJoin and lineCap are shared with the habitat strokes
+    if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
+    ctx.globalAlpha = 1;
+  }
+  schedulePick();
+}
+
+// Inject a script tag rather than fetch, so the sketch still works when opened
+// straight off disk as a file:// URL, where fetch is blocked.
+function loadGroup(meta, done) {
+  if (HABITAT[meta.key]) { packGroup(meta.key); return void done(); }
+  if (loading.has(meta.key)) return void done();
+  loading.add(meta.key);
+  const s = document.createElement("script");
+  s.src = meta.file;
+  s.onload = () => { loading.delete(meta.key); packGroup(meta.key); done(); };
+  s.onerror = () => {
+    loading.delete(meta.key);
+    console.error("habitat layer failed to load:", meta.file);
+    done();
+  };
+  document.head.appendChild(s);
+}
+
+function fit() {
+  const w = mapEl.clientWidth, h = mapEl.clientHeight;
+  svg.attr("viewBox", `0 0 ${w} ${h}`);
+  // Fit to the dams rather than the states, so the view is about the data.
+  projection.fitExtent([[26, 26], [w - 26, h - 26]], DAMS);
+  gDams.selectAll("circle")
+    .attr("cx", d => projection(d.geometry.coordinates)[0])
+    .attr("cy", d => projection(d.geometry.coordinates)[1]);
+
+  // The projection just changed, so every cached screen coordinate is stale.
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cvEl.width = Math.round(w * dpr);
+  cvEl.height = Math.round(h * dpr);
+  packStates();
+  packNatural();
+  for (const key of Object.keys(HABITAT)) packGroup(key);
+  for (const key of Object.keys(PRESENCE)) packPresence(key);
+  drawHabitat();
+}
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// An audit flag earns a visible ring, because the whole reason these attributes exist
+// is so a flagged dam can be FOUND on the map rather than looked up by coordinate.
+// Three states, most urgent first: rule 45 switched the extension off here; the
+// extension survived only because the near channel is unnamed; something else.
+const auditKind = p => !p.audit ? null
+  : p.audit.rule45_blocked ? "blocked"
+  : (p.audit.same_stream && p.audit.same_stream.flag) ? "eyes"
+  : p.audit.range_edge ? "edge" : null;
+const AUDIT_RING = { blocked: "#e8663c", eyes: "#f0b429", edge: "#7b61ff" };
+
+const damStroke = d => !damDetail() ? css("--c-halo")
+  : AUDIT_RING[auditKind(d.properties)]
+  || (d.properties.corrected ? css("--c-fix") : "rgba(255,255,255,.85)");
+
+// ONE definition of the mark size, because the two that existed had already drifted: the first draw
+// gave a flagged dam r=6.2 while the zoom handler rebuilt every radius from the corrected/plain pair
+// only, so an audit ring quietly shrank to plain size the first time anyone zoomed (standing rule 44).
+// Plain is UNIFORM on purpose. Size is an attribute like colour, so varying it with the switch off
+// would leak the provenance the switch is meant to hide.
+const DAM_R = { plain: 2.4, corrected: 5.5, audit: 6.2 };
+const damR = p => !damDetail() ? DAM_R.plain
+              : auditKind(p) ? DAM_R.audit
+              : p.corrected ? DAM_R.corrected
+              : DAM_R.plain;
+// The edge is non-scaling (see vector-effect below), so this is screen pixels at every zoom.
+const DAM_EDGE_PX = 1;
+const damStrokeW = d => !damDetail() ? DAM_EDGE_PX
+  : auditKind(d.properties) ? 2.4 : d.properties.corrected ? 1.8 : 1;
+gDams.selectAll("circle").data(DAMS.features).join("circle")
+  .attr("class", "dam")
+  .attr("r", d => damR(d.properties))
+  .attr("fill", d => colourOf(d.properties))
+  .attr("fill-opacity", .88)
+  .attr("stroke", damStroke)
+  .attr("stroke-width", damStrokeW)
+  .attr("vector-effect", "non-scaling-stroke")
+  .on("mouseenter", (ev, d) => { if (!pinned) showPop(ev, d); })
+  .on("mousemove", ev => { if (!pinned) placePop(ev); })
+  .on("mouseleave", () => { if (!pinned) pop.classed("on", false); })
+  // A click pins the popup where it is, so the pointer can travel to the button.
+  .on("click", (ev, d) => { pinned = d; showPop(ev, d); pop.classed("pinned", true); });
+
+// Hover previews; a click pins. Any press on the map (pan, zoom, or a click on
+// empty water) unpins first, and a click on a dam then re-pins that dam.
+let pinned = null;
+function unpin() {
+  if (!pinned) return;
+  pinned = null;
+  pop.classed("pinned", false).classed("on", false);
+}
+addEventListener("keydown", ev => { if (ev.key === "Escape") unpin(); });
+
+// The species swatch in the popup needs the drawn colours, so this sits after shades() is defined.
+mapEl.addEventListener("mousemove", ev => {
+  if (pinned) return;                                  // a pinned dam popup wins
+  // The dam's own hover is showing. Forget what the layer hover had, or moving layer -> dam -> the same
+  // layer would leave the key matching and never re-show the popup the dam just replaced.
+  if (ev.target.tagName === "circle") { hoverKey = null; return; }
+  const m = layerAt(ev);
+  const key = m && (m.sp.key + "|" + m.tier + "|" + (m.src ? m.src.id : m.group));
+  if (!m) { if (hoverKey) { hoverKey = null; pop.classed("on", false); } return; }
+  if (key !== hoverKey) { hoverKey = key; pop.html(layerPopHtml(m)).classed("on", true); }
+  placePop(ev);
+});
+mapEl.addEventListener("mouseleave", () => {
+  if (!pinned && hoverKey) { hoverKey = null; pop.classed("on", false); }
+});
+
+// Latitude first so it pastes straight into Google Maps, and exactly as stored:
+// padding with zeros would claim precision the sheet does not have (rule 46).
+const coordText = d => `${d.geometry.coordinates[1]}, ${d.geometry.coordinates[0]}`;
+
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext)
+    return navigator.clipboard.writeText(text);
+  // Fallback for browsers that refuse the async clipboard on file://
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.cssText = "position:fixed; opacity:0";
+  document.body.appendChild(ta);
+  ta.select();
+  const ok = document.execCommand("copy");
+  ta.remove();
+  return ok ? Promise.resolve() : Promise.reject(new Error("copy refused"));
+}
+
+pop.on("click", ev => {
+  const btn = ev.target.closest("button[data-coords]");
+  if (!btn) return;
+  const label = btn.textContent;
+  copyText(btn.dataset.coords)
+    .then(() => { btn.textContent = "COPIED"; })
+    .catch(() => { btn.textContent = "COPY FAILED"; })
+    .finally(() => setTimeout(() => { btn.textContent = label; }, 1200));
+});
+
+function showPop(ev, d) {
+  const p = d.properties;
+  const src = p.coord_source === "nacc" ? "NACC (recovered)"
+            : p.coord_source === "drp"  ? "corrected (see below)"
+            : "American Rivers";
+  let html = `<div class="pop-t">${esc(p.name)}</div>
+    <div class="pop-r">${esc(p.river || "river not recorded")} &middot; ${esc(p.state)}</div>
+    <dl class="pop-g">
+      <dt>Removed</dt><dd>${p.year || "not recorded"}</dd>
+      <dt>Height</dt><dd>${p.height_ft ? esc(p.height_ft) + " ft" : "not recorded"}</dd>
+      <dt>AR ID</dt><dd>${esc(p.id)}</dd>
+      <dt>Position</dt><dd>${src}</dd>
+    </dl>`;
+  // The two fields, kept apart on purpose: a designation is not a fish (rule 17).
+  // "none" here means no designation within the join tolerance, not "no fish".
+  html += `<dl class="pop-g">
+      <dt>Species present</dt><dd>${p.species_present ? esc(p.species_present) : "none of the 21 species within tolerance"}</dd>
+      <dt>ESA critical habitat</dt><dd>${p.esa_critical_habitat ? esc(p.esa_critical_habitat) : "none designated here"}</dd>
+    </dl>`;
+  if (p.corrected) html += `<div class="warn"><b>Corrected.</b> ${esc(p.corrected)}.</div>`;
+  // The audit block. `ss` is the channel at the dam's feet against the one its species
+  // came from; `nhd` is the national river network's independent opinion on the name,
+  // which is the only way to judge a channel our own sources left unnamed.
+  const a = p.audit;
+  if (a) {
+    const ss = a.same_stream, n = a.nhd;
+    let rows = "";
+    if (ss) {
+      if (ss.feet_stream !== undefined)
+        rows += `<dt>At its feet</dt><dd>${esc(ss.feet_stream)}, ${ss.feet_m} m</dd>`;
+      rows += `<dt>Species came from</dt><dd>${esc(ss.matched_stream)}, ${ss.matched_m} m</dd>`;
+    }
+    if (n) {
+      rows += `<dt>NHD calls it</dt><dd>${esc(n.nearest)}, ${n.nearest_m} m`
+            + (n.nearest_named && n.nearest_named !== n.nearest
+               ? ` &middot; nearest named: ${esc(n.nearest_named)}, ${n.nearest_named_m} m` : "")
+            + `</dd>`;
+      rows += `<dt>Recorded river</dt><dd>${n.recorded_river_m !== undefined
+               ? "NHD puts it " + n.recorded_river_m + " m away"
+               : "<b>NHD does not put it anywhere near</b>"}</dd>`;
+    }
+    if (rows) html += `<dl class="pop-g">${rows}</dl>`;
+    if (a.rule45_blocked)
+      html += `<div class="warn"><b>Rule 45 blocked the extension here.</b> ${esc(a.rule45_blocked)}.</div>`;
+    else if (ss && ss.flag)
+      html += `<div class="warn"><b>Needs eyes.</b> ${esc(ss.flag)}.</div>`;
+    if (a.range_edge)
+      html += `<div class="warn"><b>On a range edge.</b> ` + a.range_edge.map(r =>
+        `${esc(r.species)} ${esc(r.position)} by ${r.edge_m} m`).join("; ") + `.</div>`;
+  }
+  html += `<div class="pop-copy"><button type="button" data-coords="${esc(coordText(d))}">COPY COORDS</button>`
+        + (pinned ? `<i>${esc(coordText(d))}</i>` : `<i>click the dam to pin</i>`) + `</div>`;
+  pop.html(html).classed("on", true);
+  placePop(ev);
+}
+// Hovering a drawn layer. The dams own the pointer when it is over one (they are SVG circles above the
+// canvas and get their own mouseenter), and a pinned dam popup wins outright, so this only speaks when
+// neither applies. Reading one pixel is cheap; the expensive part, redrawing the pick canvas, already
+// happened when the view settled.
+let hoverKey = null;
+function layerAt(ev) {
+  if (!pickReady || !hoverOn()) return null;
+  const r = mapEl.getBoundingClientRect();
+  const x = Math.round((ev.clientX - r.left) * PICK_SCALE), y = Math.round((ev.clientY - r.top) * PICK_SCALE);
+  if (x < 0 || y < 0 || x >= pickCv.width || y >= pickCv.height) return null;
+  const d = pickCtx.getImageData(x, y, 1, 1).data;
+  if (!d[3]) return null;
+  return pickIds[d[0] | (d[1] << 8) | (d[2] << 16)] || null;
+}
+
+function layerPopHtml(m) {
+  const sh = shades(m.sp.hue);
+  const swatchFor = m.tier === "esa"
+    ? `<span style="display:inline-block;width:16px;height:2px;vertical-align:middle;background:${sh.line}"></span>`
+    : `<span style="display:inline-block;width:16px;height:6px;vertical-align:middle;border-radius:2px;background:${sh.band}"></span>`;
+  let html = `<div style="font-weight:600">${swatchFor} ${esc(m.sp.label)}</div>`;
+  if (m.tier === "esa") {
+    html += `<div style="color:var(--muted);margin-top:4px">ESA critical habitat</div>`;
+    html += m.derived
+      ? `<div style="margin-top:6px"><b>Not an official layer.</b> This is the SONCC coho critical
+         habitat this project rebuilt itself, because NMFS never published it.</div>`
+      : `<div style="margin-top:6px">A federal designation, defined the same way in all three
+         states.</div>`;
+  } else {
+    const src = m.src;
+    html += `<div style="color:var(--muted);margin-top:4px">Presence &middot; ${esc(src.label)}</div>`;
+    html += `<div style="margin-top:6px">${src.grain === "reach"
+      ? "Mapped as stream reaches."
+      : "Mapped as whole HUC12 watersheds, not as streams."}</div>`;
+    for (const n of src.notes || []) html += `<div style="margin-top:6px">${esc(n)}</div>`;
+  }
+  return html;
+}
+
+function placePop(ev) {
+  const r = mapEl.getBoundingClientRect();
+  const x = ev.clientX - r.left, y = ev.clientY - r.top;
+  const w = pop.node().offsetWidth, h = pop.node().offsetHeight;
+  pop.style("left", Math.min(x + 14, r.width - w - 8) + "px")
+     .style("top", Math.max(8, Math.min(y + 14, r.height - h - 8)) + "px");
+}
+
+function loadPresence(key, done) {
+  if (PRESENCE[key]) { packPresence(key); return void done(); }
+  const s = document.createElement("script");
+  s.src = `presence/presence_${key}.js`;
+  s.onload = () => { packPresence(key); done(); };
+  s.onerror = () => { console.error("presence layer failed to load:", s.src); done(); };
+  document.head.appendChild(s);
+}
+// part: "both" (species row), "esa" (band only) or "pres" (line only).
+// The swatch has to follow the tier weight, or the panel says one thing and the map draws another.
+// It is redrawn by repaintSwatches() on a theme change and on the tier switch.
+const swatch = (hue, part = "both") => {
+  const { band, line, derived } = shades(hue);
+  const wide = `<line x1="3" y1="5" x2="19" y2="5" stroke="${band}" stroke-width="7" stroke-linecap="round"/>`;
+  const thin = `<line x1="3" y1="5" x2="19" y2="5" stroke="${line}" stroke-width="1.6" stroke-linecap="round"/>`;
+  const drv  = `<line x1="3" y1="5" x2="19" y2="5" stroke="${derived}" stroke-width="2.1" stroke-linecap="round"/>`;
+  const esa = thin, pres = wide;
+  // Wide first, so the thin mark sits on top exactly as it does on the map.
+  const both = pres + esa;
+  const marks = part === "esa" ? esa : part === "pres" ? pres : part === "derived" ? drv : both;
+  return `<svg width="22" height="10" viewBox="0 0 22 10">${marks}</svg>`;
+};
+let lastGroup = null;
+const mains = [];
+for (const sp of SPECIES) {
+  const st = spState[sp.key];
+  const has = { esa: sp.esa.length > 0, derived: sp.derived.length > 0, pres: !!sp.pres };
+  const tiers = ["esa", "derived", "pres"].filter(t => has[t]);
+  const part = tiers.length === 1 ? tiers[0] : "both";
+  if (sp.group !== lastGroup) {
+    const h = document.createElement("div");
+    h.className = "spgroup"; h.textContent = sp.group;
+    document.getElementById("splist").appendChild(h);
+    lastGroup = sp.group;
+  }
+  // One row per SOURCE under the presence switch (Nathan, 2026-09-16), indented, each showing its grain
+  // so a reader can see at a glance which of a species' sources is stream reaches and which is whole
+  // watersheds. Chinook is the reason: it is the only species carrying both inside one state, 13 sources
+  // over 8 runs from two programmes. A species with one source still gets its row, so the panel does not
+  // change shape from species to species.
+  const srcRows = sp => {
+    const meta = sp.pres && PRES_META[sp.pres];
+    if (!meta) return "";
+    return `<div class="spsrc">` + meta.sources.map(s =>
+        `<div class="srcrow">`
+      + [`<label class="hab src"><input type="checkbox" data-src="${s.id}" checked>`
+      + `<span class="grain ${s.grain === "reach" ? "reach" : "range"}"></span>`
+      + `${s.label}<span class="n">${fmtN(s.lines + s.polys)}</span></label>`
+      , s.notes && s.notes.length
+          ? `<button type="button" class="info" data-note="${s.id}" aria-expanded="false"`
+            + ` aria-label="What this layer's geometry represents">i</button>`
+          : ""].join("")
+      + `</div>`
+      + (s.notes && s.notes.length
+          ? `<div class="srcnote" id="note-${s.id}" hidden>` + s.notes.map(n => `<p>${n}</p>`).join("") + `</div>`
+          : "")).join("") + `</div>`;
+  };
+  // Same shape as a source row, so a tier note and a source note open the same way.
+  const tierRow = (tier, name, missing, notes) => {
+    if (!has[tier])
+      return `<label class="hab none"><input type="checkbox" disabled><span style="width:22px;flex:0 0 22px"></span> ${missing}</label>`;
+    const id = sp.key + "-" + tier;
+    return `<div class="srcrow">`
+      + `<label class="hab src"><input type="checkbox" data-tier="${tier}">`
+      + `<span class="spsw" data-hue="${sp.hue}" data-part="${tier}">${swatch(sp.hue, tier)}</span> ${name}</label>`
+      + (notes ? `<button type="button" class="info" data-note="${id}" aria-expanded="false"`
+                 + ` aria-label="Where this layer comes from">i</button>` : "")
+      + `</div>`
+      + (notes ? `<div class="srcnote" id="note-${id}" hidden>` + notes.map(n => `<p>${n}</p>`).join("") + `</div>` : "");
+  };
+  const box = document.createElement("div");
+  box.innerHTML =
+      `<div class="sprow">`
+    +   `<button type="button" class="caret" aria-expanded="false" aria-label="Show the habitat and presence switches for ${sp.label}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2 L8.5 6 L4 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`
+    +   `<label class="hab"><input type="checkbox" class="sp" value="${sp.key}">`
+    +     `<span class="spsw" data-hue="${sp.hue}" data-part="${part}">${swatch(sp.hue, part)}</span> ${sp.label}</label>`
+    + `</div>`
+    + `<div class="spsub" hidden>`
+    +   tierRow("esa", "ESA critical habitat", "No ESA critical habitat",
+          has.derived ? ["<b>Published by the agency.</b> Designated under the Endangered Species Act and "
+            + "distributed as GIS data by NMFS or USFWS. The designation and the mapping are both theirs, "
+            + "and the lines are used exactly as they arrive."] : null)
+    +   tierRow("derived", "ESA critical habitat, derived", "No derived layer",
+          ["<b>Reconstructed by this project.</b> The Southern Oregon / Northern California Coast coho "
+           + "designation is federal and official like the one above, but <b>NMFS never published GIS data "
+           + "for it</b>, so the geometry here was rebuilt from basin boundaries (StreamStats and NLDI).",
+           "So the designation is the agency's and the lines are ours. They carry this project's error "
+           + "rather than NMFS's, which is why the layer is drawn in a different shade and why it is on a "
+           + "switch of its own rather than folded in above."])
+    +   tierRow("pres", "Presence", "No presence layer")
+    +   srcRows(sp)
+    + `</div>`;
+  document.getElementById("splist").appendChild(box);
+  const caret = box.querySelector(".caret"), sub = box.querySelector(".spsub");
+  const main = box.querySelector("input.sp"), row = box.querySelector(".sprow label");
+  const tierBox = Object.fromEntries(tiers.map(t => [t, box.querySelector(`[data-tier="${t}"]`)]));
+  mains.push(main);
+
+  caret.addEventListener("click", () => {
+    const open = caret.getAttribute("aria-expanded") !== "true";
+    caret.setAttribute("aria-expanded", open);
+    sub.hidden = !open;
+  });
+
+  // Source switches. Turning one off REPACKS that species rather than filtering in the draw loop: the
+  // packed arrays are what every frame walks, so the cost belongs at the flip, not at 60 frames a second.
+  // Unticking every source leaves the presence tier on with nothing in it, which is correct and visible
+  // (the count beside each source says what is being removed) rather than silently turning the tier off.
+  // The "i" opens its own note under the row. A button rather than a hover, so it works by keyboard
+  // and on a touch screen, and so the text stays put while it is read.
+  for (const b of box.querySelectorAll(".info")) {
+    b.addEventListener("click", () => {
+      const note = box.querySelector("#note-" + CSS.escape(b.dataset.note));
+      const open = b.getAttribute("aria-expanded") !== "true";
+      b.setAttribute("aria-expanded", open);
+      note.hidden = !open;
+    });
+  }
+
+  const srcBoxes = [...box.querySelectorAll("[data-src]")];
+  for (const cb of srcBoxes) {
+    cb.addEventListener("change", () => {
+      srcOn[sp.pres] = new Set(srcBoxes.filter(b => b.checked).map(b => b.dataset.src));
+      if (PRESENCE[sp.pres]) packPresence(sp.pres);   // no-op until the species' file has loaded
+      drawHabitat();
+    });
+  }
+
+  // The species switch shows its tiers at a glance: ticked = every tier it has is on, a dash = some.
+  const sync = () => {
+    for (const t of tiers) tierBox[t].checked = st[t];
+    const on = tiers.filter(t => st[t]).length;
+    main.checked = on === tiers.length;
+    main.indeterminate = on > 0 && on < tiers.length;
+  };
+
+  // Turn one tier on or off, loading its files the first time.
+  const setTier = (tier, on, done) => {
+    const gs = tier === "esa" ? sp.esa : tier === "derived" ? sp.derived : null;
+    if (gs) gs.forEach(g => on ? active.add(g) : active.delete(g));
+    else on ? presActive.add(sp.pres) : presActive.delete(sp.pres);
+    if (!on) return void done();
+    if (gs) {
+      let pending = gs.length;
+      for (const g of gs) loadGroup(IDX.find(m => m.key === g), () => { if (--pending === 0) done(); });
+    } else loadPresence(sp.pres, done);
+  };
+  const apply = changes => {
+    for (const [tier, on] of changes) st[tier] = on;   // record first, so sync() shows the new state
+    sync();
+    row.classList.add("busy");
+    let pending = changes.length;
+    const done = () => { if (--pending === 0) { row.classList.remove("busy"); drawHabitat(); } };
+    for (const [tier, on] of changes) setTier(tier, on, done);
+  };
+
+  // Species switch: a click from off or from a dash turns every tier on; from ticked, all off.
+  main.addEventListener("change", () => apply(tiers.map(t => [t, main.checked])));
+  for (const tier of tiers)
+    tierBox[tier].addEventListener("change", () => apply([[tier, tierBox[tier].checked]]));
+}
+const setAll = on => mains.forEach(m => {
+  if (m.checked !== on || m.indeterminate) { m.checked = on; m.indeterminate = false; m.dispatchEvent(new Event("change")); }
+});
+document.getElementById("sp-all").addEventListener("click", () => setAll(true));
+document.getElementById("sp-none").addEventListener("click", () => setAll(false));
+const repaintSwatches = () =>
+  document.querySelectorAll(".spsw").forEach(el => { el.innerHTML = swatch(+el.dataset.hue, el.dataset.part); });
+
+const zoom = d3.zoom().scaleExtent([1, 60])
+  .on("start", () => { svg.classed("dragging", true); unpin(); })
+  .on("end", () => { svg.classed("dragging", false); })
+  .on("zoom", ev => {
+    gRoot.attr("transform", ev.transform);
+    // keep marks a constant screen size as the map scales
+    const k = ev.transform.k;
+    gDams.selectAll("circle")
+      .attr("r", d => damR(d.properties) / Math.sqrt(k));
+    xform = ev.transform;
+    drawHabitat();
+  });
+svg.call(zoom);
+
+d3.select("#zin").on("click", () => svg.transition().duration(250).call(zoom.scaleBy, 1.8));
+d3.select("#zout").on("click", () => svg.transition().duration(250).call(zoom.scaleBy, 1 / 1.8));
+d3.select("#zreset").on("click", () =>
+  svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity));
+
+function applyFilter() {
+  const states = [...document.querySelectorAll(".st:checked")].map(c => c.value);
+  const onlyAudit = document.getElementById("only-audit").checked;
+  const keep = p => states.includes(p.state) && (!onlyAudit || !!auditKind(p));
+  let n = 0;
+  gDams.selectAll("circle").each(function (d) {
+    const ok = keep(d.properties);
+    if (ok) n++;
+    this.style.display = ok ? "" : "none";
+  });
+  document.getElementById("shown").innerHTML =
+    `${n}<small>${n === META.mapped ? "dams placed on the map" : "of " + META.mapped + " shown"}</small>`;
+}
+document.getElementById("hover-layers").addEventListener("change", () => {
+  if (hoverOn()) schedulePick();
+  else { pickReady = false; clearTimeout(pickTimer); pop.classed("on", false); hoverKey = null; }
+});
+document.querySelectorAll(".nat, .rng").forEach(el =>
+  el.addEventListener("input", () => drawHabitat()));
+document.querySelectorAll(".st, #only-audit")
+        .forEach(el => el.addEventListener("change", applyFilter));
+
+// The provenance switch repaints every dam attribute it governs, at the CURRENT zoom (the radius is
+// divided by sqrt(k) to hold a constant screen size, so rebuilding it from 1 would jump the marks).
+function repaintDams() {
+  const k = xform ? xform.k : 1;
+  gDams.selectAll("circle")
+    .attr("r", d => damR(d.properties) / Math.sqrt(k))
+    .attr("fill", d => colourOf(d.properties))
+    .attr("stroke", damStroke)
+    .attr("stroke-width", damStrokeW);
+}
+document.getElementById("dam-detail").addEventListener("change", function () {
+  // The panel must never describe a marking the map is not drawing, which is why the legend and the
+  // audit keys follow the switch rather than sitting there permanently (the SONCC note, 2026-09-16).
+  document.getElementById("dam-detail-panel").hidden = !this.checked;
+  // "Only audit-flagged dams" would otherwise stay applied with nothing on the map showing which ones
+  // they are: a filter silently in force is the same defect as a legend for marks that are not drawn.
+  if (!this.checked) {
+    const oa = document.getElementById("only-audit");
+    if (oa.checked) { oa.checked = false; }
+  }
+  repaintDams();
+  applyFilter();
+});
+
+// Belt and braces for test mode: in live mode the switch is hidden, so it must also be OFF. Nothing
+// persists its state today, so this is defensive rather than a fix, but a hidden control that is
+// silently ON is the same defect the handler above exists to prevent.
+if (document.documentElement.dataset.mode !== "test") {
+  const dd = document.getElementById("dam-detail");
+  if (dd && dd.checked) { dd.checked = false; dd.dispatchEvent(new Event("change")); }
+}
+
+addEventListener("resize", fit);
+fit();
+
+// ---- Panel fold (2026-09-17) --------------------------------------------------
+// THE MAP MUST NOT MOVE WHEN THE PANEL FOLDS (Nathan, 2026-09-17). It did at first, by half the panel
+// width, because the fold called fit() and fit() REFITS THE PROJECTION to the new box, which recentres
+// the data in it. So a fold deliberately does NOT use fit():
+//   - the projection is left exactly as it is, so every packed screen coordinate stays valid and
+//     nothing needs repacking (a fold is now much cheaper than a resize, not just steadier);
+//   - only the drawing surface is resized;
+//   - the map's left edge has moved, so the view is translated by the SAME amount the other way,
+//     which leaves every feature on the pixel it was already on.
+// The shift is MEASURED from the element rather than assumed to be the panel's width, because under
+// the narrow-screen layout the panel sits above the map and the move is vertical, not horizontal.
+// A window resize still goes through fit(), where refitting is the right answer.
+function resizeSurface() {
+  const w = mapEl.clientWidth, h = mapEl.clientHeight;
+  svg.attr("viewBox", `0 0 ${w} ${h}`);
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cvEl.width = Math.round(w * dpr);       // resizing the canvas clears it; drawHabitat repaints below
+  cvEl.height = Math.round(h * dpr);
+}
+
+let panelOff = false;
+try { panelOff = localStorage.getItem("damPanel") === "off"; } catch (e) {}
+const panelBtn = document.getElementById("panel-toggle");
+
+function paintPanelBtn() {
+  panelBtn.innerHTML = panelOff ? "&#8250;" : "&#8249;";
+  panelBtn.title = panelOff ? "Show the panel" : "Hide the panel";
+  panelBtn.setAttribute("aria-expanded", String(!panelOff));
+}
+
+panelBtn.addEventListener("click", () => {
+  panelOff = !panelOff;
+  try { localStorage.setItem("damPanel", panelOff ? "off" : "on"); } catch (e) {}
+  const before = mapEl.getBoundingClientRect();
+  document.body.classList.toggle("panel-off", panelOff);
+  paintPanelBtn();
+  const after = mapEl.getBoundingClientRect();
+  resizeSurface();
+  // How far the map's own origin moved in the window. Translating the view by the same amount puts
+  // the content back where it was on screen. t.x and t.y are in screen pixels already (a d3 zoom
+  // transform applies them AFTER the scale), so they take the offset unscaled.
+  const dx = before.left - after.left, dy = before.top - after.top;
+  if (dx || dy) {
+    svg.call(zoom.transform, d3.zoomIdentity.translate(xform.x + dx, xform.y + dy).scale(xform.k));
+  } else {
+    drawHabitat();                        // width unchanged (nothing to compensate), surface resized
+  }
+});
+
+// On load there is no previous position to preserve, so the remembered state is applied and the map
+// is fitted to the layout it will actually be shown in.
+paintPanelBtn();
+if (panelOff) { document.body.classList.add("panel-off"); fit(); }
+
+// ---- About panel (2026-09-18) -------------------------------------------------
+// Slides in over the map from the right. It deliberately does NOT touch #map's box, so unlike the
+// left panel's fold there is nothing to resize, nothing to repack and no projection refit: opening
+// and closing it cannot move the map. That is why it is allowed a CSS transition.
+// Its state is deliberately NOT remembered in localStorage, unlike damPanel and damTheme. It is
+// read-once text, and a remembered "open" would cover the map on every later visit.
+const aboutEl = document.getElementById("about");
+const aboutOpenBtn = document.getElementById("about-open");
+const aboutCloseBtn = document.getElementById("about-close");
+
+function setAbout(on) {
+  document.body.classList.toggle("about-on", on);
+  aboutOpenBtn.setAttribute("aria-expanded", String(on));
+  aboutEl.setAttribute("aria-hidden", String(!on));
+  if (on) { aboutEl.scrollTop = 0; aboutCloseBtn.focus(); }
+  else aboutOpenBtn.focus();
+}
+
+aboutOpenBtn.addEventListener("click", () => setAbout(true));
+aboutCloseBtn.addEventListener("click", () => setAbout(false));
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && document.body.classList.contains("about-on")) setAbout(false);
+});
+
+// ---- Theme switch (2026-09-15) ------------------------------------------------
+// Auto follows the computer's appearance setting; Light and Dark override it, remembered in this browser.
+// Colours on the canvas and the dam dots are read from CSS when drawn, so a change repaints them.
+const themeQ = matchMedia("(prefers-color-scheme: dark)");
+let themeChoice = document.documentElement.dataset.themeChoice || "auto";
+function applyTheme() {
+  const root = document.documentElement;
+  root.dataset.themeChoice = themeChoice;
+  root.dataset.theme = themeChoice === "auto" ? (themeQ.matches ? "dark" : "light") : themeChoice;
+  document.querySelectorAll("[data-theme-set]").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.themeSet === themeChoice)));
+  gDams.selectAll("circle").attr("fill", d => colourOf(d.properties)).attr("stroke", damStroke);
+  repaintSwatches();
+  drawHabitat();                           // RELIEF and FILL are per theme, read at draw time
+}
+document.querySelectorAll("[data-theme-set]").forEach(b => b.addEventListener("click", () => {
+  themeChoice = b.dataset.themeSet;
+  try { localStorage.setItem("damTheme", themeChoice); } catch (e) {}
+  applyTheme();
+}));
+themeQ.addEventListener("change", () => { if (themeChoice === "auto") applyTheme(); });
+applyTheme();
+applyFilter();
+</script>
+</body>
+</html>
