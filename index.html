@@ -85,16 +85,25 @@
      neither the box nor the canvas, so opening it costs no repack and no redraw.
      Because nothing is resized, this one CAN be animated cheaply, unlike the left
      panel's fold. visibility keeps it out of the tab order while it is closed. */
+  /* WIDENED 2026-09-18 (Nathan): it now covers the whole map, from the left panel's edge to the
+     window edge, rather than sitting in a 460px column. It still does NOT touch #map's box, so the
+     projection argument above is unchanged: this is a bigger overlay, not a resize.
+     `left` follows the left panel, including when that panel is folded away. */
   #about{
-    position:fixed; top:0; right:0; z-index:20;
-    width:460px; max-width:100%; height:100vh; overflow-y:auto;
+    position:fixed; top:0; right:0; left:320px; z-index:20;
+    height:100vh; overflow-y:auto;
     box-sizing:border-box;
     background:var(--panel); border-left:1px solid var(--line);
-    padding:22px 26px 64px;
+    padding:22px 0 64px;
     box-shadow:-10px 0 28px rgba(0,0,0,.20);
     transform:translateX(100%); visibility:hidden;
     transition:transform .28s ease, visibility 0s linear .28s;
   }
+  body.panel-off #about{left:0}
+  /* THE PANEL IS WIDE; THE TEXT IS NOT. A 1000px line of 12.5px prose is unreadable, so the column
+     is capped at a normal reading measure and centred in the space. The panel's width now buys
+     margin and the option of a second column later, not longer lines. */
+  #about-body{max-width:70ch; margin:0 auto; padding:0 26px}
   body.about-on #about{
     transform:translateX(0); visibility:visible;
     transition:transform .28s ease, visibility 0s linear 0s;
@@ -282,6 +291,9 @@
     /* Stacked, the body itself scrolls. The about panel is a full-screen overlay here, so the
        page behind it must not scroll under it while it is open. */
     body.about-on{overflow:hidden}
+    /* No left panel beside it here, so the about panel takes the whole width. */
+    #about{left:0}
+    #about-body{padding:0 16px}
   }
 </style>
 <script>
@@ -436,6 +448,7 @@
 <div id="about" role="dialog" aria-modal="false" aria-labelledby="about-title" aria-hidden="true">
   <button id="about-close" title="Close" aria-label="Close">&times;</button>
 
+  <div id="about-body">
   <h1 id="about-title">About this map</h1>
   <p class="lede">
     Every dam removal recorded in California, Oregon and Washington, drawn against the
@@ -609,6 +622,7 @@
     <b>University of California, Davis</b> (Santos, Howard, Kiernan, Rypel and Moyle,
     2014). PISCES is used here under its noncommercial, attribution, share-alike terms.
   </p>
+  </div><!-- /#about-body -->
 </div>
 
 <!-- d3 is VENDORED, not loaded from a CDN (2026-09-18). The panel claims this page makes no network
