@@ -106,7 +106,10 @@
      change with it: line-height goes up, because the longer the line the harder it is for the eye
      to find the start of the next one, and that return sweep is what fails first on wide measures.
      Padding keeps the text off both edges. */
-  #about-body{padding:0 40px}
+  /* 80px by eye (Nathan, 2026-09-18), chosen from a ?pad=N knob since deleted. On a 1500px window
+     that leaves a 1004px column, about 153 characters a line. Long by convention, which is the
+     tradeoff he took knowingly when he chose full-width text over a capped measure. */
+  #about-body{padding:0 80px}
   body.about-on #about{
     transform:translateX(0); visibility:visible;
     transition:transform .28s ease, visibility 0s linear 0s;
@@ -297,7 +300,7 @@
     body.about-on{overflow:hidden}
     /* No left panel beside it here, so the about panel takes the whole width. */
     #about{left:0}
-    #about-body{padding:0 16px}
+    #about-body{padding:0 16px}   /* the knob does not apply here; a phone has no room to give away */
   }
 </style>
 <script>
@@ -332,6 +335,7 @@
     } catch (e) { on = q === "test"; }      // private mode: honour the query string only
     document.documentElement.dataset.mode = on ? "test" : "live";
   })();
+
 </script>
 </head>
 <body>
