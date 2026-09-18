@@ -1361,17 +1361,35 @@ function loadGroup(meta, done) {
   document.head.appendChild(s);
 }
 
-// How far left of centre the map content sits, in CSS px (Nathan, 2026-09-18, by eye at 200).
-// The ?nudge=N scaffolding used to find it has been DELETED now the number is settled, the same way
-// the fill and relief sliders went on 09-17.
+// How far left of centre the map content sits, in CSS px.
 //
-// ZERO ON NARROW SCREENS, AND THE REASON IS THE LAYOUT, NOT THE SIZE: below the breakpoint the panel
-// stacks ABOVE the map rather than beside it, so the map already has the full width and there is no
-// panel for it to lean away from. Nudging there would just push the map off-centre for no reason.
-// 760px MUST MATCH the @media rule in the stylesheet; they are the same breakpoint written twice.
-const NUDGE_X = 200;
+// A RAMP, NOT A CONSTANT AND NOT A PROPORTION, and the reason is that the panel is a FIXED 320 px
+// while the window is not, so the panel's SHARE of the screen changes with width. At 1400 px it takes
+// 23% and the map has room, so leaning the map left balances it. At 800 px it takes 40%, the map is
+// already cramped, and the same lean shoves the map against the panel.
+// A fixed 200 px was wrong below about 1200 (too far left); a fixed PROPORTION was wrong too, for the
+// same reason in gentler form. So the nudge grows from nothing at the breakpoint to its full value on
+// a roomy window:
+//
+//     760 px window -> 0        (the panel is about to stack; the map needs all its width)
+//    1400 px window -> 200      (Nathan's settled desktop value, judged by eye)
+//    wider          -> 200      (held, not grown; only the 1400 value was ever judged)
+//
+// ZERO AT OR BELOW 760, AND THE REASON IS THE LAYOUT, NOT THE SIZE: the panel stacks ABOVE the map
+// there, so the map already has the full width and there is no panel to lean away from.
+// 760 MUST MATCH the @media rule in the stylesheet; they are the same breakpoint written twice.
+//
+// The ?nudge=N scaffolding used to find these by eye is DELETED, now the ramp is settled.
+const NUDGE_MIN_W = 760;      // window width where the nudge starts, = the layout breakpoint
+const NUDGE_FULL_W = 1400;    // window width where it reaches its full value
+const NUDGE_MAX = 200;        // the full value
 const NARROW = matchMedia("(max-width:760px)");
-const nudgeX = () => (NARROW.matches ? 0 : NUDGE_X);
+
+function nudgeX() {
+  if (NARROW.matches) return 0;
+  const t = (innerWidth - NUDGE_MIN_W) / (NUDGE_FULL_W - NUDGE_MIN_W);
+  return NUDGE_MAX * Math.max(0, Math.min(1, t));
+}
 
 function fit() {
   const w = mapEl.clientWidth, h = mapEl.clientHeight;
