@@ -100,6 +100,13 @@
   #about .note{font-size:12.5px; line-height:1.75}
   #about .lede{max-width:none}
   #about .stat{font-size:12.5px}
+  #about .tabs{display:flex; margin:14px 0 20px; border-bottom:1px solid var(--line)}
+  #about [role="tab"]{
+    flex:1 1 0; font:inherit; font-size:12.5px; padding:6px 0;
+    background:none; border:0; color:var(--muted); cursor:pointer;
+  }
+  #about [role="tab"]:hover{color:var(--ink)}
+  #about [role="tab"][aria-selected="true"]{color:var(--ink); font-weight:600}
 
   #hab{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
   svg{display:block; width:100%; height:100%; cursor:grab; position:relative}
@@ -336,7 +343,7 @@
 
 <div id="map">
   <button id="panel-toggle" aria-controls="panel" aria-expanded="true" title="Hide the panel">&#8249;</button>
-  <button id="about-open" aria-controls="about" aria-expanded="false" title="About this project">About</button>
+  <button id="about-open" aria-controls="about" aria-expanded="false" title="Info about this project">Info</button>
   <canvas id="hab"></canvas>
   <svg id="svg"></svg>
   <div id="pop"></div>
@@ -347,178 +354,85 @@
   <button id="about-close" title="Close" aria-label="Close">&times;</button>
 
   <div id="about-body">
-  <h1 id="about-title">About this map</h1>
+  <h1 id="about-title">Info</h1>
+
+  <div class="tabs" role="tablist" aria-label="Info">
+    <button role="tab" id="tab-about" aria-controls="pane-about" aria-selected="true">About</button>
+    <button role="tab" id="tab-methods" aria-controls="pane-methods" aria-selected="false" tabindex="-1">Methods</button>
+    <button role="tab" id="tab-sources" aria-controls="pane-sources" aria-selected="false" tabindex="-1">Sources</button>
+  </div>
+
+  <div class="tabpane" role="tabpanel" id="pane-about" aria-labelledby="tab-about">
   <p class="lede">
-    Every dam removal recorded in California, Oregon and Washington, drawn against the
-    river habitat the fish actually use.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua.
   </p>
+  <p class="note">
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+    ea commodo consequat. <b>Duis aute irure dolor</b> in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p class="note">
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+    architecto beatae vitae dicta sunt explicabo.
+  </p>
+  <p class="note">
+    <b>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</b> sed
+    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+  </p>
+  </div>
 
+  <div class="tabpane" role="tabpanel" id="pane-methods" aria-labelledby="tab-methods" hidden>
   <p class="note">
-    The dam records come from the <b>American Rivers Dam Removal Database</b>, the
-    national register of removals, in its March 2026 release. This map covers the three
-    West Coast states: <b>333 rows, 332 distinct removals, 290 of them placed on the
-    map</b>. The rest have no coordinate that any source can supply, and the section
-    below accounts for all of them.
+    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+    velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+    aliquam quaerat voluptatem.
+  </p>
+  <h2>Lorem ipsum</h2>
+  <p class="note">
+    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+    laboriosam, nisi ut aliquid ex ea commodi consequatur. <b>Quis autem vel eum iure
+    reprehenderit</b> qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
+    illum qui dolorem eum fugiat quo voluptas nulla pariatur.
   </p>
   <p class="note">
-    Underneath the dams are two kinds of fish layer for <b>27 species</b>: federally
-    designated <b>ESA critical habitat</b>, and <b>where each species is mapped as
-    present</b> by the state and federal agencies that survey them. Both are drawn at
-    display resolution, for looking at. The analysis behind the project asked a separate
-    question of the full-resolution data, and is described under
-    <b>Not yet on this map</b>.
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+    voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+    occaecati cupiditate non provident.
   </p>
+  <h2>Dolor sit amet</h2>
   <p class="note">
-    <b>This is an independent project and not affiliated with any of the agencies whose
-    data it uses.</b> Where it has changed or questioned a source record, it says so.
+    Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+    fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
+    soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
+    facere possimus.
   </p>
+  <h2>Consectetur adipiscing</h2>
+  <p class="note">
+    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+    eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum
+    rerum hic tenetur a sapiente delectus.
+  </p>
+  </div>
 
-  <h2>What the map draws</h2>
+  <div class="tabpane" role="tabpanel" id="pane-sources" aria-labelledby="tab-sources" hidden>
   <p class="note">
-    One switch per species; the arrow beside it opens separate ESA and presence
-    switches, to see either on its own. <b>Thin dark line:</b> ESA critical habitat.
-    <b>Wide soft band underneath:</b> where the fish are mapped (presence).
-    <b>The two weights mean how consistent the source is, not how certain it is.</b>
-    ESA critical habitat is one federal designation defined the same way in all three
-    states, so it gets one precise line. Presence is assembled from ODFW, WDFW, CDFW,
-    NOAA, USFWS and PISCES, at different dates and different grains, so it is drawn as
-    a soft envelope rather than given a crispness it has not got.
-    Colours are placeholders, ordered so species that share map area never get
-    neighbouring colours. <b>Two species mapped on the same reach cannot both be drawn
-    there:</b> whichever comes later in the list covers the one before it. The colour
-    ordering makes that covering visible rather than invisible, and the per-species
-    switches are how to see either on its own.
-  </p>
-
-  <h2>California ranges</h2>
-  <p class="note">
-    In California, 11 species' presence is not a
-    stream at all: it is whole HUC12 watersheds from PISCES, 1,597 of them, median
-    width about 3&nbsp;km. Drawn as outlines they would read as a web of rivers, and where
-    one is cut at the state line its edge draws along the border as if fish lived on
-    it. So each species' watersheds are <b>merged</b> into their outer boundary and
-    drawn as a faint fill, which removes the internal seams. It does far more for
-    some species than others: the watersheds of some species touch and dissolve into
-    one shape, while others are scattered and barely merge at all.
-    Display only. The join reads the full-resolution watersheds one at a time.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <b>Integer nec odio.</b>
+    Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
+    elementum imperdiet.
   </p>
   <p class="note">
-    <b>Comparing Oregon with California for one species compares two mapping models, not
-    two abundances.</b> Oregon and Washington map presence as stream reaches; California
-    maps it as watersheds. A species can look far more widespread in California purely
-    because the unit is larger.
-  </p>
-
-  <h2>Display geometry</h2>
-  <p class="note">
-    Simplified at 0.0003&deg; and rounded to about
-    11&nbsp;m. Fine for looking at, never used for a join or a measurement:
-    those read the full-resolution source. Habitat lying wholly in Idaho, Montana
-    or Nevada is left off, since no dam here is near it; anything touching or
-    within 3&nbsp;km of California, Oregon or Washington stays.
+    Duis sagittis ipsum. Praesent mauris. <b>Fusce nec tellus</b> sed augue semper porta.
+    Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad
+    litora torquent per conubia nostra, per inceptos himenaeos.
   </p>
   <p class="note">
-    <b>Shaded relief</b> sharpens as you zoom in, swapping a 500&nbsp;m elevation model
-    for a 115&nbsp;m one. Relief and lakes are both clipped to California, Oregon and
-    Washington, so nothing is shaded outside the three states this project covers.
+    Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.
+    Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
   </p>
-
-  <h2>Why this looks different</h2>
-  <p class="note">
-    Redrawn in <b>D3 with an Albers equal-area conic projection</b>, replacing a
-    MapLibre map on CARTO raster tiles. CARTO began watermarking its free tiles
-    with "API KEY REQUIRED", and the previous basemap is unusable without an
-    account.
-  </p>
-  <p class="note">
-    The change is also a small methods improvement. A web tile map is locked to
-    <b>Web Mercator</b>, which inflates area with latitude. Across this data
-    (33.6&deg;N to 48.9&deg;N) that stretches the north end by <b>1.27&times;</b>
-    relative to the south, so Washington read about <b>27% larger</b> than it
-    should against southern California. An equal-area conic is the honest choice
-    over a north-south extent, and this project measures in projected coordinate
-    systems everywhere else.
-  </p>
-  <p class="note">
-    <b>Nothing here is fetched from another server.</b> No basemap, no tile service,
-    no API key, no analytics, no fonts, no CDN. Every file the page loads is served
-    alongside it, including the one library it uses,
-    <b>D3 v7.9.0</b>, so the map works offline and leaves no trace with a third party.
-    State outlines are US Census cartographic boundaries, public domain.
-  </p>
-
-  <h2>Not yet on this map</h2>
-  <p class="note">
-    <b>Both joins have run and been audited.</b> Every dam was asked which ESA
-    critical habitat and which of 21 native migratory fish lie within 75&nbsp;m,
-    with a same-stream and a watershed-range clause. The answers are in each
-    popup. They are <b>not drawn</b>: the habitat and species presence above are
-    shown at display resolution. Proximity on screen is still not a result.
-  </p>
-  <p class="note">
-    Also absent: the line from a dam to the reaches it matched, upstream traces,
-    and any mileage figure.
-  </p>
-
-  <h2>Where the count comes from</h2>
-  <div class="stat"><span>Rows in the source database</span><b id="s-total">333</b></div>
-  <div class="stat"><span>Duplicate rows</span><b id="s-dup">1</b></div>
-  <div class="stat"><span><b>Distinct removals</b></span><b id="s-distinct">332</b></div>
-  <div class="stat"><span><b>Sites</b> (clusters collapsed)</span><b id="s-sites">320</b></div>
-  <div class="stat"><span>Placed from American Rivers</span><b id="s-ar">276</b></div>
-  <div class="stat"><span>Recovered from NACC</span><b id="s-nacc">12</b></div>
-  <div class="stat"><span>Corrected</span><b id="s-drp">2</b></div>
-  <div class="stat"><span>Coordinate voided as wrong</span><b id="s-void">2</b></div>
-  <div class="stat"><span>No coordinate anywhere</span><b id="s-un">42</b></div>
-  <p class="note">
-    <b>333 rows, <span id="n-mapped">290</span> mapped.</b> American Rivers left
-    52 rows without a coordinate. <span id="n-rec">12</span> were recovered by
-    linking to the NACC barrier inventory. The other 40 cannot be placed from any
-    source; 18 of them are California dams removed between 1925 and 1951, several
-    on forks of the Trinity, Salmon and Scott. The coordinate hunt is closed:
-    historical topographic maps are the only instrument left.
-  </p>
-  <p class="note">
-    <b>Two coordinates are voided.</b> CA-157 and CA-158, the Silverado Creek fish
-    dams, carry coordinates copied from two San Juan Creek dams 24.6&nbsp;km away
-    in a different basin. They are still counted as removals; they cannot be
-    placed, so they are not drawn and will not be joined to anything.
-  </p>
-  <p class="note">
-    <b>One row is a duplicate.</b> CA-091 repeats CA-148: both are TCFD11 on
-    Trabuco Creek, same height, same barrier ID, 12&nbsp;m apart. Unlike a voided
-    coordinate, a duplicate is not a removal, so it leaves the count as well as
-    the map. <b>333 rows, 332 removals.</b> Both numbers are shown because they
-    are different claims.
-  </p>
-  <p class="note">
-    <b>Structures against sites.</b> <span id="n-clustered">22</span> rows fall in
-    <span id="n-clusters">10</span> clusters that NACC records as a single barrier
-    each, so 332 removals sit at 320 places. Nothing is hidden: the map draws every
-    structure. But a distance join cannot tell members of a cluster apart, so
-    identical species results across one are geometry, not evidence.
-  </p>
-
-  <h2>Sources</h2>
-  <p class="note">
-    Dam records from the American Rivers Dam Removal Database (March 2026).
-    Recovered coordinates from the National Aquatic Barrier Inventory v4.3.0,
-    compiled by SARP and NFHP, downloaded 2026-09-08. Critical habitat from NMFS
-    and USFWS. Species presence from ODFW, WDFW (SWIFD), CDFW, USFWS and PISCES
-    (Santos et al. 2014).
-  </p>
-
-  <p class="note">
-    Elevation for the shaded relief from <b>AWS Terrain Tiles</b>, which packages
-    public-domain data from the USGS 3D Elevation Program, SRTM and other national
-    surveys. Lakes, reservoirs and the coastline from <b>Natural Earth</b>, public domain.
-  </p>
-  <p class="note">
-    The California species ranges are from <b>PISCES</b>, the Public Interactive
-    Species Conservation and Ecosystem Services database, Center for Watershed Sciences,
-    <b>University of California, Davis</b> (Santos, Howard, Kiernan, Rypel and Moyle,
-    2014). PISCES is used here under its noncommercial, attribution, share-alike terms.
-  </p>
+  </div>
   </div>
 </div>
 
@@ -1518,6 +1432,26 @@ aboutOpenBtn.addEventListener("click", () => setAbout(true));
 aboutCloseBtn.addEventListener("click", () => setAbout(false));
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && document.body.classList.contains("about-on")) setAbout(false);
+});
+
+const infoTabs = [...aboutEl.querySelectorAll('[role="tab"]')];
+function showTab(tab) {
+  infoTabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute("aria-selected", String(on));
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  });
+  aboutEl.scrollTop = 0;
+}
+infoTabs.forEach((t, i) => {
+  t.addEventListener("click", () => showTab(t));
+  t.addEventListener("keydown", e => {
+    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+    if (!d) return;
+    const next = infoTabs[(i + d + infoTabs.length) % infoTabs.length];
+    showTab(next); next.focus();
+  });
 });
 
 const themeQ = matchMedia("(prefers-color-scheme: dark)");
