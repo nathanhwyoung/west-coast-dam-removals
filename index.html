@@ -45,10 +45,10 @@
     color:var(--ink); background:var(--bg); display:flex; overflow:hidden;
   }
   #panel{
-    width:320px; flex:0 0 320px; height:100vh; overflow-y:auto;
+    width:320px; flex:0 0 320px; height:100vh; height:100svh; overflow-y:auto;
     background:var(--panel); border-right:1px solid var(--line); padding:20px;
   }
-  #map{flex:1; height:100vh; position:relative; background:var(--water)}
+  #map{flex:1; height:100vh; height:100svh; position:relative; background:var(--water)}
 
   body.panel-off #panel{display:none}
   #panel-toggle{
@@ -60,10 +60,11 @@
   #panel-toggle:hover{background:var(--land); opacity:1}
 
   :root[data-mode="live"] .testing{display:none}
+  @media (hover:none){ .hover-tool{display:none} }
 
   #about{
     position:fixed; top:0; right:0; left:320px; z-index:20;
-    height:100vh; overflow-y:auto;
+    height:100vh; height:100dvh; overflow-y:auto;
     box-sizing:border-box;
     background:var(--panel); border-left:1px solid var(--line);
     padding:22px 0 64px;
@@ -237,10 +238,11 @@
   @media (max-width:760px){
     body{flex-direction:column; overflow:auto}
     #panel{width:100%; flex:none; height:auto; border-right:0;
-           border-bottom:1px solid var(--line)}
-    #map{height:65vh; flex:none}
+           border-top:1px solid var(--line)}
+    #map{height:65vh; height:65svh; flex:none; order:-1}
 
-    body.panel-off #map{height:100vh}
+    body.panel-off #map{height:100vh; height:100svh}
+    #panel-toggle{transform:rotate(-90deg)}
 
     body.about-on{overflow:hidden}
 
@@ -336,7 +338,7 @@
     <button class="z" data-theme-set="dark" aria-pressed="false">Dark</button>
   </div>
 
-  <label class="f" style="margin-top:10px"><input type="checkbox" id="hover-layers"> Hover a layer for its source
+  <label class="f hover-tool" style="margin-top:10px"><input type="checkbox" id="hover-layers"> Hover a layer for its source
     <span style="color:var(--muted);font-size:11px">(slower)</span></label>
 
 </div>
@@ -1005,7 +1007,7 @@ gDams.selectAll("circle").data(DAMS.features).join("circle")
   .on("mousemove", ev => { if (!pinned) placePop(ev); })
   .on("mouseleave", () => { if (!pinned) pop.classed("on", false); })
   // A click pins the popup where it is, so the pointer can travel to the button.
-  .on("click", (ev, d) => { pinned = d; showPop(ev, d); pop.classed("pinned", true); });
+  .on("click", (ev, d) => { if (touchTap) return; pinned = d; showPop(ev, d); pop.classed("pinned", true); });
 
 // Hover previews; a click pins. Any press on the map (pan, zoom, or a click on
 // empty water) unpins first, and a click on a dam then re-pins that dam.
@@ -1016,6 +1018,33 @@ function unpin() {
   pop.classed("pinned", false).classed("on", false);
 }
 addEventListener("keydown", ev => { if (ev.key === "Escape") unpin(); });
+
+const TAP_PX = 22;
+let touchTap = false, tapStart = null, tapPointers = 0;
+mapEl.addEventListener("pointerdown", ev => {
+  touchTap = ev.pointerType === "touch";
+  if (!touchTap) return;
+  tapPointers++;
+  tapStart = tapPointers === 1 ? { x: ev.clientX, y: ev.clientY, t: ev.timeStamp } : null;
+}, true);
+const tapLift = ev => { if (ev.pointerType === "touch") tapPointers = Math.max(0, tapPointers - 1); };
+mapEl.addEventListener("pointercancel", ev => { tapLift(ev); tapStart = null; }, true);
+mapEl.addEventListener("pointerup", ev => {
+  if (ev.pointerType !== "touch") return;
+  tapLift(ev);
+  const s = tapStart;
+  tapStart = null;
+  if (!s || Math.hypot(ev.clientX - s.x, ev.clientY - s.y) > 10 || ev.timeStamp - s.t > 500) return;
+  if (ev.target.closest("button, #pop")) return;
+  let best = null, bestD = TAP_PX;
+  gDams.selectAll("circle").each(function (d) {
+    if (this.style.display === "none") return;
+    const r = this.getBoundingClientRect();
+    const dist = Math.hypot(r.x + r.width / 2 - ev.clientX, r.y + r.height / 2 - ev.clientY);
+    if (dist < bestD) { bestD = dist; best = d; }
+  });
+  if (best) { pinned = best; showPop(ev, best); pop.classed("pinned", true); }
+}, true);
 
 // The species swatch in the popup needs the drawn colours, so this sits after shades() is defined.
 mapEl.addEventListener("mousemove", ev => {
@@ -1106,7 +1135,7 @@ function showPop(ev, d) {
       html += `<div class="warn"><b>On a range edge.</b> ` + a.range_edge.map(r =>
         `${esc(r.species)} ${esc(r.position)} by ${r.edge_m} m`).join("; ") + `.</div>`;
   }
-  html += `<div class="pop-copy"><button type="button" data-coords="${esc(coordText(d))}">COPY COORDS</button>`
+  html += `<div class="pop-copy testing"><button type="button" data-coords="${esc(coordText(d))}">COPY COORDS</button>`
         + (pinned ? `<i>${esc(coordText(d))}</i>` : `<i>click the dam to pin</i>`) + `</div>`;
   pop.html(html).classed("on", true);
   placePop(ev);
@@ -1209,7 +1238,7 @@ for (const sp of SPECIES) {
 
   const tierRow = (tier, name, missing, notes) => {
     if (!has[tier])
-      return `<label class="hab none"><input type="checkbox" disabled><span style="width:22px;flex:0 0 22px"></span> ${missing}</label>`;
+      return missing === null ? "" : `<label class="hab none"><input type="checkbox" disabled><span style="width:22px;flex:0 0 22px"></span> ${missing}</label>`;
     const id = sp.key + "-" + tier;
     return `<div class="srcrow">`
       + `<label class="hab src"><input type="checkbox" data-tier="${tier}">`
@@ -1231,7 +1260,7 @@ for (const sp of SPECIES) {
           has.derived ? ["<b>Published by the agency.</b> Designated under the Endangered Species Act and "
             + "distributed as GIS data by NMFS or USFWS. The designation and the mapping are both theirs, "
             + "and the lines are used exactly as they arrive."] : null)
-    +   tierRow("derived", "ESA critical habitat, derived", "No derived layer",
+    +   tierRow("derived", "ESA critical habitat, derived", null,
           ["<b>Reconstructed by this project.</b> The Southern Oregon / Northern California Coast coho "
            + "designation is federal and official like the one above, but <b>NMFS never published GIS data "
            + "for it</b>, so the geometry here was rebuilt from basin boundaries (StreamStats and NLDI).",
