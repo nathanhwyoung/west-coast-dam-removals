@@ -1,1099 +1,2324 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="robots" content="noindex, nofollow">
-<title>West Coast dam removals</title>
-<style>
-  :root{
-    --bg:#f7f6f3; --panel:#fff; --ink:#1c1c1a; --muted:#6b6a66;
-    --line:#e0ded8; --land:#eeece6; --border:#c9c6bd; --water:#dfe8ec;
-    --c-ar:#2b7a8c; --c-nacc:#c4791f; --c-fix:#b23b3b;
-
-    --c-dam:#000; --c-halo:#fff;
-    --c-test:#b3261e;
-
-    --h-NMFS:#3d6fb4; --h-USFWS:#4f8a3d; --h-derived:#8d4fa8;
-    --nat-river:#8fb0c2;
-
-    --lake:#c9dce8; --lake-edge:#7ba2ba;
-
-    --land-other:#e7e9e6; --border-other:#d6d6d0;
-  }
-  :root{color-scheme:light}
-
-  :root[data-theme="dark"]{
-    color-scheme:dark;
-    --bg:#16181a; --panel:#1e2124; --ink:#e8e6e1; --muted:#9a9791;
-    --line:#31353a; --land:#24282c; --border:#3c4248; --water:#1b1f22;
-    --c-ar:#4fa8bd; --c-nacc:#e0a044; --c-fix:#d76464;
-    --c-dam:#fff; --c-halo:#000;
-    --c-test:#a8231b;
-
-    --h-NMFS:#5486cc; --h-USFWS:#5f9e48; --h-derived:#9c60bd;
-    --nat-river:#4d6b7c;
-
-    --lake:#2b3d49; --lake-edge:#5d8399;
-    --land-other:#202427; --border-other:#2d3236;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0}
-  body{
-    font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    color:var(--ink); background:var(--bg); display:flex; overflow:hidden;
-  }
-  #panel{
-    width:320px; flex:0 0 320px; height:100vh; height:100svh; overflow-y:auto;
-    background:var(--panel); border-right:1px solid var(--line); padding:20px;
-  }
-  #map{flex:1; height:100vh; height:100svh; position:relative; background:var(--water)}
-
-  body.panel-off #panel{display:none}
-  #panel-toggle{
-    position:absolute; left:10px; top:10px; z-index:5;
-    width:26px; height:26px; padding:0; font:inherit; font-size:14px; line-height:24px;
-    text-align:center; background:var(--panel); color:var(--ink);
-    border:1px solid var(--border); border-radius:4px; cursor:pointer; opacity:.9;
-  }
-  #panel-toggle:hover{background:var(--land); opacity:1}
-
-  :root[data-mode="live"] .testing{display:none}
-  @media (hover:none){ .hover-tool{display:none} }
-
-  #about{
-    position:fixed; top:0; right:0; left:320px; z-index:20;
-    height:100vh; height:100dvh; overflow-y:auto;
-    box-sizing:border-box;
-    background:var(--panel); border-left:1px solid var(--line);
-    padding:22px 0 64px;
-    box-shadow:-10px 0 28px rgba(0,0,0,.20);
-    transform:translateX(100%); visibility:hidden;
-    transition:transform .28s ease, visibility 0s linear .28s;
-  }
-  body.panel-off #about{left:0}
-
-  #about-body{padding:0 80px}
-  body.about-on #about{
-    transform:translateX(0); visibility:visible;
-    transition:transform .28s ease, visibility 0s linear 0s;
-  }
-  @media (prefers-reduced-motion:reduce){ #about{transition:none} body.about-on #about{transition:none} }
-  #about-open{
-    position:absolute; right:10px; top:10px; z-index:5;
-    height:26px; padding:0 10px; font:inherit; font-size:12px; line-height:24px;
-    background:var(--panel); color:var(--ink);
-    border:1px solid var(--border); border-radius:4px; cursor:pointer; opacity:.9;
-  }
-  #about-open:hover{background:var(--land); opacity:1}
-  #about-close{
-    position:absolute; right:14px; top:14px;
-    width:26px; height:26px; padding:0; font:inherit; font-size:15px; line-height:24px;
-    text-align:center; background:var(--panel); color:var(--ink);
-    border:1px solid var(--border); border-radius:4px; cursor:pointer;
-  }
-  #about-close:hover{background:var(--land)}
-
-  #about h1{font-size:17px; margin:0 0 4px}
-  #about .lede{font-size:13px; color:var(--muted); margin:0 0 20px; line-height:1.55}
-  #about h2{margin-top:24px}
-  #about .note{font-size:12.5px; line-height:1.75}
-  #about .lede{max-width:none}
-  #about .stat{font-size:12.5px}
-  #about .tabs{display:flex; margin:14px 0 20px; border-bottom:1px solid var(--line)}
-  #about [role="tab"]{
-    flex:1 1 0; font:inherit; font-size:12.5px; padding:6px 0;
-    background:none; border:0; color:var(--muted); cursor:pointer;
-  }
-  #about [role="tab"]:hover{color:var(--ink)}
-  #about [role="tab"][aria-selected="true"]{color:var(--ink); font-weight:600}
-
-  #hab{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
-  svg{display:block; width:100%; height:100%; cursor:grab; position:relative}
-  svg.dragging{cursor:grabbing}
-  h1{font-size:16px; margin:0 0 18px; letter-spacing:-.01em}
-  h2{font-size:11px; text-transform:uppercase; letter-spacing:.07em;
-     color:var(--muted); margin:22px 0 8px; font-weight:600}
-  .stat{display:flex; justify-content:space-between; align-items:baseline;
-        padding:5px 0; border-bottom:1px solid var(--line)}
-  .stat b{font-variant-numeric:tabular-nums; font-weight:600}
-  .stat span{color:var(--muted); font-size:12px}
-  .big{font-size:30px; font-weight:600; line-height:1.1;
-       font-variant-numeric:tabular-nums; letter-spacing:-.02em}
-  #splist svg{display:block; flex:0 0 22px}
-  .big small{display:block; font-size:12px; font-weight:400; color:var(--muted);
-             letter-spacing:0; margin-top:2px}
-  .key{display:flex; align-items:flex-start; gap:9px; padding:6px 0; font-size:12.5px}
-  .dot{width:11px;height:11px;border-radius:50%;flex:0 0 11px;margin-top:4px;
-       border:1.5px solid rgba(255,255,255,.65)}
-  .key i{color:var(--muted); font-style:normal; display:block; font-size:11.5px}
-  label.f{display:flex; align-items:center; gap:8px; padding:4px 0; cursor:pointer;
-          font-size:13px}
-
-  label.f.testbar{background:var(--c-test); color:#fff; border-radius:4px; padding:6px 10px;
-          margin:0 0 14px 0}
-  label.f.testbar .tag{color:rgba(255,255,255,.8); font-size:11px}
-
-  label.f.testbar:has(+ #dam-detail-panel:not([hidden])){
-    margin-bottom:0; border-radius:4px 4px 0 0;
-  }
-  #dam-detail-panel{
-    background:var(--c-test); color:#fff;
-    border-radius:0 0 4px 4px; padding:2px 10px 10px; margin:0 0 14px 0;
-  }
-
-  #dam-detail-panel h2{color:rgba(255,255,255,.88); margin:16px 0 6px}
-  #dam-detail-panel .key i{color:rgba(255,255,255,.78)}
-  #dam-detail-panel .note{color:rgba(255,255,255,.85); border-left-color:rgba(255,255,255,.35)}
-  #dam-detail-panel .note b{color:#fff}
-  #dam-detail-panel label.f{color:#fff}
-  #dam-detail-panel input[type=checkbox]{accent-color:#fff}
-
-  #dam-detail-panel .dot{
-    border-color:#fff;
-    box-shadow:0 0 0 1.5px rgba(255,255,255,.55);
-  }
-  label.f select{font:inherit; font-size:12.5px; color:var(--ink); background:var(--panel);
-                 border:1px solid var(--line); border-radius:5px; padding:3px 5px; cursor:pointer}
-  label.hab{display:flex; align-items:center; gap:8px; padding:3px 0; cursor:pointer;
-            font-size:12.5px}
-  label.hab .sw{width:15px; height:3px; border-radius:2px; flex:0 0 15px}
-  label.hab .n{margin-left:auto; color:var(--muted); font-size:11px;
-               font-variant-numeric:tabular-nums; white-space:nowrap}
-
-  .spsrc{margin-left:22px; border-left:1px solid var(--line); padding-left:8px}
-
-  .srcrow{display:flex; align-items:center}
-  .srcrow label.hab.src{flex:1; min-width:0}
-
-  .info{border:0; background:var(--line); color:var(--ink); cursor:pointer;
-        width:15px; height:15px; flex:0 0 15px; border-radius:50%; font-size:10.5px; line-height:15px;
-        font-weight:700; padding:0; margin-left:7px; font-family:Georgia, "Times New Roman", serif;
-        font-style:italic; text-align:center}
-  .info:hover{background:var(--muted); color:var(--panel)}
-  .info[aria-expanded="true"]{background:var(--ink); color:var(--panel)}
-  .srcnote{font-size:11px; color:var(--muted); line-height:1.45; margin:1px 0 5px 18px;
-           padding-left:8px; border-left:2px solid var(--line)}
-  .srcnote p{margin:0 0 5px}
-  label.hab.src{font-size:11.5px; color:var(--muted); padding:2px 0}
-
-  .grain{width:13px; flex:0 0 13px; height:9px; position:relative}
-  .grain.reach::after{content:""; position:absolute; left:0; right:0; top:4px; height:1.6px;
-                      background:currentColor; opacity:.75}
-  .grain.range::after{content:""; position:absolute; inset:1px 0; background:currentColor;
-                      opacity:.28; border-radius:1.5px}
-  label.hab.busy .n{opacity:.55}
-  .note{font-size:11.5px; color:var(--muted); line-height:1.45;
-        border-left:2px solid var(--line); padding-left:9px; margin:8px 0}
-  .note b{color:var(--ink)}
-  button.z{font:inherit; font-size:12px; padding:4px 10px; margin-right:6px;
-           background:var(--panel); color:var(--ink); border:1px solid var(--border);
-           border-radius:4px; cursor:pointer}
-  button.z:hover{background:var(--land)}
-  button.z[aria-pressed="true"]{background:var(--land); border-color:var(--ink); font-weight:600}
-
-  .both{font-size:11px; color:var(--muted); margin:-2px 0 8px 0; font-variant-numeric:tabular-nums}
-  #splist{max-height:320px; overflow-y:auto; overscroll-behavior:contain;
-          border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:4px 0}
-  #splist label.busy{opacity:.55}
-  .sprow{display:flex; align-items:center}
-  .sprow label.hab{flex:1}
-  .caret{display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex:0 0 20px; padding:0; background:none; border:0;
-         color:var(--ink); cursor:pointer; line-height:1; border-radius:3px; transition:transform .12s}
-  .caret:hover{background:var(--land)}
-  .caret[aria-expanded="true"]{transform:rotate(90deg)}
-  .spsub{margin:0 0 4px 20px}
-  .spsub label.hab{font-size:12px; padding:2px 0}
-  .spsub label.none{color:var(--muted); cursor:default}
-  .spgroup{font-size:11px; color:var(--muted); margin:10px 0 2px}
-
-  .dam{cursor:pointer}
-  .dam:hover{stroke:var(--ink); stroke-width:2px}
-  #pop{
-    position:absolute; pointer-events:none; max-width:250px;
-    background:var(--panel); color:var(--ink); border:1px solid var(--line);
-    border-radius:5px; padding:10px 12px; font-size:12.5px; line-height:1.45;
-    box-shadow:0 3px 14px rgba(0,0,0,.22); opacity:0; transition:opacity .12s;
-  }
-  #pop.on{opacity:1}
-
-  #pop.pinned{pointer-events:auto; border-color:var(--border)}
-  .pop-copy{display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; margin-top:8px}
-  .pop-copy button, .pop-copy i{white-space:nowrap}
-  .pop-copy button{font:inherit; font-size:10.5px; font-weight:600; letter-spacing:.05em;
-    padding:2px 8px; background:var(--panel); color:var(--ink);
-    border:1px solid var(--border); border-radius:3px; cursor:pointer}
-  .pop-copy button:hover{background:var(--land)}
-  .pop-copy i{font-style:normal; font-size:10.5px; color:var(--muted)}
-  .pop-t{font-weight:600; margin-bottom:2px}
-  .pop-r{color:var(--muted); font-size:11.5px; margin-bottom:6px}
-  .pop-g{display:grid; grid-template-columns:auto 1fr; gap:1px 9px; font-size:11.5px}
-  .pop-g dt{color:var(--muted)} .pop-g dd{margin:0}
-  .warn{margin-top:7px; padding:5px 7px; border-radius:4px; font-size:11px;
-        background:rgba(178,59,59,.11); color:var(--c-fix)}
-  .proj{position:absolute; left:10px; bottom:8px; font-size:10.5px;
-        color:var(--muted); background:var(--panel); padding:3px 7px;
-        border-radius:3px; border:1px solid var(--line); opacity:.9}
-  @media (max-width:760px){
-    body{flex-direction:column; overflow:auto}
-    #panel{width:100%; flex:none; height:auto; border-right:0;
-           border-top:1px solid var(--line)}
-    #map{height:65vh; height:65svh; flex:none; order:-1}
-
-    body.panel-off #map{height:100vh; height:100svh}
-    #panel-toggle{transform:rotate(-90deg)}
-
-    body.about-on{overflow:hidden}
-
-    #about{left:0}
-    #about-body{padding:0 16px}
-  }
-</style>
-<script>
-
-  (function () {
-    let c = "auto";
-    try { const t = localStorage.getItem("damTheme"); if (t === "light" || t === "dark") c = t; } catch (e) {}
-    const root = document.documentElement;
-    root.dataset.themeChoice = c;
-    root.dataset.theme = c === "auto" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : c;
-  })();
-
-  (function () {
-    const q = new URLSearchParams(location.search).get("mode");
-    let on = false;
-    try {
-      if (q === "test") localStorage.setItem("damMode", "test");
-      else if (q === "off") localStorage.removeItem("damMode");
-      on = localStorage.getItem("damMode") === "test";
-    } catch (e) { on = q === "test"; }
-    document.documentElement.dataset.mode = on ? "test" : "live";
-  })();
-
-</script>
-</head>
-<body>
-
-<div id="panel">
-
-  <label class="f testbar testing"><input type="checkbox" id="dam-detail"> Colour dams by provenance
-    <span class="tag">(testing)</span></label>
-
-  <div id="dam-detail-panel" class="testing" hidden>
-  <h2>Legend</h2>
-  <div class="key"><span class="dot" style="background:var(--c-ar)"></span>
-    <div>American Rivers coordinate<i>as published, March 2026</i></div></div>
-  <div class="key"><span class="dot" style="background:var(--c-nacc)"></span>
-    <div>Recovered from NACC<i>rows American Rivers left blank</i></div></div>
-  <div class="key"><span class="dot" style="background:var(--c-fix)"></span>
-    <div>Corrected coordinate<i>was wrong in the source, fixed and cited</i></div></div>
-
-  <h2>Audit flags</h2>
-  <div class="key"><span class="dot" style="background:transparent;border:2.4px solid #e8663c"></span>
-    <div>Rule 45 blocked the extension<i>the dam sits on a different mapped channel, named or
-    not; it had been taking its species from a main stem 212 to 490 m off</i></div></div>
-  <div class="key"><span class="dot" style="background:transparent;border:2.4px solid #f0b429"></span>
-    <div>Needs eyes<i>same shape, but the channel at its feet was <b>unnamed</b>. <b>None left:</b>
-    rule 45 was amended on 2026-09-13 to count unnamed channels, which moved all three
-    into the ring above</i></div></div>
-  <div class="key"><span class="dot" style="background:transparent;border:2.4px solid #7b61ff"></span>
-    <div>On a watershed range edge<i>a containment match balanced within 75 m of the rim</i></div></div>
-  <p class="note">
-    Hover a ringed dam for the evidence (click to pin the popup): the channel at its feet, the stream its species
-    actually came from, and what the <b>national river network</b> calls each. That last one is
-    the only way to judge a channel our own fish layers left unnamed, and it is checked against
-    three dams where the answer is known before it is trusted anywhere else.
-  </p>
-  <label class="f" style="margin-top:8px"><input type="checkbox" id="only-audit"> Only audit-flagged dams</label>
-  </div>
-
-  <h1>West Coast dam removals</h1>
-
-  <div class="big" id="shown">290<small>dams placed on the map</small></div>
-
-  <h2>Natural features</h2>
-  <label class="f"><input type="checkbox" class="nat" id="nat-relief" checked> Shaded relief</label>
-  <label class="f"><input type="checkbox" class="nat" id="nat-lakes"> Lakes and reservoirs</label>
-
-  <h2>Species</h2>
-  <button class="z" id="sp-all">All on</button>
-  <button class="z" id="sp-none">All off</button>
-  <div id="splist" style="margin-top:6px"></div>
-
-  <h2>Filter</h2>
-
-  <label class="f"><input type="checkbox" class="st" value="CA" checked> California <span id="c-CA" style="color:var(--muted)"></span></label>
-  <label class="f"><input type="checkbox" class="st" value="OR" checked> Oregon <span id="c-OR" style="color:var(--muted)"></span></label>
-  <label class="f"><input type="checkbox" class="st" value="WA" checked> Washington <span id="c-WA" style="color:var(--muted)"></span></label>
-
-  <h2>View</h2>
-  <button class="z" id="zin">Zoom in</button>
-  <button class="z" id="zout">Zoom out</button>
-  <button class="z" id="zreset">Reset</button>
-  <div style="margin-top:10px; display:flex; align-items:center; gap:6px; flex-wrap:wrap">
-    <span style="font-size:12.5px; margin-right:2px">Theme</span>
-    <button class="z" data-theme-set="auto" aria-pressed="true">Auto</button>
-    <button class="z" data-theme-set="light" aria-pressed="false">Light</button>
-    <button class="z" data-theme-set="dark" aria-pressed="false">Dark</button>
-  </div>
-
-  <label class="f hover-tool" style="margin-top:10px"><input type="checkbox" id="hover-layers"> Hover a layer for its source
-    <span style="color:var(--muted);font-size:11px">(slower)</span></label>
-
-</div>
-
-<div id="map">
-  <button id="panel-toggle" aria-controls="panel" aria-expanded="true" title="Hide the panel">&#8249;</button>
-  <button id="about-open" aria-controls="about" aria-expanded="false" title="Info about this project">Info</button>
-  <canvas id="hab"></canvas>
-  <svg id="svg"></svg>
-  <div id="pop"></div>
-  <div class="proj">Albers equal area conic &middot; standard parallels 34&deg;N / 48&deg;N</div>
-</div>
-
-<div id="about" role="dialog" aria-modal="false" aria-labelledby="about-title" aria-hidden="true">
-  <button id="about-close" title="Close" aria-label="Close">&times;</button>
-
-  <div id="about-body">
-  <h1 id="about-title">Info</h1>
-
-  <div class="tabs" role="tablist" aria-label="Info">
-    <button role="tab" id="tab-about" aria-controls="pane-about" aria-selected="true">About</button>
-    <button role="tab" id="tab-methods" aria-controls="pane-methods" aria-selected="false" tabindex="-1">Methods</button>
-    <button role="tab" id="tab-sources" aria-controls="pane-sources" aria-selected="false" tabindex="-1">Sources</button>
-  </div>
-
-  <div class="tabpane" role="tabpanel" id="pane-about" aria-labelledby="tab-about">
-  <p class="lede">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.
-  </p>
-  <p class="note">
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-    ea commodo consequat. <b>Duis aute irure dolor</b> in reprehenderit in voluptate velit
-    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <p class="note">
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-    architecto beatae vitae dicta sunt explicabo.
-  </p>
-  <p class="note">
-    <b>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</b> sed
-    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-  </p>
-  </div>
-
-  <div class="tabpane" role="tabpanel" id="pane-methods" aria-labelledby="tab-methods" hidden>
-  <p class="note">
-    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-    velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-    aliquam quaerat voluptatem.
-  </p>
-  <h2>Lorem ipsum</h2>
-  <p class="note">
-    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-    laboriosam, nisi ut aliquid ex ea commodi consequatur. <b>Quis autem vel eum iure
-    reprehenderit</b> qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
-    illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-  </p>
-  <p class="note">
-    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-    voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-    occaecati cupiditate non provident.
-  </p>
-  <h2>Dolor sit amet</h2>
-  <p class="note">
-    Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
-    fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-    soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-    facere possimus.
-  </p>
-  <h2>Consectetur adipiscing</h2>
-  <p class="note">
-    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-    eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum
-    rerum hic tenetur a sapiente delectus.
-  </p>
-  </div>
-
-  <div class="tabpane" role="tabpanel" id="pane-sources" aria-labelledby="tab-sources" hidden>
-  <p class="note">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <b>Integer nec odio.</b>
-    Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
-    elementum imperdiet.
-  </p>
-  <p class="note">
-    Duis sagittis ipsum. Praesent mauris. <b>Fusce nec tellus</b> sed augue semper porta.
-    Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad
-    litora torquent per conubia nostra, per inceptos himenaeos.
-  </p>
-  <p class="note">
-    Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.
-    Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
-  </p>
-  </div>
-  </div>
-</div>
-
-<script src="d3.v7.min.js"></script>
-<script src="base.js"></script>
-<script src="dams.js"></script>
-<script src="habitat/index.js"></script>
-<script src="natural/natural.js"></script>
-<script src="natural/relief_hi.js"></script>
-<script src="presence/index.js"></script>
-<script>
-const svg = d3.select("#svg");
-const pop = d3.select("#pop");
-const mapEl = document.getElementById("map");
-
-const projection = d3.geoAlbers()
-  .rotate([120, 0]).center([0, 41.5]).parallels([34, 48]);
-
-const gRoot = svg.append("g");
-const gDams = gRoot.append("g");
-
-const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-
-const damDetail = () => document.getElementById("dam-detail").checked;
-const colourOf = p => !damDetail() ? css("--c-dam")
-                    : p.corrected ? css("--c-fix")
-                    : p.coord_source === "nacc" ? css("--c-nacc")
-                    : css("--c-ar");
-
-const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-set("s-total", META.total_rows); set("s-ar", META.from_ar);
-set("s-nacc", META.from_nacc);  set("s-un", META.unmapped);
-set("s-drp", META.from_drp);    set("s-void", META.voided);
-set("s-dup", META.duplicates);  set("s-distinct", META.distinct_removals);
-set("s-sites", META.sites);     set("n-mapped", META.mapped);
-set("n-rec", META.from_nacc);
-set("n-clusters", META.clusters); set("n-clustered", META.clustered_rows);
-for (const [st, n] of Object.entries(META.by_state)) set("c-" + st, n);
-
-const IDX = typeof HABITAT_INDEX !== "undefined" ? HABITAT_INDEX : [];
-const HABITAT = {};
-const PACKED  = {};
-const active  = new Set();
-const loading = new Set();
-const cvEl = document.getElementById("hab");
-const ctx  = cvEl.getContext("2d");
-let xform = d3.zoomIdentity;
-let dpr = 1;
-
-function pack(parts) {
-  let n = 0;
-  for (const p of parts) n += p.length;
-  const xy = new Float32Array(n * 2), off = new Uint32Array(parts.length + 1);
-  let k = 0;
-  for (let i = 0; i < parts.length; i++) {
-    off[i] = k;
-    for (const c of parts[i]) {
-      const q = projection(c);
-      xy[2 * k] = q ? q[0] : NaN;
-      xy[2 * k + 1] = q ? q[1] : NaN;
-      k++;
-    }
-  }
-  off[parts.length] = k;
-  return { xy, off, count: parts.length };
-}
-
-function packGroup(key) {
-  const raw = HABITAT[key];
-  if (!raw) return;
-  PACKED[key] = { lines: pack(raw.lines || []), polys: pack(raw.polys || []) };
-}
-
-let statePack = null, otherPack = null;
-const PROJECT_STATES = new Set(["CA", "OR", "WA"]);
-
-const NAT = typeof NATURAL !== "undefined" ? NATURAL : null;
-const natPack = {};
-let natLabels = [];
-const reliefImg = new Image();
-let reliefReady = false;
-if (NAT) {
-  reliefImg.onload = () => { reliefReady = true; drawHabitat(); };
-  reliefImg.src = NAT.relief.file;
-}
-
-const HI = typeof RELIEF_HI !== "undefined" ? RELIEF_HI : null;
-const HI_SET = HI ? new Set(HI.tiles.map(t => t[0] + "_" + t[1])) : null;
-const HI_SWITCH_M = 500;
-const hiTiles = new Map();
-function hiTile(key) {
-  let t = hiTiles.get(key);
-  if (!t) {
-    t = { img: new Image(), ready: false };
-    t.img.onload = () => { t.ready = true; drawHabitat(); };
-    t.img.src = `${HI.dir}/${key}.jpg`;
-    hiTiles.set(key, t);
-  }
-  return t;
-}
-
-const reliefCv = document.createElement("canvas");
-const rctx = reliefCv.getContext("2d");
-function packNatural() {
-  if (!NAT) return;
-  natPack.lakes = pack(NAT.lakes);
-  natLabels = NAT.labels.map(l => ({ ...l, xy: projection([l.lon, l.lat]) }));
-}
-const natOn = id => document.getElementById(id).checked;
-
-const RELIEF = { light: 75, dark: 100 };
-const reliefAlpha = () => RELIEF[isDark() ? "dark" : "light"] / 100;
-
-const PRESENCE = {};
-const PRES_IDX = typeof PRESENCE_INDEX !== "undefined" ? PRESENCE_INDEX : [];
-const PRES_COLOUR = Object.fromEntries(PRES_IDX.map(m => [m.key, m.colour]));
-const PRES_META = Object.fromEntries(PRES_IDX.map(m => [m.key, m]));
-const fmtN = n => n.toLocaleString("en-US");
-const presPack = {};
-const presActive = new Set();
-
-const srcOn = {};
-
-const SPECIES = [
-  { key: "chinook",                   group: "Salmon and steelhead",        label: "Chinook salmon",              hue: 165, esa: ["chinook"],                   derived: [],         pres: "chinook" },
-  { key: "coho",                      group: "Salmon and steelhead",        label: "Coho salmon",                 hue:  32, esa: ["coho"],                      derived: ["soncc"],  pres: "coho" },
-  { key: "steelhead",                 group: "Salmon and steelhead",        label: "Steelhead",                   hue: 218, esa: ["steelhead"],                 derived: [],         pres: "steelhead" },
-  { key: "chum",                      group: "Salmon and steelhead",        label: "Chum salmon",                 hue: 112, esa: ["chum"],                      derived: [],         pres: "chum" },
-  { key: "sockeye",                   group: "Salmon and steelhead",        label: "Sockeye salmon",              hue: 192, esa: ["sockeye"],                   derived: [],         pres: "sockeye" },
-  { key: "pink",                      group: "Salmon and steelhead",        label: "Pink salmon",                 hue: 272, esa: [],                            derived: [],         pres: "pink" },
-  { key: "coastal_cutthroat",         group: "Trout",                       label: "Coastal cutthroat trout",     hue: 298, esa: [],                            derived: [],         pres: "coastal_cutthroat" },
-  { key: "redband",                   group: "Trout",                       label: "Redband trout",               hue: 152, esa: [],                            derived: [],         pres: "redband" },
-  { key: "westslope_cutthroat",       group: "Trout",                       label: "Westslope cutthroat trout",   hue:  98, esa: [],                            derived: [],         pres: "westslope_cutthroat" },
-  { key: "bull_trout",                group: "Trout",                       label: "Bull trout",                  hue: 338, esa: ["bull_trout"],                derived: [],         pres: "bull_trout" },
-  { key: "little_kern_golden_trout",  group: "Trout",                       label: "Little Kern golden trout",    hue: 232, esa: ["little_kern_golden_trout"],  derived: [],         pres: null },
-  { key: "pacific_lamprey",           group: "Lamprey",                     label: "Pacific lamprey",             hue:   5, esa: [],                            derived: [],         pres: "pacific_lamprey" },
-  { key: "western_river_lamprey",     group: "Lamprey",                     label: "Western river lamprey",       hue: 325, esa: [],                            derived: [],         pres: "western_river_lamprey" },
-  { key: "green_sturgeon",            group: "Sturgeon, smelt, whitefish",  label: "Green sturgeon",              hue: 245, esa: ["green_sturgeon"],            derived: [],         pres: "green_sturgeon" },
-  { key: "white_sturgeon",            group: "Sturgeon, smelt, whitefish",  label: "White sturgeon",              hue:  58, esa: [],                            derived: [],         pres: "white_sturgeon" },
-  { key: "eulachon",                  group: "Sturgeon, smelt, whitefish",  label: "Eulachon",                    hue: 138, esa: ["eulachon"],                  derived: [],         pres: "eulachon" },
-  { key: "delta_smelt",               group: "Sturgeon, smelt, whitefish",  label: "Delta smelt",                 hue: 125, esa: ["delta_smelt"],               derived: [],         pres: null },
-  { key: "mountain_whitefish",        group: "Sturgeon, smelt, whitefish",  label: "Mountain whitefish",          hue: 258, esa: [],                            derived: [],         pres: "mountain_whitefish" },
-  { key: "lost_river_sucker",         group: "Suckers",                     label: "Lost River sucker",           hue: 205, esa: ["lost_river_sucker"],         derived: [],         pres: "lost_river_sucker" },
-  { key: "shortnose_sucker",          group: "Suckers",                     label: "Shortnose sucker",            hue:  72, esa: ["shortnose_sucker"],          derived: [],         pres: "shortnose_sucker" },
-  { key: "klamath_largescale_sucker", group: "Suckers",                     label: "Klamath largescale sucker",   hue: 312, esa: [],                            derived: [],         pres: "klamath_largescale_sucker" },
-  { key: "largescale_sucker",         group: "Suckers",                     label: "Largescale sucker",           hue:  85, esa: [],                            derived: [],         pres: "largescale_sucker" },
-  { key: "bridgelip_sucker",          group: "Suckers",                     label: "Bridgelip sucker",            hue: 285, esa: [],                            derived: [],         pres: "bridgelip_sucker" },
-  { key: "warner_sucker",             group: "Suckers",                     label: "Warner sucker",               hue: 352, esa: ["warner_sucker"],             derived: [],         pres: null },
-  { key: "santa_ana_sucker",          group: "Suckers",                     label: "Santa Ana sucker",            hue: 178, esa: ["santa_ana_sucker"],          derived: [],         pres: null },
-  { key: "tidewater_goby",            group: "Other",                       label: "Tidewater goby",              hue:  45, esa: ["tidewater_goby"],            derived: [],         pres: null },
-  { key: "owens_tui_chub",            group: "Other",                       label: "Owens tui chub",              hue:  18, esa: ["owens_tui_chub"],            derived: [],         pres: null },
-];
-
-const spState = Object.fromEntries(SPECIES.map(sp => [sp.key, { esa: false, derived: false, pres: false }]));
-
-const BAND_PX = 2.0, LINE_PX = 1.0, POLY_EDGE_PX = 1;
-
-const BAND_MIN_PX = 1.3;
-const BAND_FULL_K = 6;
-function bandPx(k) {
-  const t = (k - 1) / (BAND_FULL_K - 1);
-  return BAND_MIN_PX + (BAND_PX - BAND_MIN_PX) * Math.max(0, Math.min(1, t));
-}
-
-const LABEL_HALO_PX = 3;
-
-const STRIPE = { on: true, band: 1.3 };
-const sonccStriped = () => STRIPE.on;
-
-const isDark = () => document.documentElement.dataset.theme === "dark";
-
-const HUE_SHIFT = 4;
-
-const TONE = {
-  light: { band: [0.85, 0.09], stripe: [0.74, 0.11], line: [0.45, 0.13], derived: [0.62, 0.17] },
-  dark:  { band: [0.43, 0.06], stripe: [0.52, 0.08], line: [0.80, 0.13], derived: [0.66, 0.18] },
-};
-
-const oklchCache = new Map();
-function oklch(L, C, h) {
-  const key = L + "," + C + "," + h;
-  let hex = oklchCache.get(key);
-  if (hex) return hex;
-  const lin = c => {
-    const a = c * Math.cos(h * Math.PI / 180), b = c * Math.sin(h * Math.PI / 180);
-    const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
-    const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3;
-    const s = (L - 0.0894841775 * a - 1.2914855480 * b) ** 3;
-    return [4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
-            -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
-            -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s];
-  };
-  const fits = rgb => rgb.every(x => x >= 0 && x <= 1);
-  let rgb = lin(C);
-  if (!fits(rgb)) {
-    let lo = 0, hi = C;
-    for (let i = 0; i < 24; i++) { const mid = (lo + hi) / 2; if (fits(lin(mid))) lo = mid; else hi = mid; }
-    rgb = lin(lo);
-  }
-  const enc = x => Math.round(255 * Math.min(1, Math.max(0, x <= 0.0031308 ? 12.92 * x : 1.055 * x ** (1 / 2.4) - 0.055)));
-  hex = "#" + rgb.map(x => enc(x).toString(16).padStart(2, "0")).join("");
-  oklchCache.set(key, hex);
-  return hex;
-}
-const shades = hue => {
-  const t = TONE[isDark() ? "dark" : "light"];
-  const b = hue - HUE_SHIFT, l = hue + HUE_SHIFT;
-  return { band: oklch(...t.band, b), stripe: oklch(...t.stripe, b), line: oklch(...t.line, l),
-           derived: oklch(...t.derived, hue) };
-};
-
-function packPresence(key) {
-  const raw = PRESENCE[key];
-  if (!raw) return;
-  const c = presenceCombined(raw, srcOn[key] || null);
-
-  presPack[key] = { lines: pack(c.lines), merged: pack(c.polys_merged) };
-}
-function packStates() {
-  const project = [], other = [];
-  for (const f of STATES.features) {
-    const g = f.geometry;
-    if (!g) continue;
-    const rings = PROJECT_STATES.has(f.properties.STUSPS) ? project : other;
-    if (g.type === "Polygon") rings.push(...g.coordinates);
-    else if (g.type === "MultiPolygon") for (const poly of g.coordinates) rings.push(...poly);
-  }
-  statePack = pack(project);
-  otherPack = pack(other);
-}
-
-function trace(p, target) {
-  const c = target || ctx;
-  const { xy, off, count } = p;
-  for (let i = 0; i < count; i++) {
-    const s = off[i], e = off[i + 1];
-    if (e - s < 2) continue;
-    c.moveTo(xy[2 * s], xy[2 * s + 1]);
-    for (let j = s + 1; j < e; j++) c.lineTo(xy[2 * j], xy[2 * j + 1]);
-  }
-}
-
-const HIT_PX = 5, PICK_SCALE = 0.5;
-const pickCv = document.createElement("canvas");
-const pickCtx = pickCv.getContext("2d", { willReadFrequently: true });
-let pickIds = [null];
-
-const srcPack = {};
-function packSource(presKey, src) {
-  const key = presKey + "|" + src.id;
-  if (!srcPack[key]) srcPack[key] = { lines: pack(src.lines), merged: pack(src.polys_merged) };
-  return srcPack[key];
-}
-let pickReady = false, pickTimer = null;
-const pickColour = i => `rgb(${i & 255},${(i >> 8) & 255},${(i >> 16) & 255})`;
-
-const FILL = { light: 64, dark: 48 };
-const fillAlpha = () => FILL[isDark() ? "dark" : "light"] / 100;
-
-function drawRanges(rings, line) {
-  ctx.beginPath(); trace(rings);
-  ctx.fillStyle = line;
-  ctx.globalAlpha = fillAlpha();
-  ctx.fill("evenodd");
-  ctx.globalAlpha = 1;
-}
-
-function drawPick() {
-  const w = mapEl.clientWidth, h = mapEl.clientHeight, k = xform.k;
-  pickCv.width = Math.max(1, Math.round(w * PICK_SCALE));
-  pickCv.height = Math.max(1, Math.round(h * PICK_SCALE));
-  const q = pickCtx;
-  q.setTransform(1, 0, 0, 1, 0, 0);
-  q.clearRect(0, 0, pickCv.width, pickCv.height);
-  q.setTransform(PICK_SCALE * k, 0, 0, PICK_SCALE * k, PICK_SCALE * xform.x, PICK_SCALE * xform.y);
-  q.lineJoin = q.lineCap = "round";
-  pickIds = [null];
-
-  const stamp = (packed, meta, px, fill) => {
-    if (!packed || !packed.count) return;
-    pickIds.push(meta);
-    q.strokeStyle = q.fillStyle = pickColour(pickIds.length - 1);
-    q.beginPath(); trace.call(null, packed, q);
-    if (fill) q.fill("nonzero");
-    q.lineWidth = Math.max(px, HIT_PX / PICK_SCALE) / k;
-    q.stroke();
-  };
-
-  for (const sp of SPECIES) {
-    const raw = spState[sp.key].pres && PRESENCE[sp.pres];
-    if (!raw) continue;
-    for (const src of raw.sources) {
-      const on = srcOn[sp.pres];
-      if (on && !on.has(src.id)) continue;
-      const pk = packSource(sp.pres, src);
-      const m = { sp, tier: "pres", src };
-      stamp(pk.merged, m, POLY_EDGE_PX, true);
-      stamp(pk.lines, m, BAND_PX, false);
-    }
-  }
-  for (const sp of SPECIES) {
-    const stt = spState[sp.key];
-    const on = [...(stt.esa ? sp.esa : []), ...(stt.derived ? sp.derived : [])];
-    for (const g of on) {
-      const pk = PACKED[g];
-      if (!pk) continue;
-      const m = { sp, tier: "esa", group: g, derived: sp.derived.includes(g) };
-      stamp(pk.polys, m, POLY_EDGE_PX, true);
-      stamp(pk.lines, m, LINE_PX, false);
-    }
-  }
-  pickReady = true;
-}
-
-const hoverOn = () => document.getElementById("hover-layers").checked;
-function schedulePick() {
-  pickReady = false;
-  clearTimeout(pickTimer);
-  if (!hoverOn()) return;
-  pickTimer = setTimeout(drawPick, 140);
-}
-
-function drawHabitat() {
-  const w = mapEl.clientWidth, h = mapEl.clientHeight, k = xform.k;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.clearRect(0, 0, w, h);
-  ctx.setTransform(dpr * k, 0, 0, dpr * k, dpr * xform.x, dpr * xform.y);
-  ctx.lineJoin = ctx.lineCap = "round";
-
-  if (otherPack) {
-    ctx.beginPath(); trace(otherPack);
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = css("--land-other"); ctx.fill("evenodd");
-    ctx.strokeStyle = css("--border-other");
-    ctx.lineWidth = .6 / k; ctx.stroke();
-  }
-
-  if (statePack) {
-    ctx.beginPath(); trace(statePack);
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = css("--land"); ctx.fill("evenodd");
-    ctx.strokeStyle = css("--border");
-    ctx.lineWidth = .7 / k; ctx.stroke();
-  }
-
-  if (NAT && statePack) {
-    ctx.save();
-    ctx.beginPath(); trace(statePack); ctx.clip("evenodd");
-
-    if (reliefReady && natOn("nat-relief")) {
-      const s = projection.scale(), [tx, ty] = projection.translate();
-      const place = q => [tx + s * q.originX / q.R, ty - s * q.originY / q.R,
-                          s * q.width * q.pixel / q.R, s * q.height * q.pixel / q.R];
-      if (reliefCv.width !== cvEl.width || reliefCv.height !== cvEl.height) {
-        reliefCv.width = cvEl.width; reliefCv.height = cvEl.height;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="robots" content="noindex, nofollow" />
+    <title>West Coast dam removals</title>
+    <style>
+      :root {
+        --bg: #f7f6f3;
+        --panel: #fff;
+        --ink: #1c1c1a;
+        --muted: #6b6a66;
+        --line: #e0ded8;
+        --land: #eeece6;
+        --border: #c9c6bd;
+        --water: #dfe8ec;
+        --c-ar: #2b7a8c;
+        --c-nacc: #c4791f;
+        --c-fix: #b23b3b;
+        --c-link: #20657a;
+
+        --c-dam: #000;
+        --c-halo: #fff;
+        --c-test: #b3261e;
+
+        --h-NMFS: #3d6fb4;
+        --h-USFWS: #4f8a3d;
+        --h-derived: #8d4fa8;
+        --nat-river: #8fb0c2;
+
+        --lake: #c9dce8;
+        --lake-edge: #7ba2ba;
+
+        --land-other: #e7e9e6;
+        --border-other: #d6d6d0;
       }
-      rctx.setTransform(1, 0, 0, 1, 0, 0);
-      rctx.fillStyle = "#fff"; rctx.fillRect(0, 0, reliefCv.width, reliefCv.height);
-      rctx.setTransform(dpr * k, 0, 0, dpr * k, dpr * xform.x, dpr * xform.y);
-      rctx.drawImage(reliefImg, ...place(NAT.relief));
-      if (HI && HI.R / (s * k * dpr) < HI_SWITCH_M) {
+      :root {
+        color-scheme: light;
+      }
 
-        const span = HI.tile * HI.pixel;
-        const mx = px => ((px - xform.x) / k - tx) * HI.R / s;
-        const my = py => (ty - (py - xform.y) / k) * HI.R / s;
-        const c0 = Math.max(0, Math.floor((mx(0) - HI.originX) / span));
-        const c1 = Math.floor((mx(w) - HI.originX) / span);
-        const r0 = Math.max(0, Math.floor((HI.originY - my(0)) / span));
-        const r1 = Math.floor((HI.originY - my(h)) / span);
-        for (let c = c0; c <= c1; c++) for (let r = r0; r <= r1; r++) {
-          const key = c + "_" + r;
-          if (!HI_SET.has(key)) continue;
-          const t = hiTile(key);
-          if (!t.ready) continue;
-          const x0 = HI.originX + c * span, y0 = HI.originY - r * span;
-          rctx.drawImage(t.img, tx + s * x0 / HI.R, ty - s * y0 / HI.R,
-                         s * t.img.naturalWidth * HI.pixel / HI.R, s * t.img.naturalHeight * HI.pixel / HI.R);
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #16181a;
+        --panel: #1e2124;
+        --ink: #e8e6e1;
+        --muted: #9a9791;
+        --line: #31353a;
+        --land: #24282c;
+        --border: #3c4248;
+        --water: #1b1f22;
+        --c-ar: #4fa8bd;
+        --c-nacc: #e0a044;
+        --c-fix: #d76464;
+        --c-link: #6fb6cc;
+        --c-dam: #fff;
+        --c-halo: #000;
+        --c-test: #a8231b;
+
+        --h-NMFS: #5486cc;
+        --h-USFWS: #5f9e48;
+        --h-derived: #9c60bd;
+        --nat-river: #4d6b7c;
+
+        --lake: #2b3d49;
+        --lake-edge: #5d8399;
+        --land-other: #202427;
+        --border-other: #2d3236;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font:
+          14px/1.5 -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Helvetica,
+          Arial,
+          sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        display: flex;
+        overflow: hidden;
+      }
+      #panel {
+        width: 320px;
+        flex: 0 0 320px;
+        height: 100vh;
+        height: 100svh;
+        overflow-y: auto;
+        background: var(--panel);
+        border-right: 1px solid var(--line);
+        padding: 20px;
+      }
+      #map {
+        flex: 1;
+        height: 100vh;
+        height: 100svh;
+        position: relative;
+        background: var(--water);
+      }
+
+      body.panel-off #panel {
+        display: none;
+      }
+      #panel-toggle {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 5;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        font: inherit;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0.9;
+      }
+      #panel-toggle:hover {
+        background: var(--land);
+        opacity: 1;
+      }
+
+      :root[data-mode="live"] .testing {
+        display: none;
+      }
+      @media (hover: none) {
+        .hover-tool {
+          display: none;
         }
       }
-      ctx.save();
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.globalCompositeOperation = "multiply";
-      ctx.globalAlpha = reliefAlpha();
-      ctx.drawImage(reliefCv, 0, 0);
-      ctx.restore();
-    }
-    if (natOn("nat-lakes") && natPack.lakes) {
-      ctx.beginPath(); trace(natPack.lakes);
-      ctx.globalAlpha = 1; ctx.fillStyle = css("--lake"); ctx.fill("evenodd");
 
-      ctx.globalAlpha = .95; ctx.strokeStyle = css("--lake-edge"); ctx.lineWidth = .8 / k; ctx.stroke();
-    }
+      #about {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 320px;
+        z-index: 20;
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        box-sizing: border-box;
+        background: var(--panel);
+        border-left: 1px solid var(--line);
+        padding: 22px 0 64px;
+        box-shadow: -10px 0 28px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+        visibility: hidden;
+        transition:
+          transform 0.28s ease,
+          visibility 0s linear 0.28s;
+      }
+      body.panel-off #about {
+        left: 0;
+      }
 
-    ctx.restore();
-  }
-
-  ctx.save();
-  if (otherPack) {
-    ctx.beginPath(); ctx.rect(-1e7, -1e7, 2e7, 2e7); trace(otherPack); ctx.clip("evenodd");
-  }
-
-  const wide = { tone: "band", px: bandPx(k), alpha: .9 };
-  const thin = { tone: "line", px: LINE_PX, alpha: 1 };
-  const esaRole = thin, presRole = wide;
-
-  const drawEsa = () => {
-    for (const sp of SPECIES) {
-      const stt = spState[sp.key];
-      const on = [...(stt.esa ? sp.esa : []), ...(stt.derived ? sp.derived : [])];
-      if (!on.length) continue;
-      const sh = shades(sp.hue);
-      for (const g of on) {
-        const p = PACKED[g];
-        if (!p) continue;
-
-        const marked = sp.derived.includes(g) && sonccStriped();
-
-        const style = marked ? sh.derived : sh[esaRole.tone];
-        ctx.strokeStyle = ctx.fillStyle = style;
-        if (p.polys.count) {
-          ctx.beginPath(); trace(p.polys);
-          ctx.globalAlpha = .45; ctx.fillStyle = sh.band; ctx.fill("evenodd");
-          ctx.fillStyle = style;
-          ctx.globalAlpha = .9; ctx.lineWidth = POLY_EDGE_PX / k; ctx.stroke();
+      #about-body {
+        padding: 0 80px;
+      }
+      body.about-on #about {
+        transform: translateX(0);
+        visibility: visible;
+        transition:
+          transform 0.28s ease,
+          visibility 0s linear 0s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #about {
+          transition: none;
         }
-        if (p.lines.count) {
-          ctx.beginPath(); trace(p.lines);
-          if (marked) {
+        body.about-on #about {
+          transition: none;
+        }
+      }
+      #about-open {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 5;
+        height: 26px;
+        padding: 0 10px;
+        font: inherit;
+        font-size: 12px;
+        line-height: 24px;
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0.9;
+      }
+      #about-open:hover {
+        background: var(--land);
+        opacity: 1;
+      }
+      #about-close {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        font: inherit;
+        font-size: 15px;
+        line-height: 24px;
+        text-align: center;
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      #about-close:hover {
+        background: var(--land);
+      }
 
-            ctx.globalAlpha = 1;
-            ctx.strokeStyle = sh.derived;
-            ctx.lineWidth = STRIPE.band / k;
-            ctx.stroke();
-          } else {
-            ctx.globalAlpha = esaRole.alpha; ctx.lineWidth = esaRole.px / k; ctx.stroke();
+      #about h1 {
+        font-size: 17px;
+        margin: 0 0 4px;
+      }
+      #about .lede {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 20px;
+        line-height: 1.55;
+      }
+      #about h2 {
+        margin-top: 24px;
+      }
+      #about .note {
+        font-size: 12.5px;
+        line-height: 1.75;
+      }
+      #about .lede {
+        max-width: none;
+      }
+      #about .stat {
+        font-size: 12.5px;
+      }
+      #about .tabs {
+        display: flex;
+        margin: 14px 0 20px;
+        border-bottom: 1px solid var(--line);
+      }
+      #about [role="tab"] {
+        flex: 1 1 0;
+        font: inherit;
+        font-size: 12.5px;
+        padding: 6px 0;
+        background: none;
+        border: 0;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      #about [role="tab"]:hover {
+        color: var(--ink);
+      }
+      #about [role="tab"][aria-selected="true"] {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* The Info panel had no links or lists until the Sources tab got real text. */
+      #about a {
+        color: var(--c-link);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 1px;
+      }
+      #about a:hover {
+        text-decoration-thickness: 2px;
+      }
+      #about ul {
+        margin: 8px 0 0;
+        padding-left: 17px;
+        font-size: 12.5px;
+        line-height: 1.75;
+      }
+      #about li {
+        margin-bottom: 9px;
+      }
+      #about li:last-child {
+        margin-bottom: 0;
+      }
+      #about .sublabel {
+        font-size: 12.5px;
+        line-height: 1.75;
+        margin: 14px 0 0;
+      }
+      #hab {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+        position: relative;
+      }
+      svg.dragging {
+        cursor: grabbing;
+      }
+      h1 {
+        font-size: 16px;
+        margin: 0 0 18px;
+        letter-spacing: -0.01em;
+      }
+      h2 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--muted);
+        margin: 22px 0 8px;
+        font-weight: 600;
+      }
+      .stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 5px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .stat b {
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+      }
+      .stat span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .big {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.02em;
+      }
+      #splist svg {
+        display: block;
+        flex: 0 0 22px;
+      }
+      /* The legend sits outside #splist, so its swatches need the same box and the
+         same 4px nudge .dot uses to sit on the first line of its label. */
+      #legend .spsw {
+        display: block;
+        flex: 0 0 22px;
+        margin-top: 4px;
+      }
+      #legend .spsw svg {
+        display: block;
+      }
+      .big small {
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--muted);
+        letter-spacing: 0;
+        margin-top: 2px;
+      }
+      .key {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 6px 0;
+        font-size: 12.5px;
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        flex: 0 0 11px;
+        margin-top: 4px;
+        border: 1.5px solid rgba(255, 255, 255, 0.65);
+      }
+      .key i {
+        color: var(--muted);
+        font-style: normal;
+        display: block;
+        font-size: 11.5px;
+      }
+      label.f {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 0;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      label.f.testbar {
+        background: var(--c-test);
+        color: #fff;
+        border-radius: 4px;
+        padding: 6px 10px;
+        margin: 0 0 14px 0;
+      }
+      label.f.testbar .tag {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 11px;
+      }
+
+      label.f.testbar:has(+ #dam-detail-panel:not([hidden])) {
+        margin-bottom: 0;
+        border-radius: 4px 4px 0 0;
+      }
+      #dam-detail-panel {
+        background: var(--c-test);
+        color: #fff;
+        border-radius: 0 0 4px 4px;
+        padding: 2px 10px 10px;
+        margin: 0 0 14px 0;
+      }
+
+      #dam-detail-panel h2 {
+        color: rgba(255, 255, 255, 0.88);
+        margin: 16px 0 6px;
+      }
+      #dam-detail-panel .key i {
+        color: rgba(255, 255, 255, 0.78);
+      }
+      #dam-detail-panel .note {
+        color: rgba(255, 255, 255, 0.85);
+        border-left-color: rgba(255, 255, 255, 0.35);
+      }
+      #dam-detail-panel .note b {
+        color: #fff;
+      }
+      #dam-detail-panel label.f {
+        color: #fff;
+      }
+      #dam-detail-panel input[type="checkbox"] {
+        accent-color: #fff;
+      }
+
+      #dam-detail-panel .dot {
+        border-color: #fff;
+        box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.55);
+      }
+      label.f select {
+        font: inherit;
+        font-size: 12.5px;
+        color: var(--ink);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 3px 5px;
+        cursor: pointer;
+      }
+      label.hab {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 3px 0;
+        cursor: pointer;
+        font-size: 12.5px;
+      }
+      label.hab .sw {
+        width: 15px;
+        height: 3px;
+        border-radius: 2px;
+        flex: 0 0 15px;
+      }
+      label.hab .n {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 11px;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      .spsrc {
+        margin-left: 22px;
+        border-left: 1px solid var(--line);
+        padding-left: 8px;
+      }
+
+      .srcrow {
+        display: flex;
+        align-items: center;
+      }
+      .srcrow label.hab.src {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .info {
+        border: 0;
+        background: var(--line);
+        color: var(--ink);
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        flex: 0 0 15px;
+        border-radius: 50%;
+        font-size: 10.5px;
+        line-height: 15px;
+        font-weight: 700;
+        padding: 0;
+        margin-left: 7px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+        text-align: center;
+      }
+      .info:hover {
+        background: var(--muted);
+        color: var(--panel);
+      }
+      .info[aria-expanded="true"] {
+        background: var(--ink);
+        color: var(--panel);
+      }
+      .srcnote {
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.45;
+        margin: 1px 0 5px 18px;
+        padding-left: 8px;
+        border-left: 2px solid var(--line);
+      }
+      .srcnote p {
+        margin: 0 0 5px;
+      }
+      label.hab.src {
+        font-size: 11.5px;
+        color: var(--muted);
+        padding: 2px 0;
+      }
+
+      .grain {
+        width: 13px;
+        flex: 0 0 13px;
+        height: 9px;
+        position: relative;
+      }
+      .grain.reach::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 4px;
+        height: 1.6px;
+        background: currentColor;
+        opacity: 0.75;
+      }
+      .grain.range::after {
+        content: "";
+        position: absolute;
+        inset: 1px 0;
+        background: currentColor;
+        opacity: 0.28;
+        border-radius: 1.5px;
+      }
+      label.hab.busy .n {
+        opacity: 0.55;
+      }
+      .note {
+        font-size: 11.5px;
+        color: var(--muted);
+        line-height: 1.45;
+        border-left: 2px solid var(--line);
+        padding-left: 9px;
+        margin: 8px 0;
+      }
+      .note b {
+        color: var(--ink);
+      }
+      button.z {
+        font: inherit;
+        font-size: 12px;
+        padding: 4px 10px;
+        margin-right: 6px;
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button.z:hover {
+        background: var(--land);
+      }
+      button.z[aria-pressed="true"] {
+        background: var(--land);
+        border-color: var(--ink);
+        font-weight: 600;
+      }
+
+      .both {
+        font-size: 11px;
+        color: var(--muted);
+        margin: -2px 0 8px 0;
+        font-variant-numeric: tabular-nums;
+      }
+      #splist {
+        max-height: 320px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 4px 0;
+      }
+      #splist label.busy {
+        opacity: 0.55;
+      }
+      .sprow {
+        display: flex;
+        align-items: center;
+      }
+      .sprow label.hab {
+        flex: 1;
+      }
+      .caret {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+        padding: 0;
+        background: none;
+        border: 0;
+        color: var(--ink);
+        cursor: pointer;
+        line-height: 1;
+        border-radius: 3px;
+        transition: transform 0.12s;
+      }
+      .caret:hover {
+        background: var(--land);
+      }
+      .caret[aria-expanded="true"] {
+        transform: rotate(90deg);
+      }
+      .spsub {
+        margin: 0 0 4px 20px;
+      }
+      .spsub label.hab {
+        font-size: 12px;
+        padding: 2px 0;
+      }
+      .spsub label.none {
+        color: var(--muted);
+        cursor: default;
+      }
+      .spgroup {
+        font-size: 11px;
+        color: var(--muted);
+        margin: 10px 0 2px;
+      }
+
+      .dam {
+        cursor: pointer;
+      }
+      .dam:hover {
+        stroke: var(--ink);
+        stroke-width: 2px;
+      }
+      #pop {
+        position: absolute;
+        pointer-events: none;
+        max-width: 250px;
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 10px 12px;
+        font-size: 12.5px;
+        line-height: 1.45;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.22);
+        opacity: 0;
+        transition: opacity 0.12s;
+      }
+      #pop.on {
+        opacity: 1;
+      }
+
+      #pop.pinned {
+        pointer-events: auto;
+        border-color: var(--border);
+      }
+      .pop-copy {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px 8px;
+        margin-top: 8px;
+      }
+      .pop-copy button,
+      .pop-copy i {
+        white-space: nowrap;
+      }
+      .pop-copy button {
+        font: inherit;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        padding: 2px 8px;
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .pop-copy button:hover {
+        background: var(--land);
+      }
+      .pop-copy i {
+        font-style: normal;
+        font-size: 10.5px;
+        color: var(--muted);
+      }
+      .pop-t {
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .pop-r {
+        color: var(--muted);
+        font-size: 11.5px;
+        margin-bottom: 6px;
+      }
+      .pop-g {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1px 9px;
+        font-size: 11.5px;
+      }
+      .pop-g dt {
+        color: var(--muted);
+      }
+      .pop-g dd {
+        margin: 0;
+      }
+      .warn {
+        margin-top: 7px;
+        padding: 5px 7px;
+        border-radius: 4px;
+        font-size: 11px;
+        background: rgba(178, 59, 59, 0.11);
+        color: var(--c-fix);
+      }
+      .proj {
+        position: absolute;
+        left: 10px;
+        bottom: 8px;
+        font-size: 10.5px;
+        color: var(--muted);
+        background: var(--panel);
+        padding: 3px 7px;
+        border-radius: 3px;
+        border: 1px solid var(--line);
+        opacity: 0.9;
+      }
+      @media (max-width: 760px) {
+        body {
+          flex-direction: column;
+          overflow: auto;
+        }
+        #panel {
+          width: 100%;
+          flex: none;
+          height: auto;
+          border-right: 0;
+          border-top: 1px solid var(--line);
+        }
+        #map {
+          height: 65vh;
+          height: 65svh;
+          flex: none;
+          order: -1;
+        }
+
+        body.panel-off #map {
+          height: 100vh;
+          height: 100svh;
+        }
+        #panel-toggle {
+          transform: rotate(-90deg);
+        }
+
+        body.about-on {
+          overflow: hidden;
+        }
+
+        #about {
+          left: 0;
+        }
+        #about-body {
+          padding: 0 16px;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        let c = "auto";
+        try {
+          const t = localStorage.getItem("damTheme");
+          if (t === "light" || t === "dark") c = t;
+        } catch (e) {}
+        const root = document.documentElement;
+        root.dataset.themeChoice = c;
+        root.dataset.theme =
+          c === "auto"
+            ? matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
+            : c;
+      })();
+
+      (function () {
+        const q = new URLSearchParams(location.search).get("mode");
+        let on = false;
+        try {
+          if (q === "test") localStorage.setItem("damMode", "test");
+          else if (q === "off") localStorage.removeItem("damMode");
+          on = localStorage.getItem("damMode") === "test";
+        } catch (e) {
+          on = q === "test";
+        }
+        document.documentElement.dataset.mode = on ? "test" : "live";
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="panel">
+      <label class="f testbar testing"
+        ><input type="checkbox" id="dam-detail" /> Color dams by provenance
+        <span class="tag">(testing)</span></label
+      >
+
+      <div id="dam-detail-panel" class="testing" hidden>
+        <h2>Dam provenance</h2>
+        <div class="key">
+          <span class="dot" style="background: var(--c-ar)"></span>
+          <div>American Rivers coordinate<i>as published, March 2026</i></div>
+        </div>
+        <div class="key">
+          <span class="dot" style="background: var(--c-nacc)"></span>
+          <div>Recovered from NACC<i>rows American Rivers left blank</i></div>
+        </div>
+        <div class="key">
+          <span class="dot" style="background: var(--c-fix)"></span>
+          <div>Corrected coordinate<i>was wrong in the source, fixed and cited</i></div>
+        </div>
+
+        <h2>Audit flags</h2>
+        <div class="key">
+          <span class="dot" style="background: transparent; border: 2.4px solid #e8663c"></span>
+          <div>
+            Rule 45 blocked the extension<i
+              >the dam sits on a different mapped channel, named or not; it had been taking its
+              species from a main stem 212 to 490 m off</i
+            >
+          </div>
+        </div>
+        <div class="key">
+          <span class="dot" style="background: transparent; border: 2.4px solid #f0b429"></span>
+          <div>
+            Needs eyes<i
+              >same shape, but the channel at its feet was <b>unnamed</b>. <b>None left:</b> rule 45
+              was amended on 2026-09-13 to count unnamed channels, which moved all three into the
+              ring above</i
+            >
+          </div>
+        </div>
+        <div class="key">
+          <span class="dot" style="background: transparent; border: 2.4px solid #7b61ff"></span>
+          <div>
+            On a watershed range edge<i>a containment match balanced within 75 m of the rim</i>
+          </div>
+        </div>
+        <p class="note">
+          Hover a ringed dam for the evidence (click to pin the popup): the channel at its feet, the
+          stream its species actually came from, and what the <b>national river network</b> calls
+          each. That last one is the only way to judge a channel our own fish layers left unnamed,
+          and it is checked against three dams where the answer is known before it is trusted
+          anywhere else.
+        </p>
+        <label class="f" style="margin-top: 8px"
+          ><input type="checkbox" id="only-audit" /> Only audit-flagged dams</label
+        >
+      </div>
+
+      <h1>West Coast dam removals</h1>
+
+      <h2>Legend</h2>
+      <div id="legend"></div>
+
+      <h2>Natural features</h2>
+      <label class="f"
+        ><input type="checkbox" class="nat" id="nat-relief" checked /> Shaded relief</label
+      >
+      <label class="f"
+        ><input type="checkbox" class="nat" id="nat-lakes" /> Lakes and reservoirs</label
+      >
+
+      <h2>Species</h2>
+      <button class="z" id="sp-all">All on</button>
+      <button class="z" id="sp-none">All off</button>
+      <div id="splist" style="margin-top: 6px"></div>
+
+      <h2>Filter</h2>
+
+      <label class="f"
+        ><input type="checkbox" class="st" value="CA" checked /> California
+        <span id="c-CA" style="color: var(--muted)"></span
+      ></label>
+      <label class="f"
+        ><input type="checkbox" class="st" value="OR" checked /> Oregon
+        <span id="c-OR" style="color: var(--muted)"></span
+      ></label>
+      <label class="f"
+        ><input type="checkbox" class="st" value="WA" checked /> Washington
+        <span id="c-WA" style="color: var(--muted)"></span
+      ></label>
+
+      <h2>View</h2>
+      <button class="z" id="zin">Zoom in</button>
+      <button class="z" id="zout">Zoom out</button>
+      <button class="z" id="zreset">Reset</button>
+      <div style="margin-top: 10px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap">
+        <span style="font-size: 12.5px; margin-right: 2px">Theme</span>
+        <button class="z" data-theme-set="auto" aria-pressed="true">Auto</button>
+        <button class="z" data-theme-set="light" aria-pressed="false">Light</button>
+        <button class="z" data-theme-set="dark" aria-pressed="false">Dark</button>
+      </div>
+
+      <label class="f hover-tool testing" style="margin-top: 10px"
+        ><input type="checkbox" id="hover-layers" /> Hover a layer for its source
+        <span style="color: var(--muted); font-size: 11px">(slower)</span></label
+      >
+    </div>
+
+    <div id="map">
+      <button id="panel-toggle" aria-controls="panel" aria-expanded="true" title="Hide the panel">
+        &#8249;
+      </button>
+      <button
+        id="about-open"
+        aria-controls="about"
+        aria-expanded="false"
+        title="Info about this project"
+      >
+        Info
+      </button>
+      <canvas id="hab"></canvas>
+      <svg id="svg"></svg>
+      <div id="pop"></div>
+      <div class="proj">
+        Albers equal area conic &middot; standard parallels 34&deg;N / 48&deg;N
+      </div>
+    </div>
+
+    <div
+      id="about"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="about-title"
+      aria-hidden="true"
+    >
+      <button id="about-close" title="Close" aria-label="Close">&times;</button>
+
+      <div id="about-body">
+        <h1 id="about-title">Info</h1>
+
+        <div class="tabs" role="tablist" aria-label="Info">
+          <button role="tab" id="tab-about" aria-controls="pane-about" aria-selected="true">
+            About
+          </button>
+          <button
+            role="tab"
+            id="tab-methods"
+            aria-controls="pane-methods"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            Methods
+          </button>
+          <button
+            role="tab"
+            id="tab-sources"
+            aria-controls="pane-sources"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            Sources
+          </button>
+        </div>
+
+        <div class="tabpane" role="tabpanel" id="pane-about" aria-labelledby="tab-about">
+          <p class="lede">
+            This site maps dam removals in California, Oregon and Washington; and spatially joins
+            them to endangered and migratory fish habitat.
+          </p>
+          <p class="note">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. <b>Duis aute irure dolor</b> in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p class="note">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+            architecto beatae vitae dicta sunt explicabo.
+          </p>
+          <p class="note">
+            <b>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</b> sed
+            quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+          </p>
+        </div>
+
+        <div class="tabpane" role="tabpanel" id="pane-methods" aria-labelledby="tab-methods" hidden>
+          <p class="note">
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+            aliquam quaerat voluptatem.
+          </p>
+          <h2>Lorem ipsum</h2>
+          <p class="note">
+            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+            laboriosam, nisi ut aliquid ex ea commodi consequatur.
+            <b>Quis autem vel eum iure reprehenderit</b> qui in ea voluptate velit esse quam nihil
+            molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+          </p>
+          <p class="note">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+            occaecati cupiditate non provident.
+          </p>
+          <h2>Dolor sit amet</h2>
+          <p class="note">
+            Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+            fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
+            soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
+            facere possimus.
+          </p>
+          <h2>Consectetur adipiscing</h2>
+          <p class="note">
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+            eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum
+            rerum hic tenetur a sapiente delectus.
+          </p>
+        </div>
+
+        <div class="tabpane" role="tabpanel" id="pane-sources" aria-labelledby="tab-sources" hidden>
+          <p class="note">
+            Every dataset below is public and was downloaded as a dated snapshot, so the map can be
+            traced back to the exact files it was built from. None of it is fetched live.
+          </p>
+
+          <h2>Dam removals</h2>
+          <ul>
+            <li>
+              <b><a href="https://doi.org/10.6084/m9.figshare.5234068" target="_blank" rel="noopener noreferrer">American Rivers Dam Removal Database</a></b>, March 2026 release (figshare
+              version 13, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>). The list of
+              removals, their names, rivers, heights and years, and most coordinates.
+            </li>
+            <li>
+              <b><a href="https://aquaticbarriers.org/" target="_blank" rel="noopener noreferrer">National Aquatic Barrier Inventory</a></b>, v4.3.0, compiled
+              by the <b><a href="https://southeastaquatics.net/sarps-programs/aquatic-connectivity-program-act/inventory" target="_blank" rel="noopener noreferrer">Southeast Aquatic Resources Partnership (SARP)</a></b> and the
+              <b><a href="https://www.fishhabitat.org/" target="_blank" rel="noopener noreferrer">National Fish Habitat Partnership (NFHP)</a></b>, downloaded
+              2026-09-08. Coordinates for 12 removals American Rivers left blank, and an independent
+              cross-check of the fish results.
+            </li>
+            <li>
+              <b>Corrections</b> to individual records cite their own evidence (agency project pages,
+              news reports, imagery). The evidence travels with each corrected dam.
+            </li>
+          </ul>
+
+          <h2>ESA critical habitat</h2>
+          <ul>
+            <li>
+              <b><a href="https://www.fisheries.noaa.gov/resource/map/critical-habitat-maps-and-gis-data-west-coast-region" target="_blank" rel="noopener noreferrer">NOAA Fisheries (NMFS) West Coast Region, ESA Critical Habitat</a></b>,
+              edition of 2023-07-17 (the current one; NMFS has issued no update since). Chinook, coho,
+              steelhead, chum, sockeye, green sturgeon, eulachon.
+            </li>
+            <li>
+              <b><a href="https://ecos.fws.gov/ecp/report/table/critical-habitat.html" target="_blank" rel="noopener noreferrer">U.S. Fish and Wildlife Service, critical habitat shapefiles</a></b> (ECOS
+              national bundle), edition of 2026-08-31. Bull trout, Lost River sucker, shortnose sucker,
+              Warner sucker, Santa Ana sucker, Little Kern golden trout, delta smelt, tidewater goby,
+              Owens tui chub.
+            </li>
+            <li>
+              <b>SONCC coho critical habitat: reconstructed by this project</b>, not published by any
+              agency. Built from the regulation's text,
+              <b><a href="https://www.ecfr.gov/current/title-50/chapter-II/subchapter-C/part-226/section-226.210" target="_blank" rel="noopener noreferrer">50 CFR 226.210</a></b>, using ODFW and CDFW coho
+              distribution (below), NOAA's SONCC coho ESU range
+              (<a href="https://apps.wildlife.ca.gov/bios6/" target="_blank" rel="noopener noreferrer">CDFW BIOS</a> ds803, 2025) for the ESU's extent, and
+              <b><a href="https://streamstats.usgs.gov/ss/" target="_blank" rel="noopener noreferrer">USGS StreamStats</a></b> to delineate the basins above the
+              regulation's boundary dams.
+            </li>
+          </ul>
+
+          <h2>Where fish are present</h2>
+          <p class="sublabel"><b>Oregon</b></p>
+          <ul>
+            <li>
+              <b><a href="https://nrimp.dfw.state.or.us/nrimp/default.aspx?pn=fishdistdata" target="_blank" rel="noopener noreferrer">Oregon Department of Fish and Wildlife (ODFW), Fish Habitat Distribution</a></b>,
+              edition 1167_5.
+            </li>
+          </ul>
+          <p class="sublabel"><b>Washington</b></p>
+          <ul>
+            <li>
+              <b><a href="https://geo.wa.gov/datasets/wdfw::statewide-washington-integrated-fish-distribution" target="_blank" rel="noopener noreferrer">Washington Department of Fish and Wildlife (WDFW), Statewide Washington Integrated Fish Distribution (SWIFD)</a></b>,
+              published 2026-04-17, downloaded 2026-09-11.
+            </li>
+          </ul>
+          <p class="sublabel">
+            <b>California</b>, from the <b><a href="https://apps.wildlife.ca.gov/bios6/" target="_blank" rel="noopener noreferrer">CDFW BIOS</a></b> public data
+            library, downloaded 2026-09-11:
+          </p>
+          <ul>
+            <li><b><a href="https://data.cnra.ca.gov/dataset/coho-distribution-ds326" target="_blank" rel="noopener noreferrer">ds326</a></b>, Coho distribution (CDFW, August 2025)</li>
+            <li><b>ds340</b>, Winter steelhead distribution (CDFW, June 2012)</li>
+            <li><b>ds341</b>, Summer steelhead distribution (CDFW, October 2009)</li>
+            <li><b>ds981</b>, California Coastal Chinook distribution (NOAA, 2005)</li>
+            <li><b>ds982</b>, Central Valley spring-run Chinook distribution (NOAA, 2005)</li>
+            <li><b>ds1325</b>, Eulachon range (CDFW)</li>
+            <li><b>ds2673</b>, Pacific lamprey historical range and current distribution, California (USFWS, 2021)</li>
+          </ul>
+          <p class="sublabel"><b>Across all three states</b></p>
+          <ul>
+            <li>
+              <b><a href="https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/Pacific_Lamprey_Known_Observations_And_Distribution_201805/FeatureServer" target="_blank" rel="noopener noreferrer">USFWS, Pacific Lamprey Known Observations and Distribution</a></b>,
+              Washington, Oregon and Idaho (2022), downloaded 2026-09-11.
+            </li>
+          </ul>
+          <p class="sublabel"><b>California species ranges</b></p>
+          <ul>
+            <li>
+              <b><a href="https://pisces.ucdavis.edu/" target="_blank" rel="noopener noreferrer">PISCES</a></b> 2.0.4, Center for Watershed Sciences,
+              <b>University of California, Davis</b>. Cite
+              <a href="https://doi.org/10.1016/j.envsoft.2013.10.024" target="_blank" rel="noopener noreferrer">Santos, N.R., Katz, J.V.E., Moyle, P.B. and Viers, J.H. (2014)</a>,
+              <i>Environmental Modelling &amp; Software</i> 53, 13-26. Used under its noncommercial,
+              attribution, share-alike terms.
+            </li>
+          </ul>
+
+          <h2>Checking the results</h2>
+          <ul>
+            <li>
+              <b><a href="https://www.usgs.gov/national-hydrography" target="_blank" rel="noopener noreferrer">USGS National Hydrography Dataset (NHD)</a></b>, via The
+              National Map, to name the channel at a dam where the fish layers don't.
+            </li>
+          </ul>
+
+          <h2>Base map</h2>
+          <ul>
+            <li>
+              <b>Shaded relief</b>: elevation from
+              <b><a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">AWS Terrain Tiles</a></b>, which package public-domain
+              data from the USGS 3D Elevation Program, SRTM and other national surveys.
+            </li>
+            <li>
+              <b>Lakes, reservoirs and region names</b>:
+              <b><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a></b>, 1:10m, public domain.
+            </li>
+            <li>
+              <b>State outlines and coastline</b>:
+              <b><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html" target="_blank" rel="noopener noreferrer">U.S. Census Bureau cartographic boundary files</a></b>,
+              2023, 1:500,000, public domain.
+            </li>
+          </ul>
+
+          <h2>Software</h2>
+          <ul>
+            <li>
+              <b><a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3</a></b> v7.9.0 (ISC licence), served with the page. The data
+              were prepared with Python, R and GDAL.
+            </li>
+          </ul>
+
+          <h2>The data behind the map</h2>
+          <p class="note">
+            <b><a href="dams.geojson" download>Download the dams</a></b> (<code>dams.geojson</code>,
+            148 KB): all 290 mapped removals, with the species and critical habitat matched at each one
+            and the grade of every match.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="d3.v7.min.js"></script>
+    <script src="base.js"></script>
+    <script src="dams.js"></script>
+    <script src="habitat/index.js"></script>
+    <script src="natural/natural.js"></script>
+    <script src="natural/relief_hi.js"></script>
+    <script src="presence/index.js"></script>
+    <script>
+      const svg = d3.select("#svg");
+      const pop = d3.select("#pop");
+      const mapEl = document.getElementById("map");
+
+      const projection = d3.geoAlbers().rotate([120, 0]).center([0, 41.5]).parallels([34, 48]);
+
+      const gRoot = svg.append("g");
+      const gDams = gRoot.append("g");
+
+      const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+      const damDetail = () => document.getElementById("dam-detail").checked;
+      const colourOf = (p) =>
+        !damDetail()
+          ? css("--c-dam")
+          : p.corrected
+            ? css("--c-fix")
+            : p.coord_source === "nacc"
+              ? css("--c-nacc")
+              : css("--c-ar");
+
+      const set = (id, v) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = v;
+      };
+      set("s-total", META.total_rows);
+      set("s-ar", META.from_ar);
+      set("s-nacc", META.from_nacc);
+      set("s-un", META.unmapped);
+      set("s-drp", META.from_drp);
+      set("s-void", META.voided);
+      set("s-dup", META.duplicates);
+      set("s-distinct", META.distinct_removals);
+      set("s-sites", META.sites);
+      set("n-mapped", META.mapped);
+      set("n-rec", META.from_nacc);
+      set("n-clusters", META.clusters);
+      set("n-clustered", META.clustered_rows);
+      for (const [st, n] of Object.entries(META.by_state)) set("c-" + st, n);
+
+      const IDX = typeof HABITAT_INDEX !== "undefined" ? HABITAT_INDEX : [];
+      const HABITAT = {};
+      const PACKED = {};
+      const active = new Set();
+      const loading = new Set();
+      const cvEl = document.getElementById("hab");
+      const ctx = cvEl.getContext("2d");
+      let xform = d3.zoomIdentity;
+      let dpr = 1;
+
+      function pack(parts) {
+        let n = 0;
+        for (const p of parts) n += p.length;
+        const xy = new Float32Array(n * 2),
+          off = new Uint32Array(parts.length + 1);
+        let k = 0;
+        for (let i = 0; i < parts.length; i++) {
+          off[i] = k;
+          for (const c of parts[i]) {
+            const q = projection(c);
+            xy[2 * k] = q ? q[0] : NaN;
+            xy[2 * k + 1] = q ? q[1] : NaN;
+            k++;
           }
         }
+        off[parts.length] = k;
+        return { xy, off, count: parts.length };
       }
-    }
-  };
 
-  const drawPres = () => {
-    for (const sp of SPECIES) {
-      const p = spState[sp.key].pres && presPack[sp.pres];
-      if (!p) continue;
-      const colour = shades(sp.hue)[presRole.tone];
-      const ranges = p.merged;
-      if (ranges && ranges.count) drawRanges(ranges, colour);
-      if (p.lines.count) {
-        ctx.strokeStyle = colour; ctx.globalAlpha = presRole.alpha; ctx.lineWidth = presRole.px / k;
-        ctx.beginPath(); trace(p.lines); ctx.stroke();
+      function packGroup(key) {
+        const raw = HABITAT[key];
+        if (!raw) return;
+        PACKED[key] = { lines: pack(raw.lines || []), polys: pack(raw.polys || []) };
       }
-    }
-  };
 
-  drawPres(); drawEsa();
-  ctx.restore();
-  ctx.globalAlpha = 1;
+      let statePack = null,
+        otherPack = null;
+      const PROJECT_STATES = new Set(["CA", "OR", "WA"]);
 
-  if (NAT) {
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.font = "600 10px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
-    ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    if ("letterSpacing" in ctx) ctx.letterSpacing = "1.6px";
-    ctx.save();
+      const NAT = typeof NATURAL !== "undefined" ? NATURAL : null;
+      const natPack = {};
+      let natLabels = [];
+      const reliefImg = new Image();
+      let reliefReady = false;
+      if (NAT) {
+        reliefImg.onload = () => {
+          reliefReady = true;
+          drawHabitat();
+        };
+        reliefImg.src = NAT.relief.file;
+      }
 
-    ctx.strokeStyle = css("--c-halo");
-    ctx.lineWidth = LABEL_HALO_PX;
-    ctx.lineJoin = ctx.lineCap = "round";
-    ctx.fillStyle = css("--muted"); ctx.globalAlpha = .75;
-    for (const l of natLabels) {
-      if (!l.xy) continue;
-      const [x, y] = xform.apply(l.xy);
-      ctx.strokeText(l.name, x, y);
-      ctx.fillText(l.name, x, y);
-    }
-    ctx.restore();
-    if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
-    ctx.globalAlpha = 1;
-  }
-  schedulePick();
-}
+      const HI = typeof RELIEF_HI !== "undefined" ? RELIEF_HI : null;
+      const HI_SET = HI ? new Set(HI.tiles.map((t) => t[0] + "_" + t[1])) : null;
+      const HI_SWITCH_M = 500;
+      const hiTiles = new Map();
+      function hiTile(key) {
+        let t = hiTiles.get(key);
+        if (!t) {
+          t = { img: new Image(), ready: false };
+          t.img.onload = () => {
+            t.ready = true;
+            drawHabitat();
+          };
+          t.img.src = `${HI.dir}/${key}.jpg`;
+          hiTiles.set(key, t);
+        }
+        return t;
+      }
 
-function loadGroup(meta, done) {
-  if (HABITAT[meta.key]) { packGroup(meta.key); return void done(); }
-  if (loading.has(meta.key)) return void done();
-  loading.add(meta.key);
-  const s = document.createElement("script");
-  s.src = meta.file;
-  s.onload = () => { loading.delete(meta.key); packGroup(meta.key); done(); };
-  s.onerror = () => {
-    loading.delete(meta.key);
-    console.error("habitat layer failed to load:", meta.file);
-    done();
-  };
-  document.head.appendChild(s);
-}
+      const reliefCv = document.createElement("canvas");
+      const rctx = reliefCv.getContext("2d");
+      function packNatural() {
+        if (!NAT) return;
+        natPack.lakes = pack(NAT.lakes);
+        natLabels = NAT.labels.map((l) => ({ ...l, xy: projection([l.lon, l.lat]) }));
+      }
+      const natOn = (id) => document.getElementById(id).checked;
 
-const NUDGE_MIN_W = 760;
-const NUDGE_FULL_W = 1400;
-const NUDGE_MAX = 200;
-const NARROW = matchMedia("(max-width:760px)");
+      const RELIEF = { light: 75, dark: 100 };
+      const reliefAlpha = () => RELIEF[isDark() ? "dark" : "light"] / 100;
 
-function nudgeX() {
-  if (NARROW.matches) return 0;
-  const t = (innerWidth - NUDGE_MIN_W) / (NUDGE_FULL_W - NUDGE_MIN_W);
-  return NUDGE_MAX * Math.max(0, Math.min(1, t));
-}
+      const PRESENCE = {};
+      const PRES_IDX = typeof PRESENCE_INDEX !== "undefined" ? PRESENCE_INDEX : [];
+      const PRES_COLOUR = Object.fromEntries(PRES_IDX.map((m) => [m.key, m.colour]));
+      const PRES_META = Object.fromEntries(PRES_IDX.map((m) => [m.key, m]));
+      const fmtN = (n) => n.toLocaleString("en-US");
+      const presPack = {};
+      const presActive = new Set();
 
-function fit() {
-  const w = mapEl.clientWidth, h = mapEl.clientHeight;
-  svg.attr("viewBox", `0 0 ${w} ${h}`);
+      const srcOn = {};
 
-  const nx = nudgeX();
-  projection.fitExtent([[26 - nx, 26], [w - 26 - nx, h - 26]], DAMS);
-  gDams.selectAll("circle")
-    .attr("cx", d => projection(d.geometry.coordinates)[0])
-    .attr("cy", d => projection(d.geometry.coordinates)[1]);
+      const SPECIES = [
+        {
+          key: "chinook",
+          group: "Salmon and steelhead",
+          label: "Chinook salmon",
+          hue: 165,
+          esa: ["chinook"],
+          derived: [],
+          pres: "chinook",
+        },
+        {
+          key: "coho",
+          group: "Salmon and steelhead",
+          label: "Coho salmon",
+          hue: 32,
+          esa: ["coho"],
+          derived: ["soncc"],
+          pres: "coho",
+        },
+        {
+          key: "steelhead",
+          group: "Salmon and steelhead",
+          label: "Steelhead",
+          hue: 218,
+          esa: ["steelhead"],
+          derived: [],
+          pres: "steelhead",
+        },
+        {
+          key: "chum",
+          group: "Salmon and steelhead",
+          label: "Chum salmon",
+          hue: 112,
+          esa: ["chum"],
+          derived: [],
+          pres: "chum",
+        },
+        {
+          key: "sockeye",
+          group: "Salmon and steelhead",
+          label: "Sockeye salmon",
+          hue: 192,
+          esa: ["sockeye"],
+          derived: [],
+          pres: "sockeye",
+        },
+        {
+          key: "pink",
+          group: "Salmon and steelhead",
+          label: "Pink salmon",
+          hue: 272,
+          esa: [],
+          derived: [],
+          pres: "pink",
+        },
+        {
+          key: "coastal_cutthroat",
+          group: "Trout",
+          label: "Coastal cutthroat trout",
+          hue: 298,
+          esa: [],
+          derived: [],
+          pres: "coastal_cutthroat",
+        },
+        {
+          key: "redband",
+          group: "Trout",
+          label: "Redband trout",
+          hue: 152,
+          esa: [],
+          derived: [],
+          pres: "redband",
+        },
+        {
+          key: "westslope_cutthroat",
+          group: "Trout",
+          label: "Westslope cutthroat trout",
+          hue: 98,
+          esa: [],
+          derived: [],
+          pres: "westslope_cutthroat",
+        },
+        {
+          key: "bull_trout",
+          group: "Trout",
+          label: "Bull trout",
+          hue: 338,
+          esa: ["bull_trout"],
+          derived: [],
+          pres: "bull_trout",
+        },
+        {
+          key: "little_kern_golden_trout",
+          group: "Trout",
+          label: "Little Kern golden trout",
+          hue: 232,
+          esa: ["little_kern_golden_trout"],
+          derived: [],
+          pres: null,
+        },
+        {
+          key: "pacific_lamprey",
+          group: "Lamprey",
+          label: "Pacific lamprey",
+          hue: 5,
+          esa: [],
+          derived: [],
+          pres: "pacific_lamprey",
+        },
+        {
+          key: "western_river_lamprey",
+          group: "Lamprey",
+          label: "Western river lamprey",
+          hue: 325,
+          esa: [],
+          derived: [],
+          pres: "western_river_lamprey",
+        },
+        {
+          key: "green_sturgeon",
+          group: "Sturgeon, smelt, whitefish",
+          label: "Green sturgeon",
+          hue: 245,
+          esa: ["green_sturgeon"],
+          derived: [],
+          pres: "green_sturgeon",
+        },
+        {
+          key: "white_sturgeon",
+          group: "Sturgeon, smelt, whitefish",
+          label: "White sturgeon",
+          hue: 58,
+          esa: [],
+          derived: [],
+          pres: "white_sturgeon",
+        },
+        {
+          key: "eulachon",
+          group: "Sturgeon, smelt, whitefish",
+          label: "Eulachon",
+          hue: 138,
+          esa: ["eulachon"],
+          derived: [],
+          pres: "eulachon",
+        },
+        {
+          key: "delta_smelt",
+          group: "Sturgeon, smelt, whitefish",
+          label: "Delta smelt",
+          hue: 125,
+          esa: ["delta_smelt"],
+          derived: [],
+          pres: null,
+        },
+        {
+          key: "mountain_whitefish",
+          group: "Sturgeon, smelt, whitefish",
+          label: "Mountain whitefish",
+          hue: 258,
+          esa: [],
+          derived: [],
+          pres: "mountain_whitefish",
+        },
+        {
+          key: "lost_river_sucker",
+          group: "Suckers",
+          label: "Lost River sucker",
+          hue: 205,
+          esa: ["lost_river_sucker"],
+          derived: [],
+          pres: "lost_river_sucker",
+        },
+        {
+          key: "shortnose_sucker",
+          group: "Suckers",
+          label: "Shortnose sucker",
+          hue: 72,
+          esa: ["shortnose_sucker"],
+          derived: [],
+          pres: "shortnose_sucker",
+        },
+        {
+          key: "klamath_largescale_sucker",
+          group: "Suckers",
+          label: "Klamath largescale sucker",
+          hue: 312,
+          esa: [],
+          derived: [],
+          pres: "klamath_largescale_sucker",
+        },
+        {
+          key: "largescale_sucker",
+          group: "Suckers",
+          label: "Largescale sucker",
+          hue: 85,
+          esa: [],
+          derived: [],
+          pres: "largescale_sucker",
+        },
+        {
+          key: "bridgelip_sucker",
+          group: "Suckers",
+          label: "Bridgelip sucker",
+          hue: 285,
+          esa: [],
+          derived: [],
+          pres: "bridgelip_sucker",
+        },
+        {
+          key: "warner_sucker",
+          group: "Suckers",
+          label: "Warner sucker",
+          hue: 352,
+          esa: ["warner_sucker"],
+          derived: [],
+          pres: null,
+        },
+        {
+          key: "santa_ana_sucker",
+          group: "Suckers",
+          label: "Santa Ana sucker",
+          hue: 178,
+          esa: ["santa_ana_sucker"],
+          derived: [],
+          pres: null,
+        },
+        {
+          key: "tidewater_goby",
+          group: "Other",
+          label: "Tidewater goby",
+          hue: 45,
+          esa: ["tidewater_goby"],
+          derived: [],
+          pres: null,
+        },
+        {
+          key: "owens_tui_chub",
+          group: "Other",
+          label: "Owens tui chub",
+          hue: 18,
+          esa: ["owens_tui_chub"],
+          derived: [],
+          pres: null,
+        },
+      ];
 
-  dpr = Math.min(window.devicePixelRatio || 1, 2);
-  cvEl.width = Math.round(w * dpr);
-  cvEl.height = Math.round(h * dpr);
-  packStates();
-  packNatural();
-  for (const key of Object.keys(HABITAT)) packGroup(key);
-  for (const key of Object.keys(PRESENCE)) packPresence(key);
-  drawHabitat();
-}
+      const spState = Object.fromEntries(
+        SPECIES.map((sp) => [sp.key, { esa: false, derived: false, pres: false }]),
+      );
 
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
-  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const BAND_PX = 2.0,
+        LINE_PX = 1.0,
+        POLY_EDGE_PX = 1;
 
-// An audit flag earns a visible ring, because the whole reason these attributes exist
-// is so a flagged dam can be FOUND on the map rather than looked up by coordinate.
-// Three states, most urgent first: rule 45 switched the extension off here; the
-// extension survived only because the near channel is unnamed; something else.
-const auditKind = p => !p.audit ? null
-  : p.audit.rule45_blocked ? "blocked"
-  : (p.audit.same_stream && p.audit.same_stream.flag) ? "eyes"
-  : p.audit.range_edge ? "edge" : null;
-const AUDIT_RING = { blocked: "#e8663c", eyes: "#f0b429", edge: "#7b61ff" };
+      const BAND_MIN_PX = 1.3;
+      const BAND_FULL_K = 6;
+      function bandPx(k) {
+        const t = (k - 1) / (BAND_FULL_K - 1);
+        return BAND_MIN_PX + (BAND_PX - BAND_MIN_PX) * Math.max(0, Math.min(1, t));
+      }
 
-const damStroke = d => !damDetail() ? css("--c-halo")
-  : AUDIT_RING[auditKind(d.properties)]
-  || (d.properties.corrected ? css("--c-fix") : "rgba(255,255,255,.85)");
+      const LABEL_HALO_PX = 3;
 
-// ONE definition of the mark size, because the two that existed had already drifted: the first draw
-// gave a flagged dam r=6.2 while the zoom handler rebuilt every radius from the corrected/plain pair
-// only, so an audit ring quietly shrank to plain size the first time anyone zoomed (standing rule 44).
-// Plain is UNIFORM on purpose. Size is an attribute like colour, so varying it with the switch off
-// would leak the provenance the switch is meant to hide.
-const DAM_R = { plain: 2.4, corrected: 5.5, audit: 6.2 };
-const damR = p => !damDetail() ? DAM_R.plain
-              : auditKind(p) ? DAM_R.audit
-              : p.corrected ? DAM_R.corrected
+      const STRIPE = { on: true, band: 1.3 };
+      const sonccStriped = () => STRIPE.on;
+
+      const isDark = () => document.documentElement.dataset.theme === "dark";
+
+      const HUE_SHIFT = 4;
+
+      const TONE = {
+        light: {
+          band: [0.85, 0.09],
+          stripe: [0.74, 0.11],
+          line: [0.45, 0.13],
+          derived: [0.62, 0.17],
+        },
+        dark: {
+          band: [0.43, 0.06],
+          stripe: [0.52, 0.08],
+          line: [0.8, 0.13],
+          derived: [0.66, 0.18],
+        },
+      };
+
+      const oklchCache = new Map();
+      function oklch(L, C, h) {
+        const key = L + "," + C + "," + h;
+        let hex = oklchCache.get(key);
+        if (hex) return hex;
+        const lin = (c) => {
+          const a = c * Math.cos((h * Math.PI) / 180),
+            b = c * Math.sin((h * Math.PI) / 180);
+          const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
+          const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3;
+          const s = (L - 0.0894841775 * a - 1.291485548 * b) ** 3;
+          return [
+            4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+            -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+            -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
+          ];
+        };
+        const fits = (rgb) => rgb.every((x) => x >= 0 && x <= 1);
+        let rgb = lin(C);
+        if (!fits(rgb)) {
+          let lo = 0,
+            hi = C;
+          for (let i = 0; i < 24; i++) {
+            const mid = (lo + hi) / 2;
+            if (fits(lin(mid))) lo = mid;
+            else hi = mid;
+          }
+          rgb = lin(lo);
+        }
+        const enc = (x) =>
+          Math.round(
+            255 *
+              Math.min(1, Math.max(0, x <= 0.0031308 ? 12.92 * x : 1.055 * x ** (1 / 2.4) - 0.055)),
+          );
+        hex = "#" + rgb.map((x) => enc(x).toString(16).padStart(2, "0")).join("");
+        oklchCache.set(key, hex);
+        return hex;
+      }
+      const shades = (hue) => {
+        const t = TONE[isDark() ? "dark" : "light"];
+        const b = hue - HUE_SHIFT,
+          l = hue + HUE_SHIFT;
+        return {
+          band: oklch(...t.band, b),
+          stripe: oklch(...t.stripe, b),
+          line: oklch(...t.line, l),
+          derived: oklch(...t.derived, hue),
+        };
+      };
+
+      function packPresence(key) {
+        const raw = PRESENCE[key];
+        if (!raw) return;
+        const c = presenceCombined(raw, srcOn[key] || null);
+
+        presPack[key] = { lines: pack(c.lines), merged: pack(c.polys_merged) };
+      }
+      function packStates() {
+        const project = [],
+          other = [];
+        for (const f of STATES.features) {
+          const g = f.geometry;
+          if (!g) continue;
+          const rings = PROJECT_STATES.has(f.properties.STUSPS) ? project : other;
+          if (g.type === "Polygon") rings.push(...g.coordinates);
+          else if (g.type === "MultiPolygon") for (const poly of g.coordinates) rings.push(...poly);
+        }
+        statePack = pack(project);
+        otherPack = pack(other);
+      }
+
+      function trace(p, target) {
+        const c = target || ctx;
+        const { xy, off, count } = p;
+        for (let i = 0; i < count; i++) {
+          const s = off[i],
+            e = off[i + 1];
+          if (e - s < 2) continue;
+          c.moveTo(xy[2 * s], xy[2 * s + 1]);
+          for (let j = s + 1; j < e; j++) c.lineTo(xy[2 * j], xy[2 * j + 1]);
+        }
+      }
+
+      const HIT_PX = 5,
+        PICK_SCALE = 0.5;
+      const pickCv = document.createElement("canvas");
+      const pickCtx = pickCv.getContext("2d", { willReadFrequently: true });
+      let pickIds = [null];
+
+      const srcPack = {};
+      function packSource(presKey, src) {
+        const key = presKey + "|" + src.id;
+        if (!srcPack[key])
+          srcPack[key] = { lines: pack(src.lines), merged: pack(src.polys_merged) };
+        return srcPack[key];
+      }
+      let pickReady = false,
+        pickTimer = null;
+      // Pick IDs were consecutive integers poured straight into the RGB channels, so neighbouring
+      // layers differed by 1 in a single channel. Two things broke that: edge antialiasing blends two
+      // ID colours into a third, meaningless one, and any browser that perturbs canvas readback (Brave's
+      // fingerprint protection does exactly this) shifts a channel and lands on the wrong layer or none.
+      // IDs now sit on a coarse 8-level-per-channel cube, PICK_STEP apart, and are read back by snapping
+      // to the nearest level, so a channel can drift by up to half a step and still decode correctly.
+      const PICK_LEVELS = 8,
+        PICK_STEP = 36,
+        PICK_MAX = PICK_LEVELS * PICK_LEVELS * PICK_LEVELS;
+      const pickColour = (i) => {
+        const r = i % PICK_LEVELS,
+          g = Math.floor(i / PICK_LEVELS) % PICK_LEVELS,
+          b = Math.floor(i / (PICK_LEVELS * PICK_LEVELS)) % PICK_LEVELS;
+        return `rgb(${r * PICK_STEP},${g * PICK_STEP},${b * PICK_STEP})`;
+      };
+      const pickSnap = (c) =>
+        Math.min(PICK_LEVELS - 1, Math.max(0, Math.round(c / PICK_STEP)));
+      const pickDecode = (r, g, b) =>
+        pickSnap(r) + pickSnap(g) * PICK_LEVELS + pickSnap(b) * PICK_LEVELS * PICK_LEVELS;
+
+      const FILL = { light: 64, dark: 48 };
+      const fillAlpha = () => FILL[isDark() ? "dark" : "light"] / 100;
+
+      function drawRanges(rings, line) {
+        ctx.beginPath();
+        trace(rings);
+        ctx.fillStyle = line;
+        ctx.globalAlpha = fillAlpha();
+        ctx.fill("evenodd");
+        ctx.globalAlpha = 1;
+      }
+
+      function drawPick() {
+        const w = mapEl.clientWidth,
+          h = mapEl.clientHeight,
+          k = xform.k;
+        pickCv.width = Math.max(1, Math.round(w * PICK_SCALE));
+        pickCv.height = Math.max(1, Math.round(h * PICK_SCALE));
+        const q = pickCtx;
+        q.setTransform(1, 0, 0, 1, 0, 0);
+        q.clearRect(0, 0, pickCv.width, pickCv.height);
+        q.setTransform(
+          PICK_SCALE * k,
+          0,
+          0,
+          PICK_SCALE * k,
+          PICK_SCALE * xform.x,
+          PICK_SCALE * xform.y,
+        );
+        q.lineJoin = q.lineCap = "round";
+        pickIds = [null];
+
+        const stamp = (packed, meta, px, fill) => {
+          if (!packed || !packed.count) return;
+          if (pickIds.length >= PICK_MAX) {
+            // Silently reusing a colour would report the wrong layer, which is worse than no hover.
+            if (!drawPick.warned) {
+              console.warn("pick: more than " + PICK_MAX + " layers, the rest are not hoverable");
+              drawPick.warned = true;
+            }
+            return;
+          }
+          pickIds.push(meta);
+          q.strokeStyle = q.fillStyle = pickColour(pickIds.length - 1);
+          q.beginPath();
+          trace.call(null, packed, q);
+          if (fill) q.fill("nonzero");
+          q.lineWidth = Math.max(px, HIT_PX / PICK_SCALE) / k;
+          q.stroke();
+        };
+
+        for (const sp of SPECIES) {
+          const raw = spState[sp.key].pres && PRESENCE[sp.pres];
+          if (!raw) continue;
+          for (const src of raw.sources) {
+            const on = srcOn[sp.pres];
+            if (on && !on.has(src.id)) continue;
+            const pk = packSource(sp.pres, src);
+            const m = { sp, tier: "pres", src };
+            stamp(pk.merged, m, POLY_EDGE_PX, true);
+            stamp(pk.lines, m, BAND_PX, false);
+          }
+        }
+        for (const sp of SPECIES) {
+          const stt = spState[sp.key];
+          const on = [...(stt.esa ? sp.esa : []), ...(stt.derived ? sp.derived : [])];
+          for (const g of on) {
+            const pk = PACKED[g];
+            if (!pk) continue;
+            const m = { sp, tier: "esa", group: g, derived: sp.derived.includes(g) };
+            stamp(pk.polys, m, POLY_EDGE_PX, true);
+            stamp(pk.lines, m, LINE_PX, false);
+          }
+        }
+        pickReady = true;
+      }
+
+      const hoverOn = () => document.getElementById("hover-layers").checked;
+      function schedulePick() {
+        pickReady = false;
+        clearTimeout(pickTimer);
+        if (!hoverOn()) return;
+        pickTimer = setTimeout(drawPick, 140);
+      }
+
+      function drawHabitat() {
+        const w = mapEl.clientWidth,
+          h = mapEl.clientHeight,
+          k = xform.k;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, w, h);
+        ctx.setTransform(dpr * k, 0, 0, dpr * k, dpr * xform.x, dpr * xform.y);
+        ctx.lineJoin = ctx.lineCap = "round";
+
+        if (otherPack) {
+          ctx.beginPath();
+          trace(otherPack);
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = css("--land-other");
+          ctx.fill("evenodd");
+          ctx.strokeStyle = css("--border-other");
+          ctx.lineWidth = 0.6 / k;
+          ctx.stroke();
+        }
+
+        if (statePack) {
+          ctx.beginPath();
+          trace(statePack);
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = css("--land");
+          ctx.fill("evenodd");
+          ctx.strokeStyle = css("--border");
+          ctx.lineWidth = 0.7 / k;
+          ctx.stroke();
+        }
+
+        if (NAT && statePack) {
+          ctx.save();
+          ctx.beginPath();
+          trace(statePack);
+          ctx.clip("evenodd");
+
+          if (reliefReady && natOn("nat-relief")) {
+            const s = projection.scale(),
+              [tx, ty] = projection.translate();
+            const place = (q) => [
+              tx + (s * q.originX) / q.R,
+              ty - (s * q.originY) / q.R,
+              (s * q.width * q.pixel) / q.R,
+              (s * q.height * q.pixel) / q.R,
+            ];
+            if (reliefCv.width !== cvEl.width || reliefCv.height !== cvEl.height) {
+              reliefCv.width = cvEl.width;
+              reliefCv.height = cvEl.height;
+            }
+            rctx.setTransform(1, 0, 0, 1, 0, 0);
+            rctx.fillStyle = "#fff";
+            rctx.fillRect(0, 0, reliefCv.width, reliefCv.height);
+            rctx.setTransform(dpr * k, 0, 0, dpr * k, dpr * xform.x, dpr * xform.y);
+            rctx.drawImage(reliefImg, ...place(NAT.relief));
+            if (HI && HI.R / (s * k * dpr) < HI_SWITCH_M) {
+              const span = HI.tile * HI.pixel;
+              const mx = (px) => (((px - xform.x) / k - tx) * HI.R) / s;
+              const my = (py) => ((ty - (py - xform.y) / k) * HI.R) / s;
+              const c0 = Math.max(0, Math.floor((mx(0) - HI.originX) / span));
+              const c1 = Math.floor((mx(w) - HI.originX) / span);
+              const r0 = Math.max(0, Math.floor((HI.originY - my(0)) / span));
+              const r1 = Math.floor((HI.originY - my(h)) / span);
+              for (let c = c0; c <= c1; c++)
+                for (let r = r0; r <= r1; r++) {
+                  const key = c + "_" + r;
+                  if (!HI_SET.has(key)) continue;
+                  const t = hiTile(key);
+                  if (!t.ready) continue;
+                  const x0 = HI.originX + c * span,
+                    y0 = HI.originY - r * span;
+                  rctx.drawImage(
+                    t.img,
+                    tx + (s * x0) / HI.R,
+                    ty - (s * y0) / HI.R,
+                    (s * t.img.naturalWidth * HI.pixel) / HI.R,
+                    (s * t.img.naturalHeight * HI.pixel) / HI.R,
+                  );
+                }
+            }
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.globalCompositeOperation = "multiply";
+            ctx.globalAlpha = reliefAlpha();
+            ctx.drawImage(reliefCv, 0, 0);
+            ctx.restore();
+          }
+          if (natOn("nat-lakes") && natPack.lakes) {
+            ctx.beginPath();
+            trace(natPack.lakes);
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = css("--lake");
+            ctx.fill("evenodd");
+
+            ctx.globalAlpha = 0.95;
+            ctx.strokeStyle = css("--lake-edge");
+            ctx.lineWidth = 0.8 / k;
+            ctx.stroke();
+          }
+
+          ctx.restore();
+        }
+
+        ctx.save();
+        if (otherPack) {
+          ctx.beginPath();
+          ctx.rect(-1e7, -1e7, 2e7, 2e7);
+          trace(otherPack);
+          ctx.clip("evenodd");
+        }
+
+        const wide = { tone: "band", px: bandPx(k), alpha: 0.9 };
+        const thin = { tone: "line", px: LINE_PX, alpha: 1 };
+        const esaRole = thin,
+          presRole = wide;
+
+        const drawEsa = () => {
+          for (const sp of SPECIES) {
+            const stt = spState[sp.key];
+            const on = [...(stt.esa ? sp.esa : []), ...(stt.derived ? sp.derived : [])];
+            if (!on.length) continue;
+            const sh = shades(sp.hue);
+            for (const g of on) {
+              const p = PACKED[g];
+              if (!p) continue;
+
+              const marked = sp.derived.includes(g) && sonccStriped();
+
+              const style = marked ? sh.derived : sh[esaRole.tone];
+              ctx.strokeStyle = ctx.fillStyle = style;
+              if (p.polys.count) {
+                ctx.beginPath();
+                trace(p.polys);
+                ctx.globalAlpha = 0.45;
+                ctx.fillStyle = sh.band;
+                ctx.fill("evenodd");
+                ctx.fillStyle = style;
+                ctx.globalAlpha = 0.9;
+                ctx.lineWidth = POLY_EDGE_PX / k;
+                ctx.stroke();
+              }
+              if (p.lines.count) {
+                ctx.beginPath();
+                trace(p.lines);
+                if (marked) {
+                  ctx.globalAlpha = 1;
+                  ctx.strokeStyle = sh.derived;
+                  ctx.lineWidth = STRIPE.band / k;
+                  ctx.stroke();
+                } else {
+                  ctx.globalAlpha = esaRole.alpha;
+                  ctx.lineWidth = esaRole.px / k;
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+        };
+
+        const drawPres = () => {
+          for (const sp of SPECIES) {
+            const p = spState[sp.key].pres && presPack[sp.pres];
+            if (!p) continue;
+            const colour = shades(sp.hue)[presRole.tone];
+            const ranges = p.merged;
+            if (ranges && ranges.count) drawRanges(ranges, colour);
+            if (p.lines.count) {
+              ctx.strokeStyle = colour;
+              ctx.globalAlpha = presRole.alpha;
+              ctx.lineWidth = presRole.px / k;
+              ctx.beginPath();
+              trace(p.lines);
+              ctx.stroke();
+            }
+          }
+        };
+
+        drawPres();
+        drawEsa();
+        ctx.restore();
+        ctx.globalAlpha = 1;
+
+        if (NAT) {
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.font =
+            "600 10px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          if ("letterSpacing" in ctx) ctx.letterSpacing = "1.6px";
+          ctx.save();
+
+          ctx.strokeStyle = css("--c-halo");
+          ctx.lineWidth = LABEL_HALO_PX;
+          ctx.lineJoin = ctx.lineCap = "round";
+          ctx.fillStyle = css("--muted");
+          ctx.globalAlpha = 0.75;
+          for (const l of natLabels) {
+            if (!l.xy) continue;
+            const [x, y] = xform.apply(l.xy);
+            ctx.strokeText(l.name, x, y);
+            ctx.fillText(l.name, x, y);
+          }
+          ctx.restore();
+          if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
+          ctx.globalAlpha = 1;
+        }
+        schedulePick();
+      }
+
+      function loadGroup(meta, done) {
+        if (HABITAT[meta.key]) {
+          packGroup(meta.key);
+          return void done();
+        }
+        if (loading.has(meta.key)) return void done();
+        loading.add(meta.key);
+        const s = document.createElement("script");
+        s.src = meta.file;
+        s.onload = () => {
+          loading.delete(meta.key);
+          packGroup(meta.key);
+          done();
+        };
+        s.onerror = () => {
+          loading.delete(meta.key);
+          console.error("habitat layer failed to load:", meta.file);
+          done();
+        };
+        document.head.appendChild(s);
+      }
+
+      const NUDGE_MIN_W = 760;
+      const NUDGE_FULL_W = 1400;
+      const NUDGE_MAX = 200;
+      const NARROW = matchMedia("(max-width:760px)");
+
+      function nudgeX() {
+        if (NARROW.matches) return 0;
+        const t = (innerWidth - NUDGE_MIN_W) / (NUDGE_FULL_W - NUDGE_MIN_W);
+        return NUDGE_MAX * Math.max(0, Math.min(1, t));
+      }
+
+      function fit() {
+        const w = mapEl.clientWidth,
+          h = mapEl.clientHeight;
+        svg.attr("viewBox", `0 0 ${w} ${h}`);
+
+        const nx = nudgeX();
+        projection.fitExtent(
+          [
+            [26 - nx, 26],
+            [w - 26 - nx, h - 26],
+          ],
+          DAMS,
+        );
+        gDams
+          .selectAll("circle")
+          .attr("cx", (d) => projection(d.geometry.coordinates)[0])
+          .attr("cy", (d) => projection(d.geometry.coordinates)[1]);
+
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        cvEl.width = Math.round(w * dpr);
+        cvEl.height = Math.round(h * dpr);
+        packStates();
+        packNatural();
+        for (const key of Object.keys(HABITAT)) packGroup(key);
+        for (const key of Object.keys(PRESENCE)) packPresence(key);
+        drawHabitat();
+      }
+
+      const esc = (s) =>
+        String(s ?? "").replace(
+          /[&<>"]/g,
+          (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+        );
+
+      // An audit flag earns a visible ring, because the whole reason these attributes exist
+      // is so a flagged dam can be FOUND on the map rather than looked up by coordinate.
+      // Three states, most urgent first: rule 45 switched the extension off here; the
+      // extension survived only because the near channel is unnamed; something else.
+      const auditKind = (p) =>
+        !p.audit
+          ? null
+          : p.audit.rule45_blocked
+            ? "blocked"
+            : p.audit.same_stream && p.audit.same_stream.flag
+              ? "eyes"
+              : p.audit.range_edge
+                ? "edge"
+                : null;
+      const AUDIT_RING = { blocked: "#e8663c", eyes: "#f0b429", edge: "#7b61ff" };
+
+      const damStroke = (d) =>
+        !damDetail()
+          ? css("--c-halo")
+          : AUDIT_RING[auditKind(d.properties)] ||
+            (d.properties.corrected ? css("--c-fix") : "rgba(255,255,255,.85)");
+
+      // ONE definition of the mark size, because the two that existed had already drifted: the first draw
+      // gave a flagged dam r=6.2 while the zoom handler rebuilt every radius from the corrected/plain pair
+      // only, so an audit ring quietly shrank to plain size the first time anyone zoomed (standing rule 44).
+      // Plain is UNIFORM on purpose. Size is an attribute like colour, so varying it with the switch off
+      // would leak the provenance the switch is meant to hide.
+      const DAM_R = { plain: 2.4, corrected: 5.5, audit: 6.2 };
+      const damR = (p) =>
+        !damDetail()
+          ? DAM_R.plain
+          : auditKind(p)
+            ? DAM_R.audit
+            : p.corrected
+              ? DAM_R.corrected
               : DAM_R.plain;
-// The edge is non-scaling (see vector-effect below), so this is screen pixels at every zoom.
-const DAM_EDGE_PX = 1;
-const damStrokeW = d => !damDetail() ? DAM_EDGE_PX
-  : auditKind(d.properties) ? 2.4 : d.properties.corrected ? 1.8 : 1;
-gDams.selectAll("circle").data(DAMS.features).join("circle")
-  .attr("class", "dam")
-  .attr("r", d => damR(d.properties))
-  .attr("fill", d => colourOf(d.properties))
-  .attr("fill-opacity", .88)
-  .attr("stroke", damStroke)
-  .attr("stroke-width", damStrokeW)
-  .attr("vector-effect", "non-scaling-stroke")
-  .on("mouseenter", (ev, d) => { if (!pinned) showPop(ev, d); })
-  .on("mousemove", ev => { if (!pinned) placePop(ev); })
-  .on("mouseleave", () => { if (!pinned) pop.classed("on", false); })
-  // A click pins the popup where it is, so the pointer can travel to the button.
-  .on("click", (ev, d) => { if (touchTap) return; pinned = d; showPop(ev, d); pop.classed("pinned", true); });
+      // The edge is non-scaling (see vector-effect below), so this is screen pixels at every zoom.
+      const DAM_EDGE_PX = 1;
+      const damStrokeW = (d) =>
+        !damDetail()
+          ? DAM_EDGE_PX
+          : auditKind(d.properties)
+            ? 2.4
+            : d.properties.corrected
+              ? 1.8
+              : 1;
+      gDams
+        .selectAll("circle")
+        .data(DAMS.features)
+        .join("circle")
+        .attr("class", "dam")
+        .attr("r", (d) => damR(d.properties))
+        .attr("fill", (d) => colourOf(d.properties))
+        .attr("fill-opacity", 0.88)
+        .attr("stroke", damStroke)
+        .attr("stroke-width", damStrokeW)
+        .attr("vector-effect", "non-scaling-stroke")
+        .on("mouseenter", (ev, d) => {
+          if (!pinned) showPop(ev, d);
+        })
+        .on("mousemove", (ev) => {
+          if (!pinned) placePop(ev);
+        })
+        .on("mouseleave", () => {
+          if (!pinned) pop.classed("on", false);
+        })
+        // A click pins the popup where it is, so the pointer can travel to the button.
+        .on("click", (ev, d) => {
+          if (touchTap) return;
+          pinned = d;
+          showPop(ev, d);
+          pop.classed("pinned", true);
+        });
 
-// Hover previews; a click pins. Any press on the map (pan, zoom, or a click on
-// empty water) unpins first, and a click on a dam then re-pins that dam.
-let pinned = null;
-function unpin() {
-  if (!pinned) return;
-  pinned = null;
-  pop.classed("pinned", false).classed("on", false);
-}
-addEventListener("keydown", ev => { if (ev.key === "Escape") unpin(); });
+      // Hover previews; a click pins. Any press on the map (pan, zoom, or a click on
+      // empty water) unpins first, and a click on a dam then re-pins that dam.
+      let pinned = null;
+      function unpin() {
+        if (!pinned) return;
+        pinned = null;
+        pop.classed("pinned", false).classed("on", false);
+      }
+      addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") unpin();
+      });
 
-const TAP_PX = 22;
-let touchTap = false, tapStart = null, tapPointers = 0;
-mapEl.addEventListener("pointerdown", ev => {
-  touchTap = ev.pointerType === "touch";
-  if (!touchTap) return;
-  tapPointers++;
-  tapStart = tapPointers === 1 ? { x: ev.clientX, y: ev.clientY, t: ev.timeStamp } : null;
-}, true);
-const tapLift = ev => { if (ev.pointerType === "touch") tapPointers = Math.max(0, tapPointers - 1); };
-mapEl.addEventListener("pointercancel", ev => { tapLift(ev); tapStart = null; }, true);
-mapEl.addEventListener("pointerup", ev => {
-  if (ev.pointerType !== "touch") return;
-  tapLift(ev);
-  const s = tapStart;
-  tapStart = null;
-  if (!s || Math.hypot(ev.clientX - s.x, ev.clientY - s.y) > 10 || ev.timeStamp - s.t > 500) return;
-  if (ev.target.closest("button, #pop")) return;
-  let best = null, bestD = TAP_PX;
-  gDams.selectAll("circle").each(function (d) {
-    if (this.style.display === "none") return;
-    const r = this.getBoundingClientRect();
-    const dist = Math.hypot(r.x + r.width / 2 - ev.clientX, r.y + r.height / 2 - ev.clientY);
-    if (dist < bestD) { bestD = dist; best = d; }
-  });
-  if (best) { pinned = best; showPop(ev, best); pop.classed("pinned", true); }
-}, true);
+      const TAP_PX = 22;
+      let touchTap = false,
+        tapStart = null,
+        tapPointers = 0;
+      mapEl.addEventListener(
+        "pointerdown",
+        (ev) => {
+          touchTap = ev.pointerType === "touch";
+          if (!touchTap) return;
+          tapPointers++;
+          tapStart = tapPointers === 1 ? { x: ev.clientX, y: ev.clientY, t: ev.timeStamp } : null;
+        },
+        true,
+      );
+      const tapLift = (ev) => {
+        if (ev.pointerType === "touch") tapPointers = Math.max(0, tapPointers - 1);
+      };
+      mapEl.addEventListener(
+        "pointercancel",
+        (ev) => {
+          tapLift(ev);
+          tapStart = null;
+        },
+        true,
+      );
+      mapEl.addEventListener(
+        "pointerup",
+        (ev) => {
+          if (ev.pointerType !== "touch") return;
+          tapLift(ev);
+          const s = tapStart;
+          tapStart = null;
+          if (!s || Math.hypot(ev.clientX - s.x, ev.clientY - s.y) > 10 || ev.timeStamp - s.t > 500)
+            return;
+          if (ev.target.closest("button, #pop")) return;
+          let best = null,
+            bestD = TAP_PX;
+          gDams.selectAll("circle").each(function (d) {
+            if (this.style.display === "none") return;
+            const r = this.getBoundingClientRect();
+            const dist = Math.hypot(
+              r.x + r.width / 2 - ev.clientX,
+              r.y + r.height / 2 - ev.clientY,
+            );
+            if (dist < bestD) {
+              bestD = dist;
+              best = d;
+            }
+          });
+          if (best) {
+            pinned = best;
+            showPop(ev, best);
+            pop.classed("pinned", true);
+          }
+        },
+        true,
+      );
 
-// The species swatch in the popup needs the drawn colours, so this sits after shades() is defined.
-mapEl.addEventListener("mousemove", ev => {
-  if (pinned) return;                                  // a pinned dam popup wins
-  // The dam's own hover is showing. Forget what the layer hover had, or moving layer -> dam -> the same
+      // The species swatch in the popup needs the drawn colours, so this sits after shades() is defined.
+      mapEl.addEventListener("mousemove", (ev) => {
+        if (pinned) return; // a pinned dam popup wins
+        // The dam's own hover is showing. Forget what the layer hover had, or moving layer -> dam -> the same
 
-  if (ev.target.tagName === "circle") { hoverKey = null; return; }
-  const m = layerAt(ev);
-  const key = m && (m.sp.key + "|" + m.tier + "|" + (m.src ? m.src.id : m.group));
-  if (!m) { if (hoverKey) { hoverKey = null; pop.classed("on", false); } return; }
-  if (key !== hoverKey) { hoverKey = key; pop.html(layerPopHtml(m)).classed("on", true); }
-  placePop(ev);
-});
-mapEl.addEventListener("mouseleave", () => {
-  if (!pinned && hoverKey) { hoverKey = null; pop.classed("on", false); }
-});
+        if (ev.target.tagName === "circle") {
+          hoverKey = null;
+          return;
+        }
+        const m = layerAt(ev);
+        const key = m && m.sp.key + "|" + m.tier + "|" + (m.src ? m.src.id : m.group);
+        if (!m) {
+          if (hoverKey) {
+            hoverKey = null;
+            pop.classed("on", false);
+          }
+          return;
+        }
+        if (key !== hoverKey) {
+          hoverKey = key;
+          pop.html(layerPopHtml(m)).classed("on", true);
+        }
+        placePop(ev);
+      });
+      mapEl.addEventListener("mouseleave", () => {
+        if (!pinned && hoverKey) {
+          hoverKey = null;
+          pop.classed("on", false);
+        }
+      });
 
-const coordText = d => `${d.geometry.coordinates[1]}, ${d.geometry.coordinates[0]}`;
+      const coordText = (d) => `${d.geometry.coordinates[1]}, ${d.geometry.coordinates[0]}`;
 
-function copyText(text) {
-  if (navigator.clipboard && window.isSecureContext)
-    return navigator.clipboard.writeText(text);
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext)
+          return navigator.clipboard.writeText(text);
 
-  const ta = document.createElement("textarea");
-  ta.value = text;
-  ta.style.cssText = "position:fixed; opacity:0";
-  document.body.appendChild(ta);
-  ta.select();
-  const ok = document.execCommand("copy");
-  ta.remove();
-  return ok ? Promise.resolve() : Promise.reject(new Error("copy refused"));
-}
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.cssText = "position:fixed; opacity:0";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        ta.remove();
+        return ok ? Promise.resolve() : Promise.reject(new Error("copy refused"));
+      }
 
-pop.on("click", ev => {
-  const btn = ev.target.closest("button[data-coords]");
-  if (!btn) return;
-  const label = btn.textContent;
-  copyText(btn.dataset.coords)
-    .then(() => { btn.textContent = "COPIED"; })
-    .catch(() => { btn.textContent = "COPY FAILED"; })
-    .finally(() => setTimeout(() => { btn.textContent = label; }, 1200));
-});
+      pop.on("click", (ev) => {
+        const btn = ev.target.closest("button[data-coords]");
+        if (!btn) return;
+        const label = btn.textContent;
+        copyText(btn.dataset.coords)
+          .then(() => {
+            btn.textContent = "COPIED";
+          })
+          .catch(() => {
+            btn.textContent = "COPY FAILED";
+          })
+          .finally(() =>
+            setTimeout(() => {
+              btn.textContent = label;
+            }, 1200),
+          );
+      });
 
-function showPop(ev, d) {
-  const p = d.properties;
-  const src = p.coord_source === "nacc" ? "NACC (recovered)"
-            : p.coord_source === "drp"  ? "corrected (see below)"
-            : "American Rivers";
-  let html = `<div class="pop-t">${esc(p.name)}</div>
+      function showPop(ev, d) {
+        const p = d.properties;
+        const src =
+          p.coord_source === "nacc"
+            ? "NACC (recovered)"
+            : p.coord_source === "drp"
+              ? "corrected (see below)"
+              : "American Rivers";
+        let html = `<div class="pop-t">${esc(p.name)}</div>
     <div class="pop-r">${esc(p.river || "river not recorded")} &middot; ${esc(p.state)}</div>
     <dl class="pop-g">
       <dt>Removed</dt><dd>${p.year || "not recorded"}</dd>
@@ -1102,407 +2327,634 @@ function showPop(ev, d) {
       <dt>Position</dt><dd>${src}</dd>
     </dl>`;
 
-  html += `<dl class="pop-g">
+        html += `<dl class="pop-g">
       <dt>Species present</dt><dd>${p.species_present ? esc(p.species_present) : "none of the 21 species within tolerance"}</dd>
       <dt>ESA critical habitat</dt><dd>${p.esa_critical_habitat ? esc(p.esa_critical_habitat) : "none designated here"}</dd>
     </dl>`;
-  if (p.corrected) html += `<div class="warn"><b>Corrected.</b> ${esc(p.corrected)}.</div>`;
+        if (p.corrected) html += `<div class="warn"><b>Corrected.</b> ${esc(p.corrected)}.</div>`;
 
-  const a = p.audit;
-  if (a) {
-    const ss = a.same_stream, n = a.nhd;
-    let rows = "";
-    if (ss) {
-      if (ss.feet_stream !== undefined)
-        rows += `<dt>At its feet</dt><dd>${esc(ss.feet_stream)}, ${ss.feet_m} m</dd>`;
-      rows += `<dt>Species came from</dt><dd>${esc(ss.matched_stream)}, ${ss.matched_m} m</dd>`;
-    }
-    if (n) {
-      rows += `<dt>NHD calls it</dt><dd>${esc(n.nearest)}, ${n.nearest_m} m`
-            + (n.nearest_named && n.nearest_named !== n.nearest
-               ? ` &middot; nearest named: ${esc(n.nearest_named)}, ${n.nearest_named_m} m` : "")
-            + `</dd>`;
-      rows += `<dt>Recorded river</dt><dd>${n.recorded_river_m !== undefined
-               ? "NHD puts it " + n.recorded_river_m + " m away"
-               : "<b>NHD does not put it anywhere near</b>"}</dd>`;
-    }
-    if (rows) html += `<dl class="pop-g">${rows}</dl>`;
-    if (a.rule45_blocked)
-      html += `<div class="warn"><b>Rule 45 blocked the extension here.</b> ${esc(a.rule45_blocked)}.</div>`;
-    else if (ss && ss.flag)
-      html += `<div class="warn"><b>Needs eyes.</b> ${esc(ss.flag)}.</div>`;
-    if (a.range_edge)
-      html += `<div class="warn"><b>On a range edge.</b> ` + a.range_edge.map(r =>
-        `${esc(r.species)} ${esc(r.position)} by ${r.edge_m} m`).join("; ") + `.</div>`;
-  }
-  html += `<div class="pop-copy testing"><button type="button" data-coords="${esc(coordText(d))}">COPY COORDS</button>`
-        + (pinned ? `<i>${esc(coordText(d))}</i>` : `<i>click the dam to pin</i>`) + `</div>`;
-  pop.html(html).classed("on", true);
-  placePop(ev);
-}
+        const a = p.audit;
+        if (a) {
+          const ss = a.same_stream,
+            n = a.nhd;
+          let rows = "";
+          if (ss) {
+            if (ss.feet_stream !== undefined)
+              rows += `<dt>At its feet</dt><dd>${esc(ss.feet_stream)}, ${ss.feet_m} m</dd>`;
+            rows += `<dt>Species came from</dt><dd>${esc(ss.matched_stream)}, ${ss.matched_m} m</dd>`;
+          }
+          if (n) {
+            rows +=
+              `<dt>NHD calls it</dt><dd>${esc(n.nearest)}, ${n.nearest_m} m` +
+              (n.nearest_named && n.nearest_named !== n.nearest
+                ? ` &middot; nearest named: ${esc(n.nearest_named)}, ${n.nearest_named_m} m`
+                : "") +
+              `</dd>`;
+            rows += `<dt>Recorded river</dt><dd>${
+              n.recorded_river_m !== undefined
+                ? "NHD puts it " + n.recorded_river_m + " m away"
+                : "<b>NHD does not put it anywhere near</b>"
+            }</dd>`;
+          }
+          if (rows) html += `<dl class="pop-g">${rows}</dl>`;
+          if (a.rule45_blocked)
+            html += `<div class="warn"><b>Rule 45 blocked the extension here.</b> ${esc(a.rule45_blocked)}.</div>`;
+          else if (ss && ss.flag)
+            html += `<div class="warn"><b>Needs eyes.</b> ${esc(ss.flag)}.</div>`;
+          if (a.range_edge)
+            html +=
+              `<div class="warn"><b>On a range edge.</b> ` +
+              a.range_edge
+                .map((r) => `${esc(r.species)} ${esc(r.position)} by ${r.edge_m} m`)
+                .join("; ") +
+              `.</div>`;
+        }
+        html +=
+          `<div class="pop-copy testing"><button type="button" data-coords="${esc(coordText(d))}">COPY COORDS</button>` +
+          (pinned ? `<i>${esc(coordText(d))}</i>` : `<i>click the dam to pin</i>`) +
+          `</div>`;
+        pop.html(html).classed("on", true);
+        placePop(ev);
+      }
 
-let hoverKey = null;
-function layerAt(ev) {
-  if (!pickReady || !hoverOn()) return null;
-  const r = mapEl.getBoundingClientRect();
-  const x = Math.round((ev.clientX - r.left) * PICK_SCALE), y = Math.round((ev.clientY - r.top) * PICK_SCALE);
-  if (x < 0 || y < 0 || x >= pickCv.width || y >= pickCv.height) return null;
-  const d = pickCtx.getImageData(x, y, 1, 1).data;
-  if (!d[3]) return null;
-  return pickIds[d[0] | (d[1] << 8) | (d[2] << 16)] || null;
-}
+      let hoverKey = null;
+      function layerAt(ev) {
+        if (!pickReady || !hoverOn()) return null;
+        const r = mapEl.getBoundingClientRect();
+        const x = Math.round((ev.clientX - r.left) * PICK_SCALE),
+          y = Math.round((ev.clientY - r.top) * PICK_SCALE);
+        if (x < 0 || y < 0 || x >= pickCv.width || y >= pickCv.height) return null;
+        // The centre pixel wins outright whenever it decodes to a real layer. Voting was tried first
+        // and was WRONG: a small layer abutting a bigger one (Lost River sucker against shortnose
+        // sucker) is outnumbered inside its own 3x3, so the bigger neighbour won on a pixel that
+        // genuinely belonged to the smaller. The neighbourhood is now only a FALLBACK, for when the
+        // centre is a blend of two layers along an edge and snaps to an unused slot.
+        const x0 = Math.max(0, x - 1),
+          y0 = Math.max(0, y - 1),
+          w = Math.min(pickCv.width, x + 2) - x0,
+          h = Math.min(pickCv.height, y + 2) - y0;
+        const d = pickCtx.getImageData(x0, y0, w, h).data;
+        const at = (px, py) => {
+          const i = (py * w + px) * 4;
+          if (!d[i + 3]) return 0;
+          const id = pickDecode(d[i], d[i + 1], d[i + 2]);
+          return pickIds[id] ? id : 0;
+        };
+        const centre = at(x - x0, y - y0);
+        if (centre) return pickIds[centre];
 
-function layerPopHtml(m) {
-  const sh = shades(m.sp.hue);
-  const swatchFor = m.tier === "esa"
-    ? `<span style="display:inline-block;width:16px;height:2px;vertical-align:middle;background:${sh.line}"></span>`
-    : `<span style="display:inline-block;width:16px;height:6px;vertical-align:middle;border-radius:2px;background:${sh.band}"></span>`;
-  let html = `<div style="font-weight:600">${swatchFor} ${esc(m.sp.label)}</div>`;
-  if (m.tier === "esa") {
-    html += `<div style="color:var(--muted);margin-top:4px">ESA critical habitat</div>`;
-    html += m.derived
-      ? `<div style="margin-top:6px"><b>Not an official layer.</b> This is the SONCC coho critical
+        const votes = new Map();
+        for (let py = 0; py < h; py++) {
+          for (let px = 0; px < w; px++) {
+            const id = at(px, py);
+            if (id) votes.set(id, (votes.get(id) || 0) + 1);
+          }
+        }
+        let best = 0,
+          bestN = 0;
+        for (const [id, n] of votes) {
+          if (n > bestN) {
+            bestN = n;
+            best = id;
+          }
+        }
+        return pickIds[best] || null;
+      }
+
+      function layerPopHtml(m) {
+        const sh = shades(m.sp.hue);
+        const swatchFor =
+          m.tier === "esa"
+            ? `<span style="display:inline-block;width:16px;height:2px;vertical-align:middle;background:${sh.line}"></span>`
+            : `<span style="display:inline-block;width:16px;height:6px;vertical-align:middle;border-radius:2px;background:${sh.band}"></span>`;
+        let html = `<div style="font-weight:600">${swatchFor} ${esc(m.sp.label)}</div>`;
+        if (m.tier === "esa") {
+          html += `<div style="color:var(--muted);margin-top:4px">ESA critical habitat</div>`;
+          html += m.derived
+            ? `<div style="margin-top:6px"><b>Not an official layer.</b> This is the SONCC coho critical
          habitat this project rebuilt itself, because NMFS never published it.</div>`
-      : `<div style="margin-top:6px">A federal designation, defined the same way in all three
+            : `<div style="margin-top:6px">A federal designation, defined the same way in all three
          states.</div>`;
-  } else {
-    const src = m.src;
-    html += `<div style="color:var(--muted);margin-top:4px">Presence &middot; ${esc(src.label)}</div>`;
-    html += `<div style="margin-top:6px">${src.grain === "reach"
-      ? "Mapped as stream reaches."
-      : "Mapped as whole HUC12 watersheds, not as streams."}</div>`;
-    for (const n of src.notes || []) html += `<div style="margin-top:6px">${esc(n)}</div>`;
-  }
-  return html;
-}
+        } else {
+          const src = m.src;
+          html += `<div style="color:var(--muted);margin-top:4px">Presence &middot; ${esc(src.label)}</div>`;
+          html += `<div style="margin-top:6px">${
+            src.grain === "reach"
+              ? "Mapped as stream reaches."
+              : "Mapped as whole HUC12 watersheds, not as streams."
+          }</div>`;
+          for (const n of src.notes || []) html += `<div style="margin-top:6px">${esc(n)}</div>`;
+        }
+        return html;
+      }
 
-function placePop(ev) {
-  const r = mapEl.getBoundingClientRect();
-  const x = ev.clientX - r.left, y = ev.clientY - r.top;
-  const w = pop.node().offsetWidth, h = pop.node().offsetHeight;
-  pop.style("left", Math.min(x + 14, r.width - w - 8) + "px")
-     .style("top", Math.max(8, Math.min(y + 14, r.height - h - 8)) + "px");
-}
+      function placePop(ev) {
+        const r = mapEl.getBoundingClientRect();
+        const x = ev.clientX - r.left,
+          y = ev.clientY - r.top;
+        const w = pop.node().offsetWidth,
+          h = pop.node().offsetHeight;
+        pop
+          .style("left", Math.min(x + 14, r.width - w - 8) + "px")
+          .style("top", Math.max(8, Math.min(y + 14, r.height - h - 8)) + "px");
+      }
 
-function loadPresence(key, done) {
-  if (PRESENCE[key]) { packPresence(key); return void done(); }
-  const s = document.createElement("script");
-  s.src = `presence/presence_${key}.js`;
-  s.onload = () => { packPresence(key); done(); };
-  s.onerror = () => { console.error("presence layer failed to load:", s.src); done(); };
-  document.head.appendChild(s);
-}
+      function loadPresence(key, done) {
+        if (PRESENCE[key]) {
+          packPresence(key);
+          return void done();
+        }
+        const s = document.createElement("script");
+        s.src = `presence/presence_${key}.js`;
+        s.onload = () => {
+          packPresence(key);
+          done();
+        };
+        s.onerror = () => {
+          console.error("presence layer failed to load:", s.src);
+          done();
+        };
+        document.head.appendChild(s);
+      }
 
-const swatch = (hue, part = "both") => {
-  const { band, line, derived } = shades(hue);
-  const wide = `<line x1="3" y1="5" x2="19" y2="5" stroke="${band}" stroke-width="7" stroke-linecap="round"/>`;
-  const thin = `<line x1="3" y1="5" x2="19" y2="5" stroke="${line}" stroke-width="1.6" stroke-linecap="round"/>`;
-  const drv  = `<line x1="3" y1="5" x2="19" y2="5" stroke="${derived}" stroke-width="2.1" stroke-linecap="round"/>`;
-  const esa = thin, pres = wide;
+      const swatch = (hue, part = "both") => {
+        const { band, line, derived } = shades(hue);
+        const wide = `<line x1="3" y1="5" x2="19" y2="5" stroke="${band}" stroke-width="7" stroke-linecap="round"/>`;
+        const thin = `<line x1="3" y1="5" x2="19" y2="5" stroke="${line}" stroke-width="1.6" stroke-linecap="round"/>`;
+        const drv = `<line x1="3" y1="5" x2="19" y2="5" stroke="${derived}" stroke-width="2.1" stroke-linecap="round"/>`;
+        // The watershed-range sample is painted the way drawRanges() paints it: the line colour
+        // at fillAlpha(), fill only. drawRanges() strokes nothing, and an edge here would read far
+        // heavier than the real mark because the swatch is 17x7 and almost all perimeter.
+        const fill = `<rect x="2.5" y="1.5" width="17" height="7" fill="${line}" fill-opacity="${fillAlpha()}"/>`;
+        const esa = thin,
+          pres = wide;
 
-  const both = pres + esa;
-  const marks = part === "esa" ? esa : part === "pres" ? pres : part === "derived" ? drv : both;
-  return `<svg width="22" height="10" viewBox="0 0 22 10">${marks}</svg>`;
-};
-let lastGroup = null;
-const mains = [];
-for (const sp of SPECIES) {
-  const st = spState[sp.key];
-  const has = { esa: sp.esa.length > 0, derived: sp.derived.length > 0, pres: !!sp.pres };
-  const tiers = ["esa", "derived", "pres"].filter(t => has[t]);
-  const part = tiers.length === 1 ? tiers[0] : "both";
-  if (sp.group !== lastGroup) {
-    const h = document.createElement("div");
-    h.className = "spgroup"; h.textContent = sp.group;
-    document.getElementById("splist").appendChild(h);
-    lastGroup = sp.group;
-  }
+        const both = pres + esa;
+        const marks =
+          part === "esa"
+            ? esa
+            : part === "pres"
+              ? pres
+              : part === "derived"
+                ? drv
+                : part === "fill"
+                  ? fill
+                  : both;
+        return `<svg width="22" height="10" viewBox="0 0 22 10">${marks}</svg>`;
+      };
+      // One species' hue demonstrates every row. Coho is the honest choice for the last row,
+      // since the reconstructed layer only exists for coho.
+      const LEGEND_HUE = 32;
+      // [part, label, qualifier, note]. Both trailing strings render as <i>, which .key i already
+      // styles as a quiet grey block, so the qualifier needs no <br /> and no rule of its own.
+      const LEGEND_ROWS = [
+        ["dam", "Dam removed", "", ""],
+        [
+          "esa",
+          "ESA critical habitat",
+          "(color varies by species)",
+          "federally designated for a threatened or endangered fish",
+        ],
+        [
+          "pres",
+          "Mapped as present",
+          "(color varies by species)",
+          "what state and federal surveys have actually recorded",
+        ],
+        [
+          "fill",
+          "Watershed range",
+          "(color varies by species)",
+          "California, where nothing finer than a whole watershed is mapped",
+        ],
+        [
+          "derived",
+          "Rebuilt by this project",
+          "",
+          "SONCC coho, reconstructed from the text of the regulation",
+        ],
+      ];
+      (function buildLegend() {
+        const box = document.getElementById("legend");
+        if (!box) return;
+        box.innerHTML = LEGEND_ROWS.map(([part, label, qual, note]) => {
+          const mark =
+            part === "dam"
+              ? `<span class="dot" style="background:var(--c-dam);border-color:var(--c-halo)"></span>`
+              : `<span class="spsw" data-hue="${LEGEND_HUE}" data-part="${part}">${swatch(LEGEND_HUE, part)}</span>`;
+          const lines = [qual, note].filter(Boolean).map((s) => `<i>${s}</i>`).join("");
+          return `<div class="key">${mark}<div>${label}${lines}</div></div>`;
+        }).join("");
+      })();
 
-  const srcRows = sp => {
-    const meta = sp.pres && PRES_META[sp.pres];
-    if (!meta) return "";
-    return `<div class="spsrc">` + meta.sources.map(s =>
-        `<div class="srcrow">`
-      + [`<label class="hab src"><input type="checkbox" data-src="${s.id}" checked>`
-      + `<span class="grain ${s.grain === "reach" ? "reach" : "range"}"></span>`
-      + `${s.label}<span class="n">${fmtN(s.lines + s.polys)}</span></label>`
-      , s.notes && s.notes.length
-          ? `<button type="button" class="info" data-note="${s.id}" aria-expanded="false"`
-            + ` aria-label="What this layer's geometry represents">i</button>`
-          : ""].join("")
-      + `</div>`
-      + (s.notes && s.notes.length
-          ? `<div class="srcnote" id="note-${s.id}" hidden>` + s.notes.map(n => `<p>${n}</p>`).join("") + `</div>`
-          : "")).join("") + `</div>`;
-  };
+      let lastGroup = null;
+      const mains = [];
+      for (const sp of SPECIES) {
+        const st = spState[sp.key];
+        const has = { esa: sp.esa.length > 0, derived: sp.derived.length > 0, pres: !!sp.pres };
+        const tiers = ["esa", "derived", "pres"].filter((t) => has[t]);
+        const part = tiers.length === 1 ? tiers[0] : "both";
+        if (sp.group !== lastGroup) {
+          const h = document.createElement("div");
+          h.className = "spgroup";
+          h.textContent = sp.group;
+          document.getElementById("splist").appendChild(h);
+          lastGroup = sp.group;
+        }
 
-  const tierRow = (tier, name, missing, notes) => {
-    if (!has[tier])
-      return missing === null ? "" : `<label class="hab none"><input type="checkbox" disabled><span style="width:22px;flex:0 0 22px"></span> ${missing}</label>`;
-    const id = sp.key + "-" + tier;
-    return `<div class="srcrow">`
-      + `<label class="hab src"><input type="checkbox" data-tier="${tier}">`
-      + `<span class="spsw" data-hue="${sp.hue}" data-part="${tier}">${swatch(sp.hue, tier)}</span> ${name}</label>`
-      + (notes ? `<button type="button" class="info" data-note="${id}" aria-expanded="false"`
-                 + ` aria-label="Where this layer comes from">i</button>` : "")
-      + `</div>`
-      + (notes ? `<div class="srcnote" id="note-${id}" hidden>` + notes.map(n => `<p>${n}</p>`).join("") + `</div>` : "");
-  };
-  const box = document.createElement("div");
-  box.innerHTML =
-      `<div class="sprow">`
-    +   `<button type="button" class="caret" aria-expanded="false" aria-label="Show the habitat and presence switches for ${sp.label}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2 L8.5 6 L4 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`
-    +   `<label class="hab"><input type="checkbox" class="sp" value="${sp.key}">`
-    +     `<span class="spsw" data-hue="${sp.hue}" data-part="${part}">${swatch(sp.hue, part)}</span> ${sp.label}</label>`
-    + `</div>`
-    + `<div class="spsub" hidden>`
-    +   tierRow("esa", "ESA critical habitat", "No ESA critical habitat",
-          has.derived ? ["<b>Published by the agency.</b> Designated under the Endangered Species Act and "
-            + "distributed as GIS data by NMFS or USFWS. The designation and the mapping are both theirs, "
-            + "and the lines are used exactly as they arrive."] : null)
-    +   tierRow("derived", "ESA critical habitat, derived", null,
-          ["<b>Reconstructed by this project.</b> The Southern Oregon / Northern California Coast coho "
-           + "designation is federal and official like the one above, but <b>NMFS never published GIS data "
-           + "for it</b>, so the geometry here was rebuilt from basin boundaries (StreamStats and NLDI).",
-           "So the designation is the agency's and the lines are ours. They carry this project's error "
-           + "rather than NMFS's, which is why the layer is drawn in a different shade and why it is on a "
-           + "switch of its own rather than folded in above."])
-    +   tierRow("pres", "Presence", "No presence layer")
-    +   srcRows(sp)
-    + `</div>`;
-  document.getElementById("splist").appendChild(box);
-  const caret = box.querySelector(".caret"), sub = box.querySelector(".spsub");
-  const main = box.querySelector("input.sp"), row = box.querySelector(".sprow label");
-  const tierBox = Object.fromEntries(tiers.map(t => [t, box.querySelector(`[data-tier="${t}"]`)]));
-  mains.push(main);
+        const srcRows = (sp) => {
+          const meta = sp.pres && PRES_META[sp.pres];
+          if (!meta) return "";
+          return (
+            `<div class="spsrc">` +
+            meta.sources
+              .map(
+                (s) =>
+                  `<div class="srcrow">` +
+                  [
+                    `<label class="hab src"><input type="checkbox" data-src="${s.id}" checked>` +
+                      `<span class="grain ${s.grain === "reach" ? "reach" : "range"}"></span>` +
+                      `${s.label}<span class="n">${fmtN(s.lines + s.polys)}</span></label>`,
+                    s.notes && s.notes.length
+                      ? `<button type="button" class="info" data-note="${s.id}" aria-expanded="false"` +
+                        ` aria-label="What this layer's geometry represents">i</button>`
+                      : "",
+                  ].join("") +
+                  `</div>` +
+                  (s.notes && s.notes.length
+                    ? `<div class="srcnote" id="note-${s.id}" hidden>` +
+                      s.notes.map((n) => `<p>${n}</p>`).join("") +
+                      `</div>`
+                    : ""),
+              )
+              .join("") +
+            `</div>`
+          );
+        };
 
-  caret.addEventListener("click", () => {
-    const open = caret.getAttribute("aria-expanded") !== "true";
-    caret.setAttribute("aria-expanded", open);
-    sub.hidden = !open;
-  });
+        const tierRow = (tier, name, missing, notes) => {
+          if (!has[tier])
+            return missing === null
+              ? ""
+              : `<label class="hab none"><input type="checkbox" disabled><span style="width:22px;flex:0 0 22px"></span> ${missing}</label>`;
+          const id = sp.key + "-" + tier;
+          return (
+            `<div class="srcrow">` +
+            `<label class="hab src"><input type="checkbox" data-tier="${tier}">` +
+            `<span class="spsw" data-hue="${sp.hue}" data-part="${tier}">${swatch(sp.hue, tier)}</span> ${name}</label>` +
+            (notes
+              ? `<button type="button" class="info" data-note="${id}" aria-expanded="false"` +
+                ` aria-label="Where this layer comes from">i</button>`
+              : "") +
+            `</div>` +
+            (notes
+              ? `<div class="srcnote" id="note-${id}" hidden>` +
+                notes.map((n) => `<p>${n}</p>`).join("") +
+                `</div>`
+              : "")
+          );
+        };
+        const box = document.createElement("div");
+        box.innerHTML =
+          `<div class="sprow">` +
+          `<button type="button" class="caret" aria-expanded="false" aria-label="Show the habitat and presence switches for ${sp.label}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2 L8.5 6 L4 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>` +
+          `<label class="hab"><input type="checkbox" class="sp" value="${sp.key}">` +
+          `<span class="spsw" data-hue="${sp.hue}" data-part="${part}">${swatch(sp.hue, part)}</span> ${sp.label}</label>` +
+          `</div>` +
+          `<div class="spsub" hidden>` +
+          tierRow(
+            "esa",
+            "ESA critical habitat",
+            "No ESA critical habitat",
+            has.derived
+              ? [
+                  "<b>Published by the agency.</b> Designated under the Endangered Species Act and " +
+                    "distributed as GIS data by NMFS or USFWS. The designation and the mapping are both theirs, " +
+                    "and the lines are used exactly as they arrive.",
+                ]
+              : null,
+          ) +
+          tierRow("derived", "ESA critical habitat, derived", null, [
+            "<b>Reconstructed by this project.</b> The Southern Oregon / Northern California Coast coho " +
+              "designation is federal and official like the one above, but <b>NMFS never published GIS data " +
+              "for it</b>, so the geometry here was rebuilt from basin boundaries (StreamStats and NLDI).",
+            "So the designation is the agency's and the lines are ours. They carry this project's error " +
+              "rather than NMFS's, which is why the layer is drawn in a different shade and why it is on a " +
+              "switch of its own rather than folded in above.",
+          ]) +
+          tierRow("pres", "Presence", "No presence layer") +
+          srcRows(sp) +
+          `</div>`;
+        document.getElementById("splist").appendChild(box);
+        const caret = box.querySelector(".caret"),
+          sub = box.querySelector(".spsub");
+        const main = box.querySelector("input.sp"),
+          row = box.querySelector(".sprow label");
+        const tierBox = Object.fromEntries(
+          tiers.map((t) => [t, box.querySelector(`[data-tier="${t}"]`)]),
+        );
+        mains.push(main);
 
-  for (const b of box.querySelectorAll(".info")) {
-    b.addEventListener("click", () => {
-      const note = box.querySelector("#note-" + CSS.escape(b.dataset.note));
-      const open = b.getAttribute("aria-expanded") !== "true";
-      b.setAttribute("aria-expanded", open);
-      note.hidden = !open;
-    });
-  }
+        caret.addEventListener("click", () => {
+          const open = caret.getAttribute("aria-expanded") !== "true";
+          caret.setAttribute("aria-expanded", open);
+          sub.hidden = !open;
+        });
 
-  const srcBoxes = [...box.querySelectorAll("[data-src]")];
-  for (const cb of srcBoxes) {
-    cb.addEventListener("change", () => {
-      srcOn[sp.pres] = new Set(srcBoxes.filter(b => b.checked).map(b => b.dataset.src));
-      if (PRESENCE[sp.pres]) packPresence(sp.pres);
-      drawHabitat();
-    });
-  }
+        for (const b of box.querySelectorAll(".info")) {
+          b.addEventListener("click", () => {
+            const note = box.querySelector("#note-" + CSS.escape(b.dataset.note));
+            const open = b.getAttribute("aria-expanded") !== "true";
+            b.setAttribute("aria-expanded", open);
+            note.hidden = !open;
+          });
+        }
 
-  const sync = () => {
-    for (const t of tiers) tierBox[t].checked = st[t];
-    const on = tiers.filter(t => st[t]).length;
-    main.checked = on === tiers.length;
-    main.indeterminate = on > 0 && on < tiers.length;
-  };
+        const srcBoxes = [...box.querySelectorAll("[data-src]")];
+        for (const cb of srcBoxes) {
+          cb.addEventListener("change", () => {
+            srcOn[sp.pres] = new Set(srcBoxes.filter((b) => b.checked).map((b) => b.dataset.src));
+            if (PRESENCE[sp.pres]) packPresence(sp.pres);
+            drawHabitat();
+          });
+        }
 
-  const setTier = (tier, on, done) => {
-    const gs = tier === "esa" ? sp.esa : tier === "derived" ? sp.derived : null;
-    if (gs) gs.forEach(g => on ? active.add(g) : active.delete(g));
-    else on ? presActive.add(sp.pres) : presActive.delete(sp.pres);
-    if (!on) return void done();
-    if (gs) {
-      let pending = gs.length;
-      for (const g of gs) loadGroup(IDX.find(m => m.key === g), () => { if (--pending === 0) done(); });
-    } else loadPresence(sp.pres, done);
-  };
-  const apply = changes => {
-    for (const [tier, on] of changes) st[tier] = on;
-    sync();
-    row.classList.add("busy");
-    let pending = changes.length;
-    const done = () => { if (--pending === 0) { row.classList.remove("busy"); drawHabitat(); } };
-    for (const [tier, on] of changes) setTier(tier, on, done);
-  };
+        const sync = () => {
+          for (const t of tiers) tierBox[t].checked = st[t];
+          const on = tiers.filter((t) => st[t]).length;
+          main.checked = on === tiers.length;
+          main.indeterminate = on > 0 && on < tiers.length;
+        };
 
-  main.addEventListener("change", () => apply(tiers.map(t => [t, main.checked])));
-  for (const tier of tiers)
-    tierBox[tier].addEventListener("change", () => apply([[tier, tierBox[tier].checked]]));
-}
-const setAll = on => mains.forEach(m => {
-  if (m.checked !== on || m.indeterminate) { m.checked = on; m.indeterminate = false; m.dispatchEvent(new Event("change")); }
-});
-document.getElementById("sp-all").addEventListener("click", () => setAll(true));
-document.getElementById("sp-none").addEventListener("click", () => setAll(false));
-const repaintSwatches = () =>
-  document.querySelectorAll(".spsw").forEach(el => { el.innerHTML = swatch(+el.dataset.hue, el.dataset.part); });
+        const setTier = (tier, on, done) => {
+          const gs = tier === "esa" ? sp.esa : tier === "derived" ? sp.derived : null;
+          if (gs) gs.forEach((g) => (on ? active.add(g) : active.delete(g)));
+          else on ? presActive.add(sp.pres) : presActive.delete(sp.pres);
+          if (!on) return void done();
+          if (gs) {
+            let pending = gs.length;
+            for (const g of gs)
+              loadGroup(
+                IDX.find((m) => m.key === g),
+                () => {
+                  if (--pending === 0) done();
+                },
+              );
+          } else loadPresence(sp.pres, done);
+        };
+        const apply = (changes) => {
+          for (const [tier, on] of changes) st[tier] = on;
+          sync();
+          row.classList.add("busy");
+          let pending = changes.length;
+          const done = () => {
+            if (--pending === 0) {
+              row.classList.remove("busy");
+              drawHabitat();
+            }
+          };
+          for (const [tier, on] of changes) setTier(tier, on, done);
+        };
 
-const zoom = d3.zoom().scaleExtent([1, 60])
-  .on("start", () => { svg.classed("dragging", true); unpin(); })
-  .on("end", () => { svg.classed("dragging", false); })
-  .on("zoom", ev => {
-    gRoot.attr("transform", ev.transform);
+        main.addEventListener("change", () => apply(tiers.map((t) => [t, main.checked])));
+        for (const tier of tiers)
+          tierBox[tier].addEventListener("change", () => apply([[tier, tierBox[tier].checked]]));
+      }
+      const setAll = (on) =>
+        mains.forEach((m) => {
+          if (m.checked !== on || m.indeterminate) {
+            m.checked = on;
+            m.indeterminate = false;
+            m.dispatchEvent(new Event("change"));
+          }
+        });
+      document.getElementById("sp-all").addEventListener("click", () => setAll(true));
+      document.getElementById("sp-none").addEventListener("click", () => setAll(false));
+      const repaintSwatches = () =>
+        document.querySelectorAll(".spsw").forEach((el) => {
+          el.innerHTML = swatch(+el.dataset.hue, el.dataset.part);
+        });
 
-    const k = ev.transform.k;
-    gDams.selectAll("circle")
-      .attr("r", d => damR(d.properties) / Math.sqrt(k));
-    xform = ev.transform;
-    drawHabitat();
-  });
-svg.call(zoom);
+      const zoom = d3
+        .zoom()
+        .scaleExtent([1, 60])
+        .on("start", () => {
+          svg.classed("dragging", true);
+          unpin();
+        })
+        .on("end", () => {
+          svg.classed("dragging", false);
+        })
+        .on("zoom", (ev) => {
+          gRoot.attr("transform", ev.transform);
 
-d3.select("#zin").on("click", () => svg.transition().duration(250).call(zoom.scaleBy, 1.8));
-d3.select("#zout").on("click", () => svg.transition().duration(250).call(zoom.scaleBy, 1 / 1.8));
-d3.select("#zreset").on("click", () =>
-  svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity));
+          const k = ev.transform.k;
+          gDams.selectAll("circle").attr("r", (d) => damR(d.properties) / Math.sqrt(k));
+          xform = ev.transform;
+          drawHabitat();
+        });
+      svg.call(zoom);
 
-function applyFilter() {
-  const states = [...document.querySelectorAll(".st:checked")].map(c => c.value);
-  const onlyAudit = document.getElementById("only-audit").checked;
-  const keep = p => states.includes(p.state) && (!onlyAudit || !!auditKind(p));
-  let n = 0;
-  gDams.selectAll("circle").each(function (d) {
-    const ok = keep(d.properties);
-    if (ok) n++;
-    this.style.display = ok ? "" : "none";
-  });
-  document.getElementById("shown").innerHTML =
-    `${n}<small>${n === META.mapped ? "dams placed on the map" : "of " + META.mapped + " shown"}</small>`;
-}
-document.getElementById("hover-layers").addEventListener("change", () => {
-  if (hoverOn()) schedulePick();
-  else { pickReady = false; clearTimeout(pickTimer); pop.classed("on", false); hoverKey = null; }
-});
-document.querySelectorAll(".nat, .rng").forEach(el =>
-  el.addEventListener("input", () => drawHabitat()));
-document.querySelectorAll(".st, #only-audit")
-        .forEach(el => el.addEventListener("change", applyFilter));
+      d3.select("#zin").on("click", () => svg.transition().duration(250).call(zoom.scaleBy, 1.8));
+      d3.select("#zout").on("click", () =>
+        svg
+          .transition()
+          .duration(250)
+          .call(zoom.scaleBy, 1 / 1.8),
+      );
+      d3.select("#zreset").on("click", () =>
+        svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity),
+      );
 
-function repaintDams() {
-  const k = xform ? xform.k : 1;
-  gDams.selectAll("circle")
-    .attr("r", d => damR(d.properties) / Math.sqrt(k))
-    .attr("fill", d => colourOf(d.properties))
-    .attr("stroke", damStroke)
-    .attr("stroke-width", damStrokeW);
-}
-document.getElementById("dam-detail").addEventListener("change", function () {
+      function applyFilter() {
+        const states = [...document.querySelectorAll(".st:checked")].map((c) => c.value);
+        const onlyAudit = document.getElementById("only-audit").checked;
+        const keep = (p) => states.includes(p.state) && (!onlyAudit || !!auditKind(p));
+        let n = 0;
+        gDams.selectAll("circle").each(function (d) {
+          const ok = keep(d.properties);
+          if (ok) n++;
+          this.style.display = ok ? "" : "none";
+        });
+        // #shown was removed from the panel on 2026-09-20. This write is guarded rather than deleted:
+        // unguarded it throws during setup and silently kills every listener registered after it.
+        const shownEl = document.getElementById("shown");
+        if (shownEl)
+          shownEl.innerHTML = `${n}<small>${n === META.mapped ? "dams placed on the map" : "of " + META.mapped + " shown"}</small>`;
+      }
+      document.getElementById("hover-layers").addEventListener("change", () => {
+        if (hoverOn()) schedulePick();
+        else {
+          pickReady = false;
+          clearTimeout(pickTimer);
+          pop.classed("on", false);
+          hoverKey = null;
+        }
+      });
+      document
+        .querySelectorAll(".nat, .rng")
+        .forEach((el) => el.addEventListener("input", () => drawHabitat()));
+      document
+        .querySelectorAll(".st, #only-audit")
+        .forEach((el) => el.addEventListener("change", applyFilter));
 
-  document.getElementById("dam-detail-panel").hidden = !this.checked;
+      function repaintDams() {
+        const k = xform ? xform.k : 1;
+        gDams
+          .selectAll("circle")
+          .attr("r", (d) => damR(d.properties) / Math.sqrt(k))
+          .attr("fill", (d) => colourOf(d.properties))
+          .attr("stroke", damStroke)
+          .attr("stroke-width", damStrokeW);
+      }
+      document.getElementById("dam-detail").addEventListener("change", function () {
+        document.getElementById("dam-detail-panel").hidden = !this.checked;
 
-  if (!this.checked) {
-    const oa = document.getElementById("only-audit");
-    if (oa.checked) { oa.checked = false; }
-  }
-  repaintDams();
-  applyFilter();
-});
+        if (!this.checked) {
+          const oa = document.getElementById("only-audit");
+          if (oa.checked) {
+            oa.checked = false;
+          }
+        }
+        repaintDams();
+        applyFilter();
+      });
 
-if (document.documentElement.dataset.mode !== "test") {
-  const dd = document.getElementById("dam-detail");
-  if (dd && dd.checked) { dd.checked = false; dd.dispatchEvent(new Event("change")); }
-}
+      if (document.documentElement.dataset.mode !== "test") {
+        const dd = document.getElementById("dam-detail");
+        if (dd && dd.checked) {
+          dd.checked = false;
+          dd.dispatchEvent(new Event("change"));
+        }
+      }
 
-addEventListener("resize", fit);
-fit();
+      addEventListener("resize", fit);
+      fit();
 
-function resizeSurface() {
-  const w = mapEl.clientWidth, h = mapEl.clientHeight;
-  svg.attr("viewBox", `0 0 ${w} ${h}`);
-  dpr = Math.min(window.devicePixelRatio || 1, 2);
-  cvEl.width = Math.round(w * dpr);
-  cvEl.height = Math.round(h * dpr);
-}
+      function resizeSurface() {
+        const w = mapEl.clientWidth,
+          h = mapEl.clientHeight;
+        svg.attr("viewBox", `0 0 ${w} ${h}`);
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        cvEl.width = Math.round(w * dpr);
+        cvEl.height = Math.round(h * dpr);
+      }
 
-let panelOff = false;
-try { panelOff = localStorage.getItem("damPanel") === "off"; } catch (e) {}
-const panelBtn = document.getElementById("panel-toggle");
+      let panelOff = false;
+      try {
+        panelOff = localStorage.getItem("damPanel") === "off";
+      } catch (e) {}
+      const panelBtn = document.getElementById("panel-toggle");
 
-function paintPanelBtn() {
-  panelBtn.innerHTML = panelOff ? "&#8250;" : "&#8249;";
-  panelBtn.title = panelOff ? "Show the panel" : "Hide the panel";
-  panelBtn.setAttribute("aria-expanded", String(!panelOff));
-}
+      function paintPanelBtn() {
+        panelBtn.innerHTML = panelOff ? "&#8250;" : "&#8249;";
+        panelBtn.title = panelOff ? "Show the panel" : "Hide the panel";
+        panelBtn.setAttribute("aria-expanded", String(!panelOff));
+      }
 
-panelBtn.addEventListener("click", () => {
-  panelOff = !panelOff;
-  try { localStorage.setItem("damPanel", panelOff ? "off" : "on"); } catch (e) {}
-  const before = mapEl.getBoundingClientRect();
-  document.body.classList.toggle("panel-off", panelOff);
-  paintPanelBtn();
-  const after = mapEl.getBoundingClientRect();
-  resizeSurface();
+      panelBtn.addEventListener("click", () => {
+        panelOff = !panelOff;
+        try {
+          localStorage.setItem("damPanel", panelOff ? "off" : "on");
+        } catch (e) {}
+        const before = mapEl.getBoundingClientRect();
+        document.body.classList.toggle("panel-off", panelOff);
+        paintPanelBtn();
+        const after = mapEl.getBoundingClientRect();
+        resizeSurface();
 
-  const dx = before.left - after.left, dy = before.top - after.top;
-  if (dx || dy) {
-    svg.call(zoom.transform, d3.zoomIdentity.translate(xform.x + dx, xform.y + dy).scale(xform.k));
-  } else {
-    drawHabitat();
-  }
-});
+        const dx = before.left - after.left,
+          dy = before.top - after.top;
+        if (dx || dy) {
+          svg.call(
+            zoom.transform,
+            d3.zoomIdentity.translate(xform.x + dx, xform.y + dy).scale(xform.k),
+          );
+        } else {
+          drawHabitat();
+        }
+      });
 
-paintPanelBtn();
-if (panelOff) { document.body.classList.add("panel-off"); fit(); }
+      paintPanelBtn();
+      if (panelOff) {
+        document.body.classList.add("panel-off");
+        fit();
+      }
 
-const aboutEl = document.getElementById("about");
-const aboutOpenBtn = document.getElementById("about-open");
-const aboutCloseBtn = document.getElementById("about-close");
+      const aboutEl = document.getElementById("about");
+      const aboutOpenBtn = document.getElementById("about-open");
+      const aboutCloseBtn = document.getElementById("about-close");
 
-function setAbout(on) {
-  document.body.classList.toggle("about-on", on);
-  aboutOpenBtn.setAttribute("aria-expanded", String(on));
-  aboutEl.setAttribute("aria-hidden", String(!on));
-  if (on) { aboutEl.scrollTop = 0; aboutCloseBtn.focus(); }
-  else aboutOpenBtn.focus();
-}
+      function setAbout(on) {
+        document.body.classList.toggle("about-on", on);
+        aboutOpenBtn.setAttribute("aria-expanded", String(on));
+        aboutEl.setAttribute("aria-hidden", String(!on));
+        if (on) {
+          aboutEl.scrollTop = 0;
+          aboutCloseBtn.focus();
+        } else aboutOpenBtn.focus();
+      }
 
-aboutOpenBtn.addEventListener("click", () => setAbout(true));
-aboutCloseBtn.addEventListener("click", () => setAbout(false));
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && document.body.classList.contains("about-on")) setAbout(false);
-});
+      aboutOpenBtn.addEventListener("click", () => setAbout(true));
+      aboutCloseBtn.addEventListener("click", () => setAbout(false));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && document.body.classList.contains("about-on")) setAbout(false);
+      });
 
-const infoTabs = [...aboutEl.querySelectorAll('[role="tab"]')];
-function showTab(tab) {
-  infoTabs.forEach(t => {
-    const on = t === tab;
-    t.setAttribute("aria-selected", String(on));
-    t.tabIndex = on ? 0 : -1;
-    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
-  });
-  aboutEl.scrollTop = 0;
-}
-infoTabs.forEach((t, i) => {
-  t.addEventListener("click", () => showTab(t));
-  t.addEventListener("keydown", e => {
-    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-    if (!d) return;
-    const next = infoTabs[(i + d + infoTabs.length) % infoTabs.length];
-    showTab(next); next.focus();
-  });
-});
+      const infoTabs = [...aboutEl.querySelectorAll('[role="tab"]')];
+      function showTab(tab) {
+        infoTabs.forEach((t) => {
+          const on = t === tab;
+          t.setAttribute("aria-selected", String(on));
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+        });
+        aboutEl.scrollTop = 0;
+      }
+      infoTabs.forEach((t, i) => {
+        t.addEventListener("click", () => showTab(t));
+        t.addEventListener("keydown", (e) => {
+          const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+          if (!d) return;
+          const next = infoTabs[(i + d + infoTabs.length) % infoTabs.length];
+          showTab(next);
+          next.focus();
+        });
+      });
 
-const themeQ = matchMedia("(prefers-color-scheme: dark)");
-let themeChoice = document.documentElement.dataset.themeChoice || "auto";
-function applyTheme() {
-  const root = document.documentElement;
-  root.dataset.themeChoice = themeChoice;
-  root.dataset.theme = themeChoice === "auto" ? (themeQ.matches ? "dark" : "light") : themeChoice;
-  document.querySelectorAll("[data-theme-set]").forEach(b =>
-    b.setAttribute("aria-pressed", String(b.dataset.themeSet === themeChoice)));
-  gDams.selectAll("circle").attr("fill", d => colourOf(d.properties)).attr("stroke", damStroke);
-  repaintSwatches();
-  drawHabitat();
-}
-document.querySelectorAll("[data-theme-set]").forEach(b => b.addEventListener("click", () => {
-  themeChoice = b.dataset.themeSet;
-  try { localStorage.setItem("damTheme", themeChoice); } catch (e) {}
-  applyTheme();
-}));
-themeQ.addEventListener("change", () => { if (themeChoice === "auto") applyTheme(); });
-applyTheme();
-applyFilter();
-</script>
-</body>
+      const themeQ = matchMedia("(prefers-color-scheme: dark)");
+      let themeChoice = document.documentElement.dataset.themeChoice || "auto";
+      function applyTheme() {
+        const root = document.documentElement;
+        root.dataset.themeChoice = themeChoice;
+        root.dataset.theme =
+          themeChoice === "auto" ? (themeQ.matches ? "dark" : "light") : themeChoice;
+        document
+          .querySelectorAll("[data-theme-set]")
+          .forEach((b) =>
+            b.setAttribute("aria-pressed", String(b.dataset.themeSet === themeChoice)),
+          );
+        gDams
+          .selectAll("circle")
+          .attr("fill", (d) => colourOf(d.properties))
+          .attr("stroke", damStroke);
+        repaintSwatches();
+        drawHabitat();
+      }
+      document.querySelectorAll("[data-theme-set]").forEach((b) =>
+        b.addEventListener("click", () => {
+          themeChoice = b.dataset.themeSet;
+          try {
+            localStorage.setItem("damTheme", themeChoice);
+          } catch (e) {}
+          applyTheme();
+        }),
+      );
+      themeQ.addEventListener("change", () => {
+        if (themeChoice === "auto") applyTheme();
+      });
+      applyTheme();
+      applyFilter();
+    </script>
+  </body>
 </html>
