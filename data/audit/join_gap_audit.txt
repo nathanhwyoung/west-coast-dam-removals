@@ -1,0 +1,1675 @@
+Join gap audit, 2026-09-13. All 21 species.
+Raw sources, UNFILTERED, within 1000 m. Join tolerance: base 75 m, same-stream <=500 m
+under name equality (rule 40), ranges by containment or within the base (rule 41).
+
+CA-006  Salt Creek Dam  (CA, 39.29306, -122.79500, river as recorded: Salt Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 41436 m
+       nearest 41436 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 41436 m
+       nearest 41436 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 41436 m
+       nearest 41436 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 96488 m
+       nearest 96488 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 96488 m
+       nearest 96488 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 207098 m
+       nearest 207098 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 149190 m
+       nearest 149190 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 157940 m
+       nearest 157940 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 65198 m
+       nearest 65198 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 136107 m
+       nearest 136107 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 286066 m
+       nearest 286066 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 279819 m
+       nearest 279819 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 206774 m
+       nearest 206774 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 216764 m
+       nearest 216764 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 223292 m
+       nearest 223292 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 279819 m
+       nearest 279819 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 18314 m
+       nearest 18314 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 65198 m
+       nearest 65198 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-008  Upper Murphy Dam  (CA, 38.08526, -122.90400, river as recorded: Home Ranch Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 35177 m
+       nearest 35177 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 35177 m
+       nearest 35177 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 35177 m
+       nearest 35177 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 229752 m
+       nearest 229752 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 229752 m
+       nearest 229752 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 333691 m
+       nearest 333691 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 271495 m
+       nearest 271495 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 276306 m
+       nearest 276306 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 24743 m
+       nearest 24743 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 252684 m
+       nearest 252684 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 418155 m
+       nearest 418155 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 411253 m
+       nearest 411253 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 254056 m
+       nearest 254056 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 335540 m
+       nearest 335540 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 356018 m
+       nearest 356018 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 411253 m
+       nearest 411253 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        tolerance: nearest passing 767 m, past both rules
+       nearest 767 m (passes)  on Home Ranch Creek  Early_Yr=2004; Late_Yr=2004
+       base 75 m: no   |   same-stream <=500 m: no (name equal, nearest such 767 m)
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 17226 m
+       nearest 17226 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 24743 m
+       nearest 24743 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-030  Bear Valley Dam  (CA, 37.99325, -122.81400, river as recorded: (blank))
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 26983 m
+       nearest 26983 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 26983 m
+       nearest 26983 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 26983 m
+       nearest 26983 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 240574 m
+       nearest 240574 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 240574 m
+       nearest 240574 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 345491 m
+       nearest 345491 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 283487 m
+       nearest 283487 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 288529 m
+       nearest 288529 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 17290 m
+       nearest 17290 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 264922 m
+       nearest 264922 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 426231 m
+       nearest 426231 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 419175 m
+       nearest 419175 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 250856 m
+       nearest 250856 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 341426 m
+       nearest 341426 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 364362 m
+       nearest 364362 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 419175 m
+       nearest 419175 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 17290 m
+       nearest 17290 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 17290 m
+       nearest 17290 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-031  Rogers Dam  (CA, 38.04692, -122.78700, river as recorded: Tributary to Olema Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 25000 m
+       nearest 25000 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 25000 m
+       nearest 25000 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 25000 m
+       nearest 25000 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 234790 m
+       nearest 234790 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 234790 m
+       nearest 234790 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 340198 m
+       nearest 340198 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 278347 m
+       nearest 278347 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    tolerance: nearest passing 595 m, past the base rule, and no name-equal stream
+       nearest 595 m (passes)  on Olema Creek  DFGWATERID=27879684
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 283590 m
+       nearest 283590 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 14111 m
+       nearest 14111 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 260002 m
+       nearest 260002 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 419833 m
+       nearest 419833 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 412765 m
+       nearest 412765 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 246285 m
+       nearest 246285 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 334981 m
+       nearest 334981 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 357993 m
+       nearest 357993 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 412765 m
+       nearest 412765 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        tolerance: nearest passing 595 m, past the base rule, and no name-equal stream
+       nearest 595 m (passes)  on Olema Creek  Early_Yr=1979; Late_Yr=2004
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 14111 m
+       nearest 14111 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 14111 m
+       nearest 14111 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-049  Unnamed Arizona Crossing  (CA, 34.04862, -118.75390, river as recorded: Solstice Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 326669 m
+       nearest 326669 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 326669 m
+       nearest 326669 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 481335 m
+       nearest 481335 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 777894 m
+       nearest 777894 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 777894 m
+       nearest 777894 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 892541 m
+       nearest 892541 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 836793 m
+       nearest 836793 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 845415 m
+       nearest 845415 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 416307 m
+       nearest 416307 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 822971 m
+       nearest 822971 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 857739 m
+       nearest 857739 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 869744 m
+       nearest 869744 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 454833 m
+       nearest 454833 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 775347 m
+       nearest 775347 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 840335 m
+       nearest 840335 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 857739 m
+       nearest 857739 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        tolerance: nearest passing 142 m, past the base rule, and no name-equal stream
+       nearest 142 m (passes)  on    Early_Yr=1990; Late_Yr=1990
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 445466 m
+       nearest 445466 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 405500 m
+       nearest 405500 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-051  Trancas Debris Dam  (CA, 34.04055, -118.84668, river as recorded: Unnamed Trib. to the Trancas Canyon)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 325243 m
+       nearest 325243 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 325243 m
+       nearest 325243 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 477056 m
+       nearest 477056 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 774823 m
+       nearest 774823 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 774823 m
+       nearest 774823 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 889386 m
+       nearest 889386 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 833367 m
+       nearest 833367 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 841887 m
+       nearest 841887 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 413427 m
+       nearest 413427 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 819365 m
+       nearest 819365 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 856922 m
+       nearest 856922 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 868952 m
+       nearest 868952 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 454826 m
+       nearest 454826 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 774188 m
+       nearest 774188 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 838685 m
+       nearest 838685 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 856922 m
+       nearest 856922 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 442659 m
+       nearest 442659 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 402551 m
+       nearest 402551 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-052  A-Frame Dam  (CA, 40.61128, -122.57642, river as recorded: Brandy Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 1205 m
+       nearest 1205 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 1205 m
+       nearest 1205 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 4556 m
+       nearest 4556 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 10378 m
+       nearest 10378 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 10378 m
+       nearest 10378 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 107839 m
+       nearest 107839 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 91218 m
+       nearest 91218 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 107839 m
+       nearest 107839 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 4556 m
+       nearest 4556 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 70553 m
+       nearest 70553 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 144936 m
+       nearest 144936 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 140643 m
+       nearest 140643 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 223311 m
+       nearest 223311 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 80084 m
+       nearest 80084 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 123256 m
+       nearest 123256 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 137597 m
+       nearest 137597 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 67229 m
+       nearest 67229 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 7726 m
+       nearest 7726 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-053  East Panther Creek Dam  (CA, 38.49000, -120.39750, river as recorded: East Panther Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 48853 m
+       nearest 48853 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 55724 m
+       nearest 55724 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 72054 m
+       nearest 72054 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 288870 m
+       nearest 288870 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 288870 m
+       nearest 288870 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 400424 m
+       nearest 400424 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 356615 m
+       nearest 356615 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 368291 m
+       nearest 368291 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 72054 m
+       nearest 72054 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 348915 m
+       nearest 348915 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 342690 m
+       nearest 342690 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 354850 m
+       nearest 354850 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 45944 m
+       nearest 45944 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 257696 m
+       nearest 257696 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 322431 m
+       nearest 322431 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 342690 m
+       nearest 342690 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 72054 m
+       nearest 72054 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 61116 m
+       nearest 61116 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-054  Cascade Diversion Dam  (CA, 37.71827, -119.68200, river as recorded: Merced River)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 60055 m
+       nearest 60055 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 60055 m
+       nearest 60055 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 162579 m
+       nearest 162579 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 393270 m
+       nearest 393270 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 393270 m
+       nearest 393270 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 505968 m
+       nearest 505968 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 460099 m
+       nearest 460099 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 471363 m
+       nearest 471363 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 85626 m
+       nearest 85626 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 451561 m
+       nearest 451561 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 438649 m
+       nearest 438649 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 450630 m
+       nearest 450630 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 46579 m
+       nearest 46579 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     excluded by the filter rule
+       nearest 2 m (EXCLUDED)  on Merced River  DistType=Historical; HUC8Name=Upper Merced
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 357440 m
+       nearest 357440 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 426202 m
+       nearest 426202 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 438649 m
+       nearest 438649 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 109870 m
+       nearest 109870 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 85626 m
+       nearest 85626 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-058  West Panther Creek Dam  (CA, 38.49294, -120.39326, river as recorded: West Panther Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 49232 m
+       nearest 49232 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 56055 m
+       nearest 56055 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 72361 m
+       nearest 72361 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 288933 m
+       nearest 288933 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 288933 m
+       nearest 288933 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 400447 m
+       nearest 400447 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 356696 m
+       nearest 356696 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 368380 m
+       nearest 368380 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 72361 m
+       nearest 72361 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 349014 m
+       nearest 349014 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 342405 m
+       nearest 342405 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 354563 m
+       nearest 354563 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 45466 m
+       nearest 45466 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 257447 m
+       nearest 257447 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 322253 m
+       nearest 322253 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 342405 m
+       nearest 342405 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 72361 m
+       nearest 72361 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 61388 m
+       nearest 61388 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-072  Shasta River Water Association Diversion Dam  (CA, 40.85339, -122.34700, river as recorded: Nelson Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 14666 m
+       nearest 14666 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 14666 m
+       nearest 14666 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 15790 m
+       nearest 15790 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 33316 m
+       nearest 33316 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 33316 m
+       nearest 33316 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 118268 m
+       nearest 118268 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 111658 m
+       nearest 111658 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 118268 m
+       nearest 118268 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 15790 m
+       nearest 15790 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 82623 m
+       nearest 82623 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 111722 m
+       nearest 111722 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 107415 m
+       nearest 107415 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 224608 m
+       nearest 224608 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 46928 m
+       nearest 46928 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 101684 m
+       nearest 101684 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 107415 m
+       nearest 107415 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 87661 m
+       nearest 87661 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 28317 m
+       nearest 28317 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-078  Camp Nine Dam  (CA, 38.13576, -120.37700, river as recorded: Stanislaus River)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 33653 m
+       nearest 33653 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 33653 m
+       nearest 33653 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 89218 m
+       nearest 89218 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 317449 m
+       nearest 317449 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 317449 m
+       nearest 317449 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 430770 m
+       nearest 430770 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 383898 m
+       nearest 383898 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 395064 m
+       nearest 395064 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 67192 m
+       nearest 67192 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 375197 m
+       nearest 375197 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 382348 m
+       nearest 382348 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 394511 m
+       nearest 394511 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 71275 m
+       nearest 71275 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     excluded by the filter rule
+       nearest 2 m (EXCLUDED)  on Stanislaus River  DistType=Historical; HUC8Name=Upper Stanislaus
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 297017 m
+       nearest 297017 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 360373 m
+       nearest 360373 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 382348 m
+       nearest 382348 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 64452 m
+       nearest 64452 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 67192 m
+       nearest 67192 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-102  Dream Lake Dam  (CA, 40.44203, -121.40842, river as recorded: Hot Springs Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 37950 m
+       nearest 37950 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 37950 m
+       nearest 37950 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 37950 m
+       nearest 37950 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 108989 m
+       nearest 108989 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 108989 m
+       nearest 108989 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 206088 m
+       nearest 206088 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 188978 m
+       nearest 188978 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 206088 m
+       nearest 206088 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 56144 m
+       nearest 56144 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 168984 m
+       nearest 168984 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 128386 m
+       nearest 128386 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 130860 m
+       nearest 130860 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 136621 m
+       nearest 136621 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 42661 m
+       nearest 42661 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 87326 m
+       nearest 87326 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 128386 m
+       nearest 128386 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 67382 m
+       nearest 67382 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 56144 m
+       nearest 56144 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-155  Maria Ygnacio Debris Basin Dam East Branch  (CA, 34.46063, -119.79117, river as recorded: East Branch Maria Ygnacio Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 260995 m
+       nearest 260995 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 260995 m
+       nearest 260995 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 390555 m
+       nearest 390555 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 695884 m
+       nearest 695884 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 695884 m
+       nearest 695884 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 809450 m
+       nearest 809450 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 751570 m
+       nearest 751570 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 759303 m
+       nearest 759303 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 338825 m
+       nearest 338825 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 736302 m
+       nearest 736302 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 797158 m
+       nearest 797158 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 809315 m
+       nearest 809315 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 407428 m
+       nearest 407428 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 711619 m
+       nearest 711619 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 771340 m
+       nearest 771340 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 797158 m
+       nearest 797158 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        tolerance: nearest passing 292 m, past the base rule, and no name-equal stream
+       nearest 292 m (passes)  on Maria Ygnacio Creek  Early_Yr=2005; Late_Yr=2005
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 367458 m
+       nearest 367458 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 327532 m
+       nearest 327532 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-179  Columbine Dam  (CA, 37.35344, -121.79350, river as recorded: Flint Creek)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 23379 m
+       nearest 23379 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 23379 m
+       nearest 23379 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 23379 m
+       nearest 23379 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 329384 m
+       nearest 329384 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 329384 m
+       nearest 329384 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 441134 m
+       nearest 441134 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 382052 m
+       nearest 382052 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 389395 m
+       nearest 389395 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 23379 m
+       nearest 23379 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 366297 m
+       nearest 366297 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 473818 m
+       nearest 473818 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 477159 m
+       nearest 477159 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 219295 m
+       nearest 219295 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 384337 m
+       nearest 384337 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 427347 m
+       nearest 427347 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 473818 m
+       nearest 473818 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 27177 m
+       nearest 27177 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 23379 m
+       nearest 23379 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+CA-183  Double U Fish Ranch Dam  (CA, 41.45550, -120.90080, river as recorded: Howards Gulch)
+   Bridgelip sucker           (none)                             NO CA SOURCE, by design: not native to California
+   Bull trout                 (none)                             NO CA SOURCE, by design: extirpated in California (McCloud River, not seen since the mid-1970s)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT07 outside the range by 108841 m
+       nearest 108841 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT08 outside the range by 108841 m
+       nearest 108841 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT01 outside the range by 116611 m
+       nearest 116611 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT02 outside the range by 116611 m
+       nearest 116611 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT05 outside the range by 132214 m
+       nearest 132214 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             PISCES Oncorhynchus_tshawytscha_SOT03 outside the range by 226608 m
+       nearest 226608 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Chinook salmon             NOAA ds981 CA Coastal Chinook      nothing within 1 km
+   Chinook salmon             NOAA ds982 CV spring Chinook       nothing within 1 km
+   Chum salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Coastal cutthroat trout    PISCES Oncorhynchus_clarki_clarki_SOC01 outside the range by 174989 m
+       nearest 174989 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Coho salmon                CDFW ds326 coho                    nothing within 1 km
+   Eulachon                   PISCES Thaleichthys_pacificus_OTP01 outside the range by 233577 m
+       nearest 233577 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM02 outside the range by 150932 m
+       nearest 150932 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Green sturgeon             PISCES Acipenser_medirostris_AAM01 outside the range by 192736 m
+       nearest 192736 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Klamath largescale sucker  PISCES Catostomus_snyderi_CCS01    outside the range by 8451 m
+       nearest 8451 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Largescale sucker          (none)                             NO CA SOURCE, by design: not native to California
+   Lost River sucker          PISCES Catostomus_luxatus_CCL01    outside the range by 20302 m
+       nearest 20302 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Mountain whitefish         PISCES Prosopium_williamsoni_SPW01 outside the range by 219081 m
+       nearest 219081 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO CA SOURCE, by design: strays only, no California source
+   Redband trout              PISCES Oncorhynchus_mykiss_subspecies_SOM11 outside the range by 28371 m
+       nearest 28371 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Redband trout              PISCES Oncorhynchus_mykiss_stonei_SOM10 outside the range by 73727 m
+       nearest 73727 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Shortnose sucker           PISCES Chasmistes_brevirostris_CCB01 outside the range by 8451 m
+       nearest 8451 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Sockeye salmon             (none)                             NO CA SOURCE, by design: strays only, no California source
+   Steelhead                  CDFW ds340 winter steelhead        nothing within 1 km
+   Steelhead                  CDFW ds341 summer steelhead        nothing within 1 km
+   Western river lamprey      PISCES Lampetra_ayersi_PLA01       outside the range by 182550 m
+       nearest 182550 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+   Westslope cutthroat trout  (none)                             NO CA SOURCE, by design: not native to California
+   White sturgeon             PISCES Acipenser_transmontanus_AAT01 outside the range by 152737 m
+       nearest 152737 m (passes)  HUC12 range
+       base 75 m: no   |   same-stream <=500 m: n/a (range)
+
+OR-013  Rock Creek Dam  (OR, 44.90401, -118.06818, river as recorded: Tributary to the Powder River)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         nothing within 1 km
+   Coho salmon                ODFW fhd_Coho                      nothing within 1 km
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   tolerance: nearest passing 641 m, past the base rule, and no name-equal stream
+       nearest 641 m (passes)  on Rock Creek  fhdUseTy=Spawning; fhdRun=NA; fhdLifeHst=FluvRes; fhdAccess=NA; fhdBasis=ConcurProfOpinion
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadWinter           nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadSummer           nothing within 1 km
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+OR-028  South Fork Necanicum Diversion Dam  (OR, 45.53360, -123.50000, river as recorded: South Fork Necanicum)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         tolerance: nearest passing 227 m, past the base rule, and no name-equal stream
+       nearest 227 m (passes)  on Phipps Creek  fhdUseTy=Unknown; fhdRun=NA; fhdLifeHst=AnadRes; fhdAccess=NA; fhdBasis=ConcurProfOpinion
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                ODFW fhd_Coho                      nothing within 1 km
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   nothing within 1 km
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadWinter           tolerance: nearest passing 227 m, past the base rule, and no name-equal stream
+       nearest 227 m (passes)  on Phipps Creek  fhdUseTy=Spawning; fhdRun=Winter; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=ConcurProfOpinion
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  ODFW fhd_SteelheadSummer           nothing within 1 km
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+OR-035  Low Dam Removal  (OR, 45.25810, -118.53400, river as recorded: Birch Creek)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         nothing within 1 km
+   Coho salmon                ODFW fhd_Coho                      nothing within 1 km
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   tolerance: nearest passing 831 m, past the base rule, and no name-equal stream
+       nearest 831 m (passes)  on Bear Creek  fhdUseTy=ResidentMultipleUses; fhdRun=NA; fhdLifeHst=AnadRes; fhdAccess=NA; fhdBasis=IndivProfOpinion
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadSummer           tolerance: nearest passing 831 m, past the base rule, and no name-equal stream
+       nearest 831 m (passes)  on Bear Creek  fhdUseTy=Spawning; fhdRun=Summer; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=UndocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  ODFW fhd_SteelheadWinter           nothing within 1 km
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+OR-037  Corral Creek Dam  (OR, 45.17544, -122.50600, river as recorded: Corral Creek)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         tolerance: nearest passing 231 m, past the base rule, and no name-equal stream
+       nearest 231 m (passes)  fhdUseTy=ResidentMultipleUses; fhdRun=NA; fhdLifeHst=FluvRes; fhdAccess=NA; fhdBasis=ConcurProfOpinion
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                ODFW fhd_Coho                      tolerance: nearest passing 827 m, past the base rule, and no name-equal stream
+       nearest 827 m (passes)  on Milk Creek  fhdUseTy=Spawning; fhdRun=NA; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=UndocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         tolerance: nearest passing 827 m, past the base rule, and no name-equal stream
+       nearest 827 m (passes)  on Milk Creek  fhdUseTy=Unknown; fhdRun=NA; fhdLifeHst=Fluvial; fhdAccess=NA; fhdBasis=UndocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing passing, nothing near
+       nearest 827 m (EXCLUDED)  on Milk Creek  fhdUseTy=Historical; fhdRun=NA; fhdLifeHst=Anadromous; fhdAccess=NA; fhdBasis=DocObsFish
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing passing, nothing near
+       nearest 828 m (EXCLUDED)  on Milk Creek  Basis=DownstreamDocObsFish; Use_Type=Historical; Origin=Unknown
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   nothing within 1 km
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadWinter           tolerance: nearest passing 827 m, past the base rule, and no name-equal stream
+       nearest 827 m (passes)  on Milk Creek  fhdUseTy=Rearing; fhdRun=Winter; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=ConcurProfOpinion
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  ODFW fhd_SteelheadSummer           nothing within 1 km
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+OR-059  Hartman Ditch Dam  (OR, 42.30118, -123.13197, river as recorded: Humbug Creek)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         excluded by the filter rule
+       nearest 31 m (EXCLUDED)  on Humbug Creek  fhdUseTy=ResidentMultipleUses; fhdRun=NA; fhdLifeHst=Resident; fhdAccess=NA; fhdBasis=UndocObsFish
+   Coho salmon                ODFW fhd_Coho                      nothing within 1 km
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   nothing within 1 km
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadWinter           nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadSummer           nothing within 1 km
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+OR-060  Jamison Dam  (OR, 42.18918, -123.21125, river as recorded: Jamison Creek)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         tolerance: nearest passing 409 m, past the base rule, and no name-equal stream
+       nearest 4 m (EXCLUDED)  on Jamison Creek  fhdUseTy=ResidentMultipleUses; fhdRun=NA; fhdLifeHst=Resident; fhdAccess=NA; fhdBasis=UndocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                ODFW fhd_Coho                      tolerance: nearest passing 409 m, past the base rule, and no name-equal stream
+       nearest 409 m (passes)  on Thompson Creek  fhdUseTy=Spawning; fhdRun=NA; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=UndocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   nothing within 1 km
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadWinter           tolerance: nearest passing 409 m, past the base rule, and no name-equal stream
+       nearest 409 m (passes)  on Thompson Creek  fhdUseTy=Spawning; fhdRun=Winter; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=DownstreamDocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  ODFW fhd_SteelheadSummer           tolerance: nearest passing 409 m, past the base rule, and no name-equal stream
+       nearest 409 m (passes)  on Thompson Creek  fhdUseTy=Spawning; fhdRun=Summer; fhdLifeHst=Anadromous; fhdAccess=Unassisted; fhdBasis=UndocObsFish
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+OR-065  Mill Creek Dam  (OR, 43.15272, -121.82632, river as recorded: Miller Creek)
+   Bridgelip sucker           ODFW fhd_Sucker_Bridgelip          nothing within 1 km
+   Bull trout                 ODFW fhd_Bulltrout                 nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookFall               nothing within 1 km
+   Chinook salmon             ODFW fhd_ChinookSpring             nothing within 1 km
+   Chum salmon                ODFW fhd_Chum                      nothing within 1 km
+   Coastal cutthroat trout    ODFW fhd_Cutthroat_Coastal         nothing within 1 km
+   Coho salmon                ODFW fhd_Coho                      nothing within 1 km
+   Eulachon                   ODFW fhd_Eulachon                  nothing within 1 km
+   Green sturgeon             ODFW fhd_SturgeonGreen             nothing within 1 km
+   Klamath largescale sucker  ODFW fhd_Sucker_KlamathLargescale  nothing within 1 km
+   Largescale sucker          ODFW fhd_Sucker_Largescale         nothing within 1 km
+   Lost River sucker          ODFW fhd_Sucker_LostRiver          nothing within 1 km
+   Mountain whitefish         ODFW fhd_MountainWhitefish         nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pacific lamprey            ODFW fhd_Lamprey_Pacific           nothing within 1 km
+   Pink salmon                (none)                             NO OR SOURCE, by design: strays only, no Oregon source
+   Redband trout              ODFW fhd_Redband                   nothing within 1 km
+   Shortnose sucker           ODFW fhd_Sucker_Shortnose          nothing within 1 km
+   Sockeye salmon             ODFW fhd_Sockeye                   nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadWinter           nothing within 1 km
+   Steelhead                  ODFW fhd_SteelheadSummer           nothing within 1 km
+   Western river lamprey      ODFW fhd_Lamprey_WesternRiver      nothing within 1 km
+   Westslope cutthroat trout  ODFW fhd_Cutthroat_Westslope       nothing within 1 km
+   White sturgeon             ODFW fhd_SturgeonWhite             nothing within 1 km
+
+WA-016  White River Mill Pond Dam  (WA, 47.18868, -121.92800, river as recorded: Boise Creek)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              nothing within 1 km
+   Chinook salmon             WDFW SWIFD Chinook Salmon          nothing within 1 km
+   Chum salmon                WDFW SWIFD Chum Salmon             nothing within 1 km
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         nothing within 1 km
+   Coho salmon                WDFW SWIFD Coho Salmon             nothing within 1 km
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          nothing within 1 km
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             nothing within 1 km
+   Redband trout              WDFW SWIFD Rainbow Trout           excluded by the filter rule
+       nearest 73 m (EXCLUDED)  on Boise Creek  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          nothing within 1 km
+   Steelhead                  WDFW SWIFD Steelhead Trout         nothing within 1 km
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          nothing within 1 km
+
+WA-022  Darrington Water Works Dam  (WA, 48.23360, -121.59482, river as recorded: Tributary to Sauk River)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              tolerance: nearest passing 477 m, past the base rule, and no name-equal stream
+       nearest 477 m (passes)  on Sauk River  DISTTYPE_DESC=Documented; USETYPE_DESC=Rearing; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chinook salmon             WDFW SWIFD Chinook Salmon          tolerance: nearest passing 477 m, past the base rule, and no name-equal stream
+       nearest 49 m (EXCLUDED)  on Falls Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Spring
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chum salmon                WDFW SWIFD Chum Salmon             tolerance: nearest passing 477 m, past the base rule, and no name-equal stream
+       nearest 205 m (EXCLUDED)  on Falls Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         tolerance: nearest passing 184 m, past the base rule, and no name-equal stream
+       nearest 184 m (passes)  on Falls Creek  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                WDFW SWIFD Coho Salmon             tolerance: nearest passing 205 m, past the base rule, and no name-equal stream
+       nearest 205 m (passes)  on Falls Creek  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          nothing within 1 km
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    tolerance: nearest passing 480 m, past the base rule, and no name-equal stream
+       nearest 480 m (passes)  on Sauk River  Basis=DownstreamDocObsFish; Use_Type=Unknown; Origin=Unknown
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             tolerance: nearest passing 477 m, past the base rule, and no name-equal stream
+       nearest 49 m (EXCLUDED)  on Falls Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Odd Year
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Redband trout              WDFW SWIFD Rainbow Trout           nothing within 1 km
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          tolerance: nearest passing 477 m, past the base rule, and no name-equal stream
+       nearest 477 m (passes)  on Sauk River  DISTTYPE_DESC=Documented; USETYPE_DESC=Rearing; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  WDFW SWIFD Steelhead Trout         tolerance: nearest passing 477 m, past the base rule, and no name-equal stream
+       nearest 49 m (EXCLUDED)  on Falls Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Winter
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          nothing within 1 km
+
+WA-025  Black Mud Waste Pond A Dam  (WA, 46.13982, -123.01100, river as recorded: Tributary to Columbia River)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chinook salmon             WDFW SWIFD Chinook Salmon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chum salmon                WDFW SWIFD Chum Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                WDFW SWIFD Coho Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Adfluvial; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Resident; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    tolerance: nearest passing 316 m, past the base rule, and no name-equal stream
+       nearest 316 m (passes)  on Columbia River  Basis=DownstreamDocObsFish; Use_Type=Unknown; Origin=Native
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Redband trout              WDFW SWIFD Rainbow Trout           nothing within 1 km
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  WDFW SWIFD Steelhead Trout         tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Summer
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Adfluvial; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+
+WA-026  Black Mud Waste Pond B Dam  (WA, 46.13982, -123.01100, river as recorded: Tributary to Columbia River)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chinook salmon             WDFW SWIFD Chinook Salmon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chum salmon                WDFW SWIFD Chum Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                WDFW SWIFD Coho Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Adfluvial; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Resident; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    tolerance: nearest passing 316 m, past the base rule, and no name-equal stream
+       nearest 316 m (passes)  on Columbia River  Basis=DownstreamDocObsFish; Use_Type=Unknown; Origin=Native
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Redband trout              WDFW SWIFD Rainbow Trout           nothing within 1 km
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  WDFW SWIFD Steelhead Trout         tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Summer
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Adfluvial; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+
+WA-027  Black Mud Waste Pond C Dam  (WA, 46.13982, -123.01100, river as recorded: Tributary to Columbia River)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chinook salmon             WDFW SWIFD Chinook Salmon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Chum salmon                WDFW SWIFD Chum Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                WDFW SWIFD Coho Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Adfluvial; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Resident; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    tolerance: nearest passing 316 m, past the base rule, and no name-equal stream
+       nearest 316 m (passes)  on Columbia River  Basis=DownstreamDocObsFish; Use_Type=Unknown; Origin=Native
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Redband trout              WDFW SWIFD Rainbow Trout           nothing within 1 km
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Steelhead                  WDFW SWIFD Steelhead Trout         tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Summer
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          tolerance: nearest passing 290 m, past the base rule, and no name-equal stream
+       nearest 290 m (passes)  on Columbia River  DISTTYPE_DESC=Presumed; USETYPE_DESC=Presence; LIFEHIST_DESC=Adfluvial; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+
+WA-030  Growden Dam  (WA, 48.58515, -118.30600, river as recorded: Sherman Creek)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              nothing within 1 km
+   Chinook salmon             WDFW SWIFD Chinook Salmon          nothing within 1 km
+   Chum salmon                WDFW SWIFD Chum Salmon             nothing within 1 km
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         nothing within 1 km
+   Coho salmon                WDFW SWIFD Coho Salmon             nothing within 1 km
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          nothing within 1 km
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             nothing within 1 km
+   Redband trout              WDFW SWIFD Rainbow Trout           excluded by the filter rule
+       nearest 22 m (EXCLUDED)  on Sherman Creek  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          nothing within 1 km
+   Steelhead                  WDFW SWIFD Steelhead Trout         nothing within 1 km
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          nothing within 1 km
+
+WA-039  Beaver Creek Dam No. 1  (WA, 47.77498, -120.62437, river as recorded: Beaver Creek)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              nothing within 1 km
+   Chinook salmon             WDFW SWIFD Chinook Salmon          nothing within 1 km
+   Chum salmon                WDFW SWIFD Chum Salmon             nothing within 1 km
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         nothing within 1 km
+   Coho salmon                WDFW SWIFD Coho Salmon             nothing within 1 km
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          nothing within 1 km
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             nothing within 1 km
+   Redband trout              WDFW SWIFD Rainbow Trout           excluded by the filter rule
+       nearest 15 m (EXCLUDED)  on Beaver Creek  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Resident; RUNTIME_DESC=Unknown or not Applicable
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          nothing within 1 km
+   Steelhead                  WDFW SWIFD Steelhead Trout         nothing within 1 km
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          nothing within 1 km
+
+WA-040  Beaver Creek Dam No. 2  (WA, 47.77499, -120.62699, river as recorded: Beaver Creek)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              nothing within 1 km
+   Chinook salmon             WDFW SWIFD Chinook Salmon          nothing passing, nothing near
+       nearest 852 m (EXCLUDED)  on Beaver Creek  DISTTYPE_DESC=Potential; USETYPE_DESC=Rearing; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Spring
+   Chum salmon                WDFW SWIFD Chum Salmon             nothing within 1 km
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         nothing within 1 km
+   Coho salmon                WDFW SWIFD Coho Salmon             nothing within 1 km
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          nothing within 1 km
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             nothing within 1 km
+   Redband trout              WDFW SWIFD Rainbow Trout           excluded by the filter rule
+       nearest 8 m (EXCLUDED)  on Beaver Creek  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Resident; RUNTIME_DESC=Unknown or not Applicable
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          nothing within 1 km
+   Steelhead                  WDFW SWIFD Steelhead Trout         nothing within 1 km
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          nothing within 1 km
+
+WA-041  Spore Dam (Barrel Springs Dam)  (WA, 48.63066, -122.37303, river as recorded: Barrel Springs)
+   Bridgelip sucker           (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Bull trout                 WDFW SWIFD Bull Trout              nothing within 1 km
+   Chinook salmon             WDFW SWIFD Chinook Salmon          nothing passing, nothing near
+       nearest 795 m (EXCLUDED)  on Bear Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+   Chum salmon                WDFW SWIFD Chum Salmon             tolerance: nearest passing 800 m, past the base rule, and no name-equal stream
+       nearest 795 m (EXCLUDED)  on Bear Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Fall
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coastal cutthroat trout    WDFW SWIFD Cutthroat Trout         tolerance: nearest passing 166 m, past the base rule, and no name-equal stream
+       nearest 166 m (passes)  on Unnamed stream [1223755486375]  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Unknown; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Coho salmon                WDFW SWIFD Coho Salmon             tolerance: nearest passing 166 m, past the base rule, and no name-equal stream
+       nearest 166 m (passes)  on Unnamed stream [1223755486375]  DISTTYPE_DESC=Documented; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Unknown or not Applicable
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Eulachon                   (none)                             NO WA SOURCE, by design: NAMED GAP, decided 2026-09-12: not a proxy built from its own ESA critical habitat, which would make presence a restatement of the designation and collapse rule 17. Eulachon still reaches WA dams through the ESA tier
+   Green sturgeon             WDFW SWIFD Green Sturgeon          nothing within 1 km
+   Klamath largescale sucker  (none)                             NO WA SOURCE, by design: not native to Washington
+   Largescale sucker          (none)                             NO WA SOURCE, by design: NAMED GAP: WDFW's layer is modelled occupancy, regional and undocumented, so it fails principle 1
+   Lost River sucker          (none)                             NO WA SOURCE, by design: not native to Washington
+   Mountain whitefish         WDFW SWIFD Mountain Whitefish      nothing within 1 km
+   Pacific lamprey            USFWS NW lamprey 2022 (federal)    nothing within 1 km
+   Pacific lamprey            USFWS ds2673 lamprey (federal)     nothing within 1 km
+   Pink salmon                WDFW SWIFD Pink Salmon             nothing passing, nothing near
+       nearest 795 m (EXCLUDED)  on Bear Creek  DISTTYPE_DESC=Gradient Accessible; USETYPE_DESC=Presence; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Odd Year
+   Redband trout              WDFW SWIFD Rainbow Trout           nothing within 1 km
+   Shortnose sucker           (none)                             NO WA SOURCE, by design: not native to Washington
+   Sockeye salmon             WDFW SWIFD Sockeye Salmon          nothing within 1 km
+   Steelhead                  WDFW SWIFD Steelhead Trout         tolerance: nearest passing 709 m, past the base rule, and no name-equal stream
+       nearest 709 m (passes)  on Unnamed stream [1223755486375]  DISTTYPE_DESC=Documented; USETYPE_DESC=Spawning; LIFEHIST_DESC=Anadromous; RUNTIME_DESC=Winter
+       base 75 m: no   |   same-stream <=500 m: no (no name-equal stream carrying it)
+   Western river lamprey      (none)                             NO WA SOURCE, by design: NAMED GAP: data-poor everywhere, no WDFW layer
+   Westslope cutthroat trout  WDFW SWIFD Westslope Cutthroat Trout nothing within 1 km
+   White sturgeon             WDFW SWIFD White Sturgeon          nothing within 1 km
+

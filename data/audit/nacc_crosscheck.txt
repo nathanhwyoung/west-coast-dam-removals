@@ -1,0 +1,74 @@
+NACC cross-check, 2026-09-12
+2,900 dam/species pairs over 290 mapped dams
+
+Can NACC answer at all? (dam level)
+nacc   absent  no network  present  unlinked
+state                                       
+CA        135           6        4        12
+OR          7           8       77         2
+WA         10           4       23         2
+
+NACC per-species coverage across ALL its dams, which is why CA is excluded:
+                species        CA          OR          WA
+         Chinook salmon  46/8,551 1,607/5,117 1,201/3,816
+            Coho salmon  45/8,551 1,561/5,117 1,203/3,816
+              Steelhead  52/8,551 2,367/5,117 1,410/3,816
+        Pacific lamprey  31/8,551 1,689/5,117   152/3,816
+Coastal cutthroat trout 100/8,551 1,968/5,117 1,129/3,816
+            Chum salmon   0/8,551   145/5,117   677/3,816
+         Sockeye salmon   0/8,551   199/5,117   589/3,816
+            Pink salmon   0/8,551    86/5,117   395/3,816
+             Bull trout   0/8,551   875/5,117 1,133/3,816
+          Redband trout  77/8,551 1,819/5,117   291/3,816
+
+COMPARABLE: 1170 pairs over 117 Oregon and Washington dams
+ours     absent  present   All
+nacc                          
+absent      647       15   662
+present     160      348   508
+All         807      363  1170
+raw agreement: 995/1170 = 85.0%
+
+Where NACC says present and we say absent, split by WHERE its habitat is:
+  only downstream : 140   a different question, not a disagreement (median 30.9 mi away, max 1212.8)
+  upstream        :  20   the real disagreements, over 15 dams
+
+ AR_ID                                                            dam                 species  nacc_upstream_mi
+WA-001                                                     Maiden Dam              Bull trout           120.218
+OR-029                                    Campbell Road Diversion Dam              Bull trout            29.244
+OR-029                                    Campbell Road Diversion Dam          Chinook salmon            16.094
+OR-041                                                    Stearns Dam         Pacific lamprey            13.594
+OR-002                                                   Catching Dam              Bull trout            11.057
+OR-013                                                 Rock Creek Dam           Redband trout             5.731
+WA-014                                              Glines Canyon Dam Coastal cutthroat trout             5.481
+OR-044                                                       Zell Dam         Pacific lamprey             3.832
+OR-029                                    Campbell Road Diversion Dam         Pacific lamprey             3.632
+OR-044                                                       Zell Dam          Chinook salmon             3.316
+WA-039                                         Beaver Creek Dam No. 1              Bull trout             1.282
+WA-040                                         Beaver Creek Dam No. 2              Bull trout             1.282
+OR-095                                        Whiskey Creek Hydro Dam               Steelhead             1.208
+OR-027                        Fivemile Creek Irrigation Diversion Dam          Chinook salmon             1.075
+OR-060                                                    Jamison Dam Coastal cutthroat trout             0.817
+OR-003                                               Marie Dorian Dam          Chinook salmon             0.499
+OR-003                                               Marie Dorian Dam         Pacific lamprey             0.499
+OR-084 Prineville Country Club Diversion Dam (Lower Ochoco Creek Dam)         Pacific lamprey             0.446
+OR-027                        Fivemile Creek Irrigation Diversion Dam              Bull trout             0.247
+OR-100                                                Cline Falls Dam              Bull trout             0.041
+
+Where we say present and NACC maps no habitat at all: 15
+ AR_ID                                                            dam state         species
+OR-052                                                      Odell Dam    OR  Chinook salmon
+OR-052                                                      Odell Dam    OR     Coho salmon
+OR-052                                                      Odell Dam    OR Pacific lamprey
+OR-052                                                      Odell Dam    OR      Bull trout
+OR-064                                      North Fork Klaskanine Dam    OR Pacific lamprey
+OR-084 Prineville Country Club Diversion Dam (Lower Ochoco Creek Dam)    OR  Chinook salmon
+WA-006                          Unnamed Blockage #3 (Diffusion Dam 4)    WA  Chinook salmon
+WA-006                          Unnamed Blockage #3 (Diffusion Dam 4)    WA       Steelhead
+WA-013                                                      Elwha Dam    WA Pacific lamprey
+WA-014                                              Glines Canyon Dam    WA Pacific lamprey
+WA-018                                                    Hunters Dam    WA   Redband trout
+WA-031                                                     Durham Dam    WA Pacific lamprey
+WA-032                                                Cedar Creek Dam    WA   Redband trout
+WA-034                                                 Mill Pond Dam     WA   Redband trout
+WA-037                                   Pilchuck River Diversion Dam    WA Pacific lamprey

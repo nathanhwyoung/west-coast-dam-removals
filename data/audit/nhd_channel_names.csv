@@ -1,0 +1,85 @@
+AR_ID,dam,control,river_recorded,nhd_name,nhd_m,nhd_ftype
+CA-006,Salt Creek Dam,False,Salt Creek,Salt Creek,1.0,StreamRiver
+CA-006,Salt Creek Dam,False,Salt Creek,(unnamed in NHD),70.6,StreamRiver
+CA-030,Bear Valley Dam,False,,(unnamed in NHD),61.5,StreamRiver
+CA-030,Bear Valley Dam,False,,Coast Creek,449.3,StreamRiver
+CA-051,Trancas Debris Dam,False,Unnamed Trib. to the Trancas Canyon,(unnamed in NHD),2.4,StreamRiver
+CA-052,A-Frame Dam,False,Brandy Creek,Brandy Creek,5.1,StreamRiver
+CA-052,A-Frame Dam,False,Brandy Creek,(unnamed in NHD),279.3,StreamRiver
+CA-053,East Panther Creek Dam,False,East Panther Creek,West Panther Creek,19.0,StreamRiver
+CA-053,East Panther Creek Dam,False,East Panther Creek,(unnamed in NHD),116.6,StreamRiver
+CA-053,East Panther Creek Dam,False,East Panther Creek,East Panther Creek,347.3,StreamRiver
+CA-058,West Panther Creek Dam,False,West Panther Creek,West Panther Creek,3.0,StreamRiver
+CA-058,West Panther Creek Dam,False,West Panther Creek,(unnamed in NHD),20.1,StreamRiver
+CA-072,Shasta River Water Association Diversion Dam,False,Nelson Creek,(unnamed in NHD),18.0,StreamRiver
+CA-072,Shasta River Water Association Diversion Dam,False,Nelson Creek,Nelson Creek,18.0,StreamRiver
+CA-102,Dream Lake Dam,False,Hot Springs Creek,(unnamed in NHD),71.7,ArtificialPath
+CA-102,Dream Lake Dam,False,Hot Springs Creek,Hot Springs Creek,78.6,StreamRiver
+CA-175,Little Shasta River Flashboard Dam,False,Little Shasta River,Little Shasta River,4.4,StreamRiver
+CA-175,Little Shasta River Flashboard Dam,False,Little Shasta River,(unnamed in NHD),12.2,CanalDitch
+CA-179,Columbine Dam,False,Flint Creek,Flint Creek,239.1,StreamRiver
+CA-179,Columbine Dam,False,Flint Creek,(unnamed in NHD),396.1,StreamRiver
+CA-183,Double U Fish Ranch Dam,False,Howards Gulch,(unnamed in NHD),275.9,StreamRiver
+CA-186,Iron Gate Dam,False,Klamath River,(unnamed in NHD),52.3,StreamRiver
+CA-186,Iron Gate Dam,False,Klamath River,Klamath River,94.0,ArtificialPath
+CA-186,Iron Gate Dam,False,Klamath River,Brush Creek,426.5,StreamRiver
+OR-012,Maple Gulch Diversion Dam,True,Evans Creek,(unnamed in NHD),7.4,StreamRiver
+OR-012,Maple Gulch Diversion Dam,True,Evans Creek,Evans Creek,230.9,ArtificialPath
+OR-015,Buck & Jones Diversion Dam,False,Little Applegate River,Little Applegate River,78.4,ArtificialPath
+OR-015,Buck & Jones Diversion Dam,False,Little Applegate River,(unnamed in NHD),99.8,StreamRiver
+OR-015,Buck & Jones Diversion Dam,False,Little Applegate River,China Ditch,258.2,CanalDitch
+OR-015,Buck & Jones Diversion Dam,False,Little Applegate River,Sterling Creek,423.3,ArtificialPath
+OR-026,Sodom Dam,True,Calapooia River,Sodom Ditch,28.8,ArtificialPath
+OR-026,Sodom Dam,True,Calapooia River,Calapooia River,212.9,StreamRiver
+OR-026,Sodom Dam,True,Calapooia River,(unnamed in NHD),393.9,StreamRiver
+OR-027,Fivemile Creek Irrigation Diversion Dam,False,Fivemile Creek,Fivemile Creek,21.6,StreamRiver
+OR-027,Fivemile Creek Irrigation Diversion Dam,False,Fivemile Creek,(unnamed in NHD),27.5,StreamRiver
+OR-027,Fivemile Creek Irrigation Diversion Dam,False,Fivemile Creek,North Fork Sprague River,361.5,StreamRiver
+OR-040,Sandy River Delta Dam ,False,Sandy River,(unnamed in NHD),98.7,ArtificialPath
+OR-040,Sandy River Delta Dam ,False,Sandy River,Sandy River,278.8,ArtificialPath
+OR-046,Pine Meadow Ranch Dam ,False,Whychus Creek,(unnamed in NHD),20.9,StreamRiver
+OR-046,Pine Meadow Ranch Dam ,False,Whychus Creek,Whychus Creek,251.3,StreamRiver
+OR-049,Canyon Creek Meadows Dam,False,Canyon Creek,(unnamed in NHD),10.9,ArtificialPath
+OR-049,Canyon Creek Meadows Dam,False,Canyon Creek,Canyon Creek,83.8,ArtificialPath
+OR-052,Odell Dam,True,Hood River,Odell Creek,20.6,StreamRiver
+OR-052,Odell Dam,True,Hood River,Hood River,491.2,ArtificialPath
+OR-062,Kelley Creek Dam,False,"Kelley Creek, tributary to Johnson Creek",Mitchell Creek,135.9,ArtificialPath
+OR-062,Kelley Creek Dam,False,"Kelley Creek, tributary to Johnson Creek",Kelley Creek,311.4,StreamRiver
+OR-062,Kelley Creek Dam,False,"Kelley Creek, tributary to Johnson Creek",(unnamed in NHD),439.3,Pipeline
+OR-065,Mill Creek Dam,False,Miller Creek,Miller Creek,14.8,StreamRiver
+OR-066,South Fork Big Butte Dam,False,South Fork Little Butte,South Fork Big Butte Creek,6.1,ArtificialPath
+OR-066,South Fork Big Butte Dam,False,South Fork Little Butte,(unnamed in NHD),76.0,ArtificialPath
+OR-066,South Fork Big Butte Dam,False,South Fork Little Butte,Medford Aqueduct,362.0,Pipeline
+OR-070,Powell Creek Dam,False,Powell Creek,(unnamed in NHD),8.5,StreamRiver
+OR-070,Powell Creek Dam,False,Powell Creek,Powell Creek,15.0,StreamRiver
+OR-072,Klaskanine Hatchery Intake Dam,False,North Fork Klaskanine,North Fork Klaskanine River,12.6,StreamRiver
+OR-072,Klaskanine Hatchery Intake Dam,False,North Fork Klaskanine,(unnamed in NHD),224.7,StreamRiver
+OR-072,Klaskanine Hatchery Intake Dam,False,North Fork Klaskanine,North Fork North Fork Klaskanine River,238.3,StreamRiver
+OR-082,Balm Grove Dam,False,Gales Creek,Gales Creek,16.6,ArtificialPath
+OR-082,Balm Grove Dam,False,Gales Creek,Little Beaver Creek,233.9,StreamRiver
+OR-082,Balm Grove Dam,False,Gales Creek,(unnamed in NHD),275.9,CanalDitch
+OR-082,Balm Grove Dam,False,Gales Creek,Fir Creek,432.8,CanalDitch
+OR-086,Baker Creek Dam,False,Baker Creek,(unnamed in NHD),16.5,StreamRiver
+OR-086,Baker Creek Dam,False,Baker Creek,Baker Creek,250.0,StreamRiver
+OR-086,Baker Creek Dam,False,Baker Creek,Heaton Creek,475.4,StreamRiver
+OR-087 to OR-088,Krumwiede Diversion 1 & 2 Pushup Dams,False,Salt Creek,(unnamed in NHD),57.4,StreamRiver
+OR-087 to OR-088,Krumwiede Diversion 1 & 2 Pushup Dams,False,Salt Creek,Long Branch,310.4,StreamRiver
+OR-087 to OR-088,Krumwiede Diversion 1 & 2 Pushup Dams,False,Salt Creek,Salt Creek,414.4,StreamRiver
+WA-006,Unnamed Blockage #3 (Diffusion Dam 4),False,Icicle Creek,(unnamed in NHD),15.7,ArtificialPath
+WA-006,Unnamed Blockage #3 (Diffusion Dam 4),False,Icicle Creek,Icicle Creek,372.3,ArtificialPath
+WA-006,Unnamed Blockage #3 (Diffusion Dam 4),False,Icicle Creek,Icicle Canal,391.6,CanalDitch
+WA-009,Satus Dam,False,Satus Creek,(unnamed in NHD),21.1,ArtificialPath
+WA-009,Satus Dam,False,Satus Creek,Satus Creek,312.7,StreamRiver
+WA-011,Hemlock Dam,False,Trout Creek,Trout Creek,8.3,StreamRiver
+WA-011,Hemlock Dam,False,Trout Creek,(unnamed in NHD),72.4,StreamRiver
+WA-013,Elwha Dam,False,Elwha River,Elwha River,21.6,ArtificialPath
+WA-013,Elwha Dam,False,Elwha River,(unnamed in NHD),119.2,ArtificialPath
+WA-015,Martha Creek Dam,False,Martha Creek,Martha Creek,1.4,StreamRiver
+WA-015,Martha Creek Dam,False,Martha Creek,(unnamed in NHD),15.4,StreamRiver
+WA-035,Condit Dam,False,White Salmon River,White Salmon River,18.8,ArtificialPath
+WA-035,Condit Dam,False,White Salmon River,(unnamed in NHD),138.4,ArtificialPath
+WA-035,Condit Dam,False,White Salmon River,Spring Creek,285.8,ArtificialPath
+WA-035,Condit Dam,False,White Salmon River,Little Buck Creek,358.8,ArtificialPath
+WA-042,Baird Creek Splash Dam,False,Baird Creek (Tributary to Coweeman River),Baird Creek,4.4,StreamRiver
+WA-042,Baird Creek Splash Dam,False,Baird Creek (Tributary to Coweeman River),(unnamed in NHD),63.8,StreamRiver
+WA-042,Baird Creek Splash Dam,False,Baird Creek (Tributary to Coweeman River),Little Baird Creek,359.0,StreamRiver

@@ -1,30 +1,280 @@
+<h2>THE DAMS</h2>
 <p>
-  Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-  velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-  aliquam quaerat voluptatem.
+  The
+  <a href="https://doi.org/10.6084/m9.figshare.5234068" target="_blank" rel="noopener noreferrer"
+    >American Rivers Dam Removal Database</a
+  >
+  (March 2026) has <b>333 rows</b> for California, Oregon and Washington.
 </p>
-<h2>Lorem ipsum</h2>
+<ul>
+  <li>
+    <b>One row is a duplicate.</b> CA-091 repeats CA-148: both are TCFD11 on Trabuco Creek, same
+    height, same barrier ID, 12 m apart. This leaves the count at 332 removals.
+  </li>
+  <li>
+    <b>These 332 removals sit at 320 places.</b> 22 rows fall in 10 clusters that the national
+    barrier inventory records as one barrier each. The map still shows every dam in a cluster, but
+    fish habitat is matched by distance, and at that range the dams are effectively in the same spot.
+    So every dam in a cluster gets the same result. Those matching results come from a shared
+    location, and don't count as separate confirmations.
+  </li>
+</ul>
 <p>
-  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-  laboriosam, nisi ut aliquid ex ea commodi consequatur.
-  <b>Quis autem vel eum iure reprehenderit</b> qui in ea voluptate velit esse quam nihil
-  molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+  276 dams are placed from American Rivers' own coordinates. American Rivers left 52 rows blank,
+  and <b>12</b> of those were recovered by linking to the
+  <b
+    ><a href="https://aquaticbarriers.org/" target="_blank" rel="noopener noreferrer"
+      >National Aquatic Barrier Inventory (NACC)</a
+    ></b
+  >. <b>2</b> coordinates were corrected, each on cited evidence. CA-133 Lagunita Diversion, for
+  example, was recorded beside the lake it once fed, 1.24 km from the creek the dam actually stood
+  on. <b>2</b> more are voided: CA-157 and CA-158, the Silverado Creek fish dams, carry coordinates
+  copied from two San Juan Creek dams 24.6 km away in another basin. They still count as removals
+  but can't be drawn.
 </p>
 <p>
-  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-  voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-  occaecati cupiditate non provident.
+  That leaves <b>290 on the map and 42 that no source can place.</b> 18 of the 42 are California
+  dams removed between 1925 and 1951, several on forks of the Trinity, Salmon and Scott. The search
+  for their coordinates is closed. Historical topographic maps are the only thing left that could
+  place them.
 </p>
-<h2>Dolor sit amet</h2>
 <p>
-  Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
-  fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-  soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-  facere possimus.
+  A coordinate can be accurate and still be stored too coarsely to use.
+  <b
+    >10 mapped dams are written to so few decimal places that the stored number can't express a
+    position to within 75 m</b
+  >, which is the tolerance threshold used for this project. 113 more are stored to about ±56 m.
+  Their results are reported like the rest, but read them with that in mind.
 </p>
-<h2>Consectetur adipiscing</h2>
+<h2>SPECIES LAYERS</h2>
 <p>
-  Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-  eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum
-  rerum hic tenetur a sapiente delectus.
+  The map includes <b>27 native fish species</b>. For 10 of them, both layers below exist. 11 only
+  have a presence layer and 6 only have a critical habitat layer.
+</p>
+<h3>ESA critical habitat</h3>
+<p>
+  Federally designated critical habitat, from
+  <b
+    ><a
+      href="https://www.fisheries.noaa.gov/resource/map/critical-habitat-maps-and-gis-data-west-coast-region"
+      target="_blank"
+      rel="noopener noreferrer"
+      >NMFS</a
+    ></b
+  >
+  (Chinook, coho, steelhead, chum, sockeye, green sturgeon, eulachon) and
+  <b
+    ><a
+      href="https://ecos.fws.gov/ecp/report/table/critical-habitat.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      >USFWS</a
+    ></b
+  >
+  (bull trout, Lost River sucker, shortnose sucker, Warner sucker, Santa Ana sucker, Little Kern
+  golden trout, delta smelt, tidewater goby, Owens tui chub). One scope rule decided which USFWS
+  species to include: <b>fish only, where barrier passage is how a dam affects them.</b> Frogs and
+  amphibians with critical habitat in the region are out on that principle, not case by case.
+</p>
+<p>
+  <b>One layer was rebuilt by this project.</b> NMFS has never published a map of critical habitat
+  for <b>Southern Oregon / Northern California Coast (SONCC) coho</b>, though the designation is
+  law. The regulation (<a
+    href="https://www.ecfr.gov/current/title-50/chapter-II/subchapter-C/part-226/section-226.210"
+    target="_blank"
+    rel="noopener noreferrer"
+    >50 CFR 226.210</a
+  >) defines it in words: reaches accessible to coho, inside listed watersheds <b>and</b> listed
+  counties, between Cape Blanco and Punta Gorda, below eleven named dams. Each clause became one
+  step: fish distribution (ODFW in Oregon, CDFW in California), clipped to the listed watersheds
+  and counties, trimmed to the ESU's own range, minus the basins above the boundary dams.
+  <b>It's a reconstruction, not an official layer</b>, and the map draws it in a distinct shade of
+  the coho color for that reason.
+</p>
+<p>
+  It should be noted that the regulation lists Jackson County, Oregon, for the upper Klamath but not
+  Klamath County, which is where <b>John C. Boyle Dam</b> stood. So John C. Boyle reads "no critical
+  habitat" while Chinook, coho and steelhead are all recorded present at it.
+</p>
+<h3>Presence</h3>
+<p>
+  The presence layers show where state and federal surveys have recorded
+  <b>21 native migratory species</b>. Each state has its own sources:
+  <b
+    ><a
+      href="https://nrimp.dfw.state.or.us/nrimp/default.aspx?pn=fishdistdata"
+      target="_blank"
+      rel="noopener noreferrer"
+      >ODFW</a
+    ></b
+  >
+  Fish Habitat Distribution in Oregon,
+  <b
+    ><a
+      href="https://geo.wa.gov/datasets/wdfw::statewide-washington-integrated-fish-distribution"
+      target="_blank"
+      rel="noopener noreferrer"
+      >WDFW SWIFD</a
+    ></b
+  >
+  in Washington, and
+  <b
+    ><a href="https://apps.wildlife.ca.gov/bios6/" target="_blank" rel="noopener noreferrer"
+      >CDFW</a
+    ></b
+  >
+  and <b>NOAA</b> distribution layers in California.
+  <b
+    ><a
+      href="https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/Pacific_Lamprey_Known_Observations_And_Distribution_201805/FeatureServer"
+      target="_blank"
+      rel="noopener noreferrer"
+      >USFWS</a
+    ></b
+  >
+  Pacific lamprey data covers all three states, and where California has nothing finer,
+  <b
+    ><a href="https://pisces.ucdavis.edu/" target="_blank" rel="noopener noreferrer">PISCES</a></b
+  >
+  watershed ranges fill the gap.
+</p>
+<p>
+  Each source records presence differently, so every source was filtered by the same five
+  principles, written down before any code ran:
+</p>
+<ol>
+  <li>
+    <b>Presence needs evidence, not a model.</b> A record of the fish, or an expert's presumption,
+    counts. A prediction from slope or habitat suitability doesn't. (This drops WDFW's large
+    "Gradient Accessible" class, which is a model of where fish <em>could</em> reach.)
+  </li>
+  <li>
+    <b>Reintroduced populations of a native species count.</b> Reintroduction is often why a dam
+    comes out.
+  </li>
+  <li><b>Fish trucked past a barrier are present.</b></li>
+  <li>
+    <b>Use the most detailed data available.</b> Where a source maps the fish stream by stream,
+    those lines are used. Whole-watershed ranges are used only where no stream-level data exists.
+  </li>
+  <li>
+    <b>Exclude only what the source marks as resident-only.</b> Records that don't say either way
+    stay in. Washington, for example, lists 85% of its cutthroat as "Unknown". Dropping those would
+    reflect how the records were kept, not where the fish actually are.
+  </li>
+</ol>
+<p>
+  Also fixed: anything marked historical is out, and a state agency's records are used only inside
+  its own state.
+</p>
+<p>
+  <b>One exception, and its cost:</b> Washington has no "redband trout" label. Redband is inferred
+  from rainbow trout east of the Cascades, and principle 5 doesn't apply to it, so only fluvial or
+  adfluvial lines count. That leaves out 157 lines where no life history was recorded, and every
+  Washington redband match is graded <em>inferred</em> (see below).
+</p>
+<p>
+  <b>Four species have no Washington source at all</b>: western river lamprey, largescale sucker,
+  bridgelip sucker and eulachon. A blank at a Washington dam for those four means no source exists,
+  not that the fish is absent. (Eulachon still reaches Washington dams through its critical
+  habitat.)
+</p>
+<h2>SPATIAL JOIN</h2>
+<p>
+  Each of the 290 dams was checked against the <b>full-resolution</b> source data, never the
+  simplified copies drawn on screen.
+</p>
+<p>
+  <b>The base tolerance is 75 m.</b> A dam matches a habitat or distribution line within 75 m. That
+  number isn't tuned to a result. It's the top of an error budget:
+</p>
+<ul>
+  <li>
+    the same dam in two databases differs by <b>40 m</b> at the 75th percentile (measured on 263
+    pairs)
+  </li>
+  <li>streams are mapped to about <b>12 m</b></li>
+  <li>
+    a stream line runs down the channel's center while a dam point can sit at one abutment,
+    <b>up to about 30 m</b> away
+  </li>
+  <li>different agencies draw the same stream tens of meters apart.</li>
+</ul>
+<p>
+  Independent errors combine to about 51 m, and adding them straight gives about 82 m. They aren't
+  fully independent (a poorly recorded dam tends to sit on a poorly mapped stream), so 75 m sits
+  between the two.
+</p>
+<p>
+  <b>Same-stream extension, up to 500 m.</b> A dam can also match a line up to 500 m away, but only
+  if the line's stream name is exactly the same as the river recorded for the dam. This is how Iron
+  Gate Dam matches coho: the coho line is 95 m away, on the Klamath River. A line labeled
+  "Tributary to" a river doesn't count as that river. NMFS and USFWS layers don't include stream
+  names, so they only use the 75 m tolerance.
+</p>
+<p>
+  <b>The extension stops at a closer channel.</b> Sometimes a dam sits within 75 m of a mapped
+  channel, named or unnamed, that isn't the river it's recorded on. In that case the dam is treated
+  as being on the closer channel. The extension can't reach past it to pick up species from the
+  main stem, the larger river further away. This happened at six dams. The rule was chosen on
+  purpose, because it's better to understate what a removal did than to overstate it.
+</p>
+<p>
+  <b>Watershed ranges</b> (PISCES, California) match by containment, with the same 75 m allowance.
+  A watershed's boundary crosses the main stem at its outlet, the point where it drains into the
+  next watershed downstream. Dams are often built at exactly that point. A dam there sits almost on
+  the boundary line, so a plain inside-or-outside test can go either way from a small error in the
+  dam's position. Iron Gate sits 0.24 m outside the Chinook range and 0.24 m inside all three
+  Klamath sucker ranges.
+</p>
+<h3>Match strength</h3>
+<p>Every species match carries a grade, and the popup shows the best one per species:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Meaning</th>
+      <th class="num">Dam/species pairs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>observed</b></td>
+      <td>a mapped record of the fish on that stream</td>
+      <td class="num">540</td>
+    </tr>
+    <tr>
+      <td><b>presumed</b></td>
+      <td>an agency's expert presumption</td>
+      <td class="num">13</td>
+    </tr>
+    <tr>
+      <td><b>range</b></td>
+      <td>the dam lies inside a whole-watershed range</td>
+      <td class="num">47</td>
+    </tr>
+    <tr>
+      <td><b>inferred</b></td>
+      <td>Washington redband, inferred from rainbow trout</td>
+      <td class="num">3</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Results</h3>
+<p>Of the 290 mapped dams:</p>
+<ul>
+  <li><b>144 sit on ESA critical habitat</b>, about half of the map.</li>
+  <li><b>187 have at least one species recorded present</b>, about two thirds.</li>
+  <li>
+    <b>141 have both.</b> All but 3 of the dams on critical habitat also have a recorded species.
+  </li>
+  <li>
+    <b>100 have neither</b>, about a third. 68 of those are small structures on a handful of Orange
+    County creeks.
+  </li>
+</ul>
+<p>
+  Critical habitat and presence are kept in <b>separate fields and never merged</b>. They're
+  different claims by different agencies, and where they disagree (as at John C. Boyle, or at
+  Condit's chum salmon), the disagreement is itself a result.
 </p>

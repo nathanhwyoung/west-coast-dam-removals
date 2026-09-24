@@ -1,0 +1,817 @@
+"AR_ID","dam","state","river","kind","label","distance_m","matched_rule","matched_stream","source_data","claim_grade"
+"CA-002","Minnie Reeves Dam","CA","Indian Creek","ESA","Coho salmon (SONCC, derived)",2,"base 75 m","Indian Creek","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-002","Minnie Reeves Dam","CA","Indian Creek","presence","Chinook salmon",0,"inside HUC12 range","Indian Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-002","Minnie Reeves Dam","CA","Indian Creek","presence","Coho salmon",2,"base 75 m","Indian Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-002","Minnie Reeves Dam","CA","Indian Creek","presence","Steelhead",2,"base 75 m","Indian Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-005","Trout Haven Dam","CA","Monkey Creek","ESA","Coho salmon (SONCC, derived)",24,"base 75 m","Monkey Creek","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-005","Trout Haven Dam","CA","Monkey Creek","presence","Chinook salmon",0,"inside HUC12 range","Lower Middle Fork Smith River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT03","range"
+"CA-005","Trout Haven Dam","CA","Monkey Creek","presence","Coastal cutthroat trout",0,"inside HUC12 range","Lower Middle Fork Smith River","PISCES 2.0.4 extant range, Oncorhynchus_clarki_clarki_SOC01","range"
+"CA-005","Trout Haven Dam","CA","Monkey Creek","presence","Coho salmon",24,"base 75 m","Monkey Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-005","Trout Haven Dam","CA","Monkey Creek","presence","Steelhead",24,"base 75 m","Monkey Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-007","Lower Murphy Dam","CA","Home Bay","presence","Steelhead",58,"base 75 m","Home Ranch Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-009","Russell Dam (Hinkley Dam)","CA","Hayfork Creek","ESA","Coho salmon (SONCC, derived)",0,"base 75 m","Hayfork Creek","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-009","Russell Dam (Hinkley Dam)","CA","Hayfork Creek","presence","Chinook salmon",0,"inside HUC12 range","Olsen Creek-Hayfork Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-009","Russell Dam (Hinkley Dam)","CA","Hayfork Creek","presence","Coho salmon",0,"base 75 m","Hayfork Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-009","Russell Dam (Hinkley Dam)","CA","Hayfork Creek","presence","Pacific lamprey",16,"base 75 m","Hayfork Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-009","Russell Dam (Hinkley Dam)","CA","Hayfork Creek","presence","Steelhead",0,"base 75 m","Hayfork Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-013","D.B. Fields/Johnson Dam","CA","Rice Creek","ESA","Salmon, coho [Central California Coast ESU]",30,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-013","D.B. Fields/Johnson Dam","CA","Rice Creek","ESA","Steelhead [Northern California DPS]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-013","D.B. Fields/Johnson Dam","CA","Rice Creek","presence","Coho salmon",31,"base 75 m","Rice Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-013","D.B. Fields/Johnson Dam","CA","Rice Creek","presence","Steelhead",30,"base 75 m","Rice Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-029","Sweasey Dam","CA","Mad River","ESA","Coho salmon (SONCC, derived)",9,"base 75 m","Mad River","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-029","Sweasey Dam","CA","Mad River","ESA","Salmon, Chinook [California Coastal ESU]",22,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-029","Sweasey Dam","CA","Mad River","ESA","Steelhead [Northern California DPS]",22,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-029","Sweasey Dam","CA","Mad River","presence","Chinook salmon",21,"base 75 m",NA,"NOAA ds981 California Coastal Chinook distribution, 2005","observed"
+"CA-029","Sweasey Dam","CA","Mad River","presence","Coastal cutthroat trout",0,"inside HUC12 range","Maple Creek-Mad River","PISCES 2.0.4 extant range, Oncorhynchus_clarki_clarki_SOC01","range"
+"CA-029","Sweasey Dam","CA","Mad River","presence","Coho salmon",9,"base 75 m","Mad River","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-029","Sweasey Dam","CA","Mad River","presence","Pacific lamprey",21,"base 75 m","Mad River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-029","Sweasey Dam","CA","Mad River","presence","Steelhead",9,"base 75 m","Mad River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","ESA","Coho salmon (SONCC, derived)",15,"base 75 m","Lost Man Creek","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","ESA","Salmon, Chinook [California Coastal ESU]",5,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","ESA","Steelhead [Northern California DPS]",5,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","presence","Chinook salmon",5,"base 75 m",NA,"NOAA ds981 California Coastal Chinook distribution, 2005","observed"
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","presence","Coastal cutthroat trout",0,"inside HUC12 range","Prairie Creek","PISCES 2.0.4 extant range, Oncorhynchus_clarki_clarki_SOC01","range"
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","presence","Coho salmon",15,"base 75 m","Lost Man Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","presence","Steelhead",15,"base 75 m","Lost Man Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-033","Upper Dam (Lost Man Dam)","CA","Lost Man Creek","presence","Western river lamprey",0,"inside HUC12 range","Prairie Creek","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-038","Lake Christopher Dam","CA","Cold Creek","presence","Mountain whitefish",0,"inside HUC12 range","Trout Creek","PISCES 2.0.4 extant range, Prosopium_williamsoni_SPW01","range"
+"CA-039","McPherrin Dam","CA","Butte Creek","ESA","Salmon, Chinook [Central Valley spring-run ESU]",2,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-039","McPherrin Dam","CA","Butte Creek","ESA","Steelhead [California Central Valley DPS]",2,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-039","McPherrin Dam","CA","Butte Creek","presence","Chinook salmon",2,"base 75 m",NA,"NOAA ds982 Central Valley spring-run Chinook distribution, 2005","observed"
+"CA-039","McPherrin Dam","CA","Butte Creek","presence","Chinook salmon",0,"inside HUC12 range","Campbell Slough-Butte Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-039","McPherrin Dam","CA","Butte Creek","presence","Pacific lamprey",4,"base 75 m","Butte Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-039","McPherrin Dam","CA","Butte Creek","presence","Steelhead",8,"base 75 m","Butte Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-039","McPherrin Dam","CA","Butte Creek","presence","Western river lamprey",0,"inside HUC12 range","Campbell Slough-Butte Creek","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-042","Unnamed Small Dam #1","CA","Guadalupe River","ESA","Steelhead [Central California Coast DPS]",28,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-042","Unnamed Small Dam #1","CA","Guadalupe River","presence","Pacific lamprey",29,"base 75 m","Guadalupe River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-042","Unnamed Small Dam #1","CA","Guadalupe River","presence","Steelhead",0,"base 75 m","Guadalupe River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-043","Unnamed Small Dam #2","CA","Guadalupe River","ESA","Steelhead [Central California Coast DPS]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-043","Unnamed Small Dam #2","CA","Guadalupe River","presence","Pacific lamprey",4,"base 75 m","Guadalupe River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-043","Unnamed Small Dam #2","CA","Guadalupe River","presence","Steelhead",0,"base 75 m","Guadalupe River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-044","McCormick-Saeltzer Dam","CA","Clear Creek","ESA","Salmon, Chinook [Central Valley spring-run ESU]",33,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-044","McCormick-Saeltzer Dam","CA","Clear Creek","ESA","Steelhead [California Central Valley DPS]",33,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-044","McCormick-Saeltzer Dam","CA","Clear Creek","presence","Chinook salmon",33,"base 75 m",NA,"NOAA ds982 Central Valley spring-run Chinook distribution, 2005","observed"
+"CA-044","McCormick-Saeltzer Dam","CA","Clear Creek","presence","Chinook salmon",0,"inside HUC12 range","South Fork Clear Creek-Clear Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-044","McCormick-Saeltzer Dam","CA","Clear Creek","presence","Pacific lamprey",34,"base 75 m","Clear Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-044","McCormick-Saeltzer Dam","CA","Clear Creek","presence","Steelhead",4,"base 75 m","Clear Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-045","Swim Dam #1","CA","Alameda Creek","presence","Pacific lamprey",3,"base 75 m","Alameda Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-045","Swim Dam #1","CA","Alameda Creek","presence","Steelhead",7,"base 75 m","Alameda Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-046","Swim Dam #2","CA","Alameda Creek","presence","Pacific lamprey",13,"base 75 m","Alameda Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-046","Swim Dam #2","CA","Alameda Creek","presence","Steelhead",32,"base 75 m","Alameda Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-047","Crocker Creek Dam","CA","Crocker Creek","ESA","Steelhead [Central California Coast DPS]",42,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-047","Crocker Creek Dam","CA","Crocker Creek","presence","Steelhead",36,"base 75 m","Crocker Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-055","Murphy Creek Dam (Sparrow Dam)","CA","Murphy Creek","ESA","Steelhead [California Central Valley DPS]",21,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-055","Murphy Creek Dam (Sparrow Dam)","CA","Murphy Creek","presence","Chinook salmon",0,"inside HUC12 range","Murphy Creek-Mokelumne River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-055","Murphy Creek Dam (Sparrow Dam)","CA","Murphy Creek","presence","Steelhead",19,"base 75 m","Murphy Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-056","Mumford Dam","CA","Russian River (West Fork)","ESA","Salmon, Chinook [California Coastal ESU]",19,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-056","Mumford Dam","CA","Russian River (West Fork)","ESA","Steelhead [Central California Coast DPS]",19,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-056","Mumford Dam","CA","Russian River (West Fork)","presence","Chinook salmon",20,"base 75 m",NA,"NOAA ds981 California Coastal Chinook distribution, 2005","observed"
+"CA-056","Mumford Dam","CA","Russian River (West Fork)","presence","Steelhead",24,"base 75 m","Russian River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-057","Haypress Pond Dam","CA","Unnamed Tributary","presence","Western river lamprey",0,"inside HUC12 range","Redwood Creek-Frontal Pacific Ocean","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-057","Haypress Pond Dam","CA","Unnamed Tributary","presence","White sturgeon",0,"inside HUC12 range","Redwood Creek-Frontal Pacific Ocean","PISCES 2.0.4 extant range, Acipenser_transmontanus_AAT01","range"
+"CA-059","York Creek Diversion Structure","CA","York Creek","ESA","Steelhead [Central California Coast DPS]",26,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-059","York Creek Diversion Structure","CA","York Creek","presence","Steelhead",23,"base 75 m","York Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-060","Niles Dam","CA","Alameda Creek","presence","Pacific lamprey",3,"base 75 m","Alameda Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-060","Niles Dam","CA","Alameda Creek","presence","Steelhead",20,"base 75 m","Alameda Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-060","Niles Dam","CA","Alameda Creek","presence","Western river lamprey",0,"inside HUC12 range","Lower Alameda Creek","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-061","Sunol Dam","CA","Alameda Creek","presence","Pacific lamprey",8,"base 75 m","Alameda Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-061","Sunol Dam","CA","Alameda Creek","presence","Steelhead",17,"base 75 m","Alameda Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-061","Sunol Dam","CA","Alameda Creek","presence","Western river lamprey",0,"inside HUC12 range","Lower Alameda Creek","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-062","Horse Creek Dam","CA","Horse Creek","ESA","Steelhead [Southern California DPS]",40,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-062","Horse Creek Dam","CA","Horse Creek","presence","Steelhead",42,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-063","Tucker Road Ford","CA","Soquel Creek","ESA","Steelhead [Central California Coast DPS]",10,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-063","Tucker Road Ford","CA","Soquel Creek","presence","Steelhead",25,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-064","Unnamed Dam","CA","Ward Creek","presence","Mountain whitefish",0,"inside HUC12 range","Ward Creek-Frontal Lake Tahoe","PISCES 2.0.4 extant range, Prosopium_williamsoni_SPW01","range"
+"CA-065","Araujo Dam","CA","Shasta River","ESA","Coho salmon (SONCC, derived)",1,"base 75 m","Shasta River","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-065","Araujo Dam","CA","Shasta River","presence","Chinook salmon",0,"inside HUC12 range","Steamboat Lake-Shasta River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-065","Araujo Dam","CA","Shasta River","presence","Coho salmon",1,"base 75 m","Shasta River","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-065","Araujo Dam","CA","Shasta River","presence","Pacific lamprey",0,"base 75 m","Shasta River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-065","Araujo Dam","CA","Shasta River","presence","Steelhead",1,"base 75 m","Shasta River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-066","Rooney Bros Dam","CA","Consumnes River","presence","Chinook salmon",0,"inside HUC12 range","Grizzly Slough-Cosumnes River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-066","Rooney Bros Dam","CA","Consumnes River","presence","Pacific lamprey",9,"base 75 m","Cosumnes River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-066","Rooney Bros Dam","CA","Consumnes River","presence","Steelhead",0,"base 75 m","Cosumnes River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-067","Hall Wines Dam (Dry Creek Dam)","CA","Dry Creek","ESA","Steelhead [Central California Coast DPS]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-067","Hall Wines Dam (Dry Creek Dam)","CA","Dry Creek","presence","Steelhead",4,"base 75 m","Dry Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-068","East Mill Creek Dam","CA","East Mill Creek","ESA","Steelhead [Northern California DPS]",0,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-068","East Mill Creek Dam","CA","East Mill Creek","presence","Steelhead",3,"base 75 m","Mill Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-068","East Mill Creek Dam","CA","East Mill Creek","presence","Western river lamprey",0,"inside HUC12 range","Lower Mattole River","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-069","White Gulch Dam #1 (Whites Gulch Lower Dam)","CA","Whites Gulch, Tributary to the Salmon River","presence","Chinook salmon",0,"inside HUC12 range","Whites Gulch-North Fork Salmon River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-069","White Gulch Dam #1 (Whites Gulch Lower Dam)","CA","Whites Gulch, Tributary to the Salmon River","presence","Steelhead",13,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-070","Wildcat Dam","CA","Battle Creek","ESA","Salmon, Chinook [Central Valley spring-run ESU]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-070","Wildcat Dam","CA","Battle Creek","ESA","Steelhead [California Central Valley DPS]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-070","Wildcat Dam","CA","Battle Creek","presence","Chinook salmon",6,"base 75 m",NA,"NOAA ds982 Central Valley spring-run Chinook distribution, 2005","observed"
+"CA-070","Wildcat Dam","CA","Battle Creek","presence","Pacific lamprey",5,"base 75 m","North Fork Battle Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-070","Wildcat Dam","CA","Battle Creek","presence","Steelhead",15,"base 75 m","North Fork Battle Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-071","Percolation Dam","CA","Putah Creek","presence","Chinook salmon",0,"inside HUC12 range","Putah Creek-South Fork Putah Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-071","Percolation Dam","CA","Putah Creek","presence","Green sturgeon",0,"inside HUC12 range","Putah Creek-South Fork Putah Creek","PISCES 2.0.4 extant range, Acipenser_medirostris_AAM02","range"
+"CA-071","Percolation Dam","CA","Putah Creek","presence","Pacific lamprey",0,"base 75 m"," ","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-071","Percolation Dam","CA","Putah Creek","presence","Steelhead",3,"base 75 m","Putah Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-071","Percolation Dam","CA","Putah Creek","presence","Western river lamprey",0,"inside HUC12 range","Putah Creek-South Fork Putah Creek","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-073","Camp Meeker Dam","CA","Dutch Bill Creek","ESA","Salmon, coho [Central California Coast ESU]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-073","Camp Meeker Dam","CA","Dutch Bill Creek","ESA","Steelhead [Central California Coast DPS]",8,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-073","Camp Meeker Dam","CA","Dutch Bill Creek","presence","Coho salmon",54,"base 75 m","Dutch Bill Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-073","Camp Meeker Dam","CA","Dutch Bill Creek","presence","Steelhead",3,"base 75 m","Dutch Bill Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-073","Camp Meeker Dam","CA","Dutch Bill Creek","presence","White sturgeon",0,"inside HUC12 range","Dutch Bill Creek-Russian River","PISCES 2.0.4 extant range, Acipenser_transmontanus_AAT01","range"
+"CA-074","Waterman Dam","CA","Waterman Creek","ESA","Steelhead [Central California Coast DPS]",21,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-074","Waterman Dam","CA","Waterman Creek","presence","Steelhead",4,"base 75 m","Pescadero Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-075","Glenbrook Gulch Dam","CA","Glenbrook Gulch (Albion River)","ESA","Salmon, coho [Central California Coast ESU]",18,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-075","Glenbrook Gulch Dam","CA","Glenbrook Gulch (Albion River)","presence","Coho salmon",17,"base 75 m",NA,"CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-075","Glenbrook Gulch Dam","CA","Glenbrook Gulch (Albion River)","presence","Western river lamprey",0,"inside HUC12 range","Albion River","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-076","Fife Creek Check Dam ","CA","Fife Creek","ESA","Salmon, coho [Central California Coast ESU]",14,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-076","Fife Creek Check Dam ","CA","Fife Creek","ESA","Steelhead [Central California Coast DPS]",24,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-076","Fife Creek Check Dam ","CA","Fife Creek","presence","Steelhead",13,"base 75 m","Fife Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-076","Fife Creek Check Dam ","CA","Fife Creek","presence","White sturgeon",0,"inside HUC12 range","Dutch Bill Creek-Russian River","PISCES 2.0.4 extant range, Acipenser_transmontanus_AAT01","range"
+"CA-077","Ojai Valley Trail Ford","CA","San Antonio Creek","ESA","Steelhead [Southern California DPS]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-077","Ojai Valley Trail Ford","CA","San Antonio Creek","presence","Pacific lamprey",10,"base 75 m","San Antonio Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-077","Ojai Valley Trail Ford","CA","San Antonio Creek","presence","Steelhead",10,"base 75 m","San Antonio Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-079","Hostler Creek Dam ","CA","Hostler Creek","presence","Chinook salmon",0,"inside HUC12 range","Soctish Creek-Trinity River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-079","Hostler Creek Dam ","CA","Hostler Creek","presence","Green sturgeon",0,"inside HUC12 range","Soctish Creek-Trinity River","PISCES 2.0.4 extant range, Acipenser_medirostris_AAM01","range"
+"CA-079","Hostler Creek Dam ","CA","Hostler Creek","presence","White sturgeon",0,"inside HUC12 range","Soctish Creek-Trinity River","PISCES 2.0.4 extant range, Acipenser_transmontanus_AAT01","range"
+"CA-080","Bear Creek Dam #3","CA","Bear Creek (San Francisquito Creek)","ESA","Steelhead [Central California Coast DPS]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-080","Bear Creek Dam #3","CA","Bear Creek (San Francisquito Creek)","presence","Steelhead",0,"base 75 m","Bear Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-081","Cahill Dam","CA","Branciforte Creek","ESA","Salmon, coho [Central California Coast ESU]",23,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-081","Cahill Dam","CA","Branciforte Creek","ESA","Steelhead [Central California Coast DPS]",12,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-081","Cahill Dam","CA","Branciforte Creek","presence","Steelhead",24,"base 75 m","Branciforte Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-082","Bonde Weir","CA","San Francisquito Creek","ESA","Steelhead [Central California Coast DPS]",0,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-082","Bonde Weir","CA","San Francisquito Creek","presence","Green sturgeon",44,"HUC12 range within 75 m","Cordileras Creek-Frontal San Francisco Bay Estuaries","PISCES 2.0.4 extant range, Acipenser_medirostris_AAM02","range"
+"CA-082","Bonde Weir","CA","San Francisquito Creek","presence","Pacific lamprey",0,"base 75 m","San Francisquito Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-082","Bonde Weir","CA","San Francisquito Creek","presence","Steelhead",12,"base 75 m","San Francisquito Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-083","Hammer Diversion Dam","CA","South Fork Cottonwood Creek","ESA","Steelhead [California Central Valley DPS]",8,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-083","Hammer Diversion Dam","CA","South Fork Cottonwood Creek","presence","Chinook salmon",8,"base 75 m",NA,"NOAA ds982 Central Valley spring-run Chinook distribution, 2005","observed"
+"CA-083","Hammer Diversion Dam","CA","South Fork Cottonwood Creek","presence","Pacific lamprey",10,"base 75 m","South Fork Cottonwood Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-083","Hammer Diversion Dam","CA","South Fork Cottonwood Creek","presence","Steelhead",18,"base 75 m","South Fork Cottonwood Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-089","Lion Creek Diversion Dam","CA","Lion Creek","ESA","Steelhead [Southern California DPS]",5,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-089","Lion Creek Diversion Dam","CA","Lion Creek","presence","Steelhead",14,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-094","Unknown Dam","CA","Olds Creek","ESA","Salmon, coho [Central California Coast ESU]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-094","Unknown Dam","CA","Olds Creek","ESA","Steelhead [Northern California DPS]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-094","Unknown Dam","CA","Olds Creek","presence","Coho salmon",4,"base 75 m","Olds Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-094","Unknown Dam","CA","Olds Creek","presence","Steelhead",4,"base 75 m","Olds Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-095","Whites Gulch Upper Dam","CA","Whites Gulch","presence","Chinook salmon",0,"inside HUC12 range","Whites Gulch-North Fork Salmon River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-095","Whites Gulch Upper Dam","CA","Whites Gulch","presence","Steelhead",0,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-096","Memorial Park Dam","CA","Pescadero Creek","ESA","Salmon, coho [Central California Coast ESU]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-096","Memorial Park Dam","CA","Pescadero Creek","ESA","Steelhead [Central California Coast DPS]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-096","Memorial Park Dam","CA","Pescadero Creek","presence","Coho salmon",5,"base 75 m","Pescadero Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-096","Memorial Park Dam","CA","Pescadero Creek","presence","Pacific lamprey",3,"base 75 m","Pescadero Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-096","Memorial Park Dam","CA","Pescadero Creek","presence","Steelhead",5,"base 75 m","Pescadero Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-097","San Clemente Dam","CA","Carmel River","ESA","Steelhead [South-Central California Coast DPS]",2,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-097","San Clemente Dam","CA","Carmel River","presence","Pacific lamprey",1,"base 75 m","Carmel River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-097","San Clemente Dam","CA","Carmel River","presence","Steelhead",16,"base 75 m","Carmel River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-098","Maria Ygnacio Aijian Barrier","CA","Maria Ygnacio Creek","ESA","Steelhead [Southern California DPS]",19,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-098","Maria Ygnacio Aijian Barrier","CA","Maria Ygnacio Creek","presence","Steelhead",21,"base 75 m","Maria Ygnacio Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-099","Rodeo Grounds Berm","CA","Topanga Creek","ESA","Steelhead [Southern California DPS]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-099","Rodeo Grounds Berm","CA","Topanga Creek","ESA","Tidewater Goby",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_Eucyclogobius_newberryi_20130206.shp",NA
+"CA-099","Rodeo Grounds Berm","CA","Topanga Creek","presence","Steelhead",1,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-100","Old Carmel River Dam","CA","Carmel River","ESA","Steelhead [South-Central California Coast DPS]",24,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-100","Old Carmel River Dam","CA","Carmel River","presence","Pacific lamprey",23,"base 75 m","Carmel River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-100","Old Carmel River Dam","CA","Carmel River","presence","Steelhead",11,"base 75 m","Carmel River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-101","Benbow Dam","CA","South Fork Eel River","ESA","Coho salmon (SONCC, derived)",20,"base 75 m","South Fork Eel River","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-101","Benbow Dam","CA","South Fork Eel River","ESA","Salmon, Chinook [California Coastal ESU]",59,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-101","Benbow Dam","CA","South Fork Eel River","ESA","Steelhead [Northern California DPS]",59,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-101","Benbow Dam","CA","South Fork Eel River","presence","Chinook salmon",59,"base 75 m",NA,"NOAA ds981 California Coastal Chinook distribution, 2005","observed"
+"CA-101","Benbow Dam","CA","South Fork Eel River","presence","Coho salmon",20,"base 75 m","South Fork Eel River","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-101","Benbow Dam","CA","South Fork Eel River","presence","Pacific lamprey",59,"base 75 m","South Fork Eel River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-101","Benbow Dam","CA","South Fork Eel River","presence","Steelhead",20,"base 75 m","South Fork Eel River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-103","McGowan Dam","CA","Butte Creek","ESA","Salmon, Chinook [Central Valley spring-run ESU]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-103","McGowan Dam","CA","Butte Creek","ESA","Steelhead [California Central Valley DPS]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-103","McGowan Dam","CA","Butte Creek","presence","Chinook salmon",9,"base 75 m",NA,"NOAA ds982 Central Valley spring-run Chinook distribution, 2005","observed"
+"CA-103","McGowan Dam","CA","Butte Creek","presence","Chinook salmon",0,"inside HUC12 range","Durham Slough-Butte Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-103","McGowan Dam","CA","Butte Creek","presence","Pacific lamprey",7,"base 75 m","Butte Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-103","McGowan Dam","CA","Butte Creek","presence","Steelhead",0,"base 75 m","Butte Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-109","Milliken Creek Dam","CA","Milliken Creek/Napa River","ESA","Steelhead [Central California Coast DPS]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-109","Milliken Creek Dam","CA","Milliken Creek/Napa River","presence","Steelhead",0,"base 75 m","Milliken Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-114","Dennett Dam","CA","Tuolumne River","ESA","Steelhead [California Central Valley DPS]",18,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-114","Dennett Dam","CA","Tuolumne River","presence","Chinook salmon",0,"inside HUC12 range","Town of Riverdale Park-Tuolumne River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT07","range"
+"CA-114","Dennett Dam","CA","Tuolumne River","presence","Pacific lamprey",17,"base 75 m","Tuolumne River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-114","Dennett Dam","CA","Tuolumne River","presence","Steelhead",2,"base 75 m"," ","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-114","Dennett Dam","CA","Tuolumne River","presence","Western river lamprey",0,"inside HUC12 range","Town of Riverdale Park-Tuolumne River","PISCES 2.0.4 extant range, Lampetra_ayersi_PLA01","range"
+"CA-133","Lagunita Diversion Dam","CA","San Francisquito Creek","ESA","Steelhead [Central California Coast DPS]",19,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-133","Lagunita Diversion Dam","CA","San Francisquito Creek","presence","Pacific lamprey",17,"base 75 m","San Francisquito Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-133","Lagunita Diversion Dam","CA","San Francisquito Creek","presence","Steelhead",21,"base 75 m","San Francisquito Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-149","Dempster Vineyard Dam","CA","Green Valley Creek","ESA","Salmon, coho [Central California Coast ESU]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-149","Dempster Vineyard Dam","CA","Green Valley Creek","ESA","Steelhead [Central California Coast DPS]",13,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-149","Dempster Vineyard Dam","CA","Green Valley Creek","presence","Coho salmon",11,"base 75 m","Green Valley Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-149","Dempster Vineyard Dam","CA","Green Valley Creek","presence","Steelhead",11,"base 75 m","Green Valley Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-150","Pennington Creek Dam","CA","Pennington Creek","ESA","Steelhead [South-Central California Coast DPS]",8,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-150","Pennington Creek Dam","CA","Pennington Creek","presence","Steelhead",4,"base 75 m","Pennington Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-154","Iron Horse Dam","CA","Green Valley Creek","ESA","Salmon, coho [Central California Coast ESU]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-154","Iron Horse Dam","CA","Green Valley Creek","ESA","Steelhead [Central California Coast DPS]",13,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-154","Iron Horse Dam","CA","Green Valley Creek","presence","Coho salmon",10,"base 75 m","Green Valley Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-154","Iron Horse Dam","CA","Green Valley Creek","presence","Steelhead",10,"base 75 m","Green Valley Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-156","Maria Ygnacio Debris Basin Dam Main Branch","CA","Maria Ygnacio Creek","ESA","Steelhead [Southern California DPS]",36,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-156","Maria Ygnacio Debris Basin Dam Main Branch","CA","Maria Ygnacio Creek","presence","Steelhead",44,"base 75 m","Maria Ygnacio Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-174","Grenada Irrigation District Dam","CA","Shasta River","ESA","Coho salmon (SONCC, derived)",2,"base 75 m","Shasta River","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-174","Grenada Irrigation District Dam","CA","Shasta River","presence","Chinook salmon",0,"inside HUC12 range","Bunton Hollow Creek-Shasta River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-174","Grenada Irrigation District Dam","CA","Shasta River","presence","Coho salmon",2,"base 75 m","Shasta River","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-174","Grenada Irrigation District Dam","CA","Shasta River","presence","Pacific lamprey",5,"base 75 m","Shasta River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-174","Grenada Irrigation District Dam","CA","Shasta River","presence","Steelhead",2,"base 75 m","Shasta River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-175","Little Shasta River Flashboard Dam","CA","Little Shasta River","ESA","Coho salmon (SONCC, derived)",140,"same-stream <=500 m","Little Shasta River","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-175","Little Shasta River Flashboard Dam","CA","Little Shasta River","presence","Coho salmon",140,"same-stream <=500 m","Little Shasta River","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-175","Little Shasta River Flashboard Dam","CA","Little Shasta River","presence","Steelhead",7,"base 75 m","Little Shasta River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-176","Beale Dam","CA","Dry Creek","presence","Pacific lamprey",4,"base 75 m","Dry Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-177","Roy's Pools Dam","CA","San Geronimo Creek","ESA","Salmon, coho [Central California Coast ESU]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-177","Roy's Pools Dam","CA","San Geronimo Creek","ESA","Steelhead [Central California Coast DPS]",8,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-177","Roy's Pools Dam","CA","San Geronimo Creek","presence","Coho salmon",0,"base 75 m","San Geronimo Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-177","Roy's Pools Dam","CA","San Geronimo Creek","presence","Steelhead",0,"base 75 m","San Geronimo Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-178","York Dam","CA","York Creek","ESA","Steelhead [Central California Coast DPS]",70,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-178","York Dam","CA","York Creek","presence","Steelhead",62,"base 75 m","York Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-180","Lower Mill Creek Dam ","CA","Mill Creek","ESA","Salmon, coho [Central California Coast ESU]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-180","Lower Mill Creek Dam ","CA","Mill Creek","presence","Coho salmon",1,"base 75 m","Mill Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-180","Lower Mill Creek Dam ","CA","Mill Creek","presence","Steelhead",1,"base 75 m","Mill Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-181","Cedar Creek Hatchery Dam","CA","Cedar Creek","ESA","Coho salmon (SONCC, derived)",13,"base 75 m","Cedar Creek","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-181","Cedar Creek Hatchery Dam","CA","Cedar Creek","ESA","Steelhead [Northern California DPS]",23,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-181","Cedar Creek Hatchery Dam","CA","Cedar Creek","presence","Coho salmon",13,"base 75 m","Cedar Creek","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-181","Cedar Creek Hatchery Dam","CA","Cedar Creek","presence","Steelhead",13,"base 75 m","Cedar Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-182","Copco 2 Dam","CA","Klamath River","presence","Klamath largescale sucker",0,"inside HUC12 range","Fall Creek-Klamath River","PISCES 2.0.4 extant range, Catostomus_snyderi_CCS01","range"
+"CA-182","Copco 2 Dam","CA","Klamath River","presence","Lost River sucker",0,"inside HUC12 range","Fall Creek-Klamath River","PISCES 2.0.4 extant range, Catostomus_luxatus_CCL01","range"
+"CA-182","Copco 2 Dam","CA","Klamath River","presence","Shortnose sucker",0,"inside HUC12 range","Fall Creek-Klamath River","PISCES 2.0.4 extant range, Chasmistes_brevirostris_CCB01","range"
+"CA-184","East Weaver Creek Dam","CA","East Weaver Creek","presence","Chinook salmon",0,"inside HUC12 range","Weaver Creek","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-184","East Weaver Creek Dam","CA","East Weaver Creek","presence","Steelhead",1,"base 75 m","East Weaver Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-185","Copco No. 1 Dam","CA","Klamath River","presence","Klamath largescale sucker",0,"inside HUC12 range","Deer Creek-Klamath River","PISCES 2.0.4 extant range, Catostomus_snyderi_CCS01","range"
+"CA-185","Copco No. 1 Dam","CA","Klamath River","presence","Lost River sucker",0,"inside HUC12 range","Deer Creek-Klamath River","PISCES 2.0.4 extant range, Catostomus_luxatus_CCL01","range"
+"CA-185","Copco No. 1 Dam","CA","Klamath River","presence","Shortnose sucker",0,"inside HUC12 range","Deer Creek-Klamath River","PISCES 2.0.4 extant range, Chasmistes_brevirostris_CCB01","range"
+"CA-186","Iron Gate Dam","CA","Klamath River","ESA","Coho salmon (SONCC, derived)",95,"same-stream <=500 m","Klamath River","derived SONCC layer; CDFW BIOS ds326 Coho Distribution, August 2025",NA
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Chinook salmon",0,"HUC12 range within 75 m","Brush Creek-Klamath River","PISCES 2.0.4 extant range, Oncorhynchus_tshawytscha_SOT01","range"
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Coho salmon",95,"same-stream <=500 m","Klamath River","CDFW BIOS ds326 Coho Distribution, August 2025","observed"
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Klamath largescale sucker",0,"inside HUC12 range","Fall Creek-Klamath River","PISCES 2.0.4 extant range, Catostomus_snyderi_CCS01","range"
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Lost River sucker",0,"inside HUC12 range","Fall Creek-Klamath River","PISCES 2.0.4 extant range, Catostomus_luxatus_CCL01","range"
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Pacific lamprey",112,"same-stream <=500 m","Klamath River","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Shortnose sucker",0,"inside HUC12 range","Fall Creek-Klamath River","PISCES 2.0.4 extant range, Chasmistes_brevirostris_CCB01","range"
+"CA-186","Iron Gate Dam","CA","Klamath River","presence","Steelhead",278,"same-stream <=500 m","Klamath River","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-187","Neefus Gulch Earthen Berm Dam","CA","Neefus Gulch","ESA","Salmon, coho [Central California Coast ESU]",5,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-188","Pickell's Dam","CA","Little Arthur Creek","ESA","Steelhead [South-Central California Coast DPS]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-188","Pickell's Dam","CA","Little Arthur Creek","presence","Steelhead",7,"base 75 m","Little Arthur Creek","CDFW BIOS ds340 Winter Steelhead Distribution, June 2012","observed"
+"CA-189","Jenny Creek Diversion Dam","CA","Jenny Creek","presence","Klamath largescale sucker",0,"inside HUC12 range","Lower Jenny Creek","PISCES 2.0.4 extant range, Catostomus_snyderi_CCS01","range"
+"CA-189","Jenny Creek Diversion Dam","CA","Jenny Creek","presence","Lost River sucker",0,"inside HUC12 range","Lower Jenny Creek","PISCES 2.0.4 extant range, Catostomus_luxatus_CCL01","range"
+"CA-189","Jenny Creek Diversion Dam","CA","Jenny Creek","presence","Shortnose sucker",0,"inside HUC12 range","Lower Jenny Creek","PISCES 2.0.4 extant range, Chasmistes_brevirostris_CCB01","range"
+"CA-190","Inskip Dam","CA","South Fork Battle Creek","ESA","Salmon, Chinook [Central Valley spring-run ESU]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-190","Inskip Dam","CA","South Fork Battle Creek","ESA","Steelhead [California Central Valley DPS]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"CA-190","Inskip Dam","CA","South Fork Battle Creek","presence","Chinook salmon",4,"base 75 m",NA,"NOAA ds982 Central Valley spring-run Chinook distribution, 2005","observed"
+"CA-190","Inskip Dam","CA","South Fork Battle Creek","presence","Pacific lamprey",7,"base 75 m","South Fork Battle Creek","USFWS ds2673 Pacific lamprey current distribution, 2021","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","ESA","Steelhead [Upper Willamette River DPS]",14,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Chinook salmon",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Coastal cutthroat trout",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Coho salmon",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Largescale sucker",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Mountain whitefish",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Pacific lamprey",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-001","Lafayette Locks Dam","OR","Yamhill Basin","presence","Steelhead",10,"base 75 m","Yamhill River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-002","Catching Dam","OR","North Fork Middle Fork Willamette River","ESA","Salmon, Chinook [Upper Willamette River ESU]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-002","Catching Dam","OR","North Fork Middle Fork Willamette River","presence","Chinook salmon",3,"base 75 m","North Fork Middle Fork Willamette River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-002","Catching Dam","OR","North Fork Middle Fork Willamette River","presence","Coastal cutthroat trout",3,"base 75 m","North Fork Middle Fork Willamette River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-002","Catching Dam","OR","North Fork Middle Fork Willamette River","presence","Mountain whitefish",3,"base 75 m","North Fork Middle Fork Willamette River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-003","Marie Dorian Dam","OR","Walla Walla River","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"OR-003","Marie Dorian Dam","OR","Walla Walla River","ESA","Steelhead [Middle Columbia River DPS]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-003","Marie Dorian Dam","OR","Walla Walla River","presence","Bull trout",18,"base 75 m","Walla Walla River","ODFW Fish Habitat Distribution 1167_5, fhd_Bulltrout","observed"
+"OR-003","Marie Dorian Dam","OR","Walla Walla River","presence","Redband trout",18,"base 75 m","Walla Walla River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-003","Marie Dorian Dam","OR","Walla Walla River","presence","Steelhead",18,"base 75 m","Walla Walla River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-004","Jackson Street Dam","OR","Bear Creek","ESA","Coho salmon (SONCC, derived)",58,"base 75 m","Bear Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-004","Jackson Street Dam","OR","Bear Creek","presence","Chinook salmon",58,"base 75 m","Bear Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-004","Jackson Street Dam","OR","Bear Creek","presence","Coastal cutthroat trout",58,"base 75 m","Bear Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-004","Jackson Street Dam","OR","Bear Creek","presence","Coho salmon",58,"base 75 m","Bear Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-004","Jackson Street Dam","OR","Bear Creek","presence","Pacific lamprey",57,"base 75 m","Bear Creek","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-004","Jackson Street Dam","OR","Bear Creek","presence","Steelhead",58,"base 75 m","Bear Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-005","Alphonso Dam","OR","Evans Creek","ESA","Coho salmon (SONCC, derived)",30,"base 75 m","Evans Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-005","Alphonso Dam","OR","Evans Creek","presence","Coastal cutthroat trout",30,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-005","Alphonso Dam","OR","Evans Creek","presence","Coho salmon",30,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-005","Alphonso Dam","OR","Evans Creek","presence","Pacific lamprey",30,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-005","Alphonso Dam","OR","Evans Creek","presence","Steelhead",30,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-007","Lithia Park Dam 1","OR","Ashland Creek","ESA","Coho salmon (SONCC, derived)",9,"base 75 m","Ashland Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-007","Lithia Park Dam 1","OR","Ashland Creek","presence","Coastal cutthroat trout",9,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-007","Lithia Park Dam 1","OR","Ashland Creek","presence","Coho salmon",9,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-007","Lithia Park Dam 1","OR","Ashland Creek","presence","Steelhead",9,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-008","Lithia Park Dam 2","OR","Ashland Creek","ESA","Coho salmon (SONCC, derived)",11,"base 75 m","Ashland Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-008","Lithia Park Dam 2","OR","Ashland Creek","presence","Coastal cutthroat trout",11,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-008","Lithia Park Dam 2","OR","Ashland Creek","presence","Coho salmon",11,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-008","Lithia Park Dam 2","OR","Ashland Creek","presence","Steelhead",11,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-009","Lithia Park Dam 3","OR","Ashland Creek","ESA","Coho salmon (SONCC, derived)",17,"base 75 m","Ashland Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-009","Lithia Park Dam 3","OR","Ashland Creek","presence","Coastal cutthroat trout",17,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-009","Lithia Park Dam 3","OR","Ashland Creek","presence","Coho salmon",17,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-009","Lithia Park Dam 3","OR","Ashland Creek","presence","Steelhead",17,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-010","Krouse-Haggar Push-up Dam","OR","Applegate River","ESA","Coho salmon (SONCC, derived)",4,"base 75 m","Applegate River","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-010","Krouse-Haggar Push-up Dam","OR","Applegate River","presence","Chinook salmon",4,"base 75 m","Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-010","Krouse-Haggar Push-up Dam","OR","Applegate River","presence","Coastal cutthroat trout",4,"base 75 m","Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-010","Krouse-Haggar Push-up Dam","OR","Applegate River","presence","Coho salmon",4,"base 75 m","Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-010","Krouse-Haggar Push-up Dam","OR","Applegate River","presence","Pacific lamprey",4,"base 75 m","Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-010","Krouse-Haggar Push-up Dam","OR","Applegate River","presence","Steelhead",4,"base 75 m","Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-011","Byrne Diversion Dam","OR","Beaver Creek","ESA","Coho salmon (SONCC, derived)",5,"base 75 m","Beaver Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-011","Byrne Diversion Dam","OR","Beaver Creek","presence","Coastal cutthroat trout",5,"base 75 m","Beaver Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-011","Byrne Diversion Dam","OR","Beaver Creek","presence","Coho salmon",5,"base 75 m","Beaver Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-011","Byrne Diversion Dam","OR","Beaver Creek","presence","Steelhead",5,"base 75 m","Beaver Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-012","Maple Gulch Diversion Dam","OR","Evans Creek","presence","Coastal cutthroat trout",9,"base 75 m",NA,"ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-012","Maple Gulch Diversion Dam","OR","Evans Creek","presence","Steelhead",9,"base 75 m","Unnamed trib to Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-015","Buck & Jones Diversion Dam","OR","Little Applegate River","presence","Coastal cutthroat trout",318,"same-stream <=500 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-015","Buck & Jones Diversion Dam","OR","Little Applegate River","presence","Pacific lamprey",79,"same-stream <=500 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-015","Buck & Jones Diversion Dam","OR","Little Applegate River","presence","Steelhead",79,"same-stream <=500 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-017","Brownsville Dam","OR","Calapooia River","ESA","Salmon, Chinook [Upper Willamette River ESU]",7,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-017","Brownsville Dam","OR","Calapooia River","ESA","Steelhead [Upper Willamette River DPS]",7,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-017","Brownsville Dam","OR","Calapooia River","presence","Chinook salmon",0,"base 75 m","Calapooia River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-017","Brownsville Dam","OR","Calapooia River","presence","Coastal cutthroat trout",0,"base 75 m","Calapooia River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-017","Brownsville Dam","OR","Calapooia River","presence","Largescale sucker",0,"base 75 m","Calapooia River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-017","Brownsville Dam","OR","Calapooia River","presence","Mountain whitefish",0,"base 75 m","Calapooia River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-017","Brownsville Dam","OR","Calapooia River","presence","Pacific lamprey",0,"base 75 m","Calapooia River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-017","Brownsville Dam","OR","Calapooia River","presence","Steelhead",0,"base 75 m","Calapooia River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-018","Marmot Dam","OR","Sandy River","ESA","Salmon, Chinook [Lower Columbia River ESU]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-018","Marmot Dam","OR","Sandy River","ESA","Salmon, coho [Lower Columbia River ESU]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-018","Marmot Dam","OR","Sandy River","ESA","Steelhead [Lower Columbia River DPS]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-018","Marmot Dam","OR","Sandy River","presence","Chinook salmon",13,"base 75 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-018","Marmot Dam","OR","Sandy River","presence","Coastal cutthroat trout",13,"base 75 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-018","Marmot Dam","OR","Sandy River","presence","Coho salmon",13,"base 75 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-018","Marmot Dam","OR","Sandy River","presence","Mountain whitefish",13,"base 75 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-018","Marmot Dam","OR","Sandy River","presence","Pacific lamprey",11,"base 75 m","Sandy River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-018","Marmot Dam","OR","Sandy River","presence","Steelhead",13,"base 75 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","ESA","Salmon, coho [Lower Columbia River ESU]",23,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","presence","Chinook salmon",24,"base 75 m","South Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","presence","Chum salmon",24,"base 75 m","South Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Chum","observed"
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","presence","Coastal cutthroat trout",24,"base 75 m","South Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","presence","Coho salmon",24,"base 75 m","South Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","presence","Pacific lamprey",23,"base 75 m","South Fork Klaskanine River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-019","South Fork Klaskanine Dam","OR","South Fork Klaskanine River","presence","Steelhead",24,"base 75 m","South Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-020","Elk Creek Dam","OR","Elk Creek","ESA","Coho salmon (SONCC, derived)",18,"base 75 m","Elk Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-020","Elk Creek Dam","OR","Elk Creek","presence","Chinook salmon",18,"base 75 m","Elk Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-020","Elk Creek Dam","OR","Elk Creek","presence","Coastal cutthroat trout",18,"base 75 m","Elk Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-020","Elk Creek Dam","OR","Elk Creek","presence","Coho salmon",18,"base 75 m","Elk Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-020","Elk Creek Dam","OR","Elk Creek","presence","Pacific lamprey",10,"base 75 m","Elk Creek","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-020","Elk Creek Dam","OR","Elk Creek","presence","Steelhead",18,"base 75 m","Elk Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-021","Gold Hill Dam","OR","Rogue River","ESA","Coho salmon (SONCC, derived)",42,"base 75 m","Rogue River","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-021","Gold Hill Dam","OR","Rogue River","presence","Chinook salmon",42,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-021","Gold Hill Dam","OR","Rogue River","presence","Coastal cutthroat trout",42,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-021","Gold Hill Dam","OR","Rogue River","presence","Coho salmon",42,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-021","Gold Hill Dam","OR","Rogue River","presence","Pacific lamprey",41,"base 75 m","Rogue River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-021","Gold Hill Dam","OR","Rogue River","presence","Steelhead",42,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-022","Chiloquin Dam","OR","Sprague River","ESA","Lost River Sucker",21,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_DELTISTES_LUXATUS_20121211.shp",NA
+"OR-022","Chiloquin Dam","OR","Sprague River","ESA","Shortnose Sucker",21,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_CHASMISTES_BREVIROSTRIS_20121211.shp",NA
+"OR-022","Chiloquin Dam","OR","Sprague River","presence","Chinook salmon",37,"base 75 m","Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-022","Chiloquin Dam","OR","Sprague River","presence","Klamath largescale sucker",37,"base 75 m","Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_KlamathLargescale","observed"
+"OR-022","Chiloquin Dam","OR","Sprague River","presence","Lost River sucker",37,"base 75 m","Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_LostRiver","observed"
+"OR-022","Chiloquin Dam","OR","Sprague River","presence","Redband trout",37,"base 75 m","Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-022","Chiloquin Dam","OR","Sprague River","presence","Shortnose sucker",37,"base 75 m","Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Shortnose","observed"
+"OR-022","Chiloquin Dam","OR","Sprague River","presence","Steelhead",37,"base 75 m","Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-023","Savage Rapids Dam","OR","Rogue River","ESA","Coho salmon (SONCC, derived)",48,"base 75 m","Rogue River","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-023","Savage Rapids Dam","OR","Rogue River","presence","Chinook salmon",48,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-023","Savage Rapids Dam","OR","Rogue River","presence","Coastal cutthroat trout",13,"base 75 m",NA,"ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-023","Savage Rapids Dam","OR","Rogue River","presence","Coho salmon",48,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-023","Savage Rapids Dam","OR","Rogue River","presence","Pacific lamprey",47,"base 75 m","Rogue River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-023","Savage Rapids Dam","OR","Rogue River","presence","Steelhead",48,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-024","Gold Ray Dam","OR","Rogue River","ESA","Coho salmon (SONCC, derived)",40,"base 75 m","Rogue River","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-024","Gold Ray Dam","OR","Rogue River","presence","Chinook salmon",40,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-024","Gold Ray Dam","OR","Rogue River","presence","Coastal cutthroat trout",40,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-024","Gold Ray Dam","OR","Rogue River","presence","Coho salmon",40,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-024","Gold Ray Dam","OR","Rogue River","presence","Pacific lamprey",38,"base 75 m","Rogue River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-024","Gold Ray Dam","OR","Rogue River","presence","Steelhead",40,"base 75 m","Rogue River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-025","Powerdale Dam","OR","Hood River","ESA","Bull Trout",4,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"OR-025","Powerdale Dam","OR","Hood River","ESA","Salmon, Chinook [Lower Columbia River ESU]",14,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-025","Powerdale Dam","OR","Hood River","ESA","Salmon, coho [Lower Columbia River ESU]",15,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-025","Powerdale Dam","OR","Hood River","ESA","Steelhead [Lower Columbia River DPS]",14,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-025","Powerdale Dam","OR","Hood River","presence","Bridgelip sucker",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Bridgelip","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Bull trout",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_Bulltrout","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Chinook salmon",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Coastal cutthroat trout",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Coho salmon",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Largescale sucker",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Mountain whitefish",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Pacific lamprey",15,"base 75 m","Hood River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Redband trout",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-025","Powerdale Dam","OR","Hood River","presence","Steelhead",16,"base 75 m","Hood River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-026","Sodom Dam","OR","Calapooia River","ESA","Salmon, Chinook [Upper Willamette River ESU]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-026","Sodom Dam","OR","Calapooia River","ESA","Steelhead [Upper Willamette River DPS]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-026","Sodom Dam","OR","Calapooia River","presence","Coastal cutthroat trout",27,"base 75 m","Sodom Ditch","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-027","Fivemile Creek Irrigation Diversion Dam","OR","Fivemile Creek","presence","Redband trout",433,"same-stream <=500 m","Fivemile Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-027","Fivemile Creek Irrigation Diversion Dam","OR","Fivemile Creek","presence","Steelhead",5,"base 75 m","Fivemile Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-029","Campbell Road Diversion Dam","OR","South Fork Sprague River","presence","Klamath largescale sucker",7,"base 75 m","South Fork Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_KlamathLargescale","observed"
+"OR-029","Campbell Road Diversion Dam","OR","South Fork Sprague River","presence","Redband trout",7,"base 75 m","South Fork Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-029","Campbell Road Diversion Dam","OR","South Fork Sprague River","presence","Steelhead",7,"base 75 m","South Fork Sprague River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-030","Valsetz Dam ","OR","South Fork Siletz River","presence","Chinook salmon",50,"base 75 m","South Fork Siletz River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-030","Valsetz Dam ","OR","South Fork Siletz River","presence","Coastal cutthroat trout",50,"base 75 m","South Fork Siletz River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-030","Valsetz Dam ","OR","South Fork Siletz River","presence","Pacific lamprey",51,"base 75 m","South Fork Siletz River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-030","Valsetz Dam ","OR","South Fork Siletz River","presence","Steelhead",50,"base 75 m","South Fork Siletz River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-031","Sisters Dam Removal (Leithauser Dam)","OR","Wychus Creek","presence","Bridgelip sucker",7,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Bridgelip","observed"
+"OR-031","Sisters Dam Removal (Leithauser Dam)","OR","Wychus Creek","presence","Chinook salmon",7,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-031","Sisters Dam Removal (Leithauser Dam)","OR","Wychus Creek","presence","Largescale sucker",7,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-031","Sisters Dam Removal (Leithauser Dam)","OR","Wychus Creek","presence","Redband trout",7,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-031","Sisters Dam Removal (Leithauser Dam)","OR","Wychus Creek","presence","Steelhead",7,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-034","Taylor Dam ","OR","Birch Creek","ESA","Steelhead [Middle Columbia River DPS]",16,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-034","Taylor Dam ","OR","Birch Creek","presence","Chinook salmon",10,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-034","Taylor Dam ","OR","Birch Creek","presence","Coho salmon",10,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-034","Taylor Dam ","OR","Birch Creek","presence","Redband trout",10,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-034","Taylor Dam ","OR","Birch Creek","presence","Steelhead",10,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-036","Shear Dam","OR","","ESA","Salmon, Chinook [Upper Willamette River ESU]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-036","Shear Dam","OR","","ESA","Steelhead [Upper Willamette River DPS]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-036","Shear Dam","OR","","presence","Coastal cutthroat trout",11,"base 75 m","Sodom Ditch","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-038","Cox Creek Dam ","OR","Cox Creek","ESA","Steelhead [Upper Willamette River DPS]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-038","Cox Creek Dam ","OR","Cox Creek","presence","Chinook salmon",7,"base 75 m","Cox Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-038","Cox Creek Dam ","OR","Cox Creek","presence","Coastal cutthroat trout",7,"base 75 m","Cox Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-038","Cox Creek Dam ","OR","Cox Creek","presence","Largescale sucker",7,"base 75 m","Cox Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-038","Cox Creek Dam ","OR","Cox Creek","presence","Steelhead",7,"base 75 m","Cox Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-039","Hamby Dam ","OR","Birch Creek","ESA","Steelhead [Middle Columbia River DPS]",21,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-039","Hamby Dam ","OR","Birch Creek","presence","Redband trout",23,"base 75 m","West Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-039","Hamby Dam ","OR","Birch Creek","presence","Steelhead",23,"base 75 m","West Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","ESA","Salmon, Chinook [Lower Columbia River ESU]",56,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","ESA","Salmon, coho [Lower Columbia River ESU]",54,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Chinook salmon",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Chum salmon",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Chum","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Coastal cutthroat trout",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Coho salmon",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Eulachon",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Eulachon","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Largescale sucker",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Mountain whitefish",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Pacific lamprey",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-040","Sandy River Delta Dam ","OR","Sandy River","presence","Steelhead",278,"same-stream <=500 m","Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-041","Stearns Dam","OR","Crooked River","presence","Bridgelip sucker",29,"base 75 m","Crooked River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Bridgelip","observed"
+"OR-041","Stearns Dam","OR","Crooked River","presence","Chinook salmon",29,"base 75 m","Crooked River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-041","Stearns Dam","OR","Crooked River","presence","Largescale sucker",29,"base 75 m","Crooked River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-041","Stearns Dam","OR","Crooked River","presence","Mountain whitefish",32,"base 75 m","Crooked River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-041","Stearns Dam","OR","Crooked River","presence","Redband trout",29,"base 75 m","Crooked River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-041","Stearns Dam","OR","Crooked River","presence","Steelhead",29,"base 75 m","Crooked River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-042","Tokay Canal Dam ","OR","Jones Creek","ESA","Coho salmon (SONCC, derived)",19,"base 75 m","Jones Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-042","Tokay Canal Dam ","OR","Jones Creek","presence","Coastal cutthroat trout",12,"base 75 m","Jones Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-042","Tokay Canal Dam ","OR","Jones Creek","presence","Coho salmon",19,"base 75 m","Jones Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-042","Tokay Canal Dam ","OR","Jones Creek","presence","Steelhead",11,"base 75 m","Jones Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-043","Wright Dam","OR","Mill Creek","ESA","Steelhead [Middle Columbia River DPS]",4,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-043","Wright Dam","OR","Mill Creek","presence","Coastal cutthroat trout",7,"base 75 m","Mill Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-043","Wright Dam","OR","Mill Creek","presence","Coho salmon",7,"base 75 m","Mill Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-043","Wright Dam","OR","Mill Creek","presence","Pacific lamprey",7,"base 75 m","Mill Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-043","Wright Dam","OR","Mill Creek","presence","Redband trout",7,"base 75 m","Mill Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-043","Wright Dam","OR","Mill Creek","presence","Steelhead",7,"base 75 m","Mill Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-044","Zell Dam","OR","Walla Walla","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"OR-044","Zell Dam","OR","Walla Walla","ESA","Steelhead [Middle Columbia River DPS]",8,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-044","Zell Dam","OR","Walla Walla","presence","Bull trout",26,"base 75 m","Walla Walla River","ODFW Fish Habitat Distribution 1167_5, fhd_Bulltrout","observed"
+"OR-044","Zell Dam","OR","Walla Walla","presence","Redband trout",26,"base 75 m","Walla Walla River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-044","Zell Dam","OR","Walla Walla","presence","Steelhead",26,"base 75 m","Walla Walla River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-045","Hoeft Dam","OR","Birch Creek","ESA","Steelhead [Middle Columbia River DPS]",0,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-045","Hoeft Dam","OR","Birch Creek","presence","Coho salmon",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-045","Hoeft Dam","OR","Birch Creek","presence","Redband trout",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-045","Hoeft Dam","OR","Birch Creek","presence","Steelhead",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-046","Pine Meadow Ranch Dam ","OR","Whychus Creek","presence","Bridgelip sucker",273,"same-stream <=500 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Bridgelip","observed"
+"OR-046","Pine Meadow Ranch Dam ","OR","Whychus Creek","presence","Chinook salmon",20,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-046","Pine Meadow Ranch Dam ","OR","Whychus Creek","presence","Largescale sucker",273,"same-stream <=500 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-046","Pine Meadow Ranch Dam ","OR","Whychus Creek","presence","Redband trout",273,"same-stream <=500 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-046","Pine Meadow Ranch Dam ","OR","Whychus Creek","presence","Steelhead",20,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-047","Little Sandy River Dam","OR","Little Sandy River","ESA","Salmon, coho [Lower Columbia River ESU]",28,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-047","Little Sandy River Dam","OR","Little Sandy River","presence","Chinook salmon",17,"base 75 m","Little Sandy Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-047","Little Sandy River Dam","OR","Little Sandy River","presence","Coastal cutthroat trout",17,"base 75 m","Little Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-047","Little Sandy River Dam","OR","Little Sandy River","presence","Coho salmon",17,"base 75 m","Little Sandy Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-047","Little Sandy River Dam","OR","Little Sandy River","presence","Mountain whitefish",17,"base 75 m","Little Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-047","Little Sandy River Dam","OR","Little Sandy River","presence","Steelhead",17,"base 75 m","Little Sandy River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-048","Hogan Cedars Dam","OR","Johnson Creek","ESA","Salmon, coho [Lower Columbia River ESU]",11,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-048","Hogan Cedars Dam","OR","Johnson Creek","ESA","Steelhead [Lower Columbia River DPS]",15,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-048","Hogan Cedars Dam","OR","Johnson Creek","presence","Coastal cutthroat trout",5,"base 75 m","Johnson Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-048","Hogan Cedars Dam","OR","Johnson Creek","presence","Coho salmon",5,"base 75 m","Johnson Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-048","Hogan Cedars Dam","OR","Johnson Creek","presence","Pacific lamprey",5,"base 75 m","Johnson Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-048","Hogan Cedars Dam","OR","Johnson Creek","presence","Steelhead",5,"base 75 m","Johnson Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-049","Canyon Creek Meadows Dam","OR","Canyon Creek","presence","Redband trout",83,"same-stream <=500 m","Canyon Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-050","Fielder Dam","OR","Evans Creek","ESA","Coho salmon (SONCC, derived)",12,"base 75 m","Evans Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-050","Fielder Dam","OR","Evans Creek","presence","Chinook salmon",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-050","Fielder Dam","OR","Evans Creek","presence","Coastal cutthroat trout",7,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-050","Fielder Dam","OR","Evans Creek","presence","Coho salmon",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-050","Fielder Dam","OR","Evans Creek","presence","Pacific lamprey",7,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-050","Fielder Dam","OR","Evans Creek","presence","Steelhead",7,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-051","Wimer Dam","OR","Evans Creek","ESA","Coho salmon (SONCC, derived)",12,"base 75 m","Evans Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-051","Wimer Dam","OR","Evans Creek","presence","Chinook salmon",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-051","Wimer Dam","OR","Evans Creek","presence","Coastal cutthroat trout",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-051","Wimer Dam","OR","Evans Creek","presence","Coho salmon",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-051","Wimer Dam","OR","Evans Creek","presence","Pacific lamprey",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-051","Wimer Dam","OR","Evans Creek","presence","Steelhead",12,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-052","Odell Dam","OR","Hood River","presence","Coastal cutthroat trout",9,"base 75 m","Odell Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-052","Odell Dam","OR","Hood River","presence","Redband trout",9,"base 75 m","Odell Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-052","Odell Dam","OR","Hood River","presence","Steelhead",9,"base 75 m","Odell Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-053","Million Irrigation Ditch Dam","OR","Ashland Creek","ESA","Coho salmon (SONCC, derived)",4,"base 75 m","Ashland Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-053","Million Irrigation Ditch Dam","OR","Ashland Creek","presence","Coastal cutthroat trout",4,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-053","Million Irrigation Ditch Dam","OR","Ashland Creek","presence","Coho salmon",4,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-053","Million Irrigation Ditch Dam","OR","Ashland Creek","presence","Steelhead",4,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","ESA","Steelhead [Middle Columbia River DPS]",8,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Bridgelip sucker",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Bridgelip","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Bull trout",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_Bulltrout","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Chinook salmon",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Coho salmon",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Largescale sucker",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Pacific lamprey",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Redband trout",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-054","Dillon Diversion Dam ","OR","Umatilla River","presence","Steelhead",20,"base 75 m","Umatilla River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-055","Beeson-Robinson Diversion Dam","OR","Wagner Creek","ESA","Coho salmon (SONCC, derived)",1,"base 75 m","Wagner Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-055","Beeson-Robinson Diversion Dam","OR","Wagner Creek","presence","Coastal cutthroat trout",1,"base 75 m","Wagner Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-055","Beeson-Robinson Diversion Dam","OR","Wagner Creek","presence","Coho salmon",1,"base 75 m","Wagner Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-055","Beeson-Robinson Diversion Dam","OR","Wagner Creek","presence","Steelhead",1,"base 75 m","Wagner Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-056","C-2 Meyers 1","OR","Salt Creek (Little Butte Creek)","ESA","Coho salmon (SONCC, derived)",21,"base 75 m","Salt Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-056","C-2 Meyers 1","OR","Salt Creek (Little Butte Creek)","presence","Coastal cutthroat trout",21,"base 75 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-056","C-2 Meyers 1","OR","Salt Creek (Little Butte Creek)","presence","Coho salmon",21,"base 75 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-056","C-2 Meyers 1","OR","Salt Creek (Little Butte Creek)","presence","Steelhead",21,"base 75 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-057","C-2 Meyers 2","OR","Salt Creek (Little Butte Creek)","presence","Coastal cutthroat trout",75,"base 75 m","McNeil Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-058","Forest Creek Dam","OR","Forest Creek","ESA","Coho salmon (SONCC, derived)",2,"base 75 m","Forest Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-058","Forest Creek Dam","OR","Forest Creek","presence","Coastal cutthroat trout",2,"base 75 m","Forest Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-058","Forest Creek Dam","OR","Forest Creek","presence","Coho salmon",2,"base 75 m","Forest Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-058","Forest Creek Dam","OR","Forest Creek","presence","Steelhead",2,"base 75 m","Forest Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-061","Smith-Meyer-Roper Dam","OR","Ashland Creek","ESA","Coho salmon (SONCC, derived)",4,"base 75 m","Ashland Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-061","Smith-Meyer-Roper Dam","OR","Ashland Creek","presence","Coastal cutthroat trout",4,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-061","Smith-Meyer-Roper Dam","OR","Ashland Creek","presence","Coho salmon",4,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-061","Smith-Meyer-Roper Dam","OR","Ashland Creek","presence","Steelhead",4,"base 75 m","Ashland Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-062","Kelley Creek Dam","OR","Kelley Creek, tributary to Johnson Creek","presence","Coastal cutthroat trout",311,"same-stream <=500 m","Kelley Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-063","Lower Bridgepoint Dam","OR","Williams Creek, tributary to the Applegate River, tributary to the Rogue River","ESA","Coho salmon (SONCC, derived)",19,"base 75 m","Williams Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-063","Lower Bridgepoint Dam","OR","Williams Creek, tributary to the Applegate River, tributary to the Rogue River","presence","Chinook salmon",19,"base 75 m","Williams Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-063","Lower Bridgepoint Dam","OR","Williams Creek, tributary to the Applegate River, tributary to the Rogue River","presence","Coastal cutthroat trout",19,"base 75 m","Williams Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-063","Lower Bridgepoint Dam","OR","Williams Creek, tributary to the Applegate River, tributary to the Rogue River","presence","Coho salmon",19,"base 75 m","Williams Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-063","Lower Bridgepoint Dam","OR","Williams Creek, tributary to the Applegate River, tributary to the Rogue River","presence","Pacific lamprey",19,"base 75 m","Williams Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-063","Lower Bridgepoint Dam","OR","Williams Creek, tributary to the Applegate River, tributary to the Rogue River","presence","Steelhead",19,"base 75 m","Williams Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-064","North Fork Klaskanine Dam","OR","North Fork Klaksanine,tributary to Young's River, tributary to the Columbia River","ESA","Salmon, coho [Lower Columbia River ESU]",17,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-064","North Fork Klaskanine Dam","OR","North Fork Klaksanine,tributary to Young's River, tributary to the Columbia River","presence","Coastal cutthroat trout",16,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-064","North Fork Klaskanine Dam","OR","North Fork Klaksanine,tributary to Young's River, tributary to the Columbia River","presence","Coho salmon",16,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-064","North Fork Klaskanine Dam","OR","North Fork Klaksanine,tributary to Young's River, tributary to the Columbia River","presence","Pacific lamprey",34,"base 75 m","North Fork Klaskanine River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-064","North Fork Klaskanine Dam","OR","North Fork Klaksanine,tributary to Young's River, tributary to the Columbia River","presence","Steelhead",16,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-066","South Fork Big Butte Dam","OR","South Fork Big Butte Creek","ESA","Coho salmon (SONCC, derived)",250,"same-stream <=500 m","South Fork Big Butte Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-066","South Fork Big Butte Dam","OR","South Fork Big Butte Creek","presence","Coastal cutthroat trout",5,"base 75 m","South Fork Big Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-066","South Fork Big Butte Dam","OR","South Fork Big Butte Creek","presence","Coho salmon",250,"same-stream <=500 m","South Fork Big Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-066","South Fork Big Butte Dam","OR","South Fork Big Butte Creek","presence","Steelhead",5,"base 75 m","South Fork Big Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-067","Sardine Creek Dam","OR","Sardine Creek","ESA","Coho salmon (SONCC, derived)",8,"base 75 m","Sardine Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-067","Sardine Creek Dam","OR","Sardine Creek","presence","Coastal cutthroat trout",8,"base 75 m","Sardine Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-067","Sardine Creek Dam","OR","Sardine Creek","presence","Coho salmon",8,"base 75 m","Sardine Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-067","Sardine Creek Dam","OR","Sardine Creek","presence","Steelhead",8,"base 75 m","Sardine Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-068","East Fork Jones Creek Dam","OR","East Fork Jones Creek","presence","Steelhead",12,"base 75 m","East Fork Jones Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-069","Penzer Diversion Dam","OR","Ditch Creek","ESA","Coho salmon (SONCC, derived)",6,"base 75 m","Ditch Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-069","Penzer Diversion Dam","OR","Ditch Creek","presence","Coastal cutthroat trout",2,"base 75 m","Ditch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-069","Penzer Diversion Dam","OR","Ditch Creek","presence","Coho salmon",6,"base 75 m","Ditch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-069","Penzer Diversion Dam","OR","Ditch Creek","presence","Steelhead",2,"base 75 m","Ditch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-070","Powell Creek Dam","OR","Powell Creek","ESA","Coho salmon (SONCC, derived)",473,"same-stream <=500 m","Powell Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-070","Powell Creek Dam","OR","Powell Creek","presence","Coastal cutthroat trout",16,"base 75 m","Powell Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-070","Powell Creek Dam","OR","Powell Creek","presence","Coho salmon",473,"same-stream <=500 m","Powell Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-070","Powell Creek Dam","OR","Powell Creek","presence","Steelhead",16,"base 75 m","Powell Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-071","Palmer Creek Dam","OR","Palmer Creek","ESA","Coho salmon (SONCC, derived)",16,"base 75 m","Palmer Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-071","Palmer Creek Dam","OR","Palmer Creek","presence","Coastal cutthroat trout",16,"base 75 m","Palmer Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-071","Palmer Creek Dam","OR","Palmer Creek","presence","Coho salmon",16,"base 75 m","Palmer Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-071","Palmer Creek Dam","OR","Palmer Creek","presence","Steelhead",16,"base 75 m","Palmer Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","ESA","Salmon, coho [Lower Columbia River ESU]",0,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","presence","Chinook salmon",0,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","presence","Chum salmon",136,"same-stream <=500 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Chum","observed"
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","presence","Coastal cutthroat trout",0,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","presence","Coho salmon",0,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","presence","Pacific lamprey",0,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-072","Klaskanine Hatchery Intake Dam","OR","North Fork Klaskanine","presence","Steelhead",0,"base 75 m","North Fork Klaskanine River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-073","Breitenbush Diversion Dam","OR","Breitenbush Creek","presence","Chinook salmon",10,"base 75 m","Breitenbush River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-073","Breitenbush Diversion Dam","OR","Breitenbush Creek","presence","Coastal cutthroat trout",10,"base 75 m",NA,"ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","ESA","Salmon, coho [Lower Columbia River ESU]",13,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","ESA","Steelhead [Lower Columbia River DPS]",14,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","presence","Chinook salmon",14,"base 75 m","Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","presence","Coastal cutthroat trout",14,"base 75 m","Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","presence","Coho salmon",14,"base 75 m","Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","presence","Pacific lamprey",13,"base 75 m","Eagle Creek","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-074","Eagle Fern Dam","OR","North Fork Eagle Creek","presence","Steelhead",14,"base 75 m","Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-075","Harboldt Dam","OR","Slate Creek","ESA","Coho salmon (SONCC, derived)",9,"base 75 m","Slate Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-075","Harboldt Dam","OR","Slate Creek","presence","Chinook salmon",9,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-075","Harboldt Dam","OR","Slate Creek","presence","Coastal cutthroat trout",9,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-075","Harboldt Dam","OR","Slate Creek","presence","Coho salmon",9,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-075","Harboldt Dam","OR","Slate Creek","presence","Steelhead",9,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-076","Plainview Dam","OR","Whychus Creek","presence","Bridgelip sucker",10,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Bridgelip","observed"
+"OR-076","Plainview Dam","OR","Whychus Creek","presence","Chinook salmon",10,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-076","Plainview Dam","OR","Whychus Creek","presence","Largescale sucker",10,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Largescale","observed"
+"OR-076","Plainview Dam","OR","Whychus Creek","presence","Redband trout",10,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-076","Plainview Dam","OR","Whychus Creek","presence","Steelhead",10,"base 75 m","Whychus Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-077","South Fork Fish Lake Creek Passage Weirs 1 & 2","OR","Lake Creek, tributary to Metolius River","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"OR-077","South Fork Fish Lake Creek Passage Weirs 1 & 2","OR","Lake Creek, tributary to Metolius River","presence","Chinook salmon",2,"base 75 m","South Fork Lake Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-077","South Fork Fish Lake Creek Passage Weirs 1 & 2","OR","Lake Creek, tributary to Metolius River","presence","Mountain whitefish",2,"base 75 m","South Fork Lake Creek","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-077","South Fork Fish Lake Creek Passage Weirs 1 & 2","OR","Lake Creek, tributary to Metolius River","presence","Redband trout",2,"base 75 m","Lake Creek SF","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-078","Three Rivers - Cedar Creek Weir Dam","OR","Cedar Creek","presence","Coastal cutthroat trout",5,"base 75 m","Cedar Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-078","Three Rivers - Cedar Creek Weir Dam","OR","Cedar Creek","presence","Coho salmon",16,"base 75 m","Cedar Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-079","Welter Creek Dams #1 and #2","OR","Welter Creek","ESA","Coho salmon (SONCC, derived)",62,"base 75 m","Slate Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-079","Welter Creek Dams #1 and #2","OR","Welter Creek","presence","Chinook salmon",62,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-079","Welter Creek Dams #1 and #2","OR","Welter Creek","presence","Coastal cutthroat trout",62,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-079","Welter Creek Dams #1 and #2","OR","Welter Creek","presence","Coho salmon",62,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-079","Welter Creek Dams #1 and #2","OR","Welter Creek","presence","Steelhead",62,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-080","Farmers Ditch Irrigation Dam","OR","Little Applegate River","ESA","Coho salmon (SONCC, derived)",31,"base 75 m","Little Applegate River","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-080","Farmers Ditch Irrigation Dam","OR","Little Applegate River","presence","Chinook salmon",31,"base 75 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-080","Farmers Ditch Irrigation Dam","OR","Little Applegate River","presence","Coastal cutthroat trout",31,"base 75 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-080","Farmers Ditch Irrigation Dam","OR","Little Applegate River","presence","Coho salmon",31,"base 75 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-080","Farmers Ditch Irrigation Dam","OR","Little Applegate River","presence","Pacific lamprey",31,"base 75 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-080","Farmers Ditch Irrigation Dam","OR","Little Applegate River","presence","Steelhead",31,"base 75 m","Little Applegate River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-081","Bailey Nursery Dam","OR","Salt Creek ","presence","Coastal cutthroat trout",23,"base 75 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-081","Bailey Nursery Dam","OR","Salt Creek ","presence","Steelhead",23,"base 75 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-082","Balm Grove Dam","OR","Gales Creek ","ESA","Steelhead [Upper Willamette River DPS]",0,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-082","Balm Grove Dam","OR","Gales Creek ","presence","Coastal cutthroat trout",14,"base 75 m","Gales Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-082","Balm Grove Dam","OR","Gales Creek ","presence","Coho salmon",14,"base 75 m","Gales Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-082","Balm Grove Dam","OR","Gales Creek ","presence","Mountain whitefish",14,"base 75 m","Gales Creek","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-082","Balm Grove Dam","OR","Gales Creek ","presence","Pacific lamprey",412,"same-stream <=500 m","Gales Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-082","Balm Grove Dam","OR","Gales Creek ","presence","Steelhead",14,"base 75 m","Gales Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-083","Deep Creek Middle Diversion Dam ","OR","Deep Creek ","presence","Redband trout",4,"base 75 m","Deep Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-084","Prineville Country Club Diversion Dam (Lower Ochoco Creek Dam)","OR","Ochoco Creek","presence","Chinook salmon",3,"base 75 m","Ochoco Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-084","Prineville Country Club Diversion Dam (Lower Ochoco Creek Dam)","OR","Ochoco Creek","presence","Mountain whitefish",1,"base 75 m","Ochoco Creek","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-084","Prineville Country Club Diversion Dam (Lower Ochoco Creek Dam)","OR","Ochoco Creek","presence","Redband trout",1,"base 75 m","Ochoco Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-084","Prineville Country Club Diversion Dam (Lower Ochoco Creek Dam)","OR","Ochoco Creek","presence","Steelhead",1,"base 75 m","Ochoco Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-085","Lady Creek Dam","OR","Lady Creek ","ESA","Salmon, coho [Lower Columbia River ESU]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-085","Lady Creek Dam","OR","Lady Creek ","ESA","Steelhead [Lower Columbia River DPS]",29,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-085","Lady Creek Dam","OR","Lady Creek ","presence","Coastal cutthroat trout",4,"base 75 m","Lady Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-085","Lady Creek Dam","OR","Lady Creek ","presence","Coho salmon",4,"base 75 m","Lady Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-085","Lady Creek Dam","OR","Lady Creek ","presence","Steelhead",4,"base 75 m","Lady Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-086","Baker Creek Dam","OR","Baker Creek","presence","Coastal cutthroat trout",12,"base 75 m",NA,"ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-087 to OR-088","Krumwiede Diversion 1 & 2 Pushup Dams","OR","Salt Creek ","ESA","Coho salmon (SONCC, derived)",416,"same-stream <=500 m","Salt Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-087 to OR-088","Krumwiede Diversion 1 & 2 Pushup Dams","OR","Salt Creek ","presence","Coastal cutthroat trout",416,"same-stream <=500 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-087 to OR-088","Krumwiede Diversion 1 & 2 Pushup Dams","OR","Salt Creek ","presence","Coho salmon",416,"same-stream <=500 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-087 to OR-088","Krumwiede Diversion 1 & 2 Pushup Dams","OR","Salt Creek ","presence","Steelhead",416,"same-stream <=500 m","Salt Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-089","Lost Creek Dam","OR","Lost Creek","ESA","Coho salmon (SONCC, derived)",19,"base 75 m","Lost Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-089","Lost Creek Dam","OR","Lost Creek","presence","Coastal cutthroat trout",19,"base 75 m",NA,"ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-089","Lost Creek Dam","OR","Lost Creek","presence","Coho salmon",19,"base 75 m","Lost Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-089","Lost Creek Dam","OR","Lost Creek","presence","Steelhead",19,"base 75 m","Lost Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-090","Lovelace Dam ","OR","Slate Creek","ESA","Coho salmon (SONCC, derived)",12,"base 75 m","Slate Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-090","Lovelace Dam ","OR","Slate Creek","presence","Chinook salmon",12,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-090","Lovelace Dam ","OR","Slate Creek","presence","Coastal cutthroat trout",12,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-090","Lovelace Dam ","OR","Slate Creek","presence","Coho salmon",12,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-090","Lovelace Dam ","OR","Slate Creek","presence","Steelhead",12,"base 75 m","Slate Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","ESA","Salmon, coho [Lower Columbia River ESU]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","ESA","Steelhead [Lower Columbia River DPS]",44,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","presence","Chinook salmon",1,"base 75 m","North Fork Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","presence","Coastal cutthroat trout",1,"base 75 m","North Fork Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","presence","Coho salmon",1,"base 75 m","North Fork Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","presence","Pacific lamprey",1,"base 75 m","North Fork Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-091","North Fork Eagle Creek Dam","OR","North Fork Eagle Creek ","presence","Steelhead",1,"base 75 m","North Fork Eagle Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","ESA","Bull Trout",26,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","ESA","Salmon, Chinook [Snake River spring/summer-run ESU]",0,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","ESA","Steelhead [Snake River Basin DPS]",36,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","presence","Bull trout",1,"base 75 m","Lostine River","ODFW Fish Habitat Distribution 1167_5, fhd_Bulltrout","observed"
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","presence","Chinook salmon",1,"base 75 m","Lostine River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","presence","Coho salmon",1,"base 75 m","Lostine River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","presence","Redband trout",1,"base 75 m","Lostine River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-093","Poley Allen Diversion Dam ","OR","Lostine River ","presence","Steelhead",1,"base 75 m","Lostine River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-094","Takelma Creek Dam","OR","Takelma Creek","ESA","Coho salmon (SONCC, derived)",5,"base 75 m","Takelma Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-094","Takelma Creek Dam","OR","Takelma Creek","presence","Coastal cutthroat trout",5,"base 75 m","Squaw Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-094","Takelma Creek Dam","OR","Takelma Creek","presence","Coho salmon",5,"base 75 m","Takelma Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-094","Takelma Creek Dam","OR","Takelma Creek","presence","Steelhead",5,"base 75 m","Squaw Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-095","Whiskey Creek Hydro Dam","OR","Whiskey Creek ","presence","Chinook salmon",1,"base 75 m","Whiskey Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-095","Whiskey Creek Hydro Dam","OR","Whiskey Creek ","presence","Coastal cutthroat trout",1,"base 75 m","Whiskey Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Chinook salmon",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Coho salmon",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Klamath largescale sucker",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_KlamathLargescale","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Lost River sucker",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_LostRiver","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Redband trout",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Shortnose sucker",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_Sucker_Shortnose","observed"
+"OR-096","John C. Boyle Dam","OR","Klamath River","presence","Steelhead",1,"base 75 m","Klamath River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"OR-097","Pomeroy Dam","OR","Illinois River","ESA","Coho salmon (SONCC, derived)",34,"base 75 m","Illinois River","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-097","Pomeroy Dam","OR","Illinois River","presence","Chinook salmon",34,"base 75 m","Illinois River","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-097","Pomeroy Dam","OR","Illinois River","presence","Coastal cutthroat trout",34,"base 75 m","Illinois River","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-097","Pomeroy Dam","OR","Illinois River","presence","Coho salmon",34,"base 75 m","Illinois River","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-097","Pomeroy Dam","OR","Illinois River","presence","Pacific lamprey",33,"base 75 m","Illinois River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"OR-097","Pomeroy Dam","OR","Illinois River","presence","Steelhead",10,"base 75 m","Unnamed tributary to Illinois River","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-098","Williams-Whalen Dam","OR","Evans Creek","ESA","Coho salmon (SONCC, derived)",3,"base 75 m","Evans Creek","derived SONCC layer; ODFW Fish Habitat Distribution 1167_5, fhd_Coho",NA
+"OR-098","Williams-Whalen Dam","OR","Evans Creek","presence","Chinook salmon",3,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-098","Williams-Whalen Dam","OR","Evans Creek","presence","Coastal cutthroat trout",36,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-098","Williams-Whalen Dam","OR","Evans Creek","presence","Coho salmon",3,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-098","Williams-Whalen Dam","OR","Evans Creek","presence","Pacific lamprey",3,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-098","Williams-Whalen Dam","OR","Evans Creek","presence","Steelhead",3,"base 75 m","Evans Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-099","Hartman Dam","OR","Butte Creek","presence","Chinook salmon",5,"base 75 m","Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookSpring","observed"
+"OR-099","Hartman Dam","OR","Butte Creek","presence","Coastal cutthroat trout",5,"base 75 m","Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Cutthroat_Coastal","observed"
+"OR-099","Hartman Dam","OR","Butte Creek","presence","Coho salmon",5,"base 75 m","Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-099","Hartman Dam","OR","Butte Creek","presence","Pacific lamprey",5,"base 75 m","Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Lamprey_Pacific","observed"
+"OR-099","Hartman Dam","OR","Butte Creek","presence","Steelhead",5,"base 75 m","Butte Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadWinter","observed"
+"OR-100","Cline Falls Dam","OR","Deschutes River","presence","Mountain whitefish",14,"base 75 m","Deschutes River","ODFW Fish Habitat Distribution 1167_5, fhd_MountainWhitefish","observed"
+"OR-100","Cline Falls Dam","OR","Deschutes River","presence","Redband trout",14,"base 75 m","Deschutes River (low","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-101","Peterson Dam","OR","Birch Creek","ESA","Steelhead [Middle Columbia River DPS]",14,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"OR-101","Peterson Dam","OR","Birch Creek","presence","Chinook salmon",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_ChinookFall","observed"
+"OR-101","Peterson Dam","OR","Birch Creek","presence","Coho salmon",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Coho","observed"
+"OR-101","Peterson Dam","OR","Birch Creek","presence","Redband trout",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_Redband","observed"
+"OR-101","Peterson Dam","OR","Birch Creek","presence","Steelhead",1,"base 75 m","Birch Creek","ODFW Fish Habitat Distribution 1167_5, fhd_SteelheadSummer","observed"
+"WA-001","Maiden Dam","WA","Touchet River","ESA","Bull Trout",2,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-001","Maiden Dam","WA","Touchet River","ESA","Steelhead [Middle Columbia River DPS]",2,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-001","Maiden Dam","WA","Touchet River","presence","Chinook salmon",1,"base 75 m","Touchet River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-001","Maiden Dam","WA","Touchet River","presence","Steelhead",1,"base 75 m","Touchet River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-003","Goldsborough Dam","WA","Goldsborough Creek","ESA","Steelhead [Puget Sound DPS]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-003","Goldsborough Dam","WA","Goldsborough Creek","presence","Chinook salmon",3,"base 75 m","Goldsborough Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-003","Goldsborough Dam","WA","Goldsborough Creek","presence","Chum salmon",3,"base 75 m","Goldsborough Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-003","Goldsborough Dam","WA","Goldsborough Creek","presence","Coastal cutthroat trout",3,"base 75 m","Goldsborough Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-003","Goldsborough Dam","WA","Goldsborough Creek","presence","Coho salmon",3,"base 75 m","Goldsborough Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-003","Goldsborough Dam","WA","Goldsborough Creek","presence","Steelhead",3,"base 75 m","Goldsborough Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-004","Unnamed Blockage #1 (Diffusion Dam 2)","WA","Icicle Creek","ESA","Bull Trout",1,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-004","Unnamed Blockage #1 (Diffusion Dam 2)","WA","Icicle Creek","presence","Bull trout",11,"base 75 m","Unnamed stream [1206754475484]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-004","Unnamed Blockage #1 (Diffusion Dam 2)","WA","Icicle Creek","presence","Mountain whitefish",11,"base 75 m","Unnamed stream [1206754475484]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-005","Unnamed Blockage #2 (Diffusion Dam 3)","WA","Icicle Creek","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-005","Unnamed Blockage #2 (Diffusion Dam 3)","WA","Icicle Creek","presence","Bull trout",6,"base 75 m","Unnamed stream [1206706475584]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-005","Unnamed Blockage #2 (Diffusion Dam 3)","WA","Icicle Creek","presence","Mountain whitefish",6,"base 75 m","Unnamed stream [1206706475584]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-006","Unnamed Blockage #3 (Diffusion Dam 4)","WA","Icicle Creek","ESA","Bull Trout",4,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-006","Unnamed Blockage #3 (Diffusion Dam 4)","WA","Icicle Creek","presence","Bull trout",14,"base 75 m","Unnamed stream [1206706475584]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-006","Unnamed Blockage #3 (Diffusion Dam 4)","WA","Icicle Creek","presence","Mountain whitefish",14,"base 75 m","Unnamed stream [1206706475584]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-007","Lower Currier Creek Fish Passage and Habitat Restoration","WA","Yakima River Basin","ESA","Steelhead [Middle Columbia River DPS]",6,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-008","Chico Creek Instream Habitat Restoration","WA","Chico Creek","ESA","Steelhead [Puget Sound DPS]",24,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-008","Chico Creek Instream Habitat Restoration","WA","Chico Creek","presence","Chum salmon",24,"base 75 m","Chico Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-008","Chico Creek Instream Habitat Restoration","WA","Chico Creek","presence","Coastal cutthroat trout",24,"base 75 m","Chico Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-008","Chico Creek Instream Habitat Restoration","WA","Chico Creek","presence","Coho salmon",24,"base 75 m","Chico Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-008","Chico Creek Instream Habitat Restoration","WA","Chico Creek","presence","Steelhead",24,"base 75 m","Chico Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-009","Satus Dam","WA","Satus Creek","ESA","Steelhead [Middle Columbia River DPS]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-009","Satus Dam","WA","Satus Creek","presence","Chinook salmon",9,"base 75 m","Unnamed stream [1202408462796]","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-009","Satus Dam","WA","Satus Creek","presence","Coho salmon",9,"base 75 m","Unnamed stream [1202408462796]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-009","Satus Dam","WA","Satus Creek","presence","Steelhead",9,"base 75 m","Unnamed stream [1202408462796]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-010","Bruton Dam","WA","Taneum Creek","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-010","Bruton Dam","WA","Taneum Creek","ESA","Steelhead [Middle Columbia River DPS]",13,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-010","Bruton Dam","WA","Taneum Creek","presence","Chinook salmon",13,"base 75 m","Taneum Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-010","Bruton Dam","WA","Taneum Creek","presence","Steelhead",13,"base 75 m","Taneum Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-011","Hemlock Dam","WA","Trout Creek","ESA","Salmon, Chinook [Lower Columbia River ESU]",44,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-011","Hemlock Dam","WA","Trout Creek","ESA","Steelhead [Lower Columbia River DPS]",16,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-011","Hemlock Dam","WA","Trout Creek","presence","Chinook salmon",60,"base 75 m","Trout Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-011","Hemlock Dam","WA","Trout Creek","presence","Coho salmon",8,"base 75 m","Trout Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-011","Hemlock Dam","WA","Trout Creek","presence","Steelhead",8,"base 75 m","Trout Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-011","Hemlock Dam","WA","Trout Creek","presence","Steelhead",492,"same-stream <=500 m","Trout Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-013","Elwha Dam","WA","Elwha River","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-013","Elwha Dam","WA","Elwha River","ESA","Salmon, Chinook [Puget Sound ESU]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-013","Elwha Dam","WA","Elwha River","ESA","Steelhead [Puget Sound DPS]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-013","Elwha Dam","WA","Elwha River","presence","Bull trout",3,"base 75 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Chinook salmon",271,"same-stream <=500 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Coastal cutthroat trout",204,"same-stream <=500 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Coho salmon",260,"same-stream <=500 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Pacific lamprey",2,"base 75 m","Elwha River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Pink salmon",260,"same-stream <=500 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Sockeye salmon",277,"same-stream <=500 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Steelhead",271,"same-stream <=500 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-013","Elwha Dam","WA","Elwha River","presence","Steelhead",3,"base 75 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-014","Glines Canyon Dam","WA","Elwha River","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-014","Glines Canyon Dam","WA","Elwha River","ESA","Steelhead [Puget Sound DPS]",12,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-014","Glines Canyon Dam","WA","Elwha River","presence","Bull trout",6,"base 75 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-014","Glines Canyon Dam","WA","Elwha River","presence","Pacific lamprey",12,"base 75 m","Elwha River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-014","Glines Canyon Dam","WA","Elwha River","presence","Steelhead",6,"base 75 m","Elwha River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-015","Martha Creek Dam","WA","Martha Creek","presence","Coho salmon",263,"same-stream <=500 m","Martha Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-015","Martha Creek Dam","WA","Martha Creek","presence","Steelhead",1,"base 75 m","Martha Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-015","Martha Creek Dam","WA","Martha Creek","presence","Steelhead",220,"same-stream <=500 m","Martha Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-018","Hunters Dam","WA","Hunters Creek","presence","Redband trout",6,"base 75 m","Hunter Creek","WDFW SWIFD, file geodatabase of 2026-04-17","inferred"
+"WA-019","Mill Creek Settling Basin Dam","WA","Mill Creek","presence","Coho salmon",20,"base 75 m","Mill Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","ESA","Salmon, Chinook [Puget Sound ESU]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","ESA","Steelhead [Puget Sound DPS]",1,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","presence","Bull trout",1,"base 75 m","Wagleys Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","presence","Chinook salmon",1,"base 75 m","Wagleys Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","presence","Coastal cutthroat trout",1,"base 75 m","Wagleys Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","presence","Coho salmon",1,"base 75 m","Wagleys Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-023","Sultan Mill Pond Dam","WA","Wagleys Creek","presence","Steelhead",1,"base 75 m","Wagleys Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-024","Wind River Dam","WA","Wind River","ESA","Salmon, Chinook [Lower Columbia River ESU]",51,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-024","Wind River Dam","WA","Wind River","ESA","Steelhead [Lower Columbia River DPS]",51,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-024","Wind River Dam","WA","Wind River","presence","Chinook salmon",55,"base 75 m","Wind River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-024","Wind River Dam","WA","Wind River","presence","Coho salmon",55,"base 75 m","Wind River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-024","Wind River Dam","WA","Wind River","presence","Pacific lamprey",51,"base 75 m","Wind River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-024","Wind River Dam","WA","Wind River","presence","Steelhead",55,"base 75 m","Wind River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-031","Durham Dam","WA","Toppenish Creek","ESA","Steelhead [Middle Columbia River DPS]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-031","Durham Dam","WA","Toppenish Creek","presence","Coho salmon",9,"base 75 m","Toppenish Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-031","Durham Dam","WA","Toppenish Creek","presence","Pacific lamprey",9,"base 75 m","Toppenish Creek","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-031","Durham Dam","WA","Toppenish Creek","presence","Steelhead",9,"base 75 m","Toppenish Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-032","Cedar Creek Dam","WA","Cedar Creek","ESA","Bull Trout",6,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-032","Cedar Creek Dam","WA","Cedar Creek","presence","Bull trout",24,"base 75 m","Cedar Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-032","Cedar Creek Dam","WA","Cedar Creek","presence","Redband trout",24,"base 75 m","Cedar Creek","WDFW SWIFD, file geodatabase of 2026-04-17","inferred"
+"WA-032","Cedar Creek Dam","WA","Cedar Creek","presence","Westslope cutthroat trout",24,"base 75 m","Cedar Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-033","Reed Diversion Dam","WA","Manashtash Creek","ESA","Steelhead [Middle Columbia River DPS]",16,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-034","Mill Pond Dam ","WA","Sullivan Creek","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-034","Mill Pond Dam ","WA","Sullivan Creek","presence","Bull trout",1,"base 75 m","Sullivan Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-034","Mill Pond Dam ","WA","Sullivan Creek","presence","Mountain whitefish",1,"base 75 m","Sullivan Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-034","Mill Pond Dam ","WA","Sullivan Creek","presence","Redband trout",1,"base 75 m","Sullivan Creek","WDFW SWIFD, file geodatabase of 2026-04-17","inferred"
+"WA-034","Mill Pond Dam ","WA","Sullivan Creek","presence","Westslope cutthroat trout",1,"base 75 m","Sullivan Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-035","Condit Dam","WA","White Salmon River","ESA","Bull Trout",22,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-035","Condit Dam","WA","White Salmon River","ESA","Salmon, Chinook [Lower Columbia River ESU]",47,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-035","Condit Dam","WA","White Salmon River","ESA","Salmon, chum [Columbia River ESU]",47,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-035","Condit Dam","WA","White Salmon River","ESA","Salmon, coho [Lower Columbia River ESU]",47,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-035","Condit Dam","WA","White Salmon River","ESA","Steelhead [Middle Columbia River DPS]",47,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-035","Condit Dam","WA","White Salmon River","presence","Bull trout",14,"base 75 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Bull trout",71,"base 75 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Chinook salmon",23,"base 75 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Coastal cutthroat trout",78,"same-stream <=500 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Coho salmon",23,"base 75 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Mountain whitefish",111,"same-stream <=500 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Pacific lamprey",47,"base 75 m","White Salmon River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-035","Condit Dam","WA","White Salmon River","presence","Steelhead",23,"base 75 m","White Salmon River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","ESA","Bull Trout",1,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","ESA","Salmon, Chinook [Puget Sound ESU]",10,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","ESA","Steelhead [Puget Sound DPS]",10,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","presence","Bull trout",10,"base 75 m","Middle Fork Nooksack River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","presence","Chinook salmon",10,"base 75 m","Middle Fork Nooksack River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","presence","Coastal cutthroat trout",10,"base 75 m","Middle Fork Nooksack River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","presence","Coho salmon",10,"base 75 m","Middle Fork Nooksack River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","presence","Pink salmon",10,"base 75 m","Middle Fork Nooksack River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-036","Middle Fork Nooksack River Dam","WA","Middle Fork Nooksack River","presence","Steelhead",10,"base 75 m","Middle Fork Nooksack River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","ESA","Bull Trout",4,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","ESA","Salmon, Chinook [Puget Sound ESU]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","ESA","Steelhead [Puget Sound DPS]",9,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Bull trout",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Chinook salmon",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Chum salmon",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Coastal cutthroat trout",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Coho salmon",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Pacific lamprey",10,"base 75 m","Pilchuck River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Pink salmon",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-037","Pilchuck River Diversion Dam","WA","Pilchuck River","presence","Steelhead",9,"base 75 m","Pilchuck River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-038","Nelson Dam","WA","Naches River","ESA","Bull Trout",0,"base 75 m",NA,"USFWS critical habitat bundle 2026-08-31, FCH_SALVELINUS_CONFLUENTUS_20101018.shp",NA
+"WA-038","Nelson Dam","WA","Naches River","ESA","Steelhead [Middle Columbia River DPS]",29,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-038","Nelson Dam","WA","Naches River","presence","Bull trout",23,"base 75 m","Naches River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-038","Nelson Dam","WA","Naches River","presence","Chinook salmon",23,"base 75 m","Naches River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-038","Nelson Dam","WA","Naches River","presence","Coho salmon",23,"base 75 m","Naches River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-038","Nelson Dam","WA","Naches River","presence","Mountain whitefish",23,"base 75 m","Naches River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-038","Nelson Dam","WA","Naches River","presence","Pacific lamprey",29,"base 75 m","Naches River","USFWS Pacific Lamprey Known Observations And Distribution 2022, layer 45","observed"
+"WA-038","Nelson Dam","WA","Naches River","presence","Steelhead",23,"base 75 m","Naches River","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-042","Baird Creek Splash Dam","WA","Baird Creek (Tributary to Coweeman River)","ESA","Salmon, coho [Lower Columbia River ESU]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-042","Baird Creek Splash Dam","WA","Baird Creek (Tributary to Coweeman River)","ESA","Steelhead [Lower Columbia River DPS]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-042","Baird Creek Splash Dam","WA","Baird Creek (Tributary to Coweeman River)","presence","Coastal cutthroat trout",3,"base 75 m","Baird Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-042","Baird Creek Splash Dam","WA","Baird Creek (Tributary to Coweeman River)","presence","Coho salmon",3,"base 75 m","Baird Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-042","Baird Creek Splash Dam","WA","Baird Creek (Tributary to Coweeman River)","presence","Coho salmon",159,"same-stream <=500 m","Baird Creek","WDFW SWIFD, file geodatabase of 2026-04-17","presumed"
+"WA-042","Baird Creek Splash Dam","WA","Baird Creek (Tributary to Coweeman River)","presence","Steelhead",3,"base 75 m","Baird Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-043","Kwoneesum Dam","WA","Wildboy Creek","ESA","Salmon, coho [Lower Columbia River ESU]",42,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-043","Kwoneesum Dam","WA","Wildboy Creek","ESA","Steelhead [Lower Columbia River DPS]",40,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-043","Kwoneesum Dam","WA","Wildboy Creek","presence","Coastal cutthroat trout",30,"base 75 m","Wildboy Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-043","Kwoneesum Dam","WA","Wildboy Creek","presence","Coho salmon",41,"base 75 m","Wildboy Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-043","Kwoneesum Dam","WA","Wildboy Creek","presence","Steelhead",32,"base 75 m","Wildboy Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-044","Snyder Creek AOP #1 Dam","WA","Synder Canyon Creek","ESA","Steelhead [Middle Columbia River DPS]",2,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-044","Snyder Creek AOP #1 Dam","WA","Synder Canyon Creek","presence","Coastal cutthroat trout",2,"base 75 m","Snyder Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-044","Snyder Creek AOP #1 Dam","WA","Synder Canyon Creek","presence","Coho salmon",2,"base 75 m","Snyder Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-044","Snyder Creek AOP #1 Dam","WA","Synder Canyon Creek","presence","Steelhead",2,"base 75 m","Snyder Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-045","Unnamed Dam","WA","West Fork Anderson Creek","ESA","Steelhead [Puget Sound DPS]",3,"base 75 m",NA,"NMFS West Coast critical habitat 20230717",NA
+"WA-045","Unnamed Dam","WA","West Fork Anderson Creek","presence","Coastal cutthroat trout",3,"base 75 m","Anderson Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-045","Unnamed Dam","WA","West Fork Anderson Creek","presence","Coho salmon",3,"base 75 m","Anderson Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-045","Unnamed Dam","WA","West Fork Anderson Creek","presence","Steelhead",3,"base 75 m","Anderson Creek","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-046","Unnamed Dam","WA","East Fork Anderson Creek","presence","Coastal cutthroat trout",8,"base 75 m","Unnamed stream [1226824475230]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"
+"WA-046","Unnamed Dam","WA","East Fork Anderson Creek","presence","Coho salmon",8,"base 75 m","Unnamed stream [1226824475230]","WDFW SWIFD, file geodatabase of 2026-04-17","observed"

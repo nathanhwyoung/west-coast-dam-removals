@@ -1,0 +1,55 @@
+ar_id,name,state,verdict,n_hits,ar_river,nacc_river,ar_year,nacc_year,sarpid,nacc_name,lat,lon,nhdplusid,removed,snapped,county
+CA-001,Big Creek Manufacturing Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-003,Lone Jack Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-004,Arco Pond Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-009,Russell Dam (Hinkley Dam),CA,ACCEPT,1,Hayfork Creek,Hayfork Creek,1922,1922,CA969296,Russell Dam (Hinkley Dam),40.63183,-123.4162,5.0000400145153e+13,yes,true,Trinity
+CA-010,Hessellwood Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-011,Henry Danninbrink Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-012,Anderline Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-014,Bonally Mining Co. Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-015,Trinity Cty. Water & Power Co. Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-016,D.B. Fields Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-017,Altoona Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-018,Three C. Picket Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-019,Big Nugget Mine Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-020,Moser Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-021,Todd Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-022,Smith Dam,CA,AMBIGUOUS_MULTI_HIT,2,White's Gulch,Woods Creek,1949,0,CA100107,Smith,37.966717,-120.38979,5.0000800238244e+13,no,true,Tuolumne
+CA-022,Smith Dam,CA,AMBIGUOUS_MULTI_HIT,2,White's Gulch,Unnamed,1949,0,CA99633,Smith,38.858,-120.190155,5.0000900414248e+13,no,true,El Dorado
+CA-023,Clarissa V. Mining Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-024,Bennett-Smith Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-025,Barton Dam,CA,REJECT_RIVER_MISMATCH,1,Scott River (South Fork),White Slough,1950,0,CA63707,Barton,41.641605,-122.447716,-1,no,false,Siskiyou
+CA-026,North Fork Placers Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-027,Red Hill Mining Do. Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-028,Quinn Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-032,Happy Isles Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-034,Unnamed Dam #1,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-035,Unnamed Dam #2,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-036,Point Four Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-037,C-Lind Dam #1,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-038,Lake Christopher Dam,CA,ACCEPT,1,Cold Creek,Cold Creek,1994,1994,CA969297,Lake Christopher Dam,38.910156,-119.96485,7.0000300002625e+13,yes,true,El Dorado
+CA-040,Western Canal East Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-041,Western Canal Main Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-042,Unnamed Small Dam #1,CA,ACCEPT,1,Guadalupe River,Guadalupe River,1998,1998,CA969298,Unnamed Small Dam #1,37.374195,-121.93298,5.0000300014181e+13,yes,true,Santa Clara
+CA-043,Unnamed Small Dam #2,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-048,Unnamed Dam,CA,SKIP_GENERIC_NAME,0,,,,,,,,,,,,
+CA-049,Unnamed Arizona Crossing,CA,ACCEPT,1,Solstice Creek,Solstice Creek,2002,2002,CA969301,Unnamed Arizona Crossing,34.04862,-118.7539,5.0000100004056e+13,yes,true,Los Angeles
+CA-050,North Debris Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+CA-051,Trancas Debris Dam,CA,ACCEPT,1,Unnamed Trib. to the Trancas Canyon,Unnamed Trib. To The Trancas Canyon,2002,2002,CA969302,Trancas Debris Dam,34.04055,-118.84668,5.0000100003196e+13,yes,true,Los Angeles
+CA-052,A-Frame Dam,CA,ACCEPT,1,Brandy Creek,Brandy Creek,2003,2003,CA969303,A-Frame Dam,40.61128,-122.576416,5.0000900330444e+13,yes,true,Shasta
+CA-064,Unnamed Dam,CA,SKIP_GENERIC_NAME,0,,,,,,,,,,,,
+CA-103,McGowan Dam,CA,AMBIGUOUS_MULTI_HIT,2,Butte Creek,Unnamed,1998,0,CA100081,Mcgowan,40.392323,-121.55283,5.0000900042879e+13,no,true,Tehama
+CA-103,McGowan Dam,CA,AMBIGUOUS_MULTI_HIT,2,Butte Creek,Butte Creek,1998,1998,CA969305,Mcgowan Dam,39.562717,-121.82847,5.0000900444317e+13,yes,true,Butte
+CA-175,Little Shasta River Flashboard Dam,CA,NO_MATCH,0,,,,,,,,,,,,
+OR-006,Unnamed Dam,OR,SKIP_GENERIC_NAME,0,,,,,,,,,,,,
+OR-014,Dinner Creek Dam,OR,NO_MATCH,0,,,,,,,,,,,,
+OR-016,Unnamed Dam,OR,SKIP_GENERIC_NAME,0,,,,,,,,,,,,
+OR-032,Confluence Dam Removal,OR,NO_MATCH,0,,,,,,,,,,,,
+OR-033,Ward Dam Removal,OR,NO_MATCH,0,,,,,,,,,,,,
+OR-076,Plainview Dam,OR,NO_MATCH,0,,,,,,,,,,,,
+WA-002,Unnamed Dam,WA,SKIP_GENERIC_NAME,0,,,,,,,,,,,,
+WA-009,Satus Dam,WA,NO_MATCH,0,,,,,,,,,,,,
+WA-012,Unnamed Dam,WA,SKIP_GENERIC_NAME,0,,,,,,,,,,,,
+WA-017,Coffee Creek Dam,WA,NO_MATCH,0,,,,,,,,,,,,
+WA-020,Stromer Lake Dam,WA,NO_MATCH,0,,,,,,,,,,,,
+WA-021,PEO Dam #48,WA,NO_MATCH,0,,,,,,,,,,,,

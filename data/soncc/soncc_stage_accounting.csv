@@ -1,0 +1,101 @@
+"stage","state","huc8","unit_name","km"
+"A_units_only","CA","17100311","Illinois",14.25
+"A_units_only","CA","17100312","Chetco",12.12
+"A_units_only","CA","18010101","Smith",247.86
+"A_units_only","CA","18010102","Mad-Redwood",457.01
+"A_units_only","CA","18010103","Upper Eel",146.82
+"A_units_only","CA","18010104","Middle Fork Eel",0.01
+"A_units_only","CA","18010105","Lower Eel",331.42
+"A_units_only","CA","18010106","South Fork Eel",393.72
+"A_units_only","CA","18010107","Mattole",179.46
+"A_units_only","CA","18010206","Upper Klamath",209.92
+"A_units_only","CA","18010207","Shasta",114.22
+"A_units_only","CA","18010208","Scott",210.15
+"A_units_only","CA","18010209","Lower Klamath",528.37
+"A_units_only","CA","18010210","Salmon",107.13
+"A_units_only","CA","18010211","Trinity",394
+"A_units_only","CA","18010212","South Fork Trinity",113.57
+"A_units_only","OR","17100306","Sixes",463.37
+"A_units_only","OR","17100307","Upper Rogue",333.32
+"A_units_only","OR","17100308","Middle Rogue",319.48
+"A_units_only","OR","17100309","Applegate",245.11
+"A_units_only","OR","17100310","Lower Rogue",484.85
+"A_units_only","OR","17100311","Illinois",489.28
+"A_units_only","OR","17100312","Chetco",285.3
+"A_units_only","OR","18010101","Smith",43.53
+"A_units_only","OR","18010206","Upper Klamath",70.6
+"B_plus_counties","CA","17100311","Illinois",14.25
+"B_plus_counties","CA","17100312","Chetco",12.12
+"B_plus_counties","CA","18010101","Smith",247.86
+"B_plus_counties","CA","18010102","Mad-Redwood",457.01
+"B_plus_counties","CA","18010103","Upper Eel",146.82
+"B_plus_counties","CA","18010104","Middle Fork Eel",0.01
+"B_plus_counties","CA","18010105","Lower Eel",331.42
+"B_plus_counties","CA","18010106","South Fork Eel",393.72
+"B_plus_counties","CA","18010107","Mattole",179.46
+"B_plus_counties","CA","18010206","Upper Klamath",209.92
+"B_plus_counties","CA","18010207","Shasta",114.22
+"B_plus_counties","CA","18010208","Scott",210.15
+"B_plus_counties","CA","18010209","Lower Klamath",528.37
+"B_plus_counties","CA","18010210","Salmon",107.13
+"B_plus_counties","CA","18010211","Trinity",394
+"B_plus_counties","CA","18010212","South Fork Trinity",113.57
+"B_plus_counties","OR","17100306","Sixes",361.22
+"B_plus_counties","OR","17100307","Upper Rogue",333.32
+"B_plus_counties","OR","17100308","Middle Rogue",319.48
+"B_plus_counties","OR","17100309","Applegate",245.11
+"B_plus_counties","OR","17100310","Lower Rogue",484.85
+"B_plus_counties","OR","17100311","Illinois",489.28
+"B_plus_counties","OR","17100312","Chetco",285.3
+"B_plus_counties","OR","18010101","Smith",43.53
+"B_plus_counties","OR","18010206","Upper Klamath",11.55
+"C_plus_esu_extent","CA","17100311","Illinois",14.25
+"C_plus_esu_extent","CA","17100312","Chetco",12.12
+"C_plus_esu_extent","CA","18010101","Smith",247.86
+"C_plus_esu_extent","CA","18010102","Mad-Redwood",457.01
+"C_plus_esu_extent","CA","18010103","Upper Eel",146.82
+"C_plus_esu_extent","CA","18010104","Middle Fork Eel",0.01
+"C_plus_esu_extent","CA","18010105","Lower Eel",331.42
+"C_plus_esu_extent","CA","18010106","South Fork Eel",393.72
+"C_plus_esu_extent","CA","18010107","Mattole",178.74
+"C_plus_esu_extent","CA","18010206","Upper Klamath",209.92
+"C_plus_esu_extent","CA","18010207","Shasta",114.22
+"C_plus_esu_extent","CA","18010208","Scott",210.15
+"C_plus_esu_extent","CA","18010209","Lower Klamath",528.37
+"C_plus_esu_extent","CA","18010210","Salmon",107.13
+"C_plus_esu_extent","CA","18010211","Trinity",394
+"C_plus_esu_extent","CA","18010212","South Fork Trinity",113.57
+"C_plus_esu_extent","OR","17100306","Sixes",139.58
+"C_plus_esu_extent","OR","17100307","Upper Rogue",333.32
+"C_plus_esu_extent","OR","17100308","Middle Rogue",319.48
+"C_plus_esu_extent","OR","17100309","Applegate",245.11
+"C_plus_esu_extent","OR","17100310","Lower Rogue",484.85
+"C_plus_esu_extent","OR","17100311","Illinois",489.28
+"C_plus_esu_extent","OR","17100312","Chetco",285.3
+"C_plus_esu_extent","OR","18010101","Smith",43.53
+"C_plus_esu_extent","OR","18010206","Upper Klamath",11.55
+"D_minus_boundary_dams","CA","17100311","Illinois",14.25
+"D_minus_boundary_dams","CA","17100312","Chetco",12.12
+"D_minus_boundary_dams","CA","18010101","Smith",247.86
+"D_minus_boundary_dams","CA","18010102","Mad-Redwood",457.01
+"D_minus_boundary_dams","CA","18010103","Upper Eel",146.82
+"D_minus_boundary_dams","CA","18010104","Middle Fork Eel",0.01
+"D_minus_boundary_dams","CA","18010105","Lower Eel",331.42
+"D_minus_boundary_dams","CA","18010106","South Fork Eel",393.72
+"D_minus_boundary_dams","CA","18010107","Mattole",178.74
+"D_minus_boundary_dams","CA","18010206","Upper Klamath",209.91
+"D_minus_boundary_dams","CA","18010207","Shasta",114.22
+"D_minus_boundary_dams","CA","18010208","Scott",210.15
+"D_minus_boundary_dams","CA","18010209","Lower Klamath",528.37
+"D_minus_boundary_dams","CA","18010210","Salmon",107.13
+"D_minus_boundary_dams","CA","18010211","Trinity",394
+"D_minus_boundary_dams","CA","18010212","South Fork Trinity",113.57
+"D_minus_boundary_dams","OR","17100306","Sixes",139.58
+"D_minus_boundary_dams","OR","17100307","Upper Rogue",333.32
+"D_minus_boundary_dams","OR","17100308","Middle Rogue",319.48
+"D_minus_boundary_dams","OR","17100309","Applegate",245.11
+"D_minus_boundary_dams","OR","17100310","Lower Rogue",484.85
+"D_minus_boundary_dams","OR","17100311","Illinois",489.28
+"D_minus_boundary_dams","OR","17100312","Chetco",285.3
+"D_minus_boundary_dams","OR","18010101","Smith",43.53
+"D_minus_boundary_dams","OR","18010206","Upper Klamath",11.55

@@ -1,0 +1,136 @@
+Same-stream sweep, 2026-09-13. Extension: 500 m under name equality (rule 40).
+Base tolerance 75 m. 46 matches over 18 dams and 14 species.
+
+VERDICT PER DAM. `agree` is the nearest stream rule 40 accepts; `other` is the
+nearest it does not. A non-agreeing stream much nearer means the dam may sit on
+that channel instead, which is what OR-066 looked like.
+
+CA-175    Little Shasta River Flashboard D 41.72226, -122.37027
+   river recorded : Little Shasta River
+   agreeing       : 7.3 m
+   nearest other  : none
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+CA-186    Iron Gate Dam                    41.9349, -122.4367
+   river recorded : Klamath River
+   agreeing       : 95.1 m
+   nearest other  : 149.1 m  on  
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+OR-015    Buck & Jones Diversion Dam       42.17507, -123.003
+   river recorded : Little Applegate River
+   agreeing       : 79.2 m
+   nearest other  : 79.2 m  on (unnamed)
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+OR-027    Fivemile Creek Irrigation Divers 42.4693, -121.1135
+   river recorded : Fivemile Creek
+   agreeing       : 5 m
+   nearest other  : 362.8 m  on North Fork Sprague River
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-040    Sandy River Delta Dam            45.55352, -122.378
+   river recorded : Sandy River
+   agreeing       : 278.1 m
+   nearest other  : 98.1 m  on (unnamed)
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-046    Pine Meadow Ranch Dam            44.26825, -121.558
+   river recorded : Whychus Creek
+   agreeing       : 19.7 m
+   nearest other  : none
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+OR-049    Canyon Creek Meadows Dam         44.2368, -118.7719
+   river recorded : Canyon Creek
+   agreeing       : 82.7 m
+   nearest other  : none
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-062    Kelley Creek Dam                 45.46596, -122.49294
+   river recorded : Kelley Creek, tributary to Johnson Creek
+   agreeing       : 311.2 m
+   nearest other  : 311.2 m  on Kelly Creek
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-066    South Fork Big Butte Dam         42.53622, -122.54519
+   river recorded : South Fork Big Butte Creek
+   agreeing       : 4.8 m
+   nearest other  : none
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-070    Powell Creek Dam                 42.26648, -123.28797
+   river recorded : Powell Creek
+   agreeing       : 15.9 m
+   nearest other  : none
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-072    Klaskanine Hatchery Intake Dam   46.0885, -123.71735
+   river recorded : North Fork Klaskanine
+   agreeing       : 0 m
+   nearest other  : 227 m  on (unnamed)
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+OR-082    Balm Grove Dam                   45.59845, -123.21711
+   river recorded : Gales Creek 
+   agreeing       : 14.5 m
+   nearest other  : 235.5 m  on Little Beaver Creek
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+OR-087 to OR-088 Krumwiede Diversion 1 & 2 Pushup 42.44, -122.64
+   river recorded : Salt Creek 
+   agreeing       : 415.6 m
+   nearest other  : 312.8 m  on Long Branch
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+WA-011    Hemlock Dam                      45.80214, -121.933
+   river recorded : Trout Creek
+   agreeing       : 8.3 m
+   nearest other  : none
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+WA-013    Elwha Dam                        48.09414, -123.558
+   river recorded : Elwha River
+   agreeing       : 2.1 m
+   nearest other  : none
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+WA-015    Martha Creek Dam                 45.78913, -121.93945
+   river recorded : Martha Creek
+   agreeing       : 1.4 m
+   nearest other  : none
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+WA-035    Condit Dam                       45.76742, -121.538
+   river recorded : White Salmon River
+   agreeing       : 14 m
+   nearest other  : none
+   dam's own name : does NOT agree with the recorded river; names no nearer stream
+   -> ok
+
+WA-042    Baird Creek Splash Dam           46.18529, -122.56603
+   river recorded : Baird Creek (Tributary to Coweeman River)
+   agreeing       : 3.3 m
+   nearest other  : 360.4 m  on Little Baird Creek
+   dam's own name : AGREES with the recorded river; names no nearer stream
+   -> ok
+
+
+SUMMARY
+   18  ok

@@ -1,0 +1,15 @@
+{
+  "layer": "soncc_coho_derived_fullres.gpkg (joins) / soncc_coho_derived.geojson (display)",
+  "what": "Reconstructed SONCC coho critical habitat, BOTH STATES. DERIVED, not an official NMFS layer.",
+  "why": "NMFS has never published spatial data for this ESU's critical habitat",
+  "authority": "50 CFR 226.210; 64 FR 24049 (1999-05-05); Table 6 to Part 226, verified against eCFR 2026-09-11",
+  "built": "2026-09-11",
+  "method": "distribution ∩ Table 6 unit ∩ listed counties ∩ ESU extent (NOAA ds803 range, Cape Blanco to Punta Gorda) − basins above the 11 Table 6 boundary dams",
+  "oregon_distribution": "ODFW FHD 1167_5 fhd_Coho WHERE fhdAccess = 'Unassisted' AND fhdUseTy <> 'Historical' AND fhdLifeHst = 'Anadromous' AND fhdOrig = 'NativeLocal'",
+  "california_distribution": "CDFW BIOS ds326 Coho Distribution, August 2025 (observed since 1990)",
+  "boundary_basins": "WORKING/SS_BASINS/boundary_basins.geojson, from build/fetch_boundary_basins.py",
+  "km_OR": {"A_units_only": 2734.8, "B_plus_counties": 2573.6, "C_plus_esu_extent": 2352, "D_final": 2352},
+  "km_CA": {"A_units_only": 3460, "B_plus_counties": 3460, "C_plus_esu_extent": 3459.3, "D_final": 3459.3},
+  "reaches_final": 2007,
+  "caveats": ["DERIVED, not an official NMFS layer. Label it everywhere; never render it like the NOAA layers.", "Two claim types: ODFW documented-accessible distribution (OR), CDFW observed distribution (CA). claim_type on every reach.", "California half understates the designation: observed is a subset of accessible.", "Current distribution is not 1999 accessibility.", "Circular as an input to miles-opened: some reaches exist because a dam was removed and coho recolonised.", "Iron Gate is still the legal boundary although removed in 2024; the designation has not been amended.", "Display copy is simplified ~33 m. Joins use the full-resolution GeoPackage only (standing rule 35)."]
+}

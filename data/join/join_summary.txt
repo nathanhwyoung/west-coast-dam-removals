@@ -1,0 +1,72 @@
+Join run 2026-09-13 | tolerance: base 75 m, same-stream extension 500 m, ranges by containment
+
+dams mapped: 290
+  with ESA critical habitat: 144
+  with any species present: 187
+  with both: 141
+  with neither: 100
+
+dams per species (presence):
+                     label dams
+                 Steelhead  156
+               Coho salmon   95
+   Coastal cutthroat trout   80
+            Chinook salmon   79
+           Pacific lamprey   65
+             Redband trout   27
+        Mountain whitefish   20
+                Bull trout   17
+         Largescale sucker   10
+     Western river lamprey    9
+ Klamath largescale sucker    7
+          Bridgelip sucker    6
+               Chum salmon    6
+         Lost River sucker    6
+          Shortnose sucker    6
+            White sturgeon    4
+            Green sturgeon    3
+               Pink salmon    3
+ Westslope cutthroat trout    2
+                  Eulachon    1
+            Sockeye salmon    1
+
+dams per listed entity (ESA), top 12:
+                                       label dams
+                Coho salmon (SONCC, derived)   45
+    Steelhead [Central California Coast DPS]   20
+                                  Bull Trout   19
+       Steelhead [Middle Columbia River DPS]   17
+     Salmon, coho [Lower Columbia River ESU]   14
+ Salmon, coho [Central California Coast ESU]   12
+        Steelhead [Lower Columbia River DPS]   10
+   Steelhead [California Central Valley DPS]    8
+                 Steelhead [Puget Sound DPS]    8
+         Steelhead [Northern California DPS]    7
+  Salmon, Chinook [Lower Columbia River ESU]    6
+         Steelhead [Southern California DPS]    6
+
+match ROWS by rule (a species may hold one row per claim grade):
+     kind            matched_rule matches
+      ESA               base 75 m     200
+      ESA     same-stream <=500 m       5
+ presence HUC12 range within 75 m       2
+ presence               base 75 m     520
+ presence      inside HUC12 range      48
+ presence     same-stream <=500 m      41
+
+presence claims by grade (best claim per dam and species):
+    grade dam_species_pairs
+ observed               540
+ presumed                13
+    range                47
+ inferred                 3
+
+test cases:
+  OR-022  Chiloquin Dam                  ESA: Lost River Sucker; Shortnose Sucker              | present: Chinook salmon; Klamath largescale sucker; Lost River sucker; Redband trout; Shortnose sucker; Steelhead
+  OR-023  Savage Rapids Dam              ESA: Coho salmon (SONCC, derived)                     | present: Chinook salmon; Coastal cutthroat trout; Coho salmon; Pacific lamprey; Steelhead
+  OR-096  John C. Boyle Dam              ESA: none                                             | present: Chinook salmon; Coho salmon; Klamath largescale sucker; Lost River sucker; Redband trout; Shortnose sucker; Steelhead
+  CA-186  Iron Gate Dam                  ESA: Coho salmon (SONCC, derived)                     | present: Chinook salmon; Coho salmon; Klamath largescale sucker; Lost River sucker; Pacific lamprey; Shortnose sucker; Steelhead
+  CA-175  Little Shasta River Flashboard ESA: Coho salmon (SONCC, derived)                     | present: Coho salmon; Steelhead
+  WA-009  Satus Dam                      ESA: Steelhead [Middle Columbia River DPS]            | present: Chinook salmon; Coho salmon; Steelhead
+  WA-013  Elwha Dam                      ESA: Bull Trout; Salmon, Chinook [Puget Sound ESU]; S | present: Bull trout; Chinook salmon; Coastal cutthroat trout; Coho salmon; Pacific lamprey; Pink salmon; Sockeye salmon; Steelhead
+  WA-035  Condit Dam                     ESA: Bull Trout; Salmon, Chinook [Lower Columbia Rive | present: Bull trout; Chinook salmon; Coastal cutthroat trout; Coho salmon; Mountain whitefish; Pacific lamprey; Steelhead

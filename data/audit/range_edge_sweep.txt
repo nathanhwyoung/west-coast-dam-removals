@@ -1,0 +1,38 @@
+Range edge sweep, 2026-09-13. Tolerance under test: 75 m (standing rule 41).
+Distance is to the edge of the UNION of each species' HUC12s, not to one HUC12.
+
+INSIDE a range: 48 dam/species pairs.
+  How far each could move before falling out of range.
+  Closest to an edge: 0.24 m
+  Within the 75 m tolerance of the edge: 3
+
+  The ten closest to an edge:
+    CA-186    Iron Gate Dam                  Klamath largescale sucker         0.2 m  INSIDE EDGE, within tolerance of falling out
+    CA-186    Iron Gate Dam                  Lost River sucker                 0.2 m  INSIDE EDGE, within tolerance of falling out
+    CA-186    Iron Gate Dam                  Shortnose sucker                  0.2 m  INSIDE EDGE, within tolerance of falling out
+    CA-071    Percolation Dam                Chinook salmon                  184.6 m  
+    CA-071    Percolation Dam                Green sturgeon                  184.6 m  
+    CA-071    Percolation Dam                Western river lamprey           184.6 m  
+    CA-114    Dennett Dam                    Chinook salmon                  251.2 m  
+    CA-114    Dennett Dam                    Western river lamprey           251.2 m  
+    CA-066    Rooney Bros Dam                Chinook salmon                  490.2 m  
+    CA-061    Sunol Dam                      Western river lamprey           735.1 m  
+
+OUTSIDE but within 5000 m: 31 dam/species pairs.
+  Matched by the tolerance: 2
+  Nearest one NOT matched: 195.1 m
+
+  The ten nearest:
+    CA-186    Iron Gate Dam                  Chinook salmon                    0.2 m  matched BY the tolerance (rule 41)
+    CA-082    Bonde Weir                     Green sturgeon                   43.5 m  matched BY the tolerance (rule 41)
+    CA-103    McGowan Dam                    Western river lamprey           195.1 m  not matched
+    CA-057    Haypress Pond Dam              Green sturgeon                  391.9 m  not matched
+    CA-066    Rooney Bros Dam                Western river lamprey           490.2 m  not matched
+    CA-175    Little Shasta River Flashboard Chinook salmon                  492.8 m  not matched
+    CA-071    Percolation Dam                White sturgeon                  685.0 m  not matched
+    CA-080    Bear Creek Dam #3              Green sturgeon                  727.9 m  not matched
+    CA-149    Dempster Vineyard Dam          White sturgeon                  744.4 m  not matched
+    CA-176    Beale Dam                      Chinook salmon                  764.4 m  not matched
+
+SAFE WINDOW FOR THE TOLERANCE: above 43.5 m (to keep every dam it currently
+matches) and below 195.1 m (to admit no new one). Current value 75 m sits inside it.

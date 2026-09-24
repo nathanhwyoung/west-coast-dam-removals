@@ -1,0 +1,104 @@
+{
+  "snapshot": "2026-09-11",
+  "written_utc": "2026-09-11T21:00:56+00:00",
+  "purpose": "species-present tier sources; see SPECIES_LIST_DRAFT.md",
+  "not_fetched_here": [
+    "ODFW FHD 1167_5 (on disk, current)",
+    "CDFW ds326 coho (WORKING/CDFW)",
+    "PISCES 2.0.4 (WORKING/pisces_2.0.4_all_ranges_shp_and_png)"
+  ],
+  "files": [
+    {
+      "what": "WDFW SWIFD, Washington fish distribution",
+      "url": "https://fortress.wa.gov/dfw/public/PublicDownload/Fish/WDFWFishDistribution.zip",
+      "local": "WORKING/WDFW/SWIFD_WDFWFishDistribution_2026-09-11.zip",
+      "extracted_to": "WORKING/WDFW/SWIFD_WDFWFishDistribution_2026-09-11",
+      "server_last_modified": "Fri, 17 Apr 2026 08:09:14 GMT",
+      "bytes": 156548841,
+      "sha256": "57d23f15dc61d1a021ffb014169d854980fde82f1aa174dcb9f4eac82752ba2b",
+      "status": "downloaded"
+    },
+    {
+      "what": "CDFW winter steelhead distribution (June 2012)",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/300_399/ds340.zip",
+      "local": "WORKING/CDFW/ds340_2026-09-11.zip",
+      "extracted_to": "WORKING/CDFW/ds340_2026-09-11",
+      "server_last_modified": "Fri, 27 Oct 2023 21:03:55 GMT",
+      "bytes": 7046178,
+      "sha256": "f47eda503a8c79e3beaf91440c19260d5f98cf5f13aa0793f0b4377f6d6dac1e",
+      "status": "downloaded"
+    },
+    {
+      "what": "CDFW summer steelhead distribution (October 2009)",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/300_399/ds341.zip",
+      "local": "WORKING/CDFW/ds341_2026-09-11.zip",
+      "extracted_to": "WORKING/CDFW/ds341_2026-09-11",
+      "server_last_modified": "Fri, 27 Oct 2023 21:04:11 GMT",
+      "bytes": 823514,
+      "sha256": "9293f785aeff7fab1bbe9c8075823ebcddde5c7a6761c7f1bf12253ecdd22773",
+      "status": "downloaded"
+    },
+    {
+      "what": "CDFW eulachon range",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/1300_1399/ds1325.zip",
+      "local": "WORKING/CDFW/ds1325_2026-09-11.zip",
+      "extracted_to": "WORKING/CDFW/ds1325_2026-09-11",
+      "server_last_modified": "Mon, 21 Apr 2025 20:44:15 GMT",
+      "bytes": 166435,
+      "sha256": "4075079bfe33d5d88d99535e9d45727a9409ed056526da3b6c1132c6867d978a",
+      "status": "downloaded"
+    },
+    {
+      "what": "NOAA California Coastal Chinook distribution (2005)",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/900_999/ds981.zip",
+      "local": "WORKING/CDFW/ds981_2026-09-11.zip",
+      "extracted_to": "WORKING/CDFW/ds981_2026-09-11",
+      "server_last_modified": "Fri, 10 Oct 2025 19:03:54 GMT",
+      "bytes": 460909,
+      "sha256": "f943844df7b94743f3075dc18e65c2823325f888b2fd276be49aa6fd8ebc5be2",
+      "status": "downloaded"
+    },
+    {
+      "what": "NOAA Central Valley spring-run Chinook distribution (2005)",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/900_999/ds982.zip",
+      "local": "WORKING/CDFW/ds982_2026-09-11.zip",
+      "extracted_to": "WORKING/CDFW/ds982_2026-09-11",
+      "server_last_modified": "Fri, 06 Mar 2026 22:13:20 GMT",
+      "bytes": 392205,
+      "sha256": "a7fbb26e6d0242f9dfba753cfe9dfc3fc576bd3c2198d036e1907ab88f4def4a",
+      "status": "downloaded"
+    },
+    {
+      "what": "USFWS Pacific lamprey historical range and current distribution, California (2021)",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/2600_2699/ds2673.zip",
+      "local": "WORKING/CDFW/ds2673_2026-09-11.zip",
+      "extracted_to": "WORKING/CDFW/ds2673_2026-09-11",
+      "server_last_modified": "Wed, 11 Mar 2026 16:05:41 GMT",
+      "bytes": 1930077,
+      "sha256": "8a7735acac10243055ab97be06936e0349a341d4fac1d860e29c94b90f20e837",
+      "status": "downloaded"
+    },
+    {
+      "what": "USFWS Pacific lamprey distribution, WA/OR/ID (2022), lines",
+      "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/Pacific_Lamprey_Known_Observations_And_Distribution_201805/FeatureServer/45",
+      "local": "WORKING/USFWS_LAMPREY/usfws_lamprey_NW_distribution_2022_2026-09-11.geojson",
+      "features": 2631,
+      "service_count": 2631,
+      "complete": true,
+      "bytes": 33435460,
+      "sha256": "6b2dd57232ce75af54ea655eeb0b2136bec9e4c0bc0d6c38ec23b12a495552c9",
+      "status": "downloaded"
+    },
+    {
+      "what": "USFWS Pacific lamprey observations (2022), points",
+      "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/Pacific_Lamprey_Known_Observations_And_Distribution_201805/FeatureServer/41",
+      "local": "WORKING/USFWS_LAMPREY/usfws_lamprey_NW_observations_2022_2026-09-11.geojson",
+      "features": 18579,
+      "service_count": 18579,
+      "complete": true,
+      "bytes": 30097301,
+      "sha256": "10df2417b38773f97a51a7a708782079fc7f4cc3595a4fcf0cf05832fed6ab76",
+      "status": "downloaded"
+    }
+  ]
+}
