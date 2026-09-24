@@ -240,9 +240,18 @@
       #about h2 {
         margin-top: 24px;
       }
-      #about .note {
+      #about p {
         font-size: 12.5px;
         line-height: 1.75;
+        margin: 8px 0;
+      }
+      #about p,
+      #about ul {
+        color: var(--muted);
+      }
+      #about p b,
+      #about ul b {
+        color: var(--ink);
       }
       #about .lede {
         max-width: none;
@@ -1002,198 +1011,11 @@
           </button>
         </div>
 
-        <div class="tabpane" role="tabpanel" id="pane-about" aria-labelledby="tab-about">
-          <p class="lede">
-            This site maps dam removals in California, Oregon and Washington; and spatially joins
-            them to endangered and migratory fish habitat.
-          </p>
-          <p class="note">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. <b>Duis aute irure dolor</b> in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p class="note">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-            architecto beatae vitae dicta sunt explicabo.
-          </p>
-          <p class="note">
-            <b>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</b> sed
-            quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-          </p>
-        </div>
+        <div class="tabpane" role="tabpanel" id="pane-about" data-src="info/about.html" aria-labelledby="tab-about"></div>
 
-        <div class="tabpane" role="tabpanel" id="pane-methods" aria-labelledby="tab-methods" hidden>
-          <p class="note">
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-            aliquam quaerat voluptatem.
-          </p>
-          <h2>Lorem ipsum</h2>
-          <p class="note">
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-            laboriosam, nisi ut aliquid ex ea commodi consequatur.
-            <b>Quis autem vel eum iure reprehenderit</b> qui in ea voluptate velit esse quam nihil
-            molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-          </p>
-          <p class="note">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-            occaecati cupiditate non provident.
-          </p>
-          <h2>Dolor sit amet</h2>
-          <p class="note">
-            Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
-            fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-            soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus.
-          </p>
-          <h2>Consectetur adipiscing</h2>
-          <p class="note">
-            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-            eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum
-            rerum hic tenetur a sapiente delectus.
-          </p>
-        </div>
+        <div class="tabpane" role="tabpanel" id="pane-methods" data-src="info/methods.html" aria-labelledby="tab-methods" hidden></div>
 
-        <div class="tabpane" role="tabpanel" id="pane-sources" aria-labelledby="tab-sources" hidden>
-          <p class="note">
-            Every dataset below is public and was downloaded as a dated snapshot, so the map can be
-            traced back to the exact files it was built from. None of it is fetched live.
-          </p>
-
-          <h2>Dam removals</h2>
-          <ul>
-            <li>
-              <b><a href="https://doi.org/10.6084/m9.figshare.5234068" target="_blank" rel="noopener noreferrer">American Rivers Dam Removal Database</a></b>, March 2026 release (figshare
-              version 13, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>). The list of
-              removals, their names, rivers, heights and years, and most coordinates.
-            </li>
-            <li>
-              <b><a href="https://aquaticbarriers.org/" target="_blank" rel="noopener noreferrer">National Aquatic Barrier Inventory</a></b>, v4.3.0, compiled
-              by the <b><a href="https://southeastaquatics.net/sarps-programs/aquatic-connectivity-program-act/inventory" target="_blank" rel="noopener noreferrer">Southeast Aquatic Resources Partnership (SARP)</a></b> and the
-              <b><a href="https://www.fishhabitat.org/" target="_blank" rel="noopener noreferrer">National Fish Habitat Partnership (NFHP)</a></b>, downloaded
-              2026-09-08. Coordinates for 12 removals American Rivers left blank, and an independent
-              cross-check of the fish results.
-            </li>
-            <li>
-              <b>Corrections</b> to individual records cite their own evidence (agency project pages,
-              news reports, imagery). The evidence travels with each corrected dam.
-            </li>
-          </ul>
-
-          <h2>ESA critical habitat</h2>
-          <ul>
-            <li>
-              <b><a href="https://www.fisheries.noaa.gov/resource/map/critical-habitat-maps-and-gis-data-west-coast-region" target="_blank" rel="noopener noreferrer">NOAA Fisheries (NMFS) West Coast Region, ESA Critical Habitat</a></b>,
-              edition of 2023-07-17 (the current one; NMFS has issued no update since). Chinook, coho,
-              steelhead, chum, sockeye, green sturgeon, eulachon.
-            </li>
-            <li>
-              <b><a href="https://ecos.fws.gov/ecp/report/table/critical-habitat.html" target="_blank" rel="noopener noreferrer">U.S. Fish and Wildlife Service, critical habitat shapefiles</a></b> (ECOS
-              national bundle), edition of 2026-08-31. Bull trout, Lost River sucker, shortnose sucker,
-              Warner sucker, Santa Ana sucker, Little Kern golden trout, delta smelt, tidewater goby,
-              Owens tui chub.
-            </li>
-            <li>
-              <b>SONCC coho critical habitat: reconstructed by this project</b>, not published by any
-              agency. Built from the regulation's text,
-              <b><a href="https://www.ecfr.gov/current/title-50/chapter-II/subchapter-C/part-226/section-226.210" target="_blank" rel="noopener noreferrer">50 CFR 226.210</a></b>, using ODFW and CDFW coho
-              distribution (below), NOAA's SONCC coho ESU range
-              (<a href="https://apps.wildlife.ca.gov/bios6/" target="_blank" rel="noopener noreferrer">CDFW BIOS</a> ds803, 2025) for the ESU's extent, and
-              <b><a href="https://streamstats.usgs.gov/ss/" target="_blank" rel="noopener noreferrer">USGS StreamStats</a></b> to delineate the basins above the
-              regulation's boundary dams.
-            </li>
-          </ul>
-
-          <h2>Where fish are present</h2>
-          <p class="sublabel"><b>Oregon</b></p>
-          <ul>
-            <li>
-              <b><a href="https://nrimp.dfw.state.or.us/nrimp/default.aspx?pn=fishdistdata" target="_blank" rel="noopener noreferrer">Oregon Department of Fish and Wildlife (ODFW), Fish Habitat Distribution</a></b>,
-              edition 1167_5.
-            </li>
-          </ul>
-          <p class="sublabel"><b>Washington</b></p>
-          <ul>
-            <li>
-              <b><a href="https://geo.wa.gov/datasets/wdfw::statewide-washington-integrated-fish-distribution" target="_blank" rel="noopener noreferrer">Washington Department of Fish and Wildlife (WDFW), Statewide Washington Integrated Fish Distribution (SWIFD)</a></b>,
-              published 2026-04-17, downloaded 2026-09-11.
-            </li>
-          </ul>
-          <p class="sublabel">
-            <b>California</b>, from the <b><a href="https://apps.wildlife.ca.gov/bios6/" target="_blank" rel="noopener noreferrer">CDFW BIOS</a></b> public data
-            library, downloaded 2026-09-11:
-          </p>
-          <ul>
-            <li><b><a href="https://data.cnra.ca.gov/dataset/coho-distribution-ds326" target="_blank" rel="noopener noreferrer">ds326</a></b>, Coho distribution (CDFW, August 2025)</li>
-            <li><b>ds340</b>, Winter steelhead distribution (CDFW, June 2012)</li>
-            <li><b>ds341</b>, Summer steelhead distribution (CDFW, October 2009)</li>
-            <li><b>ds981</b>, California Coastal Chinook distribution (NOAA, 2005)</li>
-            <li><b>ds982</b>, Central Valley spring-run Chinook distribution (NOAA, 2005)</li>
-            <li><b>ds1325</b>, Eulachon range (CDFW)</li>
-            <li><b>ds2673</b>, Pacific lamprey historical range and current distribution, California (USFWS, 2021)</li>
-          </ul>
-          <p class="sublabel"><b>Across all three states</b></p>
-          <ul>
-            <li>
-              <b><a href="https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/Pacific_Lamprey_Known_Observations_And_Distribution_201805/FeatureServer" target="_blank" rel="noopener noreferrer">USFWS, Pacific Lamprey Known Observations and Distribution</a></b>,
-              Washington, Oregon and Idaho (2022), downloaded 2026-09-11.
-            </li>
-          </ul>
-          <p class="sublabel"><b>California species ranges</b></p>
-          <ul>
-            <li>
-              <b><a href="https://pisces.ucdavis.edu/" target="_blank" rel="noopener noreferrer">PISCES</a></b> 2.0.4, Center for Watershed Sciences,
-              <b>University of California, Davis</b>. Cite
-              <a href="https://doi.org/10.1016/j.envsoft.2013.10.024" target="_blank" rel="noopener noreferrer">Santos, N.R., Katz, J.V.E., Moyle, P.B. and Viers, J.H. (2014)</a>,
-              <i>Environmental Modelling &amp; Software</i> 53, 13-26. Used under its noncommercial,
-              attribution, share-alike terms.
-            </li>
-          </ul>
-
-          <h2>Checking the results</h2>
-          <ul>
-            <li>
-              <b><a href="https://www.usgs.gov/national-hydrography" target="_blank" rel="noopener noreferrer">USGS National Hydrography Dataset (NHD)</a></b>, via The
-              National Map, to name the channel at a dam where the fish layers don't.
-            </li>
-          </ul>
-
-          <h2>Base map</h2>
-          <ul>
-            <li>
-              <b>Shaded relief</b>: elevation from
-              <b><a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">AWS Terrain Tiles</a></b>, which package public-domain
-              data from the USGS 3D Elevation Program, SRTM and other national surveys.
-            </li>
-            <li>
-              <b>Lakes, reservoirs and region names</b>:
-              <b><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a></b>, 1:10m, public domain.
-            </li>
-            <li>
-              <b>State outlines and coastline</b>:
-              <b><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html" target="_blank" rel="noopener noreferrer">U.S. Census Bureau cartographic boundary files</a></b>,
-              2023, 1:500,000, public domain.
-            </li>
-          </ul>
-
-          <h2>Software</h2>
-          <ul>
-            <li>
-              <b><a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3</a></b> v7.9.0 (ISC licence), served with the page. The data
-              were prepared with Python, R and GDAL.
-            </li>
-          </ul>
-
-          <h2>The data behind the map</h2>
-          <p class="note">
-            <b><a href="dams.geojson" download>Download the dams</a></b> (<code>dams.geojson</code>,
-            148 KB): all 290 mapped removals, with the species and critical habitat matched at each one
-            and the grade of every match.
-          </p>
-        </div>
+        <div class="tabpane" role="tabpanel" id="pane-sources" data-src="info/sources.html" aria-labelledby="tab-sources" hidden></div>
       </div>
     </div>
 
@@ -2329,7 +2151,7 @@
 
         html += `<dl class="pop-g">
       <dt>Species present</dt><dd>${p.species_present ? esc(p.species_present) : "none of the 21 species within tolerance"}</dd>
-      <dt>ESA critical habitat</dt><dd>${p.esa_critical_habitat ? esc(p.esa_critical_habitat) : "none designated here"}</dd>
+      <dt>ESA critical habitat</dt><dd>${p.esa_critical_habitat ? esc(p.esa_critical_habitat.replace("(derived)", "(reconstructed by this project)")) : "none designated here"}</dd>
     </dl>`;
         if (p.corrected) html += `<div class="warn"><b>Corrected.</b> ${esc(p.corrected)}.</div>`;
 
@@ -2920,6 +2742,21 @@
           showTab(next);
           next.focus();
         });
+      });
+
+      // The three tabs' text lives in info/*.html so it can be edited on its own. fetch() is blocked
+      // on file://, so opening index.html by double-click shows the map but not this text.
+      document.querySelectorAll(".tabpane[data-src]").forEach((pane) => {
+        const src = pane.dataset.src;
+        fetch(src, { cache: "no-cache" })
+          .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+          .then((html) => (pane.innerHTML = html))
+          .catch(() => {
+            pane.innerHTML =
+              location.protocol === "file:"
+                ? `<p>This text is in <code>${src}</code>, which browsers will not load when the page is opened as a file. Serve the folder instead: <code>python3 -m http.server 8777</code>.</p>`
+                : `<p>This text could not be loaded. Try reloading the page.</p>`;
+          });
       });
 
       const themeQ = matchMedia("(prefers-color-scheme: dark)");
