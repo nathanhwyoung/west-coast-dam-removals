@@ -3,8 +3,7 @@
 Every recorded dam removal in California, Oregon and Washington, drawn against ESA critical habitat
 and mapped species presence for 27 native fish.
 
-Static page. No basemap, no tile service, no API key, no analytics, no CDN: every file the page loads
-is served alongside it, including D3. An Albers equal-area conic projection, drawn with D3 to a canvas.
+Static page. An Albers equal-area conic projection, drawn with D3 to a canvas.
 
 ## Sources
 
