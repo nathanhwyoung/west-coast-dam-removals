@@ -8,7 +8,7 @@
 </p>
 <ul>
   <li>
-    <b>One row is a duplicate.</b> CA-091 repeats CA-148: both are TCFD11 on Trabuco Creek, same
+    <b>One row is a duplicate.</b> CA-091 repeats CA-148: both are the dam recorded as TCFD11 on Trabuco Creek, same
     height, same barrier ID, 12 m apart. This leaves the count at 332 removals.
   </li>
   <li>
@@ -53,25 +53,25 @@
 </p>
 <h3>ESA critical habitat</h3>
 <p>
-  Federally designated critical habitat, from
+  Critical habitat designated under the Endangered Species Act (ESA), from the
   <b
     ><a
       href="https://www.fisheries.noaa.gov/resource/map/critical-habitat-maps-and-gis-data-west-coast-region"
       target="_blank"
       rel="noopener noreferrer"
-      >NMFS</a
+      >National Marine Fisheries Service</a
     ></b
   >
-  (Chinook, coho, steelhead, chum, sockeye, green sturgeon, eulachon) and
+  (NMFS: Chinook, coho, steelhead, chum, sockeye, green sturgeon, eulachon) and the
   <b
     ><a
       href="https://ecos.fws.gov/ecp/report/table/critical-habitat.html"
       target="_blank"
       rel="noopener noreferrer"
-      >USFWS</a
+      >U.S. Fish and Wildlife Service</a
     ></b
   >
-  (bull trout, Lost River sucker, shortnose sucker, Warner sucker, Santa Ana sucker, Little Kern
+  (USFWS: bull trout, Lost River sucker, shortnose sucker, Warner sucker, Santa Ana sucker, Little Kern
   golden trout, delta smelt, tidewater goby, Owens tui chub). One scope rule decided which USFWS
   species to include: <b>fish only, where barrier passage is how a dam affects them.</b> Frogs and
   amphibians with critical habitat in the region are out on that principle, not case by case.
@@ -84,10 +84,12 @@
     target="_blank"
     rel="noopener noreferrer"
     >50 CFR 226.210</a
-  >) defines it in words: reaches accessible to coho, inside listed watersheds <b>and</b> listed
+  >, in the Code of Federal Regulations) defines it in words: reaches accessible to coho, inside listed watersheds <b>and</b> listed
   counties, between Cape Blanco and Punta Gorda, below eleven named dams. Each clause became one
-  step: fish distribution (ODFW in Oregon, CDFW in California), clipped to the listed watersheds
-  and counties, trimmed to the ESU's own range, minus the basins above the boundary dams.
+  step: fish distribution from the Oregon and California Departments of Fish and Wildlife (ODFW and
+  CDFW), clipped to the listed watersheds and counties, trimmed to the range of the Evolutionarily
+  Significant Unit (ESU), the distinct population the listing covers, minus the basins above the
+  boundary dams.
   <b>It's a reconstruction, not an official layer</b>, and the map draws it in a distinct shade of
   the coho color for that reason.
 </p>
@@ -108,13 +110,13 @@
       >ODFW</a
     ></b
   >
-  Fish Habitat Distribution in Oregon,
+  Fish Habitat Distribution in Oregon, SWIFD from the
   <b
     ><a
       href="https://geo.wa.gov/datasets/wdfw::statewide-washington-integrated-fish-distribution"
       target="_blank"
       rel="noopener noreferrer"
-      >WDFW SWIFD</a
+      >Washington Department of Fish and Wildlife (WDFW)</a
     ></b
   >
   in Washington, and
@@ -123,7 +125,8 @@
       >CDFW</a
     ></b
   >
-  and <b>NOAA</b> distribution layers in California.
+  and National Oceanic and Atmospheric Administration (<b>NOAA</b>) distribution layers in
+  California.
   <b
     ><a
       href="https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/Pacific_Lamprey_Known_Observations_And_Distribution_201805/FeatureServer"
@@ -296,7 +299,7 @@
     <b>Against the national stream map:</b> Where a dam matched nothing, or matched only through the
     same-stream extension, the stream right at the dam was looked up in the
     <a href="https://www.usgs.gov/national-hydrography" target="_blank" rel="noopener noreferrer"
-      >USGS National Hydrography Dataset</a
+      >U.S. Geological Survey's National Hydrography Dataset</a
     >. Dams whose answer was already known went through the same check, as controls. The results
     are in
     <a href="https://github.com/nathanhwyoung/west-coast-dam-removals/blob/main/data/audit/nhd_channel_names.csv" target="_blank" rel="noopener noreferrer"
@@ -333,8 +336,8 @@
     watershed ranges from 2014.
   </li>
   <li>
-    <b>Datum and distance don't change any result.</b> Some sources use the NAD83 datum and some use
-    WGS84. A datum is the reference model of the earth that coordinates are measured against, and
+    <b>Datum and distance don't change any result.</b> Some sources use the North American Datum of
+    1983 (NAD83) and some use the World Geodetic System 1984 (WGS84). A datum is the reference model of the earth that coordinates are measured against, and
     here the two differ by about 1.5 m. Measuring on a flat projection instead of the curved earth
     changes a 75 m distance by less than 1 m.
   </li>
