@@ -278,3 +278,100 @@
   different claims by different agencies, and where they disagree (as at John C. Boyle, or at
   Condit's chum salmon), the disagreement is itself a result.
 </p>
+<h2>VERIFICATION OF RESULTS</h2>
+<ul>
+  <li>
+    <b>Against an independent source:</b> The national barrier inventory (NACC) also records fish
+    habitat at each barrier. Across 10 species and 1,170 dam/species pairs, it agrees with this
+    project <b>85% of the time</b>. Most of the disagreement, 140 pairs, comes from the two asking
+    different questions: NACC counts miles of habitat anywhere in a barrier's river network, while
+    this project asks what is at the dam. 20 pairs were real disagreements. Each was traced to a
+    stated rule above (most often the exclusion of historical or modeled habitat) or to the
+    tolerance. None of them revealed an error in the matching. The full comparison is in
+    <a href="https://github.com/nathanhwyoung/west-coast-dam-removals/blob/main/data/audit/nacc_crosscheck.csv" target="_blank" rel="noopener noreferrer"
+      >nacc_crosscheck.csv</a
+    >.
+  </li>
+  <li>
+    <b>Against the national stream map:</b> Where a dam matched nothing, or matched only through the
+    same-stream extension, the stream right at the dam was looked up in the
+    <a href="https://www.usgs.gov/national-hydrography" target="_blank" rel="noopener noreferrer"
+      >USGS National Hydrography Dataset</a
+    >. Dams whose answer was already known went through the same check, as controls. The results
+    are in
+    <a href="https://github.com/nathanhwyoung/west-coast-dam-removals/blob/main/data/audit/nhd_channel_names.csv" target="_blank" rel="noopener noreferrer"
+      >nhd_channel_names.csv</a
+    >.
+  </li>
+  <li>
+    <b>Every blank is explained.</b> A dam can be blank for a species for four reasons: the fish
+    isn't mapped there, a filter rule excluded it, it's just past the tolerance, or no source exists
+    for that species in that state. An audit script,
+    <a href="https://github.com/nathanhwyoung/west-coast-dam-removals/blob/main/build/audit_join_gaps.R" target="_blank" rel="noopener noreferrer"
+      >audit_join_gaps.R</a
+    >, reports which reason applies for each dam and species, in
+    <a href="https://github.com/nathanhwyoung/west-coast-dam-removals/blob/main/data/audit/join_gap_audit.csv" target="_blank" rel="noopener noreferrer"
+      >join_gap_audit.csv</a
+    >.
+  </li>
+</ul>
+<h2>LIMITATIONS</h2>
+<ul>
+  <li>
+    <b>The states map presence differently.</b> Oregon and Washington map stream reaches, while
+    California often maps whole watersheds. A species can look far more widespread in California
+    just because the mapping unit is bigger.
+  </li>
+  <li>
+    <b>Some California layers understate, and some overstate.</b> CDFW's coho layer is built from
+    sightings. It traces each sighting since 1990 downstream to the ocean and includes nothing above
+    the highest sighting, so it understates. PISCES watershed ranges overstate. A dam on a tributary
+    inside a range reads "present" even if the fish never use that tributary.
+  </li>
+  <li>
+    <b>Sources span 2005 to 2026.</b> California Chinook alone combines stream lines from 2005 with
+    watershed ranges from 2014.
+  </li>
+  <li>
+    <b>Datum and distance don't change any result.</b> Some sources use the NAD83 datum and some use
+    WGS84. A datum is the reference model of the earth that coordinates are measured against, and
+    here the two differ by about 1.5 m. Measuring on a flat projection instead of the curved earth
+    changes a 75 m distance by less than 1 m.
+  </li>
+  <li>
+    <b>Layers may appear close to dams, but not actually be matches.</b> The layers are drawn
+    simplified. A dam's matches are listed in its popup, and a line that looks close to it may not be
+    one of them.
+  </li>
+</ul>
+<h2>TECHNICAL</h2>
+<ul>
+  <li>
+    <b>Albers equal-area conic projection</b>, with standard parallels at 34°N and 48°N, the two
+    latitudes where distances are true to scale. Web tile maps are locked to Web Mercator, which
+    stretches the map more the farther north it goes. Across this map's extent (33.6°N to 48.9°N),
+    Mercator would stretch Washington <b>1.27×</b> relative to Southern California, so it would read
+    about 27% larger than it should.
+  </li>
+  <li>
+    <b>Display shapes are simplified</b> to about 33 m (0.0003°), and are never used for a match or
+    a measurement. Fish data lying entirely in Idaho, Montana or Nevada is left off. Anything
+    touching the three states, or within 3 km of them, stays.
+  </li>
+  <li>
+    <b>Shaded relief</b> switches from a 500 m elevation model to a 115 m one as you zoom in. Relief
+    and lakes are clipped to the three states.
+  </li>
+  <li>
+    <b>Overlapping species cover each other.</b> Two species on the same reach can't both be drawn
+    there, so the one later in the list covers the earlier one. Colors are ordered so species that
+    share water never get neighboring colors, which keeps the overlap visible. The species switches
+    can show each one on its own.
+  </li>
+  <li>
+    <b>Nothing is loaded from another server.</b> There's no basemap, tile service, API key,
+    analytics, web fonts or CDN (a third-party file host). Every file, including the one library
+    (<a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3</a> v7.9.0), is served
+    with the page.
+  </li>
+</ul>
